@@ -1,0 +1,69 @@
+{
+  "format": 1,
+  "restore": {
+    "/Users/johanbjerkedal/Documents/GitHub/PokerGrpcService/PokerBackend/PokerBackend/PokerBackend.csproj": {}
+  },
+  "projects": {
+    "/Users/johanbjerkedal/Documents/GitHub/PokerGrpcService/PokerBackend/PokerBackend/PokerBackend.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/johanbjerkedal/Documents/GitHub/PokerGrpcService/PokerBackend/PokerBackend/PokerBackend.csproj",
+        "projectName": "PokerBackend",
+        "projectPath": "/Users/johanbjerkedal/Documents/GitHub/PokerGrpcService/PokerBackend/PokerBackend/PokerBackend.csproj",
+        "packagesPath": "/Users/johanbjerkedal/.nuget/packages/",
+        "outputPath": "/Users/johanbjerkedal/Documents/GitHub/PokerGrpcService/PokerBackend/PokerBackend/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/Users/johanbjerkedal/.config/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "targetAlias": "netcoreapp3.1",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
+          "dependencies": {
+            "Grpc.AspNetCore": {
+              "target": "Package",
+              "version": "[2.27.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/5.0.103/RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}
