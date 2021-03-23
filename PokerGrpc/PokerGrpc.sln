@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.808.10
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PokerGrpc", "PokerGrpc\PokerGrpc.csproj", "{12D8AB03-123F-4B8B-9D2E-74FD85A96072}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{12D8AB03-123F-4B8B-9D2E-74FD85A96072}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{12D8AB03-123F-4B8B-9D2E-74FD85A96072}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{12D8AB03-123F-4B8B-9D2E-74FD85A96072}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{12D8AB03-123F-4B8B-9D2E-74FD85A96072}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {9C88D301-8700-441B-AFD5-FDA5306BF3DC}
+	EndGlobalSection
+EndGlobal
