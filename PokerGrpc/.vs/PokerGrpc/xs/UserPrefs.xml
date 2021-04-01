@@ -1,30 +1,35 @@
 ﻿<Properties StartupConfiguration="{12D8AB03-123F-4B8B-9D2E-74FD85A96072}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="PokerGrpc/Protos/greet.proto">
+  <MonoDevelop.Ide.Workbench ActiveDocument="PokerGrpc/Models/Player.cs">
     <Files>
-      <File FileName="PokerGrpc/Properties/launchSettings.json" Line="1" Column="1" />
-      <File FileName="PokerGrpc/Protos/greet.proto" Line="1" Column="1" />
-      <File FileName="PokerGrpc/Services/GreeterService.cs" />
+      <File FileName="PokerGrpc/Properties/launchSettings.json" Line="6" Column="26" />
+      <File FileName="PokerGrpc/Protos/greet.proto" Line="14" Column="23" />
+      <File FileName="PokerGrpc/Services/GreeterService.cs" Line="1" Column="1" />
+      <File FileName="PokerGrpc/PokerGrpcService/.gitattributes" Line="1" Column="1" />
+      <File FileName="PokerGrpc/appsettings.Development.json" Line="1" Column="1" />
+      <File FileName="PokerGrpc/Program.cs" Line="1" Column="1" />
+      <File FileName="PokerGrpc/Startup.cs" Line="1" Column="1" />
+      <File FileName="PokerGrpc/Models/Player.cs" Line="15" Column="2" />
+      <File FileName="PokerGrpc/Models/Card.cs" Line="26" Column="6" />
+      <File FileName="PokerGrpc/Models/Deck.cs" Line="49" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="PokerGrpc" expanded="True">
             <Node name="PokerGrpc" expanded="True">
-              <Node name="Dependencies" expanded="True">
-                <Node name="FrameworkReferences" expanded="True" />
-                <Node name="PackageDependencies" expanded="True">
-                  <Node name="Grpc.AspNetCore" selected="True" />
-                </Node>
-              </Node>
-              <Node name="Protos" expanded="True" />
-              <Node name="Services" expanded="True" />
+              <Node name="Dependencies" expanded="True" />
+              <Node name="Models" expanded="True" />
+              <Node name="Protos" selected="True" />
             </Node>
           </Node>
         </State>
       </Pad>
+      <Pad Id="MonoDevelop.Debugger.WatchPad">
+        <State />
+      </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
-  <MonoDevelop.Ide.ItemProperties.PokerGrpc FirstBuild="True" PreferredExecutionTarget="/Applications/Google Chrome.app" />
+  <MonoDevelop.Ide.ItemProperties.PokerGrpc PreferredExecutionTarget="/Applications/Google Chrome.app" />
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
