@@ -1,28 +1,33 @@
 ﻿using System;
 namespace PokerGrpc.Models
 {
-    public class Card
-    {
-        // enum to provide key value pairs for cards from two to ace
-        public enum Value
+        public enum CardSuit
         {
-            Two = 2, Three, Four, Five, Six, Seven, Eight,
-            Nine, Ten, Jack, Queen, King, Ace
-        }
-        // enum list of suits
-        public enum Suit
-        {
-            Hearts,
             Spades,
+            Hearts,
             Diamonds,
             Clubs
-
         }
 
-        public Value myValue { get; set; }
+        public enum CardValue
+        {
+            Two = 2, Three = 3, Four = 4, Five = 5, Six = 6, Seven = 7, Eight = 8, Nine = 9, Ten = 10,
+            Jack = 11,
+            Queen = 12,
+            King = 13,
+            Ace = 14,
+        }
 
-        public Suit mySuit { get; set; }
+        public class Card
+        {
+            public CardSuit CardSuit { get; private set; }
+            public int CardValue { get; private set; }
+
+            public Card(CardSuit cardSuit, int cardValue)
+            {
+                CardSuit = cardSuit;
+                CardValue = cardValue;
+            }
+        }
 
     }
-
-}

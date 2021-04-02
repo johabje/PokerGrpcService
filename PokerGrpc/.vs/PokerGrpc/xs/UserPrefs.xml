@@ -1,37 +1,47 @@
-﻿<Properties StartupConfiguration="{12D8AB03-123F-4B8B-9D2E-74FD85A96072}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="PokerGrpc/Models/Player.cs">
+﻿<Properties StartupConfiguration="{26C7EE7F-46F0-411E-A271-DEBDDF0ECB5F}|Default">
+  <MonoDevelop.Ide.ItemProperties.GrpcConsoleClient FirstBuild="True" />
+  <MonoDevelop.Ide.ItemProperties.PokerGrpcTest PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="GrpcConsoleClient/Program.cs">
     <Files>
-      <File FileName="PokerGrpc/Properties/launchSettings.json" Line="6" Column="26" />
-      <File FileName="PokerGrpc/Protos/greet.proto" Line="14" Column="23" />
-      <File FileName="PokerGrpc/Services/GreeterService.cs" Line="1" Column="1" />
-      <File FileName="PokerGrpc/PokerGrpcService/.gitattributes" Line="1" Column="1" />
-      <File FileName="PokerGrpc/appsettings.Development.json" Line="1" Column="1" />
-      <File FileName="PokerGrpc/Program.cs" Line="1" Column="1" />
-      <File FileName="PokerGrpc/Startup.cs" Line="1" Column="1" />
-      <File FileName="PokerGrpc/Models/Player.cs" Line="15" Column="2" />
-      <File FileName="PokerGrpc/Models/Card.cs" Line="26" Column="6" />
-      <File FileName="PokerGrpc/Models/Deck.cs" Line="49" Column="1" />
+      <File FileName="PokerGrpcTest/UnitTest1.cs" Line="1" Column="1" />
+      <File FileName="PokerGrpc/Properties/launchSettings.json" Line="5" Column="47" />
+      <File FileName="PokerGrpc/Protos/greet.proto" Line="19" Column="21" />
+      <File FileName="PokerGrpc/Services/GreeterService.cs" Line="18" Column="81" />
+      <File FileName="PokerGrpc/Startup.cs" Line="38" Column="49" />
+      <File FileName="PokerGrpc/Program.cs" Line="20" Column="9" />
+      <File FileName="PokerGrpc/appsettings.json" Line="1" Column="1" />
+      <File FileName="GrpcConsoleClient/Program.cs" Line="1" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="PokerGrpc" expanded="True">
+            <Node name="GrpcConsoleClient" expanded="True">
+              <Node name="Program.cs" selected="True" />
+            </Node>
             <Node name="PokerGrpc" expanded="True">
               <Node name="Dependencies" expanded="True" />
-              <Node name="Models" expanded="True" />
-              <Node name="Protos" selected="True" />
+              <Node name="Properties" expanded="True" />
+              <Node name="Protos" expanded="True" />
+              <Node name="Services" expanded="True" />
             </Node>
+            <Node name="PokerGrpcTest" expanded="True" />
           </Node>
         </State>
       </Pad>
       <Pad Id="MonoDevelop.Debugger.WatchPad">
         <State />
       </Pad>
+      <Pad Id="MonoDevelop.UnitTesting.TestPad">
+        <State name="__root__">
+          <Node name="PokerGrpc" expanded="True" selected="True" />
+        </State>
+      </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.ItemProperties.PokerGrpc PreferredExecutionTarget="/Applications/Google Chrome.app" />
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Release" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>

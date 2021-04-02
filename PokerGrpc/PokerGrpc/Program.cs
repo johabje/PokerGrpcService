@@ -23,5 +23,6 @@ namespace PokerGrpc
                 {
                     webBuilder.UseStartup<Startup>();
                 });
+
     }
 }

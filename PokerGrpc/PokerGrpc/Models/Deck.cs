@@ -15,7 +15,31 @@ namespace PokerGrpc.Models
 
         public void GenerateDeck()
         {
-            //generat on of each card and shuffel to random order.
+            for (int i =1; i<5; i++)
+            {
+                CardSuit suit = CardSuit.Spades;
+                switch (i)
+                {
+                    case 1:
+                        suit = CardSuit.Spades;
+                        break;
+                    case 2:
+                        suit = CardSuit.Spades;
+                        break;
+                    case 3:
+                        suit = CardSuit.Spades;
+                        break;
+                    case 4:
+                        suit = CardSuit.Spades;
+                        break;
+                }
+                for (int j = 2; i < 15; j++)
+                {
+                    Card card = new Card(suit, j);
+                    this.cards.Add(card);
+
+                }
+            }
         }
 
         public List<Card> DealHand()
@@ -30,20 +54,31 @@ namespace PokerGrpc.Models
 
         public List<Card> DealFlop()
         {
-            //deal the flop, burn one card
-            return null;
+            List<Card> flop = new List<Card>();
+            cards.RemoveAt(0);
+            flop.Add(this.cards[0]);
+            cards.RemoveAt(0);
+            flop.Add(this.cards[0]);
+            cards.RemoveAt(0);
+            flop.Add(this.cards[0]);
+            cards.RemoveAt(0);
+            return flop;
         }
 
-        public List<Card> DealTurn()
+        public Card DealTurn()
         {
-            //deal the turn, burn one card
-            return null;
+            cards.RemoveAt(0);
+            Card turn = this.cards[0];
+            cards.RemoveAt(0);
+            return turn;
         }
 
         public Card DealRiver()
         {
-            //Deal river, burn card
-            return null;
+            cards.RemoveAt(0);
+            Card river = this.cards[0];
+            cards.RemoveAt(0);
+            return river;
         }
 
 
