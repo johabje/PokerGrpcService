@@ -17,20 +17,20 @@ namespace PokerGrpc.Models
         {
             for (int i =1; i<5; i++)
             {
-                CardSuit suit = CardSuit.Spades;
+                char suit = 'S';
                 switch (i)
                 {
                     case 1:
-                        suit = CardSuit.Spades;
+                        suit = 'S';
                         break;
                     case 2:
-                        suit = CardSuit.Spades;
+                        suit = 'S';
                         break;
                     case 3:
-                        suit = CardSuit.Spades;
+                        suit = 'S';
                         break;
                     case 4:
-                        suit = CardSuit.Spades;
+                        suit = 'S';
                         break;
                 }
                 for (int j = 2; i < 15; j++)

@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using PokerGrpc.Services;
 
 namespace PokerGrpc
 {
@@ -31,7 +32,7 @@ namespace PokerGrpc
 
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapGrpcService<GreeterService>();
+                endpoints.MapGrpcService<GameService>();
 
                 endpoints.MapGet("/", async context =>
                 {

@@ -1,0 +1,2 @@
+obj/Release/netcoreapp3.1/Greet (copy)Grpc.cs \
+obj/Release/netcoreapp3.1/GreetCopy.cs: greet (copy).proto

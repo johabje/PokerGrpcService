@@ -1,8 +1,18 @@
 {
   "version": 2,
-  "dgSpecHash": "QlkVjEjSbWK4g/zfvDM2CkEzW0yhY07KIfbQhnBuREYn0XqdOg5sB/4WEG/xxbYW2+xHirQxy/TDn9QxJCgIyg==",
+  "dgSpecHash": "doPxkrQtT3YyesFNuwzib1IXHX2tA2jSvs5MurjwyVnl8fvaBDF7DXtkbEdb5Kj7t1gQ+QWRBtRiypbcwQheGA==",
   "success": true,
   "projectFilePath": "/Users/johanbjerkedal/PokerGrpcService/PokerGrpc/GrpcConsoleClient/GrpcConsoleClient.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "/Users/johanbjerkedal/.nuget/packages/google.protobuf/3.15.7/google.protobuf.3.15.7.nupkg.sha512",
+    "/Users/johanbjerkedal/.nuget/packages/grpc.core.api/2.36.1/grpc.core.api.2.36.1.nupkg.sha512",
+    "/Users/johanbjerkedal/.nuget/packages/grpc.net.client/2.36.0/grpc.net.client.2.36.0.nupkg.sha512",
+    "/Users/johanbjerkedal/.nuget/packages/grpc.net.common/2.36.0/grpc.net.common.2.36.0.nupkg.sha512",
+    "/Users/johanbjerkedal/.nuget/packages/grpc.tools/2.36.4/grpc.tools.2.36.4.nupkg.sha512",
+    "/Users/johanbjerkedal/.nuget/packages/microsoft.extensions.logging.abstractions/3.0.3/microsoft.extensions.logging.abstractions.3.0.3.nupkg.sha512",
+    "/Users/johanbjerkedal/.nuget/packages/system.diagnostics.diagnosticsource/4.5.1/system.diagnostics.diagnosticsource.4.5.1.nupkg.sha512",
+    "/Users/johanbjerkedal/.nuget/packages/system.memory/4.5.3/system.memory.4.5.3.nupkg.sha512",
+    "/Users/johanbjerkedal/.nuget/packages/system.runtime.compilerservices.unsafe/4.5.2/system.runtime.compilerservices.unsafe.4.5.2.nupkg.sha512"
+  ],
   "logs": []
 }
