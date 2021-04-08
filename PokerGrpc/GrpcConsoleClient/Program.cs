@@ -30,6 +30,18 @@ namespace GrpcConsoleClient
                               new NewGameRequest { Gplayer = player });
             Console.WriteLine("The thing is hanging");
             Console.WriteLine("Greeting: " + reply);
+            GPlayer player2 = new GPlayer()
+            {
+                Name = "johan2",
+                Action = 0,
+                BestCombo = "0",
+                Hand = "hh",
+                IsRoomOwner = false,
+                Wallet = 1000
+
+            };
+            var reply2 = client.JoinGame(new JoinGameRequest { GamePin = 888, Gplayer = player2 });
+            Console.WriteLine("Updated lobby: "+ reply2);
             Console.WriteLine("Press any key to exit...");
             Console.ReadKey();
         }

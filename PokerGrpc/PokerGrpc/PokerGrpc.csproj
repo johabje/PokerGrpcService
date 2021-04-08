@@ -12,4 +12,7 @@
     <Protobuf Include="Protos\game.proto" GrpcServices="Server" />
   </ItemGroup>
   
+  <ItemGroup>
+    <Folder Include="Singelton\" />
+  </ItemGroup>
 </Project>

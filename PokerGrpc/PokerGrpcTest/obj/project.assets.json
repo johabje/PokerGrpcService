@@ -5721,11 +5721,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/johanbjerkedal/PokerGrpcService/PokerGrpc/PokerGrpcTest/PokerGrpcTest.csproj",
+      "projectUniqueName": "/Users/johanbjerkedal/Documents/GitHub/PokerGrpcService/PokerGrpc/PokerGrpcTest/PokerGrpcTest.csproj",
       "projectName": "PokerGrpcTest",
-      "projectPath": "/Users/johanbjerkedal/PokerGrpcService/PokerGrpc/PokerGrpcTest/PokerGrpcTest.csproj",
+      "projectPath": "/Users/johanbjerkedal/Documents/GitHub/PokerGrpcService/PokerGrpc/PokerGrpcTest/PokerGrpcTest.csproj",
       "packagesPath": "/Users/johanbjerkedal/.nuget/packages/",
-      "outputPath": "/Users/johanbjerkedal/PokerGrpcService/PokerGrpc/PokerGrpcTest/obj/",
+      "outputPath": "/Users/johanbjerkedal/Documents/GitHub/PokerGrpcService/PokerGrpc/PokerGrpcTest/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/Users/johanbjerkedal/.config/NuGet/NuGet.Config"
@@ -5784,7 +5784,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/5.0.201/RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/5.0.103/RuntimeIdentifierGraph.json"
       }
     }
   }

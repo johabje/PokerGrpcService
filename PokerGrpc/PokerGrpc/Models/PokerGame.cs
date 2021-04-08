@@ -19,9 +19,9 @@ namespace PokerGrpc.Models
         public PokerGame(Player roomOwner, int blind)
         {
             Random rnd = new Random();
-            int gamePin = rnd.Next(9999);
-            this.deck = new Deck();
-            deck.GenerateDeck();
+            this.gamePin = rnd.Next(9999);
+            //this.deck = new Deck();
+            //deck.GenerateDeck();
             this.tableCards = new List<Card>();
             roomOwner.isRoomOwner = true;
             players.Add(roomOwner);

@@ -19,7 +19,7 @@ namespace PokerGrpc.Models
         public Boolean isRoomOwner { get; set; }
         public List<Card> Hand { get; set; }
         public String bestCombo { get; set; }
-        public Action action { get; set; }
+        public int action { get; set; }
         //etc etc
 
         public Player()
