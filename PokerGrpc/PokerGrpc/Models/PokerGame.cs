@@ -20,12 +20,12 @@ namespace PokerGrpc.Models
         {
             Random rnd = new Random();
             this.gamePin = rnd.Next(9999);
-            //this.deck = new Deck();
+            this.deck = new Deck();
             //deck.GenerateDeck();
             this.tableCards = new List<Card>();
             roomOwner.isRoomOwner = true;
             players.Add(roomOwner);
-            this.blind = blind;
+            this.blind = blind; 
         }
 
         public void dealFlop()
@@ -45,6 +45,11 @@ namespace PokerGrpc.Models
         {
             this.tableCards.Add(deck.DealTurn());
         }
+        public void Bet(int bet, Player player)
+        {
+            player.action = bet;
+            this.bet = bet;
+        }
 
         public Player GameOver()
         {
@@ -62,7 +67,8 @@ namespace PokerGrpc.Models
             this.tableCards = new List<Card>();
         }
 
-        public int hasStraigthFlush(List<Card> hand, List<Card> table)
+
+        /*public int hasStraigthFlush(List<Card> hand, List<Card> table)
         {
             hand.AddRange(table);
             List<int> ranks = new List<int>();
@@ -135,7 +141,7 @@ namespace PokerGrpc.Models
             }
 
             return 0;
-        }
+        }*/
 
     
         

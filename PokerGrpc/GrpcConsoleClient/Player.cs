@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace PokerGrpc.Models
+namespace GrpcConsoleClient
 {
     public enum Action
     {
@@ -18,9 +18,8 @@ namespace PokerGrpc.Models
         public double wallet { get; set; }
         public String name { get; set; }
         public Boolean isRoomOwner { get; set; }
-        public List<Card> Hand { get; set; }
+        public string Hand { get; set; }
         public String bestCombo { get; set; }
-        public bool folded { get; set; }
         public int action { get; set; }
         //etc etc
 

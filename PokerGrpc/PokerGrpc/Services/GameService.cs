@@ -27,6 +27,7 @@ namespace PokerGrpc.Services
             player.action = 0;
             player.wallet = 0;
             PokerGame lobby = new PokerGame(player, 1);
+            
             lobby.gamePin = 888;
             GPlayer gPlayer = new GPlayer
             {
@@ -52,6 +53,8 @@ namespace PokerGrpc.Services
             return Task.FromResult(gameLobby);
             
         }
+
+
         public override Task<GameLobby> JoinGame(JoinGameRequest request, ServerCallContext context)
         {
             Player player = new Player
@@ -78,7 +81,7 @@ namespace PokerGrpc.Services
             {
                 GamePin = 888,
                 ToAct = gPlayer,
-                TableCards = "0",
+                TableCards = string.Join(", ", lobby.tableCards),
                 Pot = 0,
                 Bet = 0,
                 Blind = 20
@@ -95,6 +98,7 @@ namespace PokerGrpc.Services
                     Wallet = participant.wallet,
                 };
                 gameLobby.Gplayers.Add(gParticipant);
+
             }
             return Task.FromResult(gameLobby);
         }

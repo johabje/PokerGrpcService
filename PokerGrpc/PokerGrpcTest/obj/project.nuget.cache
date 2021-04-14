@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "+FEzFSMYNvSFHqRA5WjpFlU94K6WwB1/sUNacQwrrZYjJDZSIsrG2IwgY5X/wS9VEIyyF2D09NoJDw6/cla27Q==",
+  "dgSpecHash": "vrCi6TTozqfH9l9cszsNQ/DcMcuHpJPuXWxWadwdNYEVqek8zpEIjBl4Mh9jncaxcgcEaz1MW1OtVBGSp1vwqw==",
   "success": true,
   "projectFilePath": "/Users/johanbjerkedal/Documents/GitHub/PokerGrpcService/PokerGrpc/PokerGrpcTest/PokerGrpcTest.csproj",
   "expectedPackageFiles": [

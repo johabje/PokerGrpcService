@@ -32,3 +32,4 @@
 /Users/johanbjerkedal/Documents/GitHub/PokerGrpcService/PokerGrpc/GrpcConsoleClient/obj/Debug/netcoreapp3.1/GrpcConsoleClient.dll
 /Users/johanbjerkedal/Documents/GitHub/PokerGrpcService/PokerGrpc/GrpcConsoleClient/obj/Debug/netcoreapp3.1/GrpcConsoleClient.pdb
 /Users/johanbjerkedal/Documents/GitHub/PokerGrpcService/PokerGrpc/GrpcConsoleClient/obj/Debug/netcoreapp3.1/GrpcConsoleClient.genruntimeconfig.cache
+/Users/johanbjerkedal/Documents/GitHub/PokerGrpcService/PokerGrpc/GrpcConsoleClient/obj/Debug/netcoreapp3.1/GrpcConsoleClient.csprojAssemblyReference.cache

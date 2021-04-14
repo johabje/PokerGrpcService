@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "Tu9ZVt40VRjMm63WQaFsnxgc/E7mWROAYAGckQ08DZ8e9s3O80xpdBBuu0EOruV43muVYX9kf91Z3uVnoQZGNA==",
+  "dgSpecHash": "2Wy5n6ANxLTD9+asoD6c+5jJr7Oh8pqDOWUZ9mitthqHmsODBJSS62+PDKAXf+KjgZUnUmWfraqASloE0UJSTg==",
   "success": true,
   "projectFilePath": "/Users/johanbjerkedal/Documents/GitHub/PokerGrpcService/PokerGrpc/GrpcConsoleClient/GrpcConsoleClient.csproj",
   "expectedPackageFiles": [

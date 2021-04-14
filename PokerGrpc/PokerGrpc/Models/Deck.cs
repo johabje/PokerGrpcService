@@ -3,6 +3,14 @@ using System.Collections.Generic;
 
 namespace PokerGrpc.Models
 {
+    enum Suits
+    {
+        S,    // 0
+        H,   // 1
+        C,      // 2
+        D,      // 3
+        
+    }
     public class Deck
     {
         const int numberOfCards = 52;
@@ -15,31 +23,66 @@ namespace PokerGrpc.Models
 
         public void GenerateDeck()
         {
+            List<Card> newCards;
+            /*
             for (int i =1; i<5; i++)
             {
-                char suit = 'S';
+                Suits suits = (Suits)i;
+                char suit = (char)suits;
                 switch (i)
                 {
                     case 1:
                         suit = 'S';
+                        for (int j = 2; i < 15; j++)
+                        {
+                            Card card = new Card(suit, j);
+                            newCards.Add(card);
+
+                        }
                         break;
                     case 2:
-                        suit = 'S';
+                        for (int j = 2; i < 15; j++)
+                        {
+                            Card card = new Card(suit, j);
+                            newCards.Add(card);
+
+                        }
                         break;
                     case 3:
-                        suit = 'S';
+                        for (int j = 2; i < 15; j++)
+                        {
+                            Card card = new Card(suit, j);
+                            newCards.Add(card);
+
+                        }
                         break;
                     case 4:
-                        suit = 'S';
-                        break;
-                }
-                for (int j = 2; i < 15; j++)
-                {
-                    Card card = new Card(suit, j);
-                    this.cards.Add(card);
+                        for (int j = 2; i < 15; j++)
+                        {
+                            Card card = new Card(suit, j);
+                            newCards.Add(card);
 
-                }
-            }
+                        }
+                        break;
+                }*/
+            newCards = new List<Card>()
+        {
+           new Card('H', 2),
+           new Card('H', 3),
+           new Card('H', 4),
+           new Card('H', 5),
+           new Card('H', 7),
+           new Card('H', 8),
+           new Card('H', 9),
+           new Card('H', 10),
+           new Card('H', 11),
+           new Card('H', 12),
+           new Card('H', 13),
+           new Card('H', 14),
+
+
+        };
+            this.cards = newCards;
         }
 
         public List<Card> DealHand()

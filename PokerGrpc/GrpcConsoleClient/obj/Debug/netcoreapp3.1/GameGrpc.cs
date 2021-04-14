@@ -45,6 +45,7 @@ namespace GrpcConsoleClient {
     static readonly grpc::Marshaller<global::GrpcConsoleClient.NewGameRequest> __Marshaller_NewGameRequest = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::GrpcConsoleClient.NewGameRequest.Parser));
     static readonly grpc::Marshaller<global::GrpcConsoleClient.GameLobby> __Marshaller_GameLobby = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::GrpcConsoleClient.GameLobby.Parser));
     static readonly grpc::Marshaller<global::GrpcConsoleClient.JoinGameRequest> __Marshaller_JoinGameRequest = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::GrpcConsoleClient.JoinGameRequest.Parser));
+    static readonly grpc::Marshaller<global::GrpcConsoleClient.ActionRequest> __Marshaller_ActionRequest = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::GrpcConsoleClient.ActionRequest.Parser));
 
     static readonly grpc::Method<global::GrpcConsoleClient.NewGameRequest, global::GrpcConsoleClient.GameLobby> __Method_CreateNewGame = new grpc::Method<global::GrpcConsoleClient.NewGameRequest, global::GrpcConsoleClient.GameLobby>(
         grpc::MethodType.Unary,
@@ -58,6 +59,13 @@ namespace GrpcConsoleClient {
         __ServiceName,
         "JoinGame",
         __Marshaller_JoinGameRequest,
+        __Marshaller_GameLobby);
+
+    static readonly grpc::Method<global::GrpcConsoleClient.ActionRequest, global::GrpcConsoleClient.GameLobby> __Method_Action = new grpc::Method<global::GrpcConsoleClient.ActionRequest, global::GrpcConsoleClient.GameLobby>(
+        grpc::MethodType.Unary,
+        __ServiceName,
+        "Action",
+        __Marshaller_ActionRequest,
         __Marshaller_GameLobby);
 
     /// <summary>Service descriptor</summary>
@@ -120,6 +128,22 @@ namespace GrpcConsoleClient {
       public virtual grpc::AsyncUnaryCall<global::GrpcConsoleClient.GameLobby> JoinGameAsync(global::GrpcConsoleClient.JoinGameRequest request, grpc::CallOptions options)
       {
         return CallInvoker.AsyncUnaryCall(__Method_JoinGame, null, options, request);
+      }
+      public virtual global::GrpcConsoleClient.GameLobby Action(global::GrpcConsoleClient.ActionRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return Action(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      public virtual global::GrpcConsoleClient.GameLobby Action(global::GrpcConsoleClient.ActionRequest request, grpc::CallOptions options)
+      {
+        return CallInvoker.BlockingUnaryCall(__Method_Action, null, options, request);
+      }
+      public virtual grpc::AsyncUnaryCall<global::GrpcConsoleClient.GameLobby> ActionAsync(global::GrpcConsoleClient.ActionRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return ActionAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      public virtual grpc::AsyncUnaryCall<global::GrpcConsoleClient.GameLobby> ActionAsync(global::GrpcConsoleClient.ActionRequest request, grpc::CallOptions options)
+      {
+        return CallInvoker.AsyncUnaryCall(__Method_Action, null, options, request);
       }
       /// <summary>Creates a new instance of client from given <c>ClientBaseConfiguration</c>.</summary>
       protected override GameClient NewInstance(ClientBaseConfiguration configuration)
