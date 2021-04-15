@@ -1,36 +1,17 @@
 ﻿<Properties StartupConfiguration="{26C7EE7F-46F0-411E-A271-DEBDDF0ECB5F}|Default">
-  <MonoDevelop.Ide.ItemProperties.GrpcConsoleClient PreferredExecutionTarget="MonoDevelop.Default" />
   <MonoDevelop.Ide.ItemProperties.PokerGrpcTest PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="PokerGrpc/Models/PokerGame.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="../../../../.nuget/packages/grpc.tools/2.37.0/build/_protobuf/Google.Protobuf.Tools.targets">
     <Files>
-      <File FileName="PokerGrpc/Models/PokerGame.cs" Line="51" Column="28" IsPinned="True" />
-      <File FileName="PokerGrpc/Services/GameService.cs" />
-      <File FileName="PokerGrpc/Models/Deck.cs" />
-      <File FileName="GrpcConsoleClient/game.proto" />
-      <File FileName="GrpcConsoleClient/Program.cs" />
-      <File FileName="PokerGrpc/Protos/game.proto" />
-      <File FileName="PokerGrpc/Program.cs" />
-      <File FileName="PokerGrpc/Startup.cs" />
-      <File FileName="PokerGrpc/Singelton/StorageSingleton.cs" />
+      <File FileName="PokerGrpc/Services/GameService.cs" Line="117" Column="59" />
+      <File FileName="GrpcConsoleClient/Program.cs" Line="57" Column="48" />
+      <File FileName="../../../../.nuget/packages/grpc.tools/2.37.0/build/_protobuf/Google.Protobuf.Tools.targets" Line="291" Column="7" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="PokerGrpc" expanded="True">
-            <Node name="GrpcConsoleClient" expanded="True">
-              <Node name="Dependencies" expanded="True" />
-              <Node name="Protos" expanded="True" />
-            </Node>
-            <Node name="PokerGrpc" expanded="True">
-              <Node name="ConnectedServicesFolder" expanded="True" />
-              <Node name="Dependencies" expanded="True" />
-              <Node name="Models" expanded="True">
-                <Node name="PokerGame.cs" selected="True" />
-              </Node>
-              <Node name="Protos" expanded="True" />
-              <Node name="Services" expanded="True" />
-              <Node name="Singelton" expanded="True" />
-            </Node>
+            <Node name="GrpcConsoleClient" expanded="True" selected="True" />
+            <Node name="PokerGrpc" expanded="True" />
           </Node>
         </State>
       </Pad>

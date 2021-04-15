@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Net.Http;
 using System.Threading.Tasks;
+using Grpc.Core;
 using Grpc.Net.Client;
 
 
@@ -30,6 +31,7 @@ namespace GrpcConsoleClient
             //kaller CreateNewGame på backend, GPlayer tas som argument 
             var reply = client.CreateNewGame(
                               new NewGameRequest { Gplayer = player });
+            
             Console.WriteLine("The thing is hanging");
             Console.WriteLine("Greeting: " + reply);
             //definerere en player "message objekt til"
@@ -45,6 +47,16 @@ namespace GrpcConsoleClient
             //player2 joiner gamet ved å kalle join game
             var reply2 = client.JoinGame(new JoinGameRequest { GamePin = 888, Gplayer = player2 });
             Console.WriteLine("Updated lobby: "+ reply2);
+
+
+            using (var call = client.StartStream(new JoinGameRequest { GamePin = 888, Gplayer = player2 }))
+            {
+                while (await call.ResponseStream.MoveNext())
+                {
+                    GameLobby feature = call.ResponseStream.Current;
+                    Console.WriteLine("Received " + feature.ToString());
+                }
+            }
             Console.WriteLine("Press any key to exit...");
             Console.ReadKey();
         }

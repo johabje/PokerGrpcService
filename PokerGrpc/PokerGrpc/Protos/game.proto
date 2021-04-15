@@ -5,6 +5,7 @@ option csharp_namespace = "PokerGrpc";
 service Game {
     rpc CreateNewGame (NewGameRequest) returns (GameLobby);
     rpc JoinGame (JoinGameRequest) returns (GameLobby);
+    rpc StartStream (JoinGameRequest) returns (stream GameLobby);
 }
 
 message NewGameRequest {

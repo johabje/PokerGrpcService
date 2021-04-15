@@ -60,6 +60,13 @@ namespace PokerGrpc {
         __Marshaller_JoinGameRequest,
         __Marshaller_GameLobby);
 
+    static readonly grpc::Method<global::PokerGrpc.JoinGameRequest, global::PokerGrpc.GameLobby> __Method_StartStream = new grpc::Method<global::PokerGrpc.JoinGameRequest, global::PokerGrpc.GameLobby>(
+        grpc::MethodType.ServerStreaming,
+        __ServiceName,
+        "StartStream",
+        __Marshaller_JoinGameRequest,
+        __Marshaller_GameLobby);
+
     /// <summary>Service descriptor</summary>
     public static global::Google.Protobuf.Reflection.ServiceDescriptor Descriptor
     {
@@ -80,6 +87,11 @@ namespace PokerGrpc {
         throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
       }
 
+      public virtual global::System.Threading.Tasks.Task StartStream(global::PokerGrpc.JoinGameRequest request, grpc::IServerStreamWriter<global::PokerGrpc.GameLobby> responseStream, grpc::ServerCallContext context)
+      {
+        throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
+      }
+
     }
 
     /// <summary>Creates service definition that can be registered with a server</summary>
@@ -88,7 +100,8 @@ namespace PokerGrpc {
     {
       return grpc::ServerServiceDefinition.CreateBuilder()
           .AddMethod(__Method_CreateNewGame, serviceImpl.CreateNewGame)
-          .AddMethod(__Method_JoinGame, serviceImpl.JoinGame).Build();
+          .AddMethod(__Method_JoinGame, serviceImpl.JoinGame)
+          .AddMethod(__Method_StartStream, serviceImpl.StartStream).Build();
     }
 
     /// <summary>Register service method with a service binder with or without implementation. Useful when customizing the  service binding logic.
@@ -99,6 +112,7 @@ namespace PokerGrpc {
     {
       serviceBinder.AddMethod(__Method_CreateNewGame, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::PokerGrpc.NewGameRequest, global::PokerGrpc.GameLobby>(serviceImpl.CreateNewGame));
       serviceBinder.AddMethod(__Method_JoinGame, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::PokerGrpc.JoinGameRequest, global::PokerGrpc.GameLobby>(serviceImpl.JoinGame));
+      serviceBinder.AddMethod(__Method_StartStream, serviceImpl == null ? null : new grpc::ServerStreamingServerMethod<global::PokerGrpc.JoinGameRequest, global::PokerGrpc.GameLobby>(serviceImpl.StartStream));
     }
 
   }

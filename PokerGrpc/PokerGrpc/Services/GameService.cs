@@ -102,5 +102,53 @@ namespace PokerGrpc.Services
             }
             return Task.FromResult(gameLobby);
         }
+
+        public override async Task StartStream(JoinGameRequest request, IServerStreamWriter<GameLobby> responseStream, ServerCallContext context)
+        {
+            PokerGame pokerGame = StorageSingleton.Instance.currentGames.Find(game => game.gamePin.Equals(request.GamePin));
+            while (true)
+            {
+                PokerGame pokergame2 = StorageSingleton.Instance.currentGames.Find(game => game.gamePin.Equals(request.GamePin));
+                if (pokerGame == pokergame2)
+                {
+                    await responseStream.WriteAsync(PokerGameToGameLobby(pokergame2));
+                    pokerGame = pokergame2;
+                }
+                await Task.Delay(1000); //gotta look bussy
+            }
+        }
+
+        public GameLobby PokerGameToGameLobby(PokerGame pokerGame)
+        {
+            GameLobby gamelobby = new GameLobby
+            {
+                GamePin = 888,
+                ToAct = PlayerToGPlayer(pokerGame.toAct),
+                TableCards = string.Join(", ", pokerGame.tableCards),
+                Pot = 0,
+                Bet = 0,
+                Blind = 20
+            };
+            foreach (var player in pokerGame.players)
+            {
+                GPlayer gPlayer = PlayerToGPlayer(player);
+                gamelobby.Gplayers.Add(gPlayer);
+            }
+            return gamelobby;
+        }
+
+        public GPlayer PlayerToGPlayer(Player player)
+        {
+            GPlayer gParticipant = new GPlayer
+            {
+                Action = 0,
+                BestCombo = "0",
+                Hand = "0",
+                IsRoomOwner = false,
+                Name = player.name,
+                Wallet = player.wallet,
+            };
+            return gParticipant;
+        }
     }
 }

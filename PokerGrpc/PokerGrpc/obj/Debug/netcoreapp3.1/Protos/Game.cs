@@ -32,10 +32,11 @@ namespace PokerGrpc {
             "GAQgASgJEgsKA3BvdBgFIAEoARILCgNiZXQYBiABKAESDQoFYmxpbmQYByAB",
             "KAUibQoHR1BsYXllchIOCgZ3YWxsZXQYAiABKAESDAoEbmFtZRgBIAEoCRIT",
             "Cgtpc1Jvb21Pd25lchgDIAEoCBIMCgRoYW5kGAQgASgJEhEKCWJlc3RDb21i",
-            "bxgFIAEoCRIOCgZhY3Rpb24YBiABKAUyXgoER2FtZRIsCg1DcmVhdGVOZXdH",
-            "YW1lEg8uTmV3R2FtZVJlcXVlc3QaCi5HYW1lTG9iYnkSKAoISm9pbkdhbWUS",
-            "EC5Kb2luR2FtZVJlcXVlc3QaCi5HYW1lTG9iYnlCDKoCCVBva2VyR3JwY2IG",
-            "cHJvdG8z"));
+            "bxgFIAEoCRIOCgZhY3Rpb24YBiABKAUyjQEKBEdhbWUSLAoNQ3JlYXRlTmV3",
+            "R2FtZRIPLk5ld0dhbWVSZXF1ZXN0GgouR2FtZUxvYmJ5EigKCEpvaW5HYW1l",
+            "EhAuSm9pbkdhbWVSZXF1ZXN0GgouR2FtZUxvYmJ5Ei0KC1N0YXJ0U3RyZWFt",
+            "EhAuSm9pbkdhbWVSZXF1ZXN0GgouR2FtZUxvYmJ5MAFCDKoCCVBva2VyR3Jw",
+            "Y2IGcHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {

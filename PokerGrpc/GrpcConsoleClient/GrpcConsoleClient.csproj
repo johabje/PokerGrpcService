@@ -6,19 +6,16 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Grpc.Tools" Version="2.36.4">
+    <PackageReference Include="Grpc.Tools" Version="2.37.0">
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
     <PackageReference Include="Grpc.Net.Client" Version="2.36.0" />
-    <PackageReference Include="Google.Protobuf" Version="3.15.7" />
+    <PackageReference Include="Google.Protobuf" Version="3.15.8" />
   </ItemGroup>
+
   <ItemGroup>
-    <None Remove="game.proto" />
+    <Protobuf Include="game.proto" GrpcServices="Client" />
   </ItemGroup>
-  <ItemGroup>
-    <Protobuf Include="game.proto" GrpcServices="Client">
-      <Link>Protos\game.proto</Link>
-    </Protobuf>
-  </ItemGroup>
+
 </Project>
