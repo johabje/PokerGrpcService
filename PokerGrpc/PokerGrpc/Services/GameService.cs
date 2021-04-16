@@ -59,13 +59,13 @@ namespace PokerGrpc.Services
         {
             Player player = new Player
             {
-                action = request.Gplayer.Action,
-                isRoomOwner = false,
-                wallet = 0,
-                name = request.Gplayer.Name,
-                bestCombo = request.Gplayer.BestCombo,
-                Hand = null,
-            };
+            name = request.Gplayer.Name,
+            isRoomOwner = false,
+            Hand = null,
+            bestCombo = null,
+            action = 0,
+            wallet = 0,
+        };
             PokerGame lobby = StorageSingleton.Instance.currentGames.Find(game => game.gamePin.Equals(request.GamePin));
             lobby.players.Add(player);
             GPlayer gPlayer = new GPlayer
@@ -109,7 +109,7 @@ namespace PokerGrpc.Services
             while (true)
             {
                 PokerGame pokergame2 = StorageSingleton.Instance.currentGames.Find(game => game.gamePin.Equals(request.GamePin));
-                if (pokerGame == pokergame2)
+                if (pokerGame != pokergame2)
                 {
                     await responseStream.WriteAsync(PokerGameToGameLobby(pokergame2));
                     pokerGame = pokergame2;
@@ -145,8 +145,8 @@ namespace PokerGrpc.Services
                 BestCombo = "0",
                 Hand = "0",
                 IsRoomOwner = false,
-                Name = player.name,
-                Wallet = player.wallet,
+                Name = "noe",
+                Wallet = 0,
             };
             return gParticipant;
         }
