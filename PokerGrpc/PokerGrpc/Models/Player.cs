@@ -14,8 +14,9 @@ namespace PokerGrpc.Models
     }
     public class Player
     {
-        public double wallet { get; set; }
+        //public String id { get; set; }
         public String name { get; set; }
+        public double wallet { get; set; }
         public Boolean isRoomOwner { get; set; }
         public List<Card> Hand { get; set; }
         public String bestCombo { get; set; }

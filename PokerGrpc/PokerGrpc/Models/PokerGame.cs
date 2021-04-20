@@ -8,136 +8,155 @@ namespace PokerGrpc.Models
     {
         public int gamePin;
         public Deck deck;
-        public List<Player> players = new  List<Player>();
+
+        //public List<Player> players = new  List<Player>();
+        // using array instead for static size
+        public Player[] players;
+
         public Player toAct;
         public List<Card> tableCards;
         public double pot;
         public double bet;
+        //make blind final?
         public int blind;
         
 
-        public PokerGame(Player roomOwner, int blind)
+        // new table
+        public PokerGame(Player roomOwner, int blind, int gamePin, int maxPlayers = 6)
         {
-            Random rnd = new Random();
-            this.gamePin = rnd.Next(9999);
-            //this.deck = new Deck();
-            //deck.GenerateDeck();
-            this.tableCards = new List<Card>();
-            roomOwner.isRoomOwner = true;
-            players.Add(roomOwner);
+            players = new Player[maxPlayers];
+            for (int i =0;i<players.Length;i++) {
+                players[i] = null;
+            }
+
+            //maybe get gamePin from a singleton?
+            //Random rnd = new Random();
+            //this.gamePin = rnd.Next(9999);
+            this.gamePin = gamePin;
+
             this.blind = blind;
+            this.tableCards = new List<Card>();
+
+            roomOwner.isRoomOwner = true;
+            AddPlayer(roomOwner);
+
+            // NewGame();
+            // ^testing purposes - (generate table cards for response)
+
         }
 
-        public void dealFlop()
-        {
-            List<Card> flop = deck.DealFlop();
-            this.tableCards.Add(flop[0]);
-            this.tableCards.Add(flop[1]);
-            this.tableCards.Add(flop[2]);
+        // deal int cardCount amount of cards
+        public void DealTableCards(int cardCount = 1) {
+            for (int i = 0; i < cardCount; i++) {
+                this.tableCards.Add(deck.DealCardSingle());
+            }
         }
 
-        public void dealTurn()
-        {
-            this.tableCards.Add(deck.DealTurn());
+        // deal same amount of cards to all players
+        public void DealPlayerCards(int cardCount = 1) {
+            for (int i = 0; i < cardCount; i++) {
+                foreach (Player player in players) {
+                    //TODO maybe give players a boolean for if-active 
+                    // in current round or not; some may sit out a round
+                    // and consequently the object wont be null
+                    if (player != null) {
+                        player.Hand.Add(deck.DealCardSingle());
+                    }
+                }
+            }
         }
 
-        public void dealRiver()
-        {
-            this.tableCards.Add(deck.DealTurn());
+        // inserting player into first available spot
+        public void AddPlayer(Player player) {
+            for (int i = 0; i < players.Length; i++) {
+                if (players[i] == null) {
+                    players[i] = player;
+                    break;
+                }
+            }
         }
 
         public Player GameOver()
         {
             //determine vinner, return the vinner, distriubute the pot
+
+            // dispose stuff?
+
+            if (this.deck != null) {
+                this.deck = null;
+            }
+
             return null;
+
         }
 
+        // new game/round/whatever on a table
         public void NewGame()
         {
-            
+            //clears hand of all players
+            foreach (Player player in players) {
+                if (player != null) {
+                    player.Hand = new List<Card>();
+                }
+            }
+
+            //clears table of cards
+            this.tableCards.Clear();
+            // deck.cardStack = stack of cards randomized
             this.deck = new Deck();
-            this.deck.GenerateDeck();
-            this.bet = 0;
-            this.pot = 0;
-            this.tableCards = new List<Card>();
+
+            //pop 3 cards into this.tableCards from deck.cardStack
+            DealTableCards(3);
+
+            /*
+             * 1. rules for min-bet and min-raise?
+             *
+            */
+
         }
 
-        public int hasStraigthFlush(List<Card> hand, List<Card> table)
-        {
-            hand.AddRange(table);
-            List<int> ranks = new List<int>();
-            IList<char> suits = new List<char>();
-            foreach (Card card in hand)
-            {
-                ranks.Add(card.rank);
-                suits.Add(card.suit);
-            }
-            ranks.Sort(); //does it sort rigth??
-
-            if (suits.Where(x => x.Equals('H')).Count() >= 5 || suits.Where(x => x.Equals('S')).Count() >= 5
-                || suits.Where(x => x.Equals('K')).Count() >= 5 || suits.Where(x => x.Equals('R')).Count() >= 5)
-            {
-                // if is stragith with the five or more flush cards
-                //      return "Stragith flush with
-               // else
-                //{
-                    //find the color of the flush and the higest card, return flush, HC
-                //}
-            }
-            else
-            {
-                return hasQuads(ranks, suits);
-            }
-            return 0;
+        public void NextRound() {
+            // 
         }
 
-        public int hasQuads(List<int> ranks, IList<char> suits)
-        {
-            Dictionary<int, int> numberOfEachRank =
-                new Dictionary<int, int>();
-            List<int> tripps = new List<int>();
-            List<int> pairs = new List<int>();
-            foreach (int rank in ranks)
-            {
-                try
-                {
-                    numberOfEachRank.Add(rank, rank);
-                }
-                catch (ArgumentException)
-                {
-                    numberOfEachRank[rank] = rank + 1;
-                }
-            }
-            foreach (var item in numberOfEachRank)
-            {
-                if (item.Value == 4)
-                    return 74 + item.Key;
-                else if (item.Value == 3)
-                {
-                    tripps.Add(item.Key);
-                }
-                else if (item.Value == 2)
-                {
-                    pairs.Add(item.Value);
-                }
-            }
-            tripps.Sort(); pairs.Sort();
-            if (tripps.Count() > 0)
-            {
-                if (pairs.Count() > 0)
-                {
-                    return 1; //Full House pairs[-1] and tripps[-1]
-                }
-                else
-                {
-                    return 50 + tripps[-1];
-                }
-            }
+        public Boolean PlaceBet(Player player, float bet) {
+            /*
+             * 1. bet is from correct user
+             *      table
+             *      the users turn to act
+             * mby just implement login?
+             * 2. assert if bet is within a valid range 
+             *      (potential_minBet? <= bet <= player.wallet)
+             * 3. do some stuff if all-in
+            */
 
-            return 0;
+
+            bool ok = true;
+            if (ok) {
+                return true;
+            } else {
+                return false;
+            }
         }
 
-    
-        
+        // string of table cards separated by ','
+        public String GetTableCards() {
+            if (tableCards == null || tableCards.Count < 1) {
+                return "";
+            } else {
+                List<String> tableList = new List<String>();
+                foreach (Card card in tableCards) {
+                    tableList.Add(card.rank.ToString() + card.suit.ToString());
+                }
+                return String.Join(",", tableList);
+            }
+            
+        }
+
+        public void RemovePlayer(Player player) {
+
+        }
+
+
     }
 }

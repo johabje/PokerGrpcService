@@ -1,25 +1,27 @@
 {
   "format": 1,
   "restore": {
-    "/Users/johanbjerkedal/Documents/GitHub/PokerGrpcService/PokerGrpc/GrpcConsoleClient/GrpcConsoleClient.csproj": {}
+    "C:\\Users\\fredr\\Documents\\MSIT\\V21\\TDT4240-Programvarearkitektur\\PROJECT\\PokerGrpcService\\PokerGrpc\\GrpcConsoleClient\\GrpcConsoleClient.csproj": {}
   },
   "projects": {
-    "/Users/johanbjerkedal/Documents/GitHub/PokerGrpcService/PokerGrpc/GrpcConsoleClient/GrpcConsoleClient.csproj": {
+    "C:\\Users\\fredr\\Documents\\MSIT\\V21\\TDT4240-Programvarearkitektur\\PROJECT\\PokerGrpcService\\PokerGrpc\\GrpcConsoleClient\\GrpcConsoleClient.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/johanbjerkedal/Documents/GitHub/PokerGrpcService/PokerGrpc/GrpcConsoleClient/GrpcConsoleClient.csproj",
+        "projectUniqueName": "C:\\Users\\fredr\\Documents\\MSIT\\V21\\TDT4240-Programvarearkitektur\\PROJECT\\PokerGrpcService\\PokerGrpc\\GrpcConsoleClient\\GrpcConsoleClient.csproj",
         "projectName": "GrpcConsoleClient",
-        "projectPath": "/Users/johanbjerkedal/Documents/GitHub/PokerGrpcService/PokerGrpc/GrpcConsoleClient/GrpcConsoleClient.csproj",
-        "packagesPath": "/Users/johanbjerkedal/.nuget/packages/",
-        "outputPath": "/Users/johanbjerkedal/Documents/GitHub/PokerGrpcService/PokerGrpc/GrpcConsoleClient/obj/",
+        "projectPath": "C:\\Users\\fredr\\Documents\\MSIT\\V21\\TDT4240-Programvarearkitektur\\PROJECT\\PokerGrpcService\\PokerGrpc\\GrpcConsoleClient\\GrpcConsoleClient.csproj",
+        "packagesPath": "C:\\Users\\fredr\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\fredr\\Documents\\MSIT\\V21\\TDT4240-Programvarearkitektur\\PROJECT\\PokerGrpcService\\PokerGrpc\\GrpcConsoleClient\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/Users/johanbjerkedal/.config/NuGet/NuGet.Config"
+          "C:\\Users\\fredr\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -68,7 +70,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/5.0.103/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.100\\RuntimeIdentifierGraph.json"
         }
       }
     }

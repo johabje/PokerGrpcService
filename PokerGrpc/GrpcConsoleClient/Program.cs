@@ -26,10 +26,11 @@ namespace GrpcConsoleClient
 
             };
             Console.WriteLine(player);
+            Console.WriteLine("The thing is hanging");
             var reply = client.CreateNewGame(
                               new NewGameRequest { Gplayer = player });
-            Console.WriteLine("The thing is hanging");
-            Console.WriteLine("Greeting: " + reply);
+            Console.WriteLine(reply);
+            
             GPlayer player2 = new GPlayer()
             {
                 Name = "johan2",
