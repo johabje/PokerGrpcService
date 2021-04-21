@@ -21,6 +21,8 @@ namespace PokerGrpc.Models
         public List<Card> Hand { get; set; }
         public String bestCombo { get; set; }
         public int action { get; set; }
+        public int curentGameBetTotal { get; set; }
+        public int 
         //etc etc
 
         public Player()

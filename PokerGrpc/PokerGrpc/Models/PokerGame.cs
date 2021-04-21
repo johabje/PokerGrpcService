@@ -66,6 +66,16 @@ namespace PokerGrpc.Models
             }
         }
 
+        //currently unused (not needed in holdem)
+        public void DealSinglePlayer(Player player, int cardCount = 1) {
+            foreach (Player player2 in players) {
+                if (player == player2) {
+                    player.Hand.Add(deck.DealCardSingle());
+                    break;
+                }
+            }
+        }
+
         // inserting player into first available spot
         public void AddPlayer(Player player) {
             for (int i = 0; i < players.Length; i++) {
@@ -105,18 +115,19 @@ namespace PokerGrpc.Models
             // deck.cardStack = stack of cards randomized
             this.deck = new Deck();
 
+            //select blinds
+
+
+            /* TODO - delete, has been removed to gameloop
             //pop 3 cards into this.tableCards from deck.cardStack
             DealTableCards(3);
+            */
 
             /*
              * 1. rules for min-bet and min-raise?
              *
             */
 
-        }
-
-        public void NextRound() {
-            // 
         }
 
         public Boolean PlaceBet(Player player, float bet) {
@@ -131,12 +142,24 @@ namespace PokerGrpc.Models
             */
 
 
+            int minBet = 0;
+            if (bet > player.wallet || bet < minBet) {
+                return false;
+            }
+
+
             bool ok = true;
             if (ok) {
                 return true;
             } else {
                 return false;
             }
+        }
+
+        public void BettingRound() {
+
+            //save total bet for each player
+            //end: move bets to pot
         }
 
         // string of table cards separated by ','
