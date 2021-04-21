@@ -21,10 +21,11 @@ namespace PokerGrpc.Models
             Random rnd = new Random();
             this.gamePin = rnd.Next(9999);
             this.deck = new Deck();
-            //deck.GenerateDeck();
+            deck.GenerateDeck();
             this.tableCards = new List<Card>();
             roomOwner.isRoomOwner = true;
             players.Add(roomOwner);
+            this.toAct = roomOwner;
             this.blind = blind; 
         }
 
@@ -143,7 +144,15 @@ namespace PokerGrpc.Models
             return 0;
         }*/
 
-    
-        
+        public override string ToString()
+        {
+            string players = "";
+            foreach (var player in this.players)
+            {
+                players += player.ToString();
+            }
+            return ""+ this.tableCards + players + this.toAct + this.pot;
+        }
+
     }
 }

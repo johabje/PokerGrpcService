@@ -28,6 +28,7 @@ namespace PokerGrpc.Services
             player.wallet = 0;
             PokerGame lobby = new PokerGame(player, 1);
             
+            
             lobby.gamePin = 888;
             GPlayer gPlayer = new GPlayer
             {
@@ -50,6 +51,8 @@ namespace PokerGrpc.Services
             gameLobby.Gplayers.Add(gPlayer);
             StorageSingleton.Instance.currentGames.Add(lobby);
             Console.WriteLine(StorageSingleton.Instance.currentGames);
+            Console.WriteLine("the gamelobby: "+lobby);
+            Console.WriteLine("The message: " + gameLobby);
             return Task.FromResult(gameLobby);
             
         }
@@ -106,14 +109,16 @@ namespace PokerGrpc.Services
         public override async Task StartStream(JoinGameRequest request, IServerStreamWriter<GameLobby> responseStream, ServerCallContext context)
         {
             PokerGame pokerGame = StorageSingleton.Instance.currentGames.Find(game => game.gamePin.Equals(request.GamePin));
+            await responseStream.WriteAsync(PokerGameToGameLobby(pokerGame));
             while (true)
             {
                 PokerGame pokergame2 = StorageSingleton.Instance.currentGames.Find(game => game.gamePin.Equals(request.GamePin));
-                if (pokerGame != pokergame2)
+                if (!PokerGameToGameLobby(pokerGame).Equals(PokerGameToGameLobby(pokergame2)))
                 {
                     await responseStream.WriteAsync(PokerGameToGameLobby(pokergame2));
                     pokerGame = pokergame2;
                 }
+
                 await Task.Delay(1000); //gotta look bussy
             }
         }
@@ -122,12 +127,12 @@ namespace PokerGrpc.Services
         {
             GameLobby gamelobby = new GameLobby
             {
-                GamePin = 888,
+                GamePin = pokerGame.gamePin,
                 ToAct = PlayerToGPlayer(pokerGame.toAct),
                 TableCards = string.Join(", ", pokerGame.tableCards),
-                Pot = 0,
-                Bet = 0,
-                Blind = 20
+                Pot = pokerGame.pot,
+                Bet = pokerGame.bet,
+                Blind = pokerGame.blind
             };
             foreach (var player in pokerGame.players)
             {
@@ -145,8 +150,8 @@ namespace PokerGrpc.Services
                 BestCombo = "0",
                 Hand = "0",
                 IsRoomOwner = false,
-                Name = "noe",
-                Wallet = 0,
+                Name = player.name,
+                Wallet = player.wallet,
             };
             return gParticipant;
         }

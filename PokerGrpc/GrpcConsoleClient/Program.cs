@@ -22,7 +22,7 @@ namespace GrpcConsoleClient
             {
                 Name = "johan",
                 Action = 0,
-                BestCombo = "0",
+                BestCombo = "two pairs, king high",
                 IsRoomOwner = false,
                 Wallet = 1000
 
@@ -39,7 +39,7 @@ namespace GrpcConsoleClient
             {
                 Name = "johan2",
                 Action = 0,
-                BestCombo = "0",
+                BestCombo = "two pairs, king high",
                 IsRoomOwner = false,
                 Wallet = 1000
 

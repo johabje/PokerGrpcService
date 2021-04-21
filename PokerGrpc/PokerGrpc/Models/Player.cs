@@ -27,5 +27,10 @@ namespace PokerGrpc.Models
         public Player()
         {
         }
+
+        public override string ToString()
+        {
+            return "player:"+ this.id.ToString() + this.wallet+this.name+this.bestCombo;
+        }
     }
 }
