@@ -148,6 +148,9 @@ namespace PokerGrpc.Services
             ...
         */
 
+        /*
+        TODO change names etc here -> game.proto
+        */
         public override Task<BetResponse> PlayerAction(BetRequest request, ServerCallContext context)
         { 
             ActionResponse badActionResponse = new ActionResponse {success = false});
