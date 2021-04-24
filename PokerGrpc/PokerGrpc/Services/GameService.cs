@@ -241,7 +241,9 @@ namespace PokerGrpc.Services
             {
                 GamePin = pokerGame.gamePin,
                 ToAct = PlayerToGPlayer(pokerGame.toAct, pokerGame),
-                TableCards = "0",
+
+                TableCards = pokerGame.GetCards(pokerGame.tableCards),
+
                 Pot = pokerGame.pot,
                 Bet = pokerGame.bet,
                 Blind = pokerGame.blind
