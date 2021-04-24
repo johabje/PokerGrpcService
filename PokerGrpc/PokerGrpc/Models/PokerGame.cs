@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 
 namespace PokerGrpc.Models
-{
+{  
+
     public class PokerGame
     {
         public int gamePin;
@@ -56,9 +57,11 @@ namespace PokerGrpc.Models
 
             this.blind = blind;
             this.tableCards = new List<Card>();
-
+            this.pot = 0;
+            this.bet = 0;
             roomOwner.isRoomOwner = true;
             roomOwner.firstToBet = true;
+            this.toAct = roomOwner;
             AddPlayer(roomOwner);
 
 
@@ -229,14 +232,27 @@ namespace PokerGrpc.Models
              * save total bet for each player (both for e.g. flop and for the whole round)
             */
 
-
+            // for testing stream:
             int minBet = 0;
-            if (minBet <= bet && bet <= player.wallet) {
+            this.bet += bet;
+
+            if (minBet <= bet) {
+                if (bet >= player.wallet)
+                {
+                    bet = (float)player.wallet;
+                    player.wallet = 0;
+
+                    //place the bet
+                    return true;
+                }
+                player.wallet -= bet;
+
                 return true;
             }
 
+
             // if ok
-            NextBetter(player);
+            //NextBetter(player);
 
             return false;
         }
@@ -246,6 +262,7 @@ namespace PokerGrpc.Models
             if (nextPlayerIndex >= playersPlaying.Count) {
                 nextPlayerIndex = 0;
             }
+            //check if round over??
             playersPlaying[nextPlayerIndex].currentBetter = true;
             player.currentBetter = false;
         }
@@ -314,6 +331,37 @@ namespace PokerGrpc.Models
 
         public void RemovePlayer(Player player) {
 
+        }
+
+        public override bool Equals(Object obj)
+        {
+            PokerGame pokerObj = obj as PokerGame;
+            bool samePlayers = true;
+
+            for (int i = 0; i < players.Length; i++)
+            {
+                if (players.ElementAt(i) != null && pokerObj.players.ElementAt(i) != null)
+                {
+                    if (!players.ElementAt(i).Equals(pokerObj.players.ElementAt(i)))
+                    {
+                        samePlayers = false;
+                    }
+                }
+            }
+            if (pokerObj == null)
+                return false;
+            else
+                return bet.Equals(pokerObj.bet) &&
+                    pot.Equals(pokerObj.pot) &&
+                    blind.Equals(pokerObj.blind) &&
+                    toAct.Equals(pokerObj.toAct) &&
+                    samePlayers &&
+                    tableCards.Equals(pokerObj.tableCards);
+        }
+
+        public PokerGame GetPokerGame(Guid playerId)
+        {
+            return null;
         }
 
 

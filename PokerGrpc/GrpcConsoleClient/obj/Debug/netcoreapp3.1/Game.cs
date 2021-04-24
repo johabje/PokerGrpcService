@@ -32,17 +32,23 @@ namespace GrpcConsoleClient {
             "CwoDcG90GAUgASgBEgsKA2JldBgGIAEoARINCgVibGluZBgHIAEoBSJtCgdH",
             "UGxheWVyEg4KBndhbGxldBgCIAEoARIMCgRuYW1lGAEgASgJEhMKC2lzUm9v",
             "bU93bmVyGAMgASgIEgwKBGhhbmQYBCABKAkSEQoJYmVzdENvbWJvGAUgASgJ",
-            "Eg4KBmFjdGlvbhgGIAEoBTJeCgRHYW1lEiwKDUNyZWF0ZU5ld0dhbWUSDy5O",
-            "ZXdHYW1lUmVxdWVzdBoKLkdhbWVMb2JieRIoCghKb2luR2FtZRIQLkpvaW5H",
-            "YW1lUmVxdWVzdBoKLkdhbWVMb2JieUIUqgIRR3JwY0NvbnNvbGVDbGllbnRi",
-            "BnByb3RvMw=="));
+            "Eg4KBmFjdGlvbhgGIAEoBSJICgpCZXRSZXF1ZXN0Eg8KB2dhbWVQaW4YASAB",
+            "KAUSGQoHZ3BsYXllchgCIAEoCzIILkdQbGF5ZXISDgoGYW1vdW50GAMgASgF",
+            "Ih8KC0JldFJlc3BvbnNlEhAKCHN1Y2NzZXNzGAEgASgIMq8BCgRHYW1lEiwK",
+            "DUNyZWF0ZU5ld0dhbWUSDy5OZXdHYW1lUmVxdWVzdBoKLkdhbWVMb2JieRIo",
+            "CghKb2luR2FtZRIQLkpvaW5HYW1lUmVxdWVzdBoKLkdhbWVMb2JieRItCgtT",
+            "dGFydFN0cmVhbRIQLkpvaW5HYW1lUmVxdWVzdBoKLkdhbWVMb2JieTABEiAK",
+            "A0JldBILLkJldFJlcXVlc3QaDC5CZXRSZXNwb25zZUIUqgIRR3JwY0NvbnNv",
+            "bGVDbGllbnRiBnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
             new pbr::GeneratedClrTypeInfo(typeof(global::GrpcConsoleClient.NewGameRequest), global::GrpcConsoleClient.NewGameRequest.Parser, new[]{ "Gplayer" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::GrpcConsoleClient.JoinGameRequest), global::GrpcConsoleClient.JoinGameRequest.Parser, new[]{ "GamePin", "Gplayer" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::GrpcConsoleClient.GameLobby), global::GrpcConsoleClient.GameLobby.Parser, new[]{ "GamePin", "Gplayers", "ToAct", "TableCards", "Pot", "Bet", "Blind" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::GrpcConsoleClient.GPlayer), global::GrpcConsoleClient.GPlayer.Parser, new[]{ "Wallet", "Name", "IsRoomOwner", "Hand", "BestCombo", "Action" }, null, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::GrpcConsoleClient.GPlayer), global::GrpcConsoleClient.GPlayer.Parser, new[]{ "Wallet", "Name", "IsRoomOwner", "Hand", "BestCombo", "Action" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::GrpcConsoleClient.BetRequest), global::GrpcConsoleClient.BetRequest.Parser, new[]{ "GamePin", "Gplayer", "Amount" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::GrpcConsoleClient.BetResponse), global::GrpcConsoleClient.BetResponse.Parser, new[]{ "Succsess" }, null, null, null, null)
           }));
     }
     #endregion
@@ -1176,6 +1182,431 @@ namespace GrpcConsoleClient {
           }
           case 48: {
             Action = input.ReadInt32();
+            break;
+          }
+        }
+      }
+    }
+    #endif
+
+  }
+
+  public sealed partial class BetRequest : pb::IMessage<BetRequest>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
+    private static readonly pb::MessageParser<BetRequest> _parser = new pb::MessageParser<BetRequest>(() => new BetRequest());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pb::MessageParser<BetRequest> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::GrpcConsoleClient.GameReflection.Descriptor.MessageTypes[4]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public BetRequest() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public BetRequest(BetRequest other) : this() {
+      gamePin_ = other.gamePin_;
+      gplayer_ = other.gplayer_ != null ? other.gplayer_.Clone() : null;
+      amount_ = other.amount_;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public BetRequest Clone() {
+      return new BetRequest(this);
+    }
+
+    /// <summary>Field number for the "gamePin" field.</summary>
+    public const int GamePinFieldNumber = 1;
+    private int gamePin_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int GamePin {
+      get { return gamePin_; }
+      set {
+        gamePin_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "gplayer" field.</summary>
+    public const int GplayerFieldNumber = 2;
+    private global::GrpcConsoleClient.GPlayer gplayer_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public global::GrpcConsoleClient.GPlayer Gplayer {
+      get { return gplayer_; }
+      set {
+        gplayer_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "amount" field.</summary>
+    public const int AmountFieldNumber = 3;
+    private int amount_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int Amount {
+      get { return amount_; }
+      set {
+        amount_ = value;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override bool Equals(object other) {
+      return Equals(other as BetRequest);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Equals(BetRequest other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (GamePin != other.GamePin) return false;
+      if (!object.Equals(Gplayer, other.Gplayer)) return false;
+      if (Amount != other.Amount) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (GamePin != 0) hash ^= GamePin.GetHashCode();
+      if (gplayer_ != null) hash ^= Gplayer.GetHashCode();
+      if (Amount != 0) hash ^= Amount.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
+      if (GamePin != 0) {
+        output.WriteRawTag(8);
+        output.WriteInt32(GamePin);
+      }
+      if (gplayer_ != null) {
+        output.WriteRawTag(18);
+        output.WriteMessage(Gplayer);
+      }
+      if (Amount != 0) {
+        output.WriteRawTag(24);
+        output.WriteInt32(Amount);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (GamePin != 0) {
+        output.WriteRawTag(8);
+        output.WriteInt32(GamePin);
+      }
+      if (gplayer_ != null) {
+        output.WriteRawTag(18);
+        output.WriteMessage(Gplayer);
+      }
+      if (Amount != 0) {
+        output.WriteRawTag(24);
+        output.WriteInt32(Amount);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CalculateSize() {
+      int size = 0;
+      if (GamePin != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(GamePin);
+      }
+      if (gplayer_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Gplayer);
+      }
+      if (Amount != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(Amount);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(BetRequest other) {
+      if (other == null) {
+        return;
+      }
+      if (other.GamePin != 0) {
+        GamePin = other.GamePin;
+      }
+      if (other.gplayer_ != null) {
+        if (gplayer_ == null) {
+          Gplayer = new global::GrpcConsoleClient.GPlayer();
+        }
+        Gplayer.MergeFrom(other.Gplayer);
+      }
+      if (other.Amount != 0) {
+        Amount = other.Amount;
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 8: {
+            GamePin = input.ReadInt32();
+            break;
+          }
+          case 18: {
+            if (gplayer_ == null) {
+              Gplayer = new global::GrpcConsoleClient.GPlayer();
+            }
+            input.ReadMessage(Gplayer);
+            break;
+          }
+          case 24: {
+            Amount = input.ReadInt32();
+            break;
+          }
+        }
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 8: {
+            GamePin = input.ReadInt32();
+            break;
+          }
+          case 18: {
+            if (gplayer_ == null) {
+              Gplayer = new global::GrpcConsoleClient.GPlayer();
+            }
+            input.ReadMessage(Gplayer);
+            break;
+          }
+          case 24: {
+            Amount = input.ReadInt32();
+            break;
+          }
+        }
+      }
+    }
+    #endif
+
+  }
+
+  public sealed partial class BetResponse : pb::IMessage<BetResponse>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
+    private static readonly pb::MessageParser<BetResponse> _parser = new pb::MessageParser<BetResponse>(() => new BetResponse());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pb::MessageParser<BetResponse> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::GrpcConsoleClient.GameReflection.Descriptor.MessageTypes[5]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public BetResponse() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public BetResponse(BetResponse other) : this() {
+      succsess_ = other.succsess_;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public BetResponse Clone() {
+      return new BetResponse(this);
+    }
+
+    /// <summary>Field number for the "succsess" field.</summary>
+    public const int SuccsessFieldNumber = 1;
+    private bool succsess_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Succsess {
+      get { return succsess_; }
+      set {
+        succsess_ = value;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override bool Equals(object other) {
+      return Equals(other as BetResponse);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Equals(BetResponse other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (Succsess != other.Succsess) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (Succsess != false) hash ^= Succsess.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
+      if (Succsess != false) {
+        output.WriteRawTag(8);
+        output.WriteBool(Succsess);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (Succsess != false) {
+        output.WriteRawTag(8);
+        output.WriteBool(Succsess);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CalculateSize() {
+      int size = 0;
+      if (Succsess != false) {
+        size += 1 + 1;
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(BetResponse other) {
+      if (other == null) {
+        return;
+      }
+      if (other.Succsess != false) {
+        Succsess = other.Succsess;
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 8: {
+            Succsess = input.ReadBool();
+            break;
+          }
+        }
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 8: {
+            Succsess = input.ReadBool();
             break;
           }
         }

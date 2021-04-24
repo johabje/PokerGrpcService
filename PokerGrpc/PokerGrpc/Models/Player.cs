@@ -15,6 +15,7 @@ namespace PokerGrpc.Models
     public class Player
     {
         //public String id { get; set; }
+
         public String name { get; set; }
         public double wallet { get; set; }
         public Boolean isRoomOwner { get; set; }
@@ -29,6 +30,15 @@ namespace PokerGrpc.Models
 
         public Player()
         {
+        }
+
+        public override bool Equals(Object obj)
+        {
+            Player personObj = obj as Player;
+            if (personObj == null)
+                return false;
+            else
+                return name.Equals(personObj.name) && wallet.Equals(personObj.wallet) && isRoomOwner.Equals(personObj.isRoomOwner);
         }
     }
 }

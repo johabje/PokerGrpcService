@@ -8,9 +8,10 @@
     <PackageReference Include="Grpc.AspNetCore" Version="2.36.0" />
   </ItemGroup>
 
-  <ItemGroup>
+    <ItemGroup>
     <Protobuf Include="Protos\game.proto" GrpcServices="Server" />
   </ItemGroup>
+
   
   <ItemGroup>
     <Folder Include="Singelton\" />

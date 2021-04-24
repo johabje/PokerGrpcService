@@ -5,6 +5,11 @@ option csharp_namespace = "PokerGrpc";
 service Game {
     rpc CreateNewGame (NewGameRequest) returns (GameLobby);
     rpc JoinGame (JoinGameRequest) returns (GameLobby);
+    rpc StartStream (JoinGameRequest) returns (stream GameLobby);
+    rpc Bet (BetRequest) returns (BetResponse);
+    rpc Fold (FoldRequest) returns (FoldResponse);
+    rpc Call (CallRequest) returns (CallResponse);
+    rpc Raise (RaiseRequest) returns (RaiseResponse); 
 }
 
 message NewGameRequest {
@@ -37,4 +42,42 @@ message GPlayer {
     string hand = 4;
     string bestCombo = 5;
     int32 action = 6;
+}
+
+message BetRequest {
+    int32 gamePin = 1;
+    GPlayer gplayer = 2;
+    int32 amount = 3;
+}
+
+message BetResponse {
+    bool succsess = 1;
+}
+
+message FoldRequest {
+    int32 gamePin = 1;
+    GPlayer gplayer = 2;
+}
+
+message FoldResponse {
+    bool succsess = 1;
+}
+
+message CallRequest {
+    int32 gamePin = 1;
+    GPlayer gplayer = 2;
+}
+
+message CallResponse {
+    bool succsess = 1;
+}
+
+message RaiseRequest {
+    int32 gamePin = 1;
+    GPlayer gplayer = 2;
+    int32 amount = 3; 
+}
+
+message RaiseResponse {
+    bool succsess = 1;
 }

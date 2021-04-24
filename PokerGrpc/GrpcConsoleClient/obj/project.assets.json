@@ -321,26 +321,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\fredr\\.nuget\\packages\\": {}
+    "/Users/johanbjerkedal/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\fredr\\Documents\\MSIT\\V21\\TDT4240-Programvarearkitektur\\PROJECT\\PokerGrpcService\\PokerGrpc\\GrpcConsoleClient\\GrpcConsoleClient.csproj",
+      "projectUniqueName": "/Users/johanbjerkedal/Documents/GitHub/PokerGrpcService/PokerGrpc/GrpcConsoleClient/GrpcConsoleClient.csproj",
       "projectName": "GrpcConsoleClient",
-      "projectPath": "C:\\Users\\fredr\\Documents\\MSIT\\V21\\TDT4240-Programvarearkitektur\\PROJECT\\PokerGrpcService\\PokerGrpc\\GrpcConsoleClient\\GrpcConsoleClient.csproj",
-      "packagesPath": "C:\\Users\\fredr\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\fredr\\Documents\\MSIT\\V21\\TDT4240-Programvarearkitektur\\PROJECT\\PokerGrpcService\\PokerGrpc\\GrpcConsoleClient\\obj\\",
+      "projectPath": "/Users/johanbjerkedal/Documents/GitHub/PokerGrpcService/PokerGrpc/GrpcConsoleClient/GrpcConsoleClient.csproj",
+      "packagesPath": "/Users/johanbjerkedal/.nuget/packages/",
+      "outputPath": "/Users/johanbjerkedal/Documents/GitHub/PokerGrpcService/PokerGrpc/GrpcConsoleClient/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\fredr\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "/Users/johanbjerkedal/.config/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp3.1"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -389,7 +387,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.100\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/5.0.202/RuntimeIdentifierGraph.json"
       }
     }
   }

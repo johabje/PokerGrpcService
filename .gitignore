@@ -5,3 +5,13 @@
 *vs/
 *.vs
 /build/
+PokerGrpc/.vs/PokerGrpc/xs/project-cache/PokerGrpc-Debug.json
+PokerGrpc/.vs/PokerGrpc/xs/project-cache/PokerGrpc-Debug.json
+PokerGrpc/.vs/PokerGrpc/xs/UserPrefs.xml
+PokerGrpc/GrpcConsoleClient/obj/Debug/netcoreapp3.1/GrpcConsoleClient.assets.cache
+PokerGrpc/GrpcConsoleClient/obj/Debug/netcoreapp3.1/da39a3ee5e6b4b0d_game.protodep
+*.json
+*.xml
+*.protodep
+PokerGrpc/GrpcConsoleClient/obj/Debug/netcoreapp3.1/GrpcConsoleClient.assets.cache
+*.dll
