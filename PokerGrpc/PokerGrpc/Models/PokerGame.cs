@@ -251,7 +251,7 @@ namespace PokerGrpc.Models
 
         public bool Check(Player player) {
             if (player.bet >= this.bet) {
-                NextBetter();
+                NextBetter(player);
                 return true;
             } else {
                 return false;
@@ -264,7 +264,7 @@ namespace PokerGrpc.Models
             if (player.wallet >= newBet) {
                 player.wallet -= newBet;
                 player.bet += newBet;
-                NextBetter();
+                NextBetter(player);
                 return true;
             } else {
                 return false;
@@ -282,7 +282,7 @@ namespace PokerGrpc.Models
                 //updates new max bet
                 this.bet = player.bet;
 
-                NextBetter();
+                NextBetter(player);
                 return true;
             }
         }
@@ -298,6 +298,12 @@ namespace PokerGrpc.Models
         }
 
         public void Fold(Player player) {
+            /*
+            TODO:
+                add some checks that player exist etc
+                
+            */
+
             int nextPlayerIndex = playersPlaying.IndexOf(player) + 1;
 
             // purpose of currentRoundFirstToBet:
