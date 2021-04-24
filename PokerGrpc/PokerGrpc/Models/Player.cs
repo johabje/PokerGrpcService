@@ -26,6 +26,7 @@ namespace PokerGrpc.Models
         public bool firstToBet = false;
         public bool currentRoundFirstToBet = false;
         public bool currentBetter = false;
+        public int lastAction = null;
         //etc etc
 
         public Player()
