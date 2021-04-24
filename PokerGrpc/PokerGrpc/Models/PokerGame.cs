@@ -90,12 +90,14 @@ namespace PokerGrpc.Models
                 case state.PreGame:
                     // deal 2 cards to all players
                     DealPlayerCards(2);
+                    StartBettingRound();
                     break;
                 case state.PF:
                     if (RoundFinished())
                     {
                         this.state = state.Floop;
                         DealTableCards(3);
+                        StartBettingRound();
                     }
                     // some other game mode
                     break;
@@ -104,6 +106,7 @@ namespace PokerGrpc.Models
                     {
                         this.state = state.Turn;
                         DealTableCards(1);
+                        StartBettingRound();
                     }
                     break;
 
@@ -112,6 +115,7 @@ namespace PokerGrpc.Models
                     {
                         this.state = state.River;
                         DealTableCards(1);
+                        StartBettingRound();
                     }
                     break;
 
@@ -325,6 +329,7 @@ namespace PokerGrpc.Models
                 } else {
                     player.currentBetter = false;
                 }
+                player.lastAction = -1;
             }
             /*
             TODO REMOVE DIS?
