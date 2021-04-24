@@ -3,7 +3,16 @@ using System.Collections.Generic;
 using System.Linq;
 
 namespace PokerGrpc.Models
-{  
+{
+     public enum state
+    {
+        PreGame,
+        PF,
+        Floop,
+        Turn,
+        River,
+        Showdown
+    }
 
     public class PokerGame
     {
@@ -14,7 +23,7 @@ namespace PokerGrpc.Models
         // using array instead for static size
         public Player[] players;
         public List<Player> playersPlaying;
-
+        public state state = state.PreGame;
         public Player toAct;
         public List<Card> tableCards;
         public double pot;
@@ -73,54 +82,51 @@ namespace PokerGrpc.Models
         /*
          * PokerGame.StartGame when owner clicks start or after a set time
          */
-        public void StartGame(int gameMode) {
-            // when tableowner send a request to start the game (or all seats taken):
-            // int gameMode, holdem being default
-            switch (gameMode) {
-                case 1:
+        public void UpdateState()
+        {
+
+            switch (state)
+            {
+                case state.PreGame:
+
+                    //deal cards to players?
+                    break;
+                case state.PF:
+                    if (RoundFinished())
+                    {
+                        this.state = state.Floop;
+                        DealTableCards(3);
+                    }
                     // some other game mode
                     break;
-                default:
-                    HoldEm();
+                case state.Floop:
+                    if (RoundFinished())
+                    {
+                        this.state = state.Turn;
+                        DealTableCards(1);
+                    }
                     break;
+
+                case state.Turn:
+                    if (RoundFinished())
+                    {
+                        this.state = state.River;
+                        DealTableCards(1);
+                    }
+                    break;
+
+                case state.River:
+                    if (RoundFinished())
+                    {
+
+                    }
+                    break;
+                case state.Showdown:
+                    // some other game mode
+                    break;
+
             }
         }
-
-        private void HoldEm() {
-
-            bool playing = true;
-            // bool for gameloop
-            while (playing) {
-                NewRound();
-
-                //deal 2 cards to all players
-                DealPlayerCards(2);
-
-
-                // betting round
-                // wait for all bets / time limit
-
-                //deal 3 table cards
-                DealTableCards(3);
-
-                // betting round
-                //deal 1 table card
-                DealTableCards();
-
-                // betting round
-                //deal final table card
-                DealTableCards();
-
-                // final betting round
-                GameOver();
-
-                //TODO PokerGame.cs: bettingRound and placeBet
-                //      Player.cs: check what values are needed
-                //          (how to id each player?)
-            }
-
-        }
-
         // deal int cardCount amount of cards
         public void DealTableCards(int cardCount = 1) {
             for (int i = 0; i < cardCount; i++) {
