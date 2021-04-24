@@ -16,7 +16,7 @@ namespace GrpcConsoleClient
             // The port number(5001) must match the port of the gRPC server.
             using var channel = GrpcChannel.ForAddress("http://localhost:5001");
             var client = new Game.GameClient(channel);
-            GPlayer player = new GPlayer()
+            GPlayer johan = new GPlayer()
             {
                 Name = "johan",
                 Action = 0,
@@ -26,15 +26,9 @@ namespace GrpcConsoleClient
                 Wallet = 1000
 
             };
-            Console.WriteLine(player);
-            Console.WriteLine("The thing is hanging");
-            var reply = client.CreateNewGame(
-                              new NewGameRequest { Gplayer = player });
-            Console.WriteLine(reply);
-            
-            GPlayer player2 = new GPlayer()
+            GPlayer fredrik = new GPlayer()
             {
-                Name = "johan2",
+                Name = "fredrik",
                 Action = 0,
                 BestCombo = "0",
                 Hand = "hh",
@@ -42,14 +36,78 @@ namespace GrpcConsoleClient
                 Wallet = 1000
 
             };
-            var reply2 = client.JoinGame(new JoinGameRequest { GamePin = 666, Gplayer = player2 });
-            Console.WriteLine("Updated lobby: "+ reply2);
-            using (var call = client.StartStream(new JoinGameRequest { GamePin = 666, Gplayer = player2 }))
+            GPlayer syver = new GPlayer()
+            {
+                Name = "fredrik",
+                Action = 0,
+                BestCombo = "0",
+                Hand = "hh",
+                IsRoomOwner = false,
+                Wallet = 1000
+
+            };
+
+            var startReply = client.CreateNewGame(new NewGameRequest { Gplayer = johan, Gamepin = 666});
+            Console.WriteLine(startReply);
+            var join1 = client.JoinGame(new JoinGameRequest { Gplayer = fredrik, GamePin = 666 });
+            Console.WriteLine(join1);
+            var join2 = client.JoinGame(new JoinGameRequest { Gplayer = syver, GamePin = 666 });
+            Console.WriteLine(join2);
+
+            //write code for starting game
+            var action1 = client.Action(new ActionRequest
+            {
+                Action = 1,
+                Bet = 0,
+                GamePin = 666,
+                Gplayer = johan
+            });
+
+            var action2 = client.Action(new ActionRequest
+            {
+                Action = 1,
+                Bet = 0,
+                GamePin = 666,
+                Gplayer = fredrik
+            });
+
+            var action3 = client.Action(new ActionRequest
+            {
+                Action = 2,
+                Bet = 50,
+                GamePin = 666,
+                Gplayer = syver
+            });
+
+            var action4 = client.Action(new ActionRequest
+            {
+                Action = 0,
+                Bet = 0,
+                GamePin = 666,
+                Gplayer = johan
+            });
+            var action5 = client.Action(new ActionRequest
+            {
+                Action = 3,
+                Bet = 0,
+                GamePin = 666,
+                Gplayer = fredrik
+            });
+
+
+            using (var call = client.StartStream(new JoinGameRequest { GamePin = 666, Gplayer = syver }))
             {
                 while (await call.ResponseStream.MoveNext())
                 {
                     GameLobby feature = call.ResponseStream.Current;
                     Console.WriteLine("Received " + feature.ToString());
+                    client.Action(new ActionRequest
+                    {
+                        Action = 0,
+                        Bet = 0,
+                        GamePin = 666,
+                        Gplayer = johan
+                    });
                 }
                 Console.WriteLine("why the fuck are you here");
             }
