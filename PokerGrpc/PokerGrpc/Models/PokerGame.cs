@@ -162,6 +162,25 @@ namespace PokerGrpc.Models
             }
         }
 
+        public bool RoundFinished() {
+            // REname or whatever
+            // remember to reset player.lastAction every round (pre flop, flop, etc)
+            if(playersPlaying.Where(p => p.lastAction.Equals(null).Any())) {
+                // someone has not taken an action yet: round not finished. Continue to next player
+                return false;
+            } else {
+                // check = 1;
+                if (playersPlaying.Where(p => p.lastAction.Equals(1)).Count() >= playersPlaying.Count - 1) {
+                // count of active players - 1 HAS CHECKED, round is over
+                    return true;
+                } else {
+                    return false;
+                }
+            }
+            
+        }
+
+
         public Player GameOver()
         {
             //determine vinner, return the vinner, distriubute the pot
