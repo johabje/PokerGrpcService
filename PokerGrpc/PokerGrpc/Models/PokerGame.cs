@@ -26,8 +26,8 @@ namespace PokerGrpc.Models
         public state state = state.PreGame;
         public Player toAct;
         public List<Card> tableCards;
-        public double pot;
-        public double bet;
+        public float pot;
+        public float bet;
         //make blind final?
         public int blind;
 
@@ -211,8 +211,10 @@ namespace PokerGrpc.Models
                 if (player != null) {
                     player.Hand = new List<Card>();
                     playersPlaying.Add(player);
+                    player.bet = 0;
                 }
             }
+            this.bet = 0;
 
             MoveDealerButton();
 
@@ -243,42 +245,42 @@ namespace PokerGrpc.Models
             playersPlaying[indexNextFirstBetter].currentBetter = true;
         }
 
-        public Boolean PlaceBet(Player player, float bet) {
-            /*
-             * 1. bet is from correct user
-             *      table
-             *      the users turn to act
-             * mby just implement login?
-             * 2. assert bet is within valid range 
-             *      (potential_minBet? <= bet <= player.wallet)
-             * 3. do some stuff if all-in
-             * 
-             * save total bet for each player (both for e.g. flop and for the whole round)
-            */
+        public bool Check(Player player) {
+            if (player.bet >= this.bet) {
+                NextBetter();
+                return true;
+            } else {
+                return false;
+            }
+        }
 
-            // for testing stream:
-            int minBet = 0;
-            this.bet += bet;
+        public bool Call(Player player) {
+            // TODO implement ALL-IN logic
+            float newBet = this.bet - player.bet;
+            if (player.wallet >= newBet) {
+                player.wallet -= newBet;
+                player.bet += newBet;
+                NextBetter();
+                return true;
+            } else {
+                return false;
+            }
+        }
 
-            if (minBet <= bet) {
-                if (bet >= player.wallet)
-                {
-                    bet = (float)player.wallet;
-                    player.wallet = 0;
+        public bool PlaceBet(Player player, float raise) {
+            if (player.wallet < raise || player.bet + raise < this.bet) {
+                return false;
+            } else {
+                //TODO implement ALL-IN logic
+                player.wallet -= raise;
+                player.bet += raise;
 
-                    //place the bet
-                    return true;
-                }
-                player.wallet -= bet;
+                //updates new max bet
+                this.bet = player.bet;
 
+                NextBetter();
                 return true;
             }
-
-
-            // if ok
-            //NextBetter(player);
-
-            return false;
         }
 
         public void NextBetter(Player player) {
@@ -315,7 +317,7 @@ namespace PokerGrpc.Models
             UpdateState();
         }
 
-        public void BettingRound() {
+        public void StartBettingRound() {
             foreach (Player player in playersPlaying) {
                 // asserts only the correct player has currentBetter true
                 if (player.currentRoundFirstToBet) {
@@ -324,7 +326,9 @@ namespace PokerGrpc.Models
                     player.currentBetter = false;
                 }
             }
-
+            /*
+            TODO REMOVE DIS?
+            */
             int activePpl = playersPlaying.Count();
             for (int i=0;i<activePpl;i++) {
                 int currentBetterIndex = playersPlaying.IndexOf(playersPlaying.Find(p => p.currentBetter));
