@@ -43,12 +43,6 @@ namespace GrpcConsoleClient
 
             };
             var reply2 = client.JoinGame(new JoinGameRequest { GamePin = 666, Gplayer = player2 });
-            client.Bet(new BetRequest
-            {
-                Amount = 50,
-                Gplayer = player2,
-                GamePin = 666,
-            });
             Console.WriteLine("Updated lobby: "+ reply2);
             using (var call = client.StartStream(new JoinGameRequest { GamePin = 666, Gplayer = player2 }))
             {

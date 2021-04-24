@@ -2,12 +2,11 @@
   <MonoDevelop.Ide.ItemProperties.PokerGrpcTest PreferredExecutionTarget="MonoDevelop.Default" />
   <MonoDevelop.Ide.Workbench ActiveDocument="PokerGrpc/Services/GameService.cs">
     <Files>
-      <File FileName="PokerGrpc/Models/HandRanking.cs" Line="1" Column="1" />
-      <File FileName="PokerGrpc/Models/PokerGame.cs" Line="255" Column="14" />
-      <File FileName="GrpcConsoleClient/Program.cs" Line="51" Column="15" />
-      <File FileName="PokerGrpc/Protos/game.proto" Line="12" Column="28" />
-      <File FileName="PokerGrpc/Models/Player.cs" Line="24" Column="26" />
-      <File FileName="GrpcConsoleClient/game.proto" Line="36" Column="23" />
+      <File FileName="PokerGrpc/Models/PokerGame.cs" Line="101" Column="27" />
+      <File FileName="GrpcConsoleClient/Program.cs" />
+      <File FileName="PokerGrpc/Protos/game.proto" Line="48" Column="22" />
+      <File FileName="PokerGrpc/Models/Player.cs" Line="32" Column="24" />
+      <File FileName="GrpcConsoleClient/game.proto" />
       <File FileName="PokerGrpc/Services/GameService.cs" Line="1" Column="1" />
     </Files>
     <Pads>
@@ -15,6 +14,10 @@
         <State name="__root__">
           <Node name="PokerGrpc" expanded="True">
             <Node name="GrpcConsoleClient" expanded="True">
+              <Node name="ConnectedServicesFolder" expanded="True" />
+              <Node name="Dependencies" expanded="True">
+                <Node name="PackageDependencies" expanded="True" />
+              </Node>
               <Node name="Protos" expanded="True" />
             </Node>
             <Node name="PokerGrpc" expanded="True">

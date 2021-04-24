@@ -21,12 +21,11 @@ namespace PokerGrpc.Models
         public Boolean isRoomOwner { get; set; }
         public List<Card> Hand { get; set; }
         public String bestCombo { get; set; }
-        public int action { get; set; }
         public int curentGameBetTotal { get; set; }
         public bool firstToBet = false;
         public bool currentRoundFirstToBet = false;
         public bool currentBetter = false;
-        public int lastAction = null;
+        public int lastAction = -1;
         //etc etc
 
         public Player()
@@ -39,7 +38,7 @@ namespace PokerGrpc.Models
             if (personObj == null)
                 return false;
             else
-                return name.Equals(personObj.name) && wallet.Equals(personObj.wallet) && isRoomOwner.Equals(personObj.isRoomOwner);
+                return name.Equals(personObj.name) && wallet.Equals(personObj.wallet);
         }
     }
 }
