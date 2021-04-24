@@ -88,8 +88,8 @@ namespace PokerGrpc.Models
             switch (state)
             {
                 case state.PreGame:
-
-                    //deal cards to players?
+                    // deal 2 cards to all players
+                    DealPlayerCards(2);
                     break;
                 case state.PF:
                     if (RoundFinished())
@@ -118,7 +118,7 @@ namespace PokerGrpc.Models
                 case state.River:
                     if (RoundFinished())
                     {
-
+                        this.state = state.Showdown;
                     }
                     break;
                 case state.Showdown:
@@ -312,6 +312,7 @@ namespace PokerGrpc.Models
 
             // remove players active this round
             playersPlaying.Remove(player);
+            UpdateState();
         }
 
         public void BettingRound() {

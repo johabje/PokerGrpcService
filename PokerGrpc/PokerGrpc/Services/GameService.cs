@@ -140,16 +140,69 @@ namespace PokerGrpc.Services
                 Console.WriteLine("The bets are: " + pokerGame.bet+ " and " + pokergame2.bet);
             }
         }
+        /*
+        Merge Tasks: Bet, Check, Raise, Fold
+        get action from request.action
+        switch(action)
+            Bet()...
+            ...
+        */
 
-        public override Task<ActionResponse> Action(ActionRequest request, ServerCallContext context)
-        {
-            return base.Action(request, context);
+        /*
+        TODO change names etc here -> game.proto
+        */
+        public override Task<BetResponse> PlayerAction(BetRequest request, ServerCallContext context)
+        { 
+            ActionResponse badActionResponse = new ActionResponse {success = false});
+            PokerGame lobby;
+            try {
+                lobby = StorageSingleton.Instance.currentGames.Find(game => game.gamePin.Equals(request.GamePin));
+            } catch {
+                return Task.FromResult(badActionResponse);
+            }
+
+            Player player;
+
+            player = lobby.playersPlaying.Find(p => p.name.Equals(request.name));
+
+            if (player == null || !player.currentBetter) {
+                //player not found or not the players turn to act -> return false
+                return Task.FromResult(badActionResponse);
+            }
+            int actionId = request.action;
+            switch (actionId) {
+                case 0:
+                    // action: fold
+                    lobby.Fold(player);
+                    break;
+                case 1:
+                    // action: check;
+                    // TODO
+                    //only if no one has made a bet (lobby.currentBet =null/0 or something)
+                    lobby.NextBetter();
+                    break;
+                case 2:
+                    // action: bet (== raise)
+                    //TODO
+                    // only if player.bet is higher than a potential current bet
+                    // AND bet is smaller and wallet
+                    // do this logic in PlaceBet();
+                    lobby.PlaceBet(player, request.bet);
+                    break;
+                case 3:
+                    // action: call
+                    //  assert player.wallet >= the current bet
+                    lobby.Call(player);
+                    break;
+                default:
+                    return Task.FromResult(badActionResponse);
+                    break;
+            }
+            return Task.FromResult(new ActionResponse { success = true });
         }
 
-
-        public GameLobby PokerGameToGameLobby(PokerGame pokerGame, string playerName)
+        public GameLobby PokerGameToGameLobby(PokerGame pokerGame)
         {
-
             GameLobby gamelobby = new GameLobby
             {
                 GamePin = pokerGame.gamePin,
