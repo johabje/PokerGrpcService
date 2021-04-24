@@ -43,7 +43,7 @@ message GPlayer {
 message ActionRequest {
     int32 gamePin = 1;
     GPlayer name = 2;
-    int32 amount = 3;
+    int32 bet = 3;
     int32 Action = 4;
 }
 

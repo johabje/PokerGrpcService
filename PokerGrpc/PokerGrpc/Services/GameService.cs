@@ -24,7 +24,7 @@ namespace PokerGrpc.Services
             player.isRoomOwner = false;
             player.Hand = null;
             player.bestCombo = null;
-            player.action = 0;
+            player.lastAction = 0;
             player.wallet = 0;
             PokerGame lobby = new PokerGame(player, 1, 666, 6);
 
@@ -71,7 +71,7 @@ namespace PokerGrpc.Services
                 isRoomOwner = false,
                 Hand = null,
                 bestCombo = null,
-                action = 0,
+                lastAction = 0,
                 wallet = 0,
             };
             PokerGame lobby = StorageSingleton.Instance.currentGames.Find(game => game.gamePin.Equals(request.GamePin));
@@ -119,16 +119,16 @@ namespace PokerGrpc.Services
             PokerGame pokergame2;
             Console.WriteLine("pokergamePin" + pokerGame.gamePin);
             PokerGame lastGame = pokerGame;
-            await responseStream.WriteAsync(PokerGameToGameLobby(pokerGame));
+            await responseStream.WriteAsync(PokerGameToGameLobby(pokerGame, request.Gplayer.Name));
             
             while (true)
             {
                 pokergame2 = StorageSingleton.Instance.currentGames.Find(game => game.gamePin.Equals(request.GamePin));
                 //if (!(pokerGame.toAct.Equals(pokergame2.toAct) && pokerGame.players.Equals(pokergame2.players) && pokerGame.bet.Equals(pokergame2.bet)))
-                    if (!lastGame.toAct.Equals(pokergame2.toAct) || !lastGame.tableCards.Count().Equals(pokergame2.tableCards.Count())
+                    if (!lastGame.toAct.Equals(pokergame2.toAct) || !lastGame.tableCards.Count().Equals(pokergame2.tableCards.Count()))
                 {
 
-                    await responseStream.WriteAsync(PokerGameToGameLobby(pokergame2, playerName));
+                    await responseStream.WriteAsync(PokerGameToGameLobby(pokergame2, request.Gplayer.Name));
                     lastGame = pokergame2;
                 }
                    else
@@ -153,7 +153,7 @@ namespace PokerGrpc.Services
         */
         public override Task<ActionResponse> Action(ActionRequest request, ServerCallContext context)
         { 
-            ActionResponse badActionResponse = new ActionResponse {success = false});
+            ActionResponse badActionResponse = new ActionResponse {Success = false};
             PokerGame lobby;
             try {
                 lobby = StorageSingleton.Instance.currentGames.Find(game => game.gamePin.Equals(request.GamePin));
@@ -163,13 +163,13 @@ namespace PokerGrpc.Services
 
             Player player;
 
-            player = lobby.playersPlaying.Find(p => p.name.Equals(request.name));
+            player = lobby.playersPlaying.Find(p => p.name.Equals(request.Name));
 
             if (player == null || !player.currentBetter) {
                 //player not found or not the players turn to act -> return false
                 return Task.FromResult(badActionResponse);
             }
-            int actionId = request.action;
+            int actionId = request.Action;
             switch (actionId) {
                 case 0:
                     // action: fold
@@ -183,7 +183,7 @@ namespace PokerGrpc.Services
                     break;
                 case 2:
                     // action: bet (== raise)
-                    if (!lobby.PlaceBet(player, request.bet)) {
+                    if (!lobby.PlaceBet(player, request.Bet)) {
                         return Task.FromResult(badActionResponse);
                     }
                     break;
@@ -199,10 +199,10 @@ namespace PokerGrpc.Services
             }
             player.lastAction = actionId;
             lobby.UpdateState();
-            return Task.FromResult(new ActionResponse { success = true });
+            return Task.FromResult(new ActionResponse { Success = true });
         }
 
-        public GameLobby PokerGameToGameLobby(PokerGame pokerGame)
+        public GameLobby PokerGameToGameLobby(PokerGame pokerGame, string playerName)
         {
             GameLobby gamelobby = new GameLobby
             {

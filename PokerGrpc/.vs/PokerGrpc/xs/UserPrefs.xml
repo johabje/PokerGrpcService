@@ -3,11 +3,11 @@
   <MonoDevelop.Ide.Workbench ActiveDocument="PokerGrpc/Services/GameService.cs">
     <Files>
       <File FileName="PokerGrpc/Models/PokerGame.cs" Line="314" Column="43" />
-      <File FileName="PokerGrpc/Protos/game.proto" Line="14" Column="24" />
-      <File FileName="PokerGrpc/Models/Player.cs" Line="32" Column="10" />
-      <File FileName="GrpcConsoleClient/game.proto" Line="14" Column="5" />
+      <File FileName="PokerGrpc/Protos/game.proto" />
+      <File FileName="PokerGrpc/Models/Player.cs" />
+      <File FileName="GrpcConsoleClient/game.proto" />
       <File FileName="PokerGrpc/Services/GameService.cs" Line="27" Column="30" />
-      <File FileName="GrpcConsoleClient/Program.cs" Line="116" Column="10" />
+      <File FileName="GrpcConsoleClient/Program.cs" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
