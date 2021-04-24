@@ -371,15 +371,15 @@ namespace PokerGrpc.Models
         }
 
         // string of table cards separated by ','
-        public String GetTableCards() {
-            if (tableCards == null || tableCards.Count < 1) {
+        public String GetCards(List<Card> cards) {
+            if (cards == null || cards.Count < 1) {
                 return "";
             } else {
-                List<String> tableList = new List<String>();
-                foreach (Card card in tableCards) {
-                    tableList.Add(card.rank.ToString() + card.suit.ToString());
+                List<String> cardList = new List<String>();
+                foreach (Card card in cards) {
+                    cardList.Add(card.rank.ToString() + card.suit.ToString());
                 }
-                return String.Join(",", tableList);
+                return String.Join(",", cardList);
             }
             
         }

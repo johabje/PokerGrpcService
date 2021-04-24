@@ -213,8 +213,8 @@ namespace PokerGrpc.Services
             GameLobby gamelobby = new GameLobby
             {
                 GamePin = pokerGame.gamePin,
-                ToAct = PlayerToGPlayer(pokerGame.toAct),
-                TableCards = "0",
+                ToAct = PlayerToGPlayer(pokerGame.toAct, pokerGame),
+                TableCards = pokerGame.GetCards(pokerGame.tableCards),
                 Pot = pokerGame.pot,
                 Bet = pokerGame.bet,
                 Blind = pokerGame.blind
@@ -223,7 +223,7 @@ namespace PokerGrpc.Services
             {
                 if (player != null)
                 {
-                    GPlayer gPlayer = PlayerToGPlayer(player);
+                    GPlayer gPlayer = PlayerToGPlayer(player, pokerGame);
                     if (gPlayer.Name != playerName)
                     {
                         gPlayer.Hand = "x";
@@ -234,7 +234,7 @@ namespace PokerGrpc.Services
             return gamelobby;
         }
 
-        public GPlayer PlayerToGPlayer(Player player)
+        public GPlayer PlayerToGPlayer(Player player, PokerGame pokerGame)
         {
             string hand;
             if (player.Hand == null)
@@ -243,7 +243,7 @@ namespace PokerGrpc.Services
             }
             else
             {
-                hand = player.Hand.ToString();
+                hand = pokerGame.GetCards(player.Hand);
             }
             GPlayer gParticipant = new GPlayer
             {
