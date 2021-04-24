@@ -207,6 +207,33 @@ namespace PokerGrpc.Services
             lobby.UpdateState();
             return Task.FromResult(new ActionResponse { Success = true });
         }
+        public override Task<StartGameResponse> StartGame(StartGameRequest request, ServerCallContext context)
+        {
+            StartGameResponse badActionResponse = new StartGameResponse { Success = false };
+            PokerGame lobby;
+            try
+            {
+                lobby = StorageSingleton.Instance.currentGames.Find(game => game.gamePin.Equals(request.Gamepin));
+            }
+            catch
+            {
+                return Task.FromResult(badActionResponse);
+            }
+
+            foreach (Player player in lobby.players)
+            {
+                if (player != null && player.name == request.PlayerName)
+                {
+                    if (player.isRoomOwner)
+                    {
+                        lobby.NewRound();
+                        return Task.FromResult(new StartGameResponse { Success = true });
+                    }
+                }
+            }
+            return Task.FromResult(badActionResponse);
+
+        }
 
         public GameLobby PokerGameToGameLobby(PokerGame pokerGame, string playerName)
         {
@@ -214,7 +241,9 @@ namespace PokerGrpc.Services
             {
                 GamePin = pokerGame.gamePin,
                 ToAct = PlayerToGPlayer(pokerGame.toAct, pokerGame),
+
                 TableCards = pokerGame.GetCards(pokerGame.tableCards),
+
                 Pot = pokerGame.pot,
                 Bet = pokerGame.bet,
                 Blind = pokerGame.blind
