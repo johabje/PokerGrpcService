@@ -62,6 +62,9 @@ namespace PokerGrpc.Services
 
         }
 
+        /*
+        ADD START GAME FUNCTIONALITY
+        */
 
         public override Task<GameLobby> JoinGame(JoinGameRequest request, ServerCallContext context)
         { 
@@ -162,8 +165,11 @@ namespace PokerGrpc.Services
             }
 
             Player player;
-
-            player = lobby.playersPlaying.Find(p => p.name.Equals(request.Name));
+            try {
+                player = lobby.playersPlaying.Find(p => p.name.Equals(request.Name));
+            } catch {
+                return Task.FromResult(badActionResponse);
+            }
 
             if (player == null || !player.currentBetter) {
                 //player not found or not the players turn to act -> return false

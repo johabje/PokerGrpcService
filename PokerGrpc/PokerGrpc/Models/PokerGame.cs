@@ -73,6 +73,7 @@ namespace PokerGrpc.Models
             this.toAct = roomOwner;
             AddPlayer(roomOwner);
 
+            NewRound();
 
             // NewGame();
             // ^testing purposes - (generate table cards for response)
@@ -218,6 +219,7 @@ namespace PokerGrpc.Models
                     player.bet = 0;
                 }
             }
+            this.state = PreGame;
             this.bet = 0;
 
             MoveDealerButton();
@@ -227,6 +229,7 @@ namespace PokerGrpc.Models
             
             // deck.cardStack = stack of cards randomized
             this.deck = new Deck();
+            UpdateState();
         }
 
         public void MoveDealerButton() {
