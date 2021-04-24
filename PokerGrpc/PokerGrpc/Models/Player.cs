@@ -22,7 +22,9 @@ namespace PokerGrpc.Models
         public String bestCombo { get; set; }
         public int action { get; set; }
         public int curentGameBetTotal { get; set; }
-        public int 
+        public bool firstToBet = false;
+        public bool currentRoundFirstToBet = false;
+        public bool currentBetter = false;
         //etc etc
 
         public Player()

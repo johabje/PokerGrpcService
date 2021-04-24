@@ -12,6 +12,7 @@ namespace PokerGrpc.Models
         //public List<Player> players = new  List<Player>();
         // using array instead for static size
         public Player[] players;
+        public List<Player> playersPlaying;
 
         public Player toAct;
         public List<Card> tableCards;
@@ -19,6 +20,25 @@ namespace PokerGrpc.Models
         public double bet;
         //make blind final?
         public int blind;
+
+
+        /*
+         * ehhhh har hatt ekstremt tunnelsyn i natt og ser nå at det ble mye surr
+         * 
+         * holdem() og bettinground() er helt ubrukelig atm
+         *      er vel bedre om vi bare godkjenner/avslår bets som blir sendt inn,
+         *      og oppdaterer klientene ved godkjenning/timeout?
+         *      
+         *      typ     PlaceBet()
+         *                  if ok or timeout:
+         *                      set next better, min amount etc
+         *                      update clients
+         *                      
+         * og btw handrankingen er ikke testa, men bør være quick fix om feil
+         *          (var ikke sikker på reglene i enkelte tilfeller tho)
+         *                  
+         */
+
         
 
         // new table
@@ -38,10 +58,63 @@ namespace PokerGrpc.Models
             this.tableCards = new List<Card>();
 
             roomOwner.isRoomOwner = true;
+            roomOwner.firstToBet = true;
             AddPlayer(roomOwner);
+
 
             // NewGame();
             // ^testing purposes - (generate table cards for response)
+
+        }
+
+        /*
+         * PokerGame.StartGame when owner clicks start or after a set time
+         */
+        public void StartGame(int gameMode) {
+            // when tableowner send a request to start the game (or all seats taken):
+            // int gameMode, holdem being default
+            switch (gameMode) {
+                case 1:
+                    // some other game mode
+                    break;
+                default:
+                    HoldEm();
+                    break;
+            }
+        }
+
+        private void HoldEm() {
+
+            bool playing = true;
+            // bool for gameloop
+            while (playing) {
+                NewRound();
+
+                //deal 2 cards to all players
+                DealPlayerCards(2);
+
+
+                // betting round
+                // wait for all bets / time limit
+
+                //deal 3 table cards
+                DealTableCards(3);
+
+                // betting round
+                //deal 1 table card
+                DealTableCards();
+
+                // betting round
+                //deal final table card
+                DealTableCards();
+
+                // final betting round
+                GameOver();
+
+                //TODO PokerGame.cs: bettingRound and placeBet
+                //      Player.cs: check what values are needed
+                //          (how to id each player?)
+            }
 
         }
 
@@ -58,7 +131,7 @@ namespace PokerGrpc.Models
                 foreach (Player player in players) {
                     //TODO maybe give players a boolean for if-active 
                     // in current round or not; some may sit out a round
-                    // and consequently the object wont be null
+                    // and the object wont be null
                     if (player != null) {
                         player.Hand.Add(deck.DealCardSingle());
                     }
@@ -101,33 +174,46 @@ namespace PokerGrpc.Models
         }
 
         // new game/round/whatever on a table
-        public void NewGame()
+        public void NewRound()
         {
-            //clears hand of all players
+            // new list of players active this round
+            playersPlaying = new List<Player>();
+
+            //clears hand of all players and adds them to the playing list
             foreach (Player player in players) {
                 if (player != null) {
                     player.Hand = new List<Card>();
+                    playersPlaying.Add(player);
                 }
             }
 
+            MoveDealerButton();
+
             //clears table of cards
             this.tableCards.Clear();
+            
             // deck.cardStack = stack of cards randomized
             this.deck = new Deck();
+        }
 
-            //select blinds
+        public void MoveDealerButton() {
+            // moves dealer button basically
+            Player lastFirstBetter = playersPlaying.Find(p => p.firstToBet);
+            int indexLastFirstBetter = playersPlaying.IndexOf(lastFirstBetter);
+            int indexNextFirstBetter = indexLastFirstBetter + 1;
+            if (indexNextFirstBetter == playersPlaying.Count) {
+                indexNextFirstBetter = 0;
+            }
+            playersPlaying[indexNextFirstBetter].firstToBet = true;
+            lastFirstBetter.firstToBet = false;
 
-
-            /* TODO - delete, has been removed to gameloop
-            //pop 3 cards into this.tableCards from deck.cardStack
-            DealTableCards(3);
-            */
-
-            /*
-             * 1. rules for min-bet and min-raise?
-             *
-            */
-
+            // just making sure, probably duplicate somewhere like in BettingRound or smthing
+            foreach (Player player in playersPlaying) {
+                player.currentRoundFirstToBet = false;
+                player.currentBetter = false;
+            }
+            playersPlaying[indexNextFirstBetter].currentRoundFirstToBet = true;
+            playersPlaying[indexNextFirstBetter].currentBetter = true;
         }
 
         public Boolean PlaceBet(Player player, float bet) {
@@ -136,29 +222,79 @@ namespace PokerGrpc.Models
              *      table
              *      the users turn to act
              * mby just implement login?
-             * 2. assert if bet is within a valid range 
+             * 2. assert bet is within valid range 
              *      (potential_minBet? <= bet <= player.wallet)
              * 3. do some stuff if all-in
+             * 
+             * save total bet for each player (both for e.g. flop and for the whole round)
             */
 
 
             int minBet = 0;
-            if (bet > player.wallet || bet < minBet) {
-                return false;
-            }
-
-
-            bool ok = true;
-            if (ok) {
+            if (minBet <= bet && bet <= player.wallet) {
                 return true;
-            } else {
-                return false;
             }
+
+            // if ok
+            NextBetter(player);
+
+            return false;
+        }
+
+        public void NextBetter(Player player) {
+            int nextPlayerIndex = playersPlaying.IndexOf(player) + 1;
+            if (nextPlayerIndex >= playersPlaying.Count) {
+                nextPlayerIndex = 0;
+            }
+            playersPlaying[nextPlayerIndex].currentBetter = true;
+            player.currentBetter = false;
+        }
+
+        public void Fold(Player player) {
+            int nextPlayerIndex = playersPlaying.IndexOf(player) + 1;
+
+            // purpose of currentRoundFirstToBet:
+            // if folding player were first to bet, move this role to the next in line
+            // = if player 2 is supposed to bet first pre flop but folds, 
+            //              player3 will take the role as first better rest of the game
+            //                  if player 3 folds, player 4 .....
+            if (player.currentRoundFirstToBet) {
+                if (nextPlayerIndex >= playersPlaying.Count) {
+                    nextPlayerIndex = 0;
+                }
+                // moving firstBetter role
+                playersPlaying[nextPlayerIndex].currentRoundFirstToBet = true;
+                player.currentRoundFirstToBet = false;
+            }
+
+            NextBetter(player);
+
+            // remove players active this round
+            playersPlaying.Remove(player);
         }
 
         public void BettingRound() {
+            foreach (Player player in playersPlaying) {
+                // asserts only the correct player has currentBetter true
+                if (player.currentRoundFirstToBet) {
+                    player.currentBetter = true;
+                } else {
+                    player.currentBetter = false;
+                }
+            }
 
-            //save total bet for each player
+            int activePpl = playersPlaying.Count();
+            for (int i=0;i<activePpl;i++) {
+                int currentBetterIndex = playersPlaying.IndexOf(playersPlaying.Find(p => p.currentBetter));
+                // get action from player playersPlaying[currentBetterIndex]
+
+                // in event of a RAISE:
+                // set i = 0 and recalculate activePpl
+
+                // if player folds, 
+
+            }
+
             //end: move bets to pot
         }
 

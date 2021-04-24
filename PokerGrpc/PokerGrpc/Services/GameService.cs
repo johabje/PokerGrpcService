@@ -75,10 +75,11 @@ namespace PokerGrpc.Services
             } catch (ArgumentNullException e) {
                 // game with pin not found
                 // returning empty GameLobby
+                //give error message on frontend
                 return Task.FromResult(new GameLobby { });
             }
 
-            lobby = StorageSingleton.Instance.currentGames.Find(game => game.gamePin.Equals(request.GamePin));
+            //lobby = StorageSingleton.Instance.currentGames.Find(game => game.gamePin.Equals(request.GamePin));
 
             Player player = new Player
             {

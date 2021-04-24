@@ -1,4 +1,5 @@
-﻿using System;
+﻿/*
+using System;
 using System.Collections.Generic;
 
 namespace PokerGrpc.Models
@@ -6,6 +7,7 @@ namespace PokerGrpc.Models
     public class GameLoop
     {
 
+        
         public PokerGame pokerTable;
 
 
@@ -16,9 +18,9 @@ namespace PokerGrpc.Models
             this.pokerTable = new PokerGame(player, blind, gamePin, maxPlayers);
 
             switch (gameMode) {
-                /* 
+                *//* 
                  * 0 = default = holdem, assign an int to another game mode
-                 */
+                 *//*
                 case 1:
                     // some other game mode
                     break;
@@ -27,12 +29,7 @@ namespace PokerGrpc.Models
                     break;
             }
 
-            
-
-            
-
         }
-
         private void HoldEm() {
             // when tableowner send a request to start the game (or all seats taken):
             pokerTable.NewGame();
@@ -41,6 +38,7 @@ namespace PokerGrpc.Models
             while (playing) {
                 pokerTable.DealPlayerCards(2);
                 // betting round
+                // wait for all bets / time limit
 
                 //deal 3 table cards
                 pokerTable.DealTableCards(3);
@@ -63,7 +61,6 @@ namespace PokerGrpc.Models
 
         }
 
-
-
     }
 }
+*/
