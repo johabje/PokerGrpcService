@@ -151,7 +151,7 @@ namespace PokerGrpc.Services
         /*
         TODO change names etc here -> game.proto
         */
-        public override Task<BetResponse> PlayerAction(BetRequest request, ServerCallContext context)
+        public override Task<ActionResponse> Action(ActionRequest request, ServerCallContext context)
         { 
             ActionResponse badActionResponse = new ActionResponse {success = false});
             PokerGame lobby;
@@ -177,27 +177,28 @@ namespace PokerGrpc.Services
                     break;
                 case 1:
                     // action: check;
-                    // TODO
-                    //only if no one has made a bet (lobby.currentBet =null/0 or something)
-                    lobby.NextBetter();
+                    if (!lobby.Check(player)) {
+                        return Task.FromResult(badActionResponse);
+                    }
                     break;
                 case 2:
                     // action: bet (== raise)
-                    //TODO
-                    // only if player.bet is higher than a potential current bet
-                    // AND bet is smaller and wallet
-                    // do this logic in PlaceBet();
-                    lobby.PlaceBet(player, request.bet);
+                    if (!lobby.PlaceBet(player, request.bet)) {
+                        return Task.FromResult(badActionResponse);
+                    }
                     break;
                 case 3:
                     // action: call
-                    //  assert player.wallet >= the current bet
-                    lobby.Call(player);
+                    if(!lobby.Call(player)) {
+                        return Task.FromResult(badActionResponse);
+                    }
                     break;
                 default:
                     return Task.FromResult(badActionResponse);
                     break;
             }
+            player.lastAction = actionId;
+            lobby.UpdateState();
             return Task.FromResult(new ActionResponse { success = true });
         }
 
