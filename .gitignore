@@ -22,3 +22,4 @@ PokerGrpc/GrpcConsoleClient/obj/Debug/netcoreapp3.1/GrpcConsoleClient.assets.cac
 *.pdb
 PokerGrpc/PokerGrpc/bin/Debug/netcoreapp3.1/PokerGrpc.pdb
 PokerGrpc/PokerGrpcTest/obj/Debug/netcoreapp3.1/PokerGrpcTest.csprojAssemblyReference.cache
+PokerGrpc/.vs/PokerGrpc/xs/UserPrefs.xml

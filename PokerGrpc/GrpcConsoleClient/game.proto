@@ -6,7 +6,7 @@ service Game {
     rpc CreateNewGame (NewGameRequest) returns (GameLobby);
     rpc JoinGame (JoinGameRequest) returns (GameLobby);
     rpc StartStream (JoinGameRequest) returns (stream GameLobby);
-    rpc Bet (BetRequest) returns (BetResponse);
+    rpc Action (ActionRequest) returns (ActionResponse);
 }
 
 message NewGameRequest {
@@ -31,7 +31,6 @@ message GameLobby
     
 }
 
-
 message GPlayer {
     double wallet = 2;
     string name = 1;
@@ -41,12 +40,13 @@ message GPlayer {
     int32 action = 6;
 }
 
-message BetRequest {
+message ActionRequest {
     int32 gamePin = 1;
     GPlayer gplayer = 2;
     int32 amount = 3;
+    int32 Action = 4;
 }
 
-message BetResponse {
+message ActionResponse {
     bool succsess = 1;
 }

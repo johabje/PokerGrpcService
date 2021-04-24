@@ -45,8 +45,8 @@ namespace GrpcConsoleClient {
     static readonly grpc::Marshaller<global::GrpcConsoleClient.NewGameRequest> __Marshaller_NewGameRequest = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::GrpcConsoleClient.NewGameRequest.Parser));
     static readonly grpc::Marshaller<global::GrpcConsoleClient.GameLobby> __Marshaller_GameLobby = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::GrpcConsoleClient.GameLobby.Parser));
     static readonly grpc::Marshaller<global::GrpcConsoleClient.JoinGameRequest> __Marshaller_JoinGameRequest = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::GrpcConsoleClient.JoinGameRequest.Parser));
-    static readonly grpc::Marshaller<global::GrpcConsoleClient.BetRequest> __Marshaller_BetRequest = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::GrpcConsoleClient.BetRequest.Parser));
-    static readonly grpc::Marshaller<global::GrpcConsoleClient.BetResponse> __Marshaller_BetResponse = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::GrpcConsoleClient.BetResponse.Parser));
+    static readonly grpc::Marshaller<global::GrpcConsoleClient.ActionRequest> __Marshaller_ActionRequest = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::GrpcConsoleClient.ActionRequest.Parser));
+    static readonly grpc::Marshaller<global::GrpcConsoleClient.ActionResponse> __Marshaller_ActionResponse = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::GrpcConsoleClient.ActionResponse.Parser));
 
     static readonly grpc::Method<global::GrpcConsoleClient.NewGameRequest, global::GrpcConsoleClient.GameLobby> __Method_CreateNewGame = new grpc::Method<global::GrpcConsoleClient.NewGameRequest, global::GrpcConsoleClient.GameLobby>(
         grpc::MethodType.Unary,
@@ -69,12 +69,12 @@ namespace GrpcConsoleClient {
         __Marshaller_JoinGameRequest,
         __Marshaller_GameLobby);
 
-    static readonly grpc::Method<global::GrpcConsoleClient.BetRequest, global::GrpcConsoleClient.BetResponse> __Method_Bet = new grpc::Method<global::GrpcConsoleClient.BetRequest, global::GrpcConsoleClient.BetResponse>(
+    static readonly grpc::Method<global::GrpcConsoleClient.ActionRequest, global::GrpcConsoleClient.ActionResponse> __Method_Action = new grpc::Method<global::GrpcConsoleClient.ActionRequest, global::GrpcConsoleClient.ActionResponse>(
         grpc::MethodType.Unary,
         __ServiceName,
-        "Bet",
-        __Marshaller_BetRequest,
-        __Marshaller_BetResponse);
+        "Action",
+        __Marshaller_ActionRequest,
+        __Marshaller_ActionResponse);
 
     /// <summary>Service descriptor</summary>
     public static global::Google.Protobuf.Reflection.ServiceDescriptor Descriptor
@@ -145,21 +145,21 @@ namespace GrpcConsoleClient {
       {
         return CallInvoker.AsyncServerStreamingCall(__Method_StartStream, null, options, request);
       }
-      public virtual global::GrpcConsoleClient.BetResponse Bet(global::GrpcConsoleClient.BetRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      public virtual global::GrpcConsoleClient.ActionResponse Action(global::GrpcConsoleClient.ActionRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
       {
-        return Bet(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+        return Action(request, new grpc::CallOptions(headers, deadline, cancellationToken));
       }
-      public virtual global::GrpcConsoleClient.BetResponse Bet(global::GrpcConsoleClient.BetRequest request, grpc::CallOptions options)
+      public virtual global::GrpcConsoleClient.ActionResponse Action(global::GrpcConsoleClient.ActionRequest request, grpc::CallOptions options)
       {
-        return CallInvoker.BlockingUnaryCall(__Method_Bet, null, options, request);
+        return CallInvoker.BlockingUnaryCall(__Method_Action, null, options, request);
       }
-      public virtual grpc::AsyncUnaryCall<global::GrpcConsoleClient.BetResponse> BetAsync(global::GrpcConsoleClient.BetRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      public virtual grpc::AsyncUnaryCall<global::GrpcConsoleClient.ActionResponse> ActionAsync(global::GrpcConsoleClient.ActionRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
       {
-        return BetAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+        return ActionAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
       }
-      public virtual grpc::AsyncUnaryCall<global::GrpcConsoleClient.BetResponse> BetAsync(global::GrpcConsoleClient.BetRequest request, grpc::CallOptions options)
+      public virtual grpc::AsyncUnaryCall<global::GrpcConsoleClient.ActionResponse> ActionAsync(global::GrpcConsoleClient.ActionRequest request, grpc::CallOptions options)
       {
-        return CallInvoker.AsyncUnaryCall(__Method_Bet, null, options, request);
+        return CallInvoker.AsyncUnaryCall(__Method_Action, null, options, request);
       }
       /// <summary>Creates a new instance of client from given <c>ClientBaseConfiguration</c>.</summary>
       protected override GameClient NewInstance(ClientBaseConfiguration configuration)

@@ -32,14 +32,15 @@ namespace GrpcConsoleClient {
             "CwoDcG90GAUgASgBEgsKA2JldBgGIAEoARINCgVibGluZBgHIAEoBSJtCgdH",
             "UGxheWVyEg4KBndhbGxldBgCIAEoARIMCgRuYW1lGAEgASgJEhMKC2lzUm9v",
             "bU93bmVyGAMgASgIEgwKBGhhbmQYBCABKAkSEQoJYmVzdENvbWJvGAUgASgJ",
-            "Eg4KBmFjdGlvbhgGIAEoBSJICgpCZXRSZXF1ZXN0Eg8KB2dhbWVQaW4YASAB",
-            "KAUSGQoHZ3BsYXllchgCIAEoCzIILkdQbGF5ZXISDgoGYW1vdW50GAMgASgF",
-            "Ih8KC0JldFJlc3BvbnNlEhAKCHN1Y2NzZXNzGAEgASgIMq8BCgRHYW1lEiwK",
-            "DUNyZWF0ZU5ld0dhbWUSDy5OZXdHYW1lUmVxdWVzdBoKLkdhbWVMb2JieRIo",
-            "CghKb2luR2FtZRIQLkpvaW5HYW1lUmVxdWVzdBoKLkdhbWVMb2JieRItCgtT",
-            "dGFydFN0cmVhbRIQLkpvaW5HYW1lUmVxdWVzdBoKLkdhbWVMb2JieTABEiAK",
-            "A0JldBILLkJldFJlcXVlc3QaDC5CZXRSZXNwb25zZUIUqgIRR3JwY0NvbnNv",
-            "bGVDbGllbnRiBnByb3RvMw=="));
+            "Eg4KBmFjdGlvbhgGIAEoBSJbCg1BY3Rpb25SZXF1ZXN0Eg8KB2dhbWVQaW4Y",
+            "ASABKAUSGQoHZ3BsYXllchgCIAEoCzIILkdQbGF5ZXISDgoGYW1vdW50GAMg",
+            "ASgFEg4KBkFjdGlvbhgEIAEoBSIiCg5BY3Rpb25SZXNwb25zZRIQCghzdWNj",
+            "c2VzcxgBIAEoCDK4AQoER2FtZRIsCg1DcmVhdGVOZXdHYW1lEg8uTmV3R2Ft",
+            "ZVJlcXVlc3QaCi5HYW1lTG9iYnkSKAoISm9pbkdhbWUSEC5Kb2luR2FtZVJl",
+            "cXVlc3QaCi5HYW1lTG9iYnkSLQoLU3RhcnRTdHJlYW0SEC5Kb2luR2FtZVJl",
+            "cXVlc3QaCi5HYW1lTG9iYnkwARIpCgZBY3Rpb24SDi5BY3Rpb25SZXF1ZXN0",
+            "Gg8uQWN0aW9uUmVzcG9uc2VCFKoCEUdycGNDb25zb2xlQ2xpZW50YgZwcm90",
+            "bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
@@ -47,8 +48,8 @@ namespace GrpcConsoleClient {
             new pbr::GeneratedClrTypeInfo(typeof(global::GrpcConsoleClient.JoinGameRequest), global::GrpcConsoleClient.JoinGameRequest.Parser, new[]{ "GamePin", "Gplayer" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::GrpcConsoleClient.GameLobby), global::GrpcConsoleClient.GameLobby.Parser, new[]{ "GamePin", "Gplayers", "ToAct", "TableCards", "Pot", "Bet", "Blind" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::GrpcConsoleClient.GPlayer), global::GrpcConsoleClient.GPlayer.Parser, new[]{ "Wallet", "Name", "IsRoomOwner", "Hand", "BestCombo", "Action" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::GrpcConsoleClient.BetRequest), global::GrpcConsoleClient.BetRequest.Parser, new[]{ "GamePin", "Gplayer", "Amount" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::GrpcConsoleClient.BetResponse), global::GrpcConsoleClient.BetResponse.Parser, new[]{ "Succsess" }, null, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::GrpcConsoleClient.ActionRequest), global::GrpcConsoleClient.ActionRequest.Parser, new[]{ "GamePin", "Gplayer", "Amount", "Action" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::GrpcConsoleClient.ActionResponse), global::GrpcConsoleClient.ActionResponse.Parser, new[]{ "Succsess" }, null, null, null, null)
           }));
     }
     #endregion
@@ -1191,15 +1192,15 @@ namespace GrpcConsoleClient {
 
   }
 
-  public sealed partial class BetRequest : pb::IMessage<BetRequest>
+  public sealed partial class ActionRequest : pb::IMessage<ActionRequest>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
   #endif
   {
-    private static readonly pb::MessageParser<BetRequest> _parser = new pb::MessageParser<BetRequest>(() => new BetRequest());
+    private static readonly pb::MessageParser<ActionRequest> _parser = new pb::MessageParser<ActionRequest>(() => new ActionRequest());
     private pb::UnknownFieldSet _unknownFields;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public static pb::MessageParser<BetRequest> Parser { get { return _parser; } }
+    public static pb::MessageParser<ActionRequest> Parser { get { return _parser; } }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
@@ -1212,23 +1213,24 @@ namespace GrpcConsoleClient {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public BetRequest() {
+    public ActionRequest() {
       OnConstruction();
     }
 
     partial void OnConstruction();
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public BetRequest(BetRequest other) : this() {
+    public ActionRequest(ActionRequest other) : this() {
       gamePin_ = other.gamePin_;
       gplayer_ = other.gplayer_ != null ? other.gplayer_.Clone() : null;
       amount_ = other.amount_;
+      action_ = other.action_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public BetRequest Clone() {
-      return new BetRequest(this);
+    public ActionRequest Clone() {
+      return new ActionRequest(this);
     }
 
     /// <summary>Field number for the "gamePin" field.</summary>
@@ -1264,13 +1266,24 @@ namespace GrpcConsoleClient {
       }
     }
 
+    /// <summary>Field number for the "Action" field.</summary>
+    public const int ActionFieldNumber = 4;
+    private int action_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public override bool Equals(object other) {
-      return Equals(other as BetRequest);
+    public int Action {
+      get { return action_; }
+      set {
+        action_ = value;
+      }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public bool Equals(BetRequest other) {
+    public override bool Equals(object other) {
+      return Equals(other as ActionRequest);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Equals(ActionRequest other) {
       if (ReferenceEquals(other, null)) {
         return false;
       }
@@ -1280,6 +1293,7 @@ namespace GrpcConsoleClient {
       if (GamePin != other.GamePin) return false;
       if (!object.Equals(Gplayer, other.Gplayer)) return false;
       if (Amount != other.Amount) return false;
+      if (Action != other.Action) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -1289,6 +1303,7 @@ namespace GrpcConsoleClient {
       if (GamePin != 0) hash ^= GamePin.GetHashCode();
       if (gplayer_ != null) hash ^= Gplayer.GetHashCode();
       if (Amount != 0) hash ^= Amount.GetHashCode();
+      if (Action != 0) hash ^= Action.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -1317,6 +1332,10 @@ namespace GrpcConsoleClient {
         output.WriteRawTag(24);
         output.WriteInt32(Amount);
       }
+      if (Action != 0) {
+        output.WriteRawTag(32);
+        output.WriteInt32(Action);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -1338,6 +1357,10 @@ namespace GrpcConsoleClient {
         output.WriteRawTag(24);
         output.WriteInt32(Amount);
       }
+      if (Action != 0) {
+        output.WriteRawTag(32);
+        output.WriteInt32(Action);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -1356,6 +1379,9 @@ namespace GrpcConsoleClient {
       if (Amount != 0) {
         size += 1 + pb::CodedOutputStream.ComputeInt32Size(Amount);
       }
+      if (Action != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(Action);
+      }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
       }
@@ -1363,7 +1389,7 @@ namespace GrpcConsoleClient {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void MergeFrom(BetRequest other) {
+    public void MergeFrom(ActionRequest other) {
       if (other == null) {
         return;
       }
@@ -1378,6 +1404,9 @@ namespace GrpcConsoleClient {
       }
       if (other.Amount != 0) {
         Amount = other.Amount;
+      }
+      if (other.Action != 0) {
+        Action = other.Action;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -1406,6 +1435,10 @@ namespace GrpcConsoleClient {
           }
           case 24: {
             Amount = input.ReadInt32();
+            break;
+          }
+          case 32: {
+            Action = input.ReadInt32();
             break;
           }
         }
@@ -1437,6 +1470,10 @@ namespace GrpcConsoleClient {
             Amount = input.ReadInt32();
             break;
           }
+          case 32: {
+            Action = input.ReadInt32();
+            break;
+          }
         }
       }
     }
@@ -1444,15 +1481,15 @@ namespace GrpcConsoleClient {
 
   }
 
-  public sealed partial class BetResponse : pb::IMessage<BetResponse>
+  public sealed partial class ActionResponse : pb::IMessage<ActionResponse>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
   #endif
   {
-    private static readonly pb::MessageParser<BetResponse> _parser = new pb::MessageParser<BetResponse>(() => new BetResponse());
+    private static readonly pb::MessageParser<ActionResponse> _parser = new pb::MessageParser<ActionResponse>(() => new ActionResponse());
     private pb::UnknownFieldSet _unknownFields;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public static pb::MessageParser<BetResponse> Parser { get { return _parser; } }
+    public static pb::MessageParser<ActionResponse> Parser { get { return _parser; } }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
@@ -1465,21 +1502,21 @@ namespace GrpcConsoleClient {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public BetResponse() {
+    public ActionResponse() {
       OnConstruction();
     }
 
     partial void OnConstruction();
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public BetResponse(BetResponse other) : this() {
+    public ActionResponse(ActionResponse other) : this() {
       succsess_ = other.succsess_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public BetResponse Clone() {
-      return new BetResponse(this);
+    public ActionResponse Clone() {
+      return new ActionResponse(this);
     }
 
     /// <summary>Field number for the "succsess" field.</summary>
@@ -1495,11 +1532,11 @@ namespace GrpcConsoleClient {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override bool Equals(object other) {
-      return Equals(other as BetResponse);
+      return Equals(other as ActionResponse);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public bool Equals(BetResponse other) {
+    public bool Equals(ActionResponse other) {
       if (ReferenceEquals(other, null)) {
         return false;
       }
@@ -1566,7 +1603,7 @@ namespace GrpcConsoleClient {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void MergeFrom(BetResponse other) {
+    public void MergeFrom(ActionResponse other) {
       if (other == null) {
         return;
       }
