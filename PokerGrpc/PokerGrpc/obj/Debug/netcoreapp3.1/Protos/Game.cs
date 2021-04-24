@@ -32,15 +32,14 @@ namespace PokerGrpc {
             "GAQgASgJEgsKA3BvdBgFIAEoARILCgNiZXQYBiABKAESDQoFYmxpbmQYByAB",
             "KAUibQoHR1BsYXllchIOCgZ3YWxsZXQYAiABKAESDAoEbmFtZRgBIAEoCRIT",
             "Cgtpc1Jvb21Pd25lchgDIAEoCBIMCgRoYW5kGAQgASgJEhEKCWJlc3RDb21i",
-            "bxgFIAEoCRIOCgZhY3Rpb24YBiABKAUiWwoNQWN0aW9uUmVxdWVzdBIPCgdn",
-            "YW1lUGluGAEgASgFEhkKB2dwbGF5ZXIYAiABKAsyCC5HUGxheWVyEg4KBmFt",
-            "b3VudBgDIAEoBRIOCgZBY3Rpb24YBCABKAUiIgoOQWN0aW9uUmVzcG9uc2US",
-            "EAoIc3VjY3Nlc3MYASABKAgyuAEKBEdhbWUSLAoNQ3JlYXRlTmV3R2FtZRIP",
-            "Lk5ld0dhbWVSZXF1ZXN0GgouR2FtZUxvYmJ5EigKCEpvaW5HYW1lEhAuSm9p",
-            "bkdhbWVSZXF1ZXN0GgouR2FtZUxvYmJ5Ei0KC1N0YXJ0U3RyZWFtEhAuSm9p",
-            "bkdhbWVSZXF1ZXN0GgouR2FtZUxvYmJ5MAESKQoGQWN0aW9uEg4uQWN0aW9u",
-            "UmVxdWVzdBoPLkFjdGlvblJlc3BvbnNlQgyqAglQb2tlckdycGNiBnByb3Rv",
-            "Mw=="));
+            "bxgFIAEoCRIOCgZhY3Rpb24YBiABKAUiWAoNQWN0aW9uUmVxdWVzdBIPCgdn",
+            "YW1lUGluGAEgASgFEhYKBG5hbWUYAiABKAsyCC5HUGxheWVyEg4KBmFtb3Vu",
+            "dBgDIAEoBRIOCgZBY3Rpb24YBCABKAUiIQoOQWN0aW9uUmVzcG9uc2USDwoH",
+            "c3VjY2VzcxgBIAEoCDK4AQoER2FtZRIsCg1DcmVhdGVOZXdHYW1lEg8uTmV3",
+            "R2FtZVJlcXVlc3QaCi5HYW1lTG9iYnkSKAoISm9pbkdhbWUSEC5Kb2luR2Ft",
+            "ZVJlcXVlc3QaCi5HYW1lTG9iYnkSLQoLU3RhcnRTdHJlYW0SEC5Kb2luR2Ft",
+            "ZVJlcXVlc3QaCi5HYW1lTG9iYnkwARIpCgZBY3Rpb24SDi5BY3Rpb25SZXF1",
+            "ZXN0Gg8uQWN0aW9uUmVzcG9uc2VCDKoCCVBva2VyR3JwY2IGcHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
@@ -48,8 +47,8 @@ namespace PokerGrpc {
             new pbr::GeneratedClrTypeInfo(typeof(global::PokerGrpc.JoinGameRequest), global::PokerGrpc.JoinGameRequest.Parser, new[]{ "GamePin", "Gplayer" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::PokerGrpc.GameLobby), global::PokerGrpc.GameLobby.Parser, new[]{ "GamePin", "Gplayers", "ToAct", "TableCards", "Pot", "Bet", "Blind" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::PokerGrpc.GPlayer), global::PokerGrpc.GPlayer.Parser, new[]{ "Wallet", "Name", "IsRoomOwner", "Hand", "BestCombo", "Action" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::PokerGrpc.ActionRequest), global::PokerGrpc.ActionRequest.Parser, new[]{ "GamePin", "Gplayer", "Amount", "Action" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::PokerGrpc.ActionResponse), global::PokerGrpc.ActionResponse.Parser, new[]{ "Succsess" }, null, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::PokerGrpc.ActionRequest), global::PokerGrpc.ActionRequest.Parser, new[]{ "GamePin", "Name", "Amount", "Action" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::PokerGrpc.ActionResponse), global::PokerGrpc.ActionResponse.Parser, new[]{ "Success" }, null, null, null, null)
           }));
     }
     #endregion
@@ -1222,7 +1221,7 @@ namespace PokerGrpc {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public ActionRequest(ActionRequest other) : this() {
       gamePin_ = other.gamePin_;
-      gplayer_ = other.gplayer_ != null ? other.gplayer_.Clone() : null;
+      name_ = other.name_ != null ? other.name_.Clone() : null;
       amount_ = other.amount_;
       action_ = other.action_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
@@ -1244,14 +1243,14 @@ namespace PokerGrpc {
       }
     }
 
-    /// <summary>Field number for the "gplayer" field.</summary>
-    public const int GplayerFieldNumber = 2;
-    private global::PokerGrpc.GPlayer gplayer_;
+    /// <summary>Field number for the "name" field.</summary>
+    public const int NameFieldNumber = 2;
+    private global::PokerGrpc.GPlayer name_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public global::PokerGrpc.GPlayer Gplayer {
-      get { return gplayer_; }
+    public global::PokerGrpc.GPlayer Name {
+      get { return name_; }
       set {
-        gplayer_ = value;
+        name_ = value;
       }
     }
 
@@ -1291,7 +1290,7 @@ namespace PokerGrpc {
         return true;
       }
       if (GamePin != other.GamePin) return false;
-      if (!object.Equals(Gplayer, other.Gplayer)) return false;
+      if (!object.Equals(Name, other.Name)) return false;
       if (Amount != other.Amount) return false;
       if (Action != other.Action) return false;
       return Equals(_unknownFields, other._unknownFields);
@@ -1301,7 +1300,7 @@ namespace PokerGrpc {
     public override int GetHashCode() {
       int hash = 1;
       if (GamePin != 0) hash ^= GamePin.GetHashCode();
-      if (gplayer_ != null) hash ^= Gplayer.GetHashCode();
+      if (name_ != null) hash ^= Name.GetHashCode();
       if (Amount != 0) hash ^= Amount.GetHashCode();
       if (Action != 0) hash ^= Action.GetHashCode();
       if (_unknownFields != null) {
@@ -1324,9 +1323,9 @@ namespace PokerGrpc {
         output.WriteRawTag(8);
         output.WriteInt32(GamePin);
       }
-      if (gplayer_ != null) {
+      if (name_ != null) {
         output.WriteRawTag(18);
-        output.WriteMessage(Gplayer);
+        output.WriteMessage(Name);
       }
       if (Amount != 0) {
         output.WriteRawTag(24);
@@ -1349,9 +1348,9 @@ namespace PokerGrpc {
         output.WriteRawTag(8);
         output.WriteInt32(GamePin);
       }
-      if (gplayer_ != null) {
+      if (name_ != null) {
         output.WriteRawTag(18);
-        output.WriteMessage(Gplayer);
+        output.WriteMessage(Name);
       }
       if (Amount != 0) {
         output.WriteRawTag(24);
@@ -1373,8 +1372,8 @@ namespace PokerGrpc {
       if (GamePin != 0) {
         size += 1 + pb::CodedOutputStream.ComputeInt32Size(GamePin);
       }
-      if (gplayer_ != null) {
-        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Gplayer);
+      if (name_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Name);
       }
       if (Amount != 0) {
         size += 1 + pb::CodedOutputStream.ComputeInt32Size(Amount);
@@ -1396,11 +1395,11 @@ namespace PokerGrpc {
       if (other.GamePin != 0) {
         GamePin = other.GamePin;
       }
-      if (other.gplayer_ != null) {
-        if (gplayer_ == null) {
-          Gplayer = new global::PokerGrpc.GPlayer();
+      if (other.name_ != null) {
+        if (name_ == null) {
+          Name = new global::PokerGrpc.GPlayer();
         }
-        Gplayer.MergeFrom(other.Gplayer);
+        Name.MergeFrom(other.Name);
       }
       if (other.Amount != 0) {
         Amount = other.Amount;
@@ -1427,10 +1426,10 @@ namespace PokerGrpc {
             break;
           }
           case 18: {
-            if (gplayer_ == null) {
-              Gplayer = new global::PokerGrpc.GPlayer();
+            if (name_ == null) {
+              Name = new global::PokerGrpc.GPlayer();
             }
-            input.ReadMessage(Gplayer);
+            input.ReadMessage(Name);
             break;
           }
           case 24: {
@@ -1460,10 +1459,10 @@ namespace PokerGrpc {
             break;
           }
           case 18: {
-            if (gplayer_ == null) {
-              Gplayer = new global::PokerGrpc.GPlayer();
+            if (name_ == null) {
+              Name = new global::PokerGrpc.GPlayer();
             }
-            input.ReadMessage(Gplayer);
+            input.ReadMessage(Name);
             break;
           }
           case 24: {
@@ -1510,7 +1509,7 @@ namespace PokerGrpc {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public ActionResponse(ActionResponse other) : this() {
-      succsess_ = other.succsess_;
+      success_ = other.success_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -1519,14 +1518,14 @@ namespace PokerGrpc {
       return new ActionResponse(this);
     }
 
-    /// <summary>Field number for the "succsess" field.</summary>
-    public const int SuccsessFieldNumber = 1;
-    private bool succsess_;
+    /// <summary>Field number for the "success" field.</summary>
+    public const int SuccessFieldNumber = 1;
+    private bool success_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public bool Succsess {
-      get { return succsess_; }
+    public bool Success {
+      get { return success_; }
       set {
-        succsess_ = value;
+        success_ = value;
       }
     }
 
@@ -1543,14 +1542,14 @@ namespace PokerGrpc {
       if (ReferenceEquals(other, this)) {
         return true;
       }
-      if (Succsess != other.Succsess) return false;
+      if (Success != other.Success) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override int GetHashCode() {
       int hash = 1;
-      if (Succsess != false) hash ^= Succsess.GetHashCode();
+      if (Success != false) hash ^= Success.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -1567,9 +1566,9 @@ namespace PokerGrpc {
     #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       output.WriteRawMessage(this);
     #else
-      if (Succsess != false) {
+      if (Success != false) {
         output.WriteRawTag(8);
-        output.WriteBool(Succsess);
+        output.WriteBool(Success);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
@@ -1580,9 +1579,9 @@ namespace PokerGrpc {
     #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-      if (Succsess != false) {
+      if (Success != false) {
         output.WriteRawTag(8);
-        output.WriteBool(Succsess);
+        output.WriteBool(Success);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
@@ -1593,7 +1592,7 @@ namespace PokerGrpc {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public int CalculateSize() {
       int size = 0;
-      if (Succsess != false) {
+      if (Success != false) {
         size += 1 + 1;
       }
       if (_unknownFields != null) {
@@ -1607,8 +1606,8 @@ namespace PokerGrpc {
       if (other == null) {
         return;
       }
-      if (other.Succsess != false) {
-        Succsess = other.Succsess;
+      if (other.Success != false) {
+        Success = other.Success;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -1625,7 +1624,7 @@ namespace PokerGrpc {
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
           case 8: {
-            Succsess = input.ReadBool();
+            Success = input.ReadBool();
             break;
           }
         }
@@ -1643,7 +1642,7 @@ namespace PokerGrpc {
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
           case 8: {
-            Succsess = input.ReadBool();
+            Success = input.ReadBool();
             break;
           }
         }

@@ -42,11 +42,11 @@ message GPlayer {
 
 message ActionRequest {
     int32 gamePin = 1;
-    GPlayer gplayer = 2;
+    GPlayer name = 2;
     int32 amount = 3;
     int32 Action = 4;
 }
 
 message ActionResponse {
-    bool succsess = 1;
+    bool success = 1;
 }

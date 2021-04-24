@@ -10,7 +10,8 @@ service Game {
 }
 
 message NewGameRequest {
-    GPlayer gplayer = 1; 
+    GPlayer gplayer = 1;
+    int32 Gamepin = 2; 
 }
 
 message JoinGameRequest {
@@ -43,7 +44,7 @@ message GPlayer {
 message ActionRequest {
     int32 gamePin = 1;
     GPlayer gplayer = 2;
-    int32 amount = 3;
+    int32 Bet = 3;
     int32 Action = 4;
 }
 
