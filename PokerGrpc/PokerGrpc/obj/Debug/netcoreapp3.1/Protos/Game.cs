@@ -32,23 +32,15 @@ namespace PokerGrpc {
             "GAQgASgJEgsKA3BvdBgFIAEoARILCgNiZXQYBiABKAESDQoFYmxpbmQYByAB",
             "KAUibQoHR1BsYXllchIOCgZ3YWxsZXQYAiABKAESDAoEbmFtZRgBIAEoCRIT",
             "Cgtpc1Jvb21Pd25lchgDIAEoCBIMCgRoYW5kGAQgASgJEhEKCWJlc3RDb21i",
-            "bxgFIAEoCRIOCgZhY3Rpb24YBiABKAUiSAoKQmV0UmVxdWVzdBIPCgdnYW1l",
-            "UGluGAEgASgFEhkKB2dwbGF5ZXIYAiABKAsyCC5HUGxheWVyEg4KBmFtb3Vu",
-            "dBgDIAEoBSIfCgtCZXRSZXNwb25zZRIQCghzdWNjc2VzcxgBIAEoCCI5CgtG",
-            "b2xkUmVxdWVzdBIPCgdnYW1lUGluGAEgASgFEhkKB2dwbGF5ZXIYAiABKAsy",
-            "CC5HUGxheWVyIiAKDEZvbGRSZXNwb25zZRIQCghzdWNjc2VzcxgBIAEoCCI5",
-            "CgtDYWxsUmVxdWVzdBIPCgdnYW1lUGluGAEgASgFEhkKB2dwbGF5ZXIYAiAB",
-            "KAsyCC5HUGxheWVyIiAKDENhbGxSZXNwb25zZRIQCghzdWNjc2VzcxgBIAEo",
-            "CCJKCgxSYWlzZVJlcXVlc3QSDwoHZ2FtZVBpbhgBIAEoBRIZCgdncGxheWVy",
-            "GAIgASgLMgguR1BsYXllchIOCgZhbW91bnQYAyABKAUiIQoNUmFpc2VSZXNw",
-            "b25zZRIQCghzdWNjc2VzcxgBIAEoCDKhAgoER2FtZRIsCg1DcmVhdGVOZXdH",
-            "YW1lEg8uTmV3R2FtZVJlcXVlc3QaCi5HYW1lTG9iYnkSKAoISm9pbkdhbWUS",
-            "EC5Kb2luR2FtZVJlcXVlc3QaCi5HYW1lTG9iYnkSLQoLU3RhcnRTdHJlYW0S",
-            "EC5Kb2luR2FtZVJlcXVlc3QaCi5HYW1lTG9iYnkwARIgCgNCZXQSCy5CZXRS",
-            "ZXF1ZXN0GgwuQmV0UmVzcG9uc2USIwoERm9sZBIMLkZvbGRSZXF1ZXN0Gg0u",
-            "Rm9sZFJlc3BvbnNlEiMKBENhbGwSDC5DYWxsUmVxdWVzdBoNLkNhbGxSZXNw",
-            "b25zZRImCgVSYWlzZRINLlJhaXNlUmVxdWVzdBoOLlJhaXNlUmVzcG9uc2VC",
-            "DKoCCVBva2VyR3JwY2IGcHJvdG8z"));
+            "bxgFIAEoCRIOCgZhY3Rpb24YBiABKAUiWwoNQWN0aW9uUmVxdWVzdBIPCgdn",
+            "YW1lUGluGAEgASgFEhkKB2dwbGF5ZXIYAiABKAsyCC5HUGxheWVyEg4KBmFt",
+            "b3VudBgDIAEoBRIOCgZBY3Rpb24YBCABKAUiIgoOQWN0aW9uUmVzcG9uc2US",
+            "EAoIc3VjY3Nlc3MYASABKAgyuAEKBEdhbWUSLAoNQ3JlYXRlTmV3R2FtZRIP",
+            "Lk5ld0dhbWVSZXF1ZXN0GgouR2FtZUxvYmJ5EigKCEpvaW5HYW1lEhAuSm9p",
+            "bkdhbWVSZXF1ZXN0GgouR2FtZUxvYmJ5Ei0KC1N0YXJ0U3RyZWFtEhAuSm9p",
+            "bkdhbWVSZXF1ZXN0GgouR2FtZUxvYmJ5MAESKQoGQWN0aW9uEg4uQWN0aW9u",
+            "UmVxdWVzdBoPLkFjdGlvblJlc3BvbnNlQgyqAglQb2tlckdycGNiBnByb3Rv",
+            "Mw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
@@ -56,14 +48,8 @@ namespace PokerGrpc {
             new pbr::GeneratedClrTypeInfo(typeof(global::PokerGrpc.JoinGameRequest), global::PokerGrpc.JoinGameRequest.Parser, new[]{ "GamePin", "Gplayer" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::PokerGrpc.GameLobby), global::PokerGrpc.GameLobby.Parser, new[]{ "GamePin", "Gplayers", "ToAct", "TableCards", "Pot", "Bet", "Blind" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::PokerGrpc.GPlayer), global::PokerGrpc.GPlayer.Parser, new[]{ "Wallet", "Name", "IsRoomOwner", "Hand", "BestCombo", "Action" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::PokerGrpc.BetRequest), global::PokerGrpc.BetRequest.Parser, new[]{ "GamePin", "Gplayer", "Amount" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::PokerGrpc.BetResponse), global::PokerGrpc.BetResponse.Parser, new[]{ "Succsess" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::PokerGrpc.FoldRequest), global::PokerGrpc.FoldRequest.Parser, new[]{ "GamePin", "Gplayer" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::PokerGrpc.FoldResponse), global::PokerGrpc.FoldResponse.Parser, new[]{ "Succsess" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::PokerGrpc.CallRequest), global::PokerGrpc.CallRequest.Parser, new[]{ "GamePin", "Gplayer" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::PokerGrpc.CallResponse), global::PokerGrpc.CallResponse.Parser, new[]{ "Succsess" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::PokerGrpc.RaiseRequest), global::PokerGrpc.RaiseRequest.Parser, new[]{ "GamePin", "Gplayer", "Amount" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::PokerGrpc.RaiseResponse), global::PokerGrpc.RaiseResponse.Parser, new[]{ "Succsess" }, null, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::PokerGrpc.ActionRequest), global::PokerGrpc.ActionRequest.Parser, new[]{ "GamePin", "Gplayer", "Amount", "Action" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::PokerGrpc.ActionResponse), global::PokerGrpc.ActionResponse.Parser, new[]{ "Succsess" }, null, null, null, null)
           }));
     }
     #endregion
@@ -1206,15 +1192,15 @@ namespace PokerGrpc {
 
   }
 
-  public sealed partial class BetRequest : pb::IMessage<BetRequest>
+  public sealed partial class ActionRequest : pb::IMessage<ActionRequest>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
   #endif
   {
-    private static readonly pb::MessageParser<BetRequest> _parser = new pb::MessageParser<BetRequest>(() => new BetRequest());
+    private static readonly pb::MessageParser<ActionRequest> _parser = new pb::MessageParser<ActionRequest>(() => new ActionRequest());
     private pb::UnknownFieldSet _unknownFields;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public static pb::MessageParser<BetRequest> Parser { get { return _parser; } }
+    public static pb::MessageParser<ActionRequest> Parser { get { return _parser; } }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
@@ -1227,23 +1213,24 @@ namespace PokerGrpc {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public BetRequest() {
+    public ActionRequest() {
       OnConstruction();
     }
 
     partial void OnConstruction();
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public BetRequest(BetRequest other) : this() {
+    public ActionRequest(ActionRequest other) : this() {
       gamePin_ = other.gamePin_;
       gplayer_ = other.gplayer_ != null ? other.gplayer_.Clone() : null;
       amount_ = other.amount_;
+      action_ = other.action_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public BetRequest Clone() {
-      return new BetRequest(this);
+    public ActionRequest Clone() {
+      return new ActionRequest(this);
     }
 
     /// <summary>Field number for the "gamePin" field.</summary>
@@ -1279,13 +1266,24 @@ namespace PokerGrpc {
       }
     }
 
+    /// <summary>Field number for the "Action" field.</summary>
+    public const int ActionFieldNumber = 4;
+    private int action_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public override bool Equals(object other) {
-      return Equals(other as BetRequest);
+    public int Action {
+      get { return action_; }
+      set {
+        action_ = value;
+      }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public bool Equals(BetRequest other) {
+    public override bool Equals(object other) {
+      return Equals(other as ActionRequest);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Equals(ActionRequest other) {
       if (ReferenceEquals(other, null)) {
         return false;
       }
@@ -1295,6 +1293,7 @@ namespace PokerGrpc {
       if (GamePin != other.GamePin) return false;
       if (!object.Equals(Gplayer, other.Gplayer)) return false;
       if (Amount != other.Amount) return false;
+      if (Action != other.Action) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -1304,6 +1303,7 @@ namespace PokerGrpc {
       if (GamePin != 0) hash ^= GamePin.GetHashCode();
       if (gplayer_ != null) hash ^= Gplayer.GetHashCode();
       if (Amount != 0) hash ^= Amount.GetHashCode();
+      if (Action != 0) hash ^= Action.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -1332,6 +1332,10 @@ namespace PokerGrpc {
         output.WriteRawTag(24);
         output.WriteInt32(Amount);
       }
+      if (Action != 0) {
+        output.WriteRawTag(32);
+        output.WriteInt32(Action);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -1353,6 +1357,10 @@ namespace PokerGrpc {
         output.WriteRawTag(24);
         output.WriteInt32(Amount);
       }
+      if (Action != 0) {
+        output.WriteRawTag(32);
+        output.WriteInt32(Action);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -1371,6 +1379,9 @@ namespace PokerGrpc {
       if (Amount != 0) {
         size += 1 + pb::CodedOutputStream.ComputeInt32Size(Amount);
       }
+      if (Action != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(Action);
+      }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
       }
@@ -1378,7 +1389,7 @@ namespace PokerGrpc {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void MergeFrom(BetRequest other) {
+    public void MergeFrom(ActionRequest other) {
       if (other == null) {
         return;
       }
@@ -1393,6 +1404,9 @@ namespace PokerGrpc {
       }
       if (other.Amount != 0) {
         Amount = other.Amount;
+      }
+      if (other.Action != 0) {
+        Action = other.Action;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -1421,6 +1435,10 @@ namespace PokerGrpc {
           }
           case 24: {
             Amount = input.ReadInt32();
+            break;
+          }
+          case 32: {
+            Action = input.ReadInt32();
             break;
           }
         }
@@ -1452,6 +1470,10 @@ namespace PokerGrpc {
             Amount = input.ReadInt32();
             break;
           }
+          case 32: {
+            Action = input.ReadInt32();
+            break;
+          }
         }
       }
     }
@@ -1459,15 +1481,15 @@ namespace PokerGrpc {
 
   }
 
-  public sealed partial class BetResponse : pb::IMessage<BetResponse>
+  public sealed partial class ActionResponse : pb::IMessage<ActionResponse>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
   #endif
   {
-    private static readonly pb::MessageParser<BetResponse> _parser = new pb::MessageParser<BetResponse>(() => new BetResponse());
+    private static readonly pb::MessageParser<ActionResponse> _parser = new pb::MessageParser<ActionResponse>(() => new ActionResponse());
     private pb::UnknownFieldSet _unknownFields;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public static pb::MessageParser<BetResponse> Parser { get { return _parser; } }
+    public static pb::MessageParser<ActionResponse> Parser { get { return _parser; } }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
@@ -1480,21 +1502,21 @@ namespace PokerGrpc {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public BetResponse() {
+    public ActionResponse() {
       OnConstruction();
     }
 
     partial void OnConstruction();
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public BetResponse(BetResponse other) : this() {
+    public ActionResponse(ActionResponse other) : this() {
       succsess_ = other.succsess_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public BetResponse Clone() {
-      return new BetResponse(this);
+    public ActionResponse Clone() {
+      return new ActionResponse(this);
     }
 
     /// <summary>Field number for the "succsess" field.</summary>
@@ -1510,11 +1532,11 @@ namespace PokerGrpc {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override bool Equals(object other) {
-      return Equals(other as BetResponse);
+      return Equals(other as ActionResponse);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public bool Equals(BetResponse other) {
+    public bool Equals(ActionResponse other) {
       if (ReferenceEquals(other, null)) {
         return false;
       }
@@ -1581,1210 +1603,7 @@ namespace PokerGrpc {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void MergeFrom(BetResponse other) {
-      if (other == null) {
-        return;
-      }
-      if (other.Succsess != false) {
-        Succsess = other.Succsess;
-      }
-      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void MergeFrom(pb::CodedInputStream input) {
-    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-      input.ReadRawMessage(this);
-    #else
-      uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
-          default:
-            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
-            break;
-          case 8: {
-            Succsess = input.ReadBool();
-            break;
-          }
-        }
-      }
-    #endif
-    }
-
-    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
-      uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
-          default:
-            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
-            break;
-          case 8: {
-            Succsess = input.ReadBool();
-            break;
-          }
-        }
-      }
-    }
-    #endif
-
-  }
-
-  public sealed partial class FoldRequest : pb::IMessage<FoldRequest>
-  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-      , pb::IBufferMessage
-  #endif
-  {
-    private static readonly pb::MessageParser<FoldRequest> _parser = new pb::MessageParser<FoldRequest>(() => new FoldRequest());
-    private pb::UnknownFieldSet _unknownFields;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public static pb::MessageParser<FoldRequest> Parser { get { return _parser; } }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public static pbr::MessageDescriptor Descriptor {
-      get { return global::PokerGrpc.GameReflection.Descriptor.MessageTypes[6]; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    pbr::MessageDescriptor pb::IMessage.Descriptor {
-      get { return Descriptor; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public FoldRequest() {
-      OnConstruction();
-    }
-
-    partial void OnConstruction();
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public FoldRequest(FoldRequest other) : this() {
-      gamePin_ = other.gamePin_;
-      gplayer_ = other.gplayer_ != null ? other.gplayer_.Clone() : null;
-      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public FoldRequest Clone() {
-      return new FoldRequest(this);
-    }
-
-    /// <summary>Field number for the "gamePin" field.</summary>
-    public const int GamePinFieldNumber = 1;
-    private int gamePin_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public int GamePin {
-      get { return gamePin_; }
-      set {
-        gamePin_ = value;
-      }
-    }
-
-    /// <summary>Field number for the "gplayer" field.</summary>
-    public const int GplayerFieldNumber = 2;
-    private global::PokerGrpc.GPlayer gplayer_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public global::PokerGrpc.GPlayer Gplayer {
-      get { return gplayer_; }
-      set {
-        gplayer_ = value;
-      }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public override bool Equals(object other) {
-      return Equals(other as FoldRequest);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public bool Equals(FoldRequest other) {
-      if (ReferenceEquals(other, null)) {
-        return false;
-      }
-      if (ReferenceEquals(other, this)) {
-        return true;
-      }
-      if (GamePin != other.GamePin) return false;
-      if (!object.Equals(Gplayer, other.Gplayer)) return false;
-      return Equals(_unknownFields, other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public override int GetHashCode() {
-      int hash = 1;
-      if (GamePin != 0) hash ^= GamePin.GetHashCode();
-      if (gplayer_ != null) hash ^= Gplayer.GetHashCode();
-      if (_unknownFields != null) {
-        hash ^= _unknownFields.GetHashCode();
-      }
-      return hash;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public override string ToString() {
-      return pb::JsonFormatter.ToDiagnosticString(this);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void WriteTo(pb::CodedOutputStream output) {
-    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-      output.WriteRawMessage(this);
-    #else
-      if (GamePin != 0) {
-        output.WriteRawTag(8);
-        output.WriteInt32(GamePin);
-      }
-      if (gplayer_ != null) {
-        output.WriteRawTag(18);
-        output.WriteMessage(Gplayer);
-      }
-      if (_unknownFields != null) {
-        _unknownFields.WriteTo(output);
-      }
-    #endif
-    }
-
-    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-      if (GamePin != 0) {
-        output.WriteRawTag(8);
-        output.WriteInt32(GamePin);
-      }
-      if (gplayer_ != null) {
-        output.WriteRawTag(18);
-        output.WriteMessage(Gplayer);
-      }
-      if (_unknownFields != null) {
-        _unknownFields.WriteTo(ref output);
-      }
-    }
-    #endif
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public int CalculateSize() {
-      int size = 0;
-      if (GamePin != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeInt32Size(GamePin);
-      }
-      if (gplayer_ != null) {
-        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Gplayer);
-      }
-      if (_unknownFields != null) {
-        size += _unknownFields.CalculateSize();
-      }
-      return size;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void MergeFrom(FoldRequest other) {
-      if (other == null) {
-        return;
-      }
-      if (other.GamePin != 0) {
-        GamePin = other.GamePin;
-      }
-      if (other.gplayer_ != null) {
-        if (gplayer_ == null) {
-          Gplayer = new global::PokerGrpc.GPlayer();
-        }
-        Gplayer.MergeFrom(other.Gplayer);
-      }
-      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void MergeFrom(pb::CodedInputStream input) {
-    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-      input.ReadRawMessage(this);
-    #else
-      uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
-          default:
-            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
-            break;
-          case 8: {
-            GamePin = input.ReadInt32();
-            break;
-          }
-          case 18: {
-            if (gplayer_ == null) {
-              Gplayer = new global::PokerGrpc.GPlayer();
-            }
-            input.ReadMessage(Gplayer);
-            break;
-          }
-        }
-      }
-    #endif
-    }
-
-    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
-      uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
-          default:
-            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
-            break;
-          case 8: {
-            GamePin = input.ReadInt32();
-            break;
-          }
-          case 18: {
-            if (gplayer_ == null) {
-              Gplayer = new global::PokerGrpc.GPlayer();
-            }
-            input.ReadMessage(Gplayer);
-            break;
-          }
-        }
-      }
-    }
-    #endif
-
-  }
-
-  public sealed partial class FoldResponse : pb::IMessage<FoldResponse>
-  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-      , pb::IBufferMessage
-  #endif
-  {
-    private static readonly pb::MessageParser<FoldResponse> _parser = new pb::MessageParser<FoldResponse>(() => new FoldResponse());
-    private pb::UnknownFieldSet _unknownFields;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public static pb::MessageParser<FoldResponse> Parser { get { return _parser; } }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public static pbr::MessageDescriptor Descriptor {
-      get { return global::PokerGrpc.GameReflection.Descriptor.MessageTypes[7]; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    pbr::MessageDescriptor pb::IMessage.Descriptor {
-      get { return Descriptor; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public FoldResponse() {
-      OnConstruction();
-    }
-
-    partial void OnConstruction();
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public FoldResponse(FoldResponse other) : this() {
-      succsess_ = other.succsess_;
-      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public FoldResponse Clone() {
-      return new FoldResponse(this);
-    }
-
-    /// <summary>Field number for the "succsess" field.</summary>
-    public const int SuccsessFieldNumber = 1;
-    private bool succsess_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public bool Succsess {
-      get { return succsess_; }
-      set {
-        succsess_ = value;
-      }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public override bool Equals(object other) {
-      return Equals(other as FoldResponse);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public bool Equals(FoldResponse other) {
-      if (ReferenceEquals(other, null)) {
-        return false;
-      }
-      if (ReferenceEquals(other, this)) {
-        return true;
-      }
-      if (Succsess != other.Succsess) return false;
-      return Equals(_unknownFields, other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public override int GetHashCode() {
-      int hash = 1;
-      if (Succsess != false) hash ^= Succsess.GetHashCode();
-      if (_unknownFields != null) {
-        hash ^= _unknownFields.GetHashCode();
-      }
-      return hash;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public override string ToString() {
-      return pb::JsonFormatter.ToDiagnosticString(this);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void WriteTo(pb::CodedOutputStream output) {
-    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-      output.WriteRawMessage(this);
-    #else
-      if (Succsess != false) {
-        output.WriteRawTag(8);
-        output.WriteBool(Succsess);
-      }
-      if (_unknownFields != null) {
-        _unknownFields.WriteTo(output);
-      }
-    #endif
-    }
-
-    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-      if (Succsess != false) {
-        output.WriteRawTag(8);
-        output.WriteBool(Succsess);
-      }
-      if (_unknownFields != null) {
-        _unknownFields.WriteTo(ref output);
-      }
-    }
-    #endif
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public int CalculateSize() {
-      int size = 0;
-      if (Succsess != false) {
-        size += 1 + 1;
-      }
-      if (_unknownFields != null) {
-        size += _unknownFields.CalculateSize();
-      }
-      return size;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void MergeFrom(FoldResponse other) {
-      if (other == null) {
-        return;
-      }
-      if (other.Succsess != false) {
-        Succsess = other.Succsess;
-      }
-      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void MergeFrom(pb::CodedInputStream input) {
-    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-      input.ReadRawMessage(this);
-    #else
-      uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
-          default:
-            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
-            break;
-          case 8: {
-            Succsess = input.ReadBool();
-            break;
-          }
-        }
-      }
-    #endif
-    }
-
-    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
-      uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
-          default:
-            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
-            break;
-          case 8: {
-            Succsess = input.ReadBool();
-            break;
-          }
-        }
-      }
-    }
-    #endif
-
-  }
-
-  public sealed partial class CallRequest : pb::IMessage<CallRequest>
-  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-      , pb::IBufferMessage
-  #endif
-  {
-    private static readonly pb::MessageParser<CallRequest> _parser = new pb::MessageParser<CallRequest>(() => new CallRequest());
-    private pb::UnknownFieldSet _unknownFields;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public static pb::MessageParser<CallRequest> Parser { get { return _parser; } }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public static pbr::MessageDescriptor Descriptor {
-      get { return global::PokerGrpc.GameReflection.Descriptor.MessageTypes[8]; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    pbr::MessageDescriptor pb::IMessage.Descriptor {
-      get { return Descriptor; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public CallRequest() {
-      OnConstruction();
-    }
-
-    partial void OnConstruction();
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public CallRequest(CallRequest other) : this() {
-      gamePin_ = other.gamePin_;
-      gplayer_ = other.gplayer_ != null ? other.gplayer_.Clone() : null;
-      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public CallRequest Clone() {
-      return new CallRequest(this);
-    }
-
-    /// <summary>Field number for the "gamePin" field.</summary>
-    public const int GamePinFieldNumber = 1;
-    private int gamePin_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public int GamePin {
-      get { return gamePin_; }
-      set {
-        gamePin_ = value;
-      }
-    }
-
-    /// <summary>Field number for the "gplayer" field.</summary>
-    public const int GplayerFieldNumber = 2;
-    private global::PokerGrpc.GPlayer gplayer_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public global::PokerGrpc.GPlayer Gplayer {
-      get { return gplayer_; }
-      set {
-        gplayer_ = value;
-      }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public override bool Equals(object other) {
-      return Equals(other as CallRequest);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public bool Equals(CallRequest other) {
-      if (ReferenceEquals(other, null)) {
-        return false;
-      }
-      if (ReferenceEquals(other, this)) {
-        return true;
-      }
-      if (GamePin != other.GamePin) return false;
-      if (!object.Equals(Gplayer, other.Gplayer)) return false;
-      return Equals(_unknownFields, other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public override int GetHashCode() {
-      int hash = 1;
-      if (GamePin != 0) hash ^= GamePin.GetHashCode();
-      if (gplayer_ != null) hash ^= Gplayer.GetHashCode();
-      if (_unknownFields != null) {
-        hash ^= _unknownFields.GetHashCode();
-      }
-      return hash;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public override string ToString() {
-      return pb::JsonFormatter.ToDiagnosticString(this);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void WriteTo(pb::CodedOutputStream output) {
-    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-      output.WriteRawMessage(this);
-    #else
-      if (GamePin != 0) {
-        output.WriteRawTag(8);
-        output.WriteInt32(GamePin);
-      }
-      if (gplayer_ != null) {
-        output.WriteRawTag(18);
-        output.WriteMessage(Gplayer);
-      }
-      if (_unknownFields != null) {
-        _unknownFields.WriteTo(output);
-      }
-    #endif
-    }
-
-    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-      if (GamePin != 0) {
-        output.WriteRawTag(8);
-        output.WriteInt32(GamePin);
-      }
-      if (gplayer_ != null) {
-        output.WriteRawTag(18);
-        output.WriteMessage(Gplayer);
-      }
-      if (_unknownFields != null) {
-        _unknownFields.WriteTo(ref output);
-      }
-    }
-    #endif
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public int CalculateSize() {
-      int size = 0;
-      if (GamePin != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeInt32Size(GamePin);
-      }
-      if (gplayer_ != null) {
-        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Gplayer);
-      }
-      if (_unknownFields != null) {
-        size += _unknownFields.CalculateSize();
-      }
-      return size;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void MergeFrom(CallRequest other) {
-      if (other == null) {
-        return;
-      }
-      if (other.GamePin != 0) {
-        GamePin = other.GamePin;
-      }
-      if (other.gplayer_ != null) {
-        if (gplayer_ == null) {
-          Gplayer = new global::PokerGrpc.GPlayer();
-        }
-        Gplayer.MergeFrom(other.Gplayer);
-      }
-      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void MergeFrom(pb::CodedInputStream input) {
-    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-      input.ReadRawMessage(this);
-    #else
-      uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
-          default:
-            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
-            break;
-          case 8: {
-            GamePin = input.ReadInt32();
-            break;
-          }
-          case 18: {
-            if (gplayer_ == null) {
-              Gplayer = new global::PokerGrpc.GPlayer();
-            }
-            input.ReadMessage(Gplayer);
-            break;
-          }
-        }
-      }
-    #endif
-    }
-
-    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
-      uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
-          default:
-            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
-            break;
-          case 8: {
-            GamePin = input.ReadInt32();
-            break;
-          }
-          case 18: {
-            if (gplayer_ == null) {
-              Gplayer = new global::PokerGrpc.GPlayer();
-            }
-            input.ReadMessage(Gplayer);
-            break;
-          }
-        }
-      }
-    }
-    #endif
-
-  }
-
-  public sealed partial class CallResponse : pb::IMessage<CallResponse>
-  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-      , pb::IBufferMessage
-  #endif
-  {
-    private static readonly pb::MessageParser<CallResponse> _parser = new pb::MessageParser<CallResponse>(() => new CallResponse());
-    private pb::UnknownFieldSet _unknownFields;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public static pb::MessageParser<CallResponse> Parser { get { return _parser; } }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public static pbr::MessageDescriptor Descriptor {
-      get { return global::PokerGrpc.GameReflection.Descriptor.MessageTypes[9]; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    pbr::MessageDescriptor pb::IMessage.Descriptor {
-      get { return Descriptor; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public CallResponse() {
-      OnConstruction();
-    }
-
-    partial void OnConstruction();
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public CallResponse(CallResponse other) : this() {
-      succsess_ = other.succsess_;
-      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public CallResponse Clone() {
-      return new CallResponse(this);
-    }
-
-    /// <summary>Field number for the "succsess" field.</summary>
-    public const int SuccsessFieldNumber = 1;
-    private bool succsess_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public bool Succsess {
-      get { return succsess_; }
-      set {
-        succsess_ = value;
-      }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public override bool Equals(object other) {
-      return Equals(other as CallResponse);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public bool Equals(CallResponse other) {
-      if (ReferenceEquals(other, null)) {
-        return false;
-      }
-      if (ReferenceEquals(other, this)) {
-        return true;
-      }
-      if (Succsess != other.Succsess) return false;
-      return Equals(_unknownFields, other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public override int GetHashCode() {
-      int hash = 1;
-      if (Succsess != false) hash ^= Succsess.GetHashCode();
-      if (_unknownFields != null) {
-        hash ^= _unknownFields.GetHashCode();
-      }
-      return hash;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public override string ToString() {
-      return pb::JsonFormatter.ToDiagnosticString(this);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void WriteTo(pb::CodedOutputStream output) {
-    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-      output.WriteRawMessage(this);
-    #else
-      if (Succsess != false) {
-        output.WriteRawTag(8);
-        output.WriteBool(Succsess);
-      }
-      if (_unknownFields != null) {
-        _unknownFields.WriteTo(output);
-      }
-    #endif
-    }
-
-    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-      if (Succsess != false) {
-        output.WriteRawTag(8);
-        output.WriteBool(Succsess);
-      }
-      if (_unknownFields != null) {
-        _unknownFields.WriteTo(ref output);
-      }
-    }
-    #endif
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public int CalculateSize() {
-      int size = 0;
-      if (Succsess != false) {
-        size += 1 + 1;
-      }
-      if (_unknownFields != null) {
-        size += _unknownFields.CalculateSize();
-      }
-      return size;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void MergeFrom(CallResponse other) {
-      if (other == null) {
-        return;
-      }
-      if (other.Succsess != false) {
-        Succsess = other.Succsess;
-      }
-      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void MergeFrom(pb::CodedInputStream input) {
-    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-      input.ReadRawMessage(this);
-    #else
-      uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
-          default:
-            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
-            break;
-          case 8: {
-            Succsess = input.ReadBool();
-            break;
-          }
-        }
-      }
-    #endif
-    }
-
-    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
-      uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
-          default:
-            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
-            break;
-          case 8: {
-            Succsess = input.ReadBool();
-            break;
-          }
-        }
-      }
-    }
-    #endif
-
-  }
-
-  public sealed partial class RaiseRequest : pb::IMessage<RaiseRequest>
-  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-      , pb::IBufferMessage
-  #endif
-  {
-    private static readonly pb::MessageParser<RaiseRequest> _parser = new pb::MessageParser<RaiseRequest>(() => new RaiseRequest());
-    private pb::UnknownFieldSet _unknownFields;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public static pb::MessageParser<RaiseRequest> Parser { get { return _parser; } }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public static pbr::MessageDescriptor Descriptor {
-      get { return global::PokerGrpc.GameReflection.Descriptor.MessageTypes[10]; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    pbr::MessageDescriptor pb::IMessage.Descriptor {
-      get { return Descriptor; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public RaiseRequest() {
-      OnConstruction();
-    }
-
-    partial void OnConstruction();
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public RaiseRequest(RaiseRequest other) : this() {
-      gamePin_ = other.gamePin_;
-      gplayer_ = other.gplayer_ != null ? other.gplayer_.Clone() : null;
-      amount_ = other.amount_;
-      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public RaiseRequest Clone() {
-      return new RaiseRequest(this);
-    }
-
-    /// <summary>Field number for the "gamePin" field.</summary>
-    public const int GamePinFieldNumber = 1;
-    private int gamePin_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public int GamePin {
-      get { return gamePin_; }
-      set {
-        gamePin_ = value;
-      }
-    }
-
-    /// <summary>Field number for the "gplayer" field.</summary>
-    public const int GplayerFieldNumber = 2;
-    private global::PokerGrpc.GPlayer gplayer_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public global::PokerGrpc.GPlayer Gplayer {
-      get { return gplayer_; }
-      set {
-        gplayer_ = value;
-      }
-    }
-
-    /// <summary>Field number for the "amount" field.</summary>
-    public const int AmountFieldNumber = 3;
-    private int amount_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public int Amount {
-      get { return amount_; }
-      set {
-        amount_ = value;
-      }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public override bool Equals(object other) {
-      return Equals(other as RaiseRequest);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public bool Equals(RaiseRequest other) {
-      if (ReferenceEquals(other, null)) {
-        return false;
-      }
-      if (ReferenceEquals(other, this)) {
-        return true;
-      }
-      if (GamePin != other.GamePin) return false;
-      if (!object.Equals(Gplayer, other.Gplayer)) return false;
-      if (Amount != other.Amount) return false;
-      return Equals(_unknownFields, other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public override int GetHashCode() {
-      int hash = 1;
-      if (GamePin != 0) hash ^= GamePin.GetHashCode();
-      if (gplayer_ != null) hash ^= Gplayer.GetHashCode();
-      if (Amount != 0) hash ^= Amount.GetHashCode();
-      if (_unknownFields != null) {
-        hash ^= _unknownFields.GetHashCode();
-      }
-      return hash;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public override string ToString() {
-      return pb::JsonFormatter.ToDiagnosticString(this);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void WriteTo(pb::CodedOutputStream output) {
-    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-      output.WriteRawMessage(this);
-    #else
-      if (GamePin != 0) {
-        output.WriteRawTag(8);
-        output.WriteInt32(GamePin);
-      }
-      if (gplayer_ != null) {
-        output.WriteRawTag(18);
-        output.WriteMessage(Gplayer);
-      }
-      if (Amount != 0) {
-        output.WriteRawTag(24);
-        output.WriteInt32(Amount);
-      }
-      if (_unknownFields != null) {
-        _unknownFields.WriteTo(output);
-      }
-    #endif
-    }
-
-    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-      if (GamePin != 0) {
-        output.WriteRawTag(8);
-        output.WriteInt32(GamePin);
-      }
-      if (gplayer_ != null) {
-        output.WriteRawTag(18);
-        output.WriteMessage(Gplayer);
-      }
-      if (Amount != 0) {
-        output.WriteRawTag(24);
-        output.WriteInt32(Amount);
-      }
-      if (_unknownFields != null) {
-        _unknownFields.WriteTo(ref output);
-      }
-    }
-    #endif
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public int CalculateSize() {
-      int size = 0;
-      if (GamePin != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeInt32Size(GamePin);
-      }
-      if (gplayer_ != null) {
-        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Gplayer);
-      }
-      if (Amount != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeInt32Size(Amount);
-      }
-      if (_unknownFields != null) {
-        size += _unknownFields.CalculateSize();
-      }
-      return size;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void MergeFrom(RaiseRequest other) {
-      if (other == null) {
-        return;
-      }
-      if (other.GamePin != 0) {
-        GamePin = other.GamePin;
-      }
-      if (other.gplayer_ != null) {
-        if (gplayer_ == null) {
-          Gplayer = new global::PokerGrpc.GPlayer();
-        }
-        Gplayer.MergeFrom(other.Gplayer);
-      }
-      if (other.Amount != 0) {
-        Amount = other.Amount;
-      }
-      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void MergeFrom(pb::CodedInputStream input) {
-    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-      input.ReadRawMessage(this);
-    #else
-      uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
-          default:
-            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
-            break;
-          case 8: {
-            GamePin = input.ReadInt32();
-            break;
-          }
-          case 18: {
-            if (gplayer_ == null) {
-              Gplayer = new global::PokerGrpc.GPlayer();
-            }
-            input.ReadMessage(Gplayer);
-            break;
-          }
-          case 24: {
-            Amount = input.ReadInt32();
-            break;
-          }
-        }
-      }
-    #endif
-    }
-
-    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
-      uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
-          default:
-            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
-            break;
-          case 8: {
-            GamePin = input.ReadInt32();
-            break;
-          }
-          case 18: {
-            if (gplayer_ == null) {
-              Gplayer = new global::PokerGrpc.GPlayer();
-            }
-            input.ReadMessage(Gplayer);
-            break;
-          }
-          case 24: {
-            Amount = input.ReadInt32();
-            break;
-          }
-        }
-      }
-    }
-    #endif
-
-  }
-
-  public sealed partial class RaiseResponse : pb::IMessage<RaiseResponse>
-  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-      , pb::IBufferMessage
-  #endif
-  {
-    private static readonly pb::MessageParser<RaiseResponse> _parser = new pb::MessageParser<RaiseResponse>(() => new RaiseResponse());
-    private pb::UnknownFieldSet _unknownFields;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public static pb::MessageParser<RaiseResponse> Parser { get { return _parser; } }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public static pbr::MessageDescriptor Descriptor {
-      get { return global::PokerGrpc.GameReflection.Descriptor.MessageTypes[11]; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    pbr::MessageDescriptor pb::IMessage.Descriptor {
-      get { return Descriptor; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public RaiseResponse() {
-      OnConstruction();
-    }
-
-    partial void OnConstruction();
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public RaiseResponse(RaiseResponse other) : this() {
-      succsess_ = other.succsess_;
-      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public RaiseResponse Clone() {
-      return new RaiseResponse(this);
-    }
-
-    /// <summary>Field number for the "succsess" field.</summary>
-    public const int SuccsessFieldNumber = 1;
-    private bool succsess_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public bool Succsess {
-      get { return succsess_; }
-      set {
-        succsess_ = value;
-      }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public override bool Equals(object other) {
-      return Equals(other as RaiseResponse);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public bool Equals(RaiseResponse other) {
-      if (ReferenceEquals(other, null)) {
-        return false;
-      }
-      if (ReferenceEquals(other, this)) {
-        return true;
-      }
-      if (Succsess != other.Succsess) return false;
-      return Equals(_unknownFields, other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public override int GetHashCode() {
-      int hash = 1;
-      if (Succsess != false) hash ^= Succsess.GetHashCode();
-      if (_unknownFields != null) {
-        hash ^= _unknownFields.GetHashCode();
-      }
-      return hash;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public override string ToString() {
-      return pb::JsonFormatter.ToDiagnosticString(this);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void WriteTo(pb::CodedOutputStream output) {
-    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-      output.WriteRawMessage(this);
-    #else
-      if (Succsess != false) {
-        output.WriteRawTag(8);
-        output.WriteBool(Succsess);
-      }
-      if (_unknownFields != null) {
-        _unknownFields.WriteTo(output);
-      }
-    #endif
-    }
-
-    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-      if (Succsess != false) {
-        output.WriteRawTag(8);
-        output.WriteBool(Succsess);
-      }
-      if (_unknownFields != null) {
-        _unknownFields.WriteTo(ref output);
-      }
-    }
-    #endif
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public int CalculateSize() {
-      int size = 0;
-      if (Succsess != false) {
-        size += 1 + 1;
-      }
-      if (_unknownFields != null) {
-        size += _unknownFields.CalculateSize();
-      }
-      return size;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void MergeFrom(RaiseResponse other) {
+    public void MergeFrom(ActionResponse other) {
       if (other == null) {
         return;
       }

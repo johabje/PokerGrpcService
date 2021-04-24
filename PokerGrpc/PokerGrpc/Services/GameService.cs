@@ -125,9 +125,10 @@ namespace PokerGrpc.Services
             {
                 pokergame2 = StorageSingleton.Instance.currentGames.Find(game => game.gamePin.Equals(request.GamePin));
                 //if (!(pokerGame.toAct.Equals(pokergame2.toAct) && pokerGame.players.Equals(pokergame2.players) && pokerGame.bet.Equals(pokergame2.bet)))
-                    if (pokergame2.Equals(lastGame))
+                    if (!lastGame.toAct.Equals(pokergame2.toAct) || !lastGame.tableCards.Count().Equals(pokergame2.tableCards.Count())
                 {
-                    await responseStream.WriteAsync(PokerGameToGameLobby(pokergame2));
+
+                    await responseStream.WriteAsync(PokerGameToGameLobby(pokergame2, playerName));
                     lastGame = pokergame2;
                 }
                    else
@@ -139,7 +140,6 @@ namespace PokerGrpc.Services
                 Console.WriteLine("The bets are: " + pokerGame.bet+ " and " + pokergame2.bet);
             }
         }
-
         /*
         Merge Tasks: Bet, Check, Raise, Fold
         get action from request.action
@@ -217,6 +217,10 @@ namespace PokerGrpc.Services
                 if (player != null)
                 {
                     GPlayer gPlayer = PlayerToGPlayer(player);
+                    if (gPlayer.Name != playerName)
+                    {
+                        gPlayer.Hand = "x";
+                    }
                     gamelobby.Gplayers.Add(gPlayer);
                 }
             }
@@ -225,11 +229,20 @@ namespace PokerGrpc.Services
 
         public GPlayer PlayerToGPlayer(Player player)
         {
+            string hand;
+            if (player.Hand == null)
+            {
+                hand = "0";
+            }
+            else
+            {
+                hand = player.Hand.ToString();
+            }
             GPlayer gParticipant = new GPlayer
             {
                 Action = 0,
                 BestCombo = "0",
-                Hand = "0",
+                Hand = hand,
                 IsRoomOwner = false,
                 Name = player.name,
                 Wallet = player.wallet,

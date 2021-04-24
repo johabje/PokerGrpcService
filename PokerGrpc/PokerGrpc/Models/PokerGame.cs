@@ -171,7 +171,7 @@ namespace PokerGrpc.Models
         public bool RoundFinished() {
             // REname or whatever
             // TODO remember to reset player.lastAction every round (pre flop, flop, etc)
-            if(playersPlaying.Where(p => p.lastAction.Equals(null).Any())) {
+            if(playersPlaying.Where(p => p.lastAction.Equals(null)).Any()) {
                 // someone has not taken an action yet: round not finished. Continue to next player
                 return false;
             } else {

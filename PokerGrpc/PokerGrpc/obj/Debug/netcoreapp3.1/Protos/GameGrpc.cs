@@ -45,14 +45,8 @@ namespace PokerGrpc {
     static readonly grpc::Marshaller<global::PokerGrpc.NewGameRequest> __Marshaller_NewGameRequest = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::PokerGrpc.NewGameRequest.Parser));
     static readonly grpc::Marshaller<global::PokerGrpc.GameLobby> __Marshaller_GameLobby = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::PokerGrpc.GameLobby.Parser));
     static readonly grpc::Marshaller<global::PokerGrpc.JoinGameRequest> __Marshaller_JoinGameRequest = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::PokerGrpc.JoinGameRequest.Parser));
-    static readonly grpc::Marshaller<global::PokerGrpc.BetRequest> __Marshaller_BetRequest = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::PokerGrpc.BetRequest.Parser));
-    static readonly grpc::Marshaller<global::PokerGrpc.BetResponse> __Marshaller_BetResponse = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::PokerGrpc.BetResponse.Parser));
-    static readonly grpc::Marshaller<global::PokerGrpc.FoldRequest> __Marshaller_FoldRequest = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::PokerGrpc.FoldRequest.Parser));
-    static readonly grpc::Marshaller<global::PokerGrpc.FoldResponse> __Marshaller_FoldResponse = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::PokerGrpc.FoldResponse.Parser));
-    static readonly grpc::Marshaller<global::PokerGrpc.CallRequest> __Marshaller_CallRequest = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::PokerGrpc.CallRequest.Parser));
-    static readonly grpc::Marshaller<global::PokerGrpc.CallResponse> __Marshaller_CallResponse = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::PokerGrpc.CallResponse.Parser));
-    static readonly grpc::Marshaller<global::PokerGrpc.RaiseRequest> __Marshaller_RaiseRequest = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::PokerGrpc.RaiseRequest.Parser));
-    static readonly grpc::Marshaller<global::PokerGrpc.RaiseResponse> __Marshaller_RaiseResponse = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::PokerGrpc.RaiseResponse.Parser));
+    static readonly grpc::Marshaller<global::PokerGrpc.ActionRequest> __Marshaller_ActionRequest = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::PokerGrpc.ActionRequest.Parser));
+    static readonly grpc::Marshaller<global::PokerGrpc.ActionResponse> __Marshaller_ActionResponse = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::PokerGrpc.ActionResponse.Parser));
 
     static readonly grpc::Method<global::PokerGrpc.NewGameRequest, global::PokerGrpc.GameLobby> __Method_CreateNewGame = new grpc::Method<global::PokerGrpc.NewGameRequest, global::PokerGrpc.GameLobby>(
         grpc::MethodType.Unary,
@@ -75,33 +69,12 @@ namespace PokerGrpc {
         __Marshaller_JoinGameRequest,
         __Marshaller_GameLobby);
 
-    static readonly grpc::Method<global::PokerGrpc.BetRequest, global::PokerGrpc.BetResponse> __Method_Bet = new grpc::Method<global::PokerGrpc.BetRequest, global::PokerGrpc.BetResponse>(
+    static readonly grpc::Method<global::PokerGrpc.ActionRequest, global::PokerGrpc.ActionResponse> __Method_Action = new grpc::Method<global::PokerGrpc.ActionRequest, global::PokerGrpc.ActionResponse>(
         grpc::MethodType.Unary,
         __ServiceName,
-        "Bet",
-        __Marshaller_BetRequest,
-        __Marshaller_BetResponse);
-
-    static readonly grpc::Method<global::PokerGrpc.FoldRequest, global::PokerGrpc.FoldResponse> __Method_Fold = new grpc::Method<global::PokerGrpc.FoldRequest, global::PokerGrpc.FoldResponse>(
-        grpc::MethodType.Unary,
-        __ServiceName,
-        "Fold",
-        __Marshaller_FoldRequest,
-        __Marshaller_FoldResponse);
-
-    static readonly grpc::Method<global::PokerGrpc.CallRequest, global::PokerGrpc.CallResponse> __Method_Call = new grpc::Method<global::PokerGrpc.CallRequest, global::PokerGrpc.CallResponse>(
-        grpc::MethodType.Unary,
-        __ServiceName,
-        "Call",
-        __Marshaller_CallRequest,
-        __Marshaller_CallResponse);
-
-    static readonly grpc::Method<global::PokerGrpc.RaiseRequest, global::PokerGrpc.RaiseResponse> __Method_Raise = new grpc::Method<global::PokerGrpc.RaiseRequest, global::PokerGrpc.RaiseResponse>(
-        grpc::MethodType.Unary,
-        __ServiceName,
-        "Raise",
-        __Marshaller_RaiseRequest,
-        __Marshaller_RaiseResponse);
+        "Action",
+        __Marshaller_ActionRequest,
+        __Marshaller_ActionResponse);
 
     /// <summary>Service descriptor</summary>
     public static global::Google.Protobuf.Reflection.ServiceDescriptor Descriptor
@@ -128,22 +101,7 @@ namespace PokerGrpc {
         throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
       }
 
-      public virtual global::System.Threading.Tasks.Task<global::PokerGrpc.BetResponse> Bet(global::PokerGrpc.BetRequest request, grpc::ServerCallContext context)
-      {
-        throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
-      }
-
-      public virtual global::System.Threading.Tasks.Task<global::PokerGrpc.FoldResponse> Fold(global::PokerGrpc.FoldRequest request, grpc::ServerCallContext context)
-      {
-        throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
-      }
-
-      public virtual global::System.Threading.Tasks.Task<global::PokerGrpc.CallResponse> Call(global::PokerGrpc.CallRequest request, grpc::ServerCallContext context)
-      {
-        throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
-      }
-
-      public virtual global::System.Threading.Tasks.Task<global::PokerGrpc.RaiseResponse> Raise(global::PokerGrpc.RaiseRequest request, grpc::ServerCallContext context)
+      public virtual global::System.Threading.Tasks.Task<global::PokerGrpc.ActionResponse> Action(global::PokerGrpc.ActionRequest request, grpc::ServerCallContext context)
       {
         throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
       }
@@ -158,10 +116,7 @@ namespace PokerGrpc {
           .AddMethod(__Method_CreateNewGame, serviceImpl.CreateNewGame)
           .AddMethod(__Method_JoinGame, serviceImpl.JoinGame)
           .AddMethod(__Method_StartStream, serviceImpl.StartStream)
-          .AddMethod(__Method_Bet, serviceImpl.Bet)
-          .AddMethod(__Method_Fold, serviceImpl.Fold)
-          .AddMethod(__Method_Call, serviceImpl.Call)
-          .AddMethod(__Method_Raise, serviceImpl.Raise).Build();
+          .AddMethod(__Method_Action, serviceImpl.Action).Build();
     }
 
     /// <summary>Register service method with a service binder with or without implementation. Useful when customizing the  service binding logic.
@@ -173,10 +128,7 @@ namespace PokerGrpc {
       serviceBinder.AddMethod(__Method_CreateNewGame, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::PokerGrpc.NewGameRequest, global::PokerGrpc.GameLobby>(serviceImpl.CreateNewGame));
       serviceBinder.AddMethod(__Method_JoinGame, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::PokerGrpc.JoinGameRequest, global::PokerGrpc.GameLobby>(serviceImpl.JoinGame));
       serviceBinder.AddMethod(__Method_StartStream, serviceImpl == null ? null : new grpc::ServerStreamingServerMethod<global::PokerGrpc.JoinGameRequest, global::PokerGrpc.GameLobby>(serviceImpl.StartStream));
-      serviceBinder.AddMethod(__Method_Bet, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::PokerGrpc.BetRequest, global::PokerGrpc.BetResponse>(serviceImpl.Bet));
-      serviceBinder.AddMethod(__Method_Fold, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::PokerGrpc.FoldRequest, global::PokerGrpc.FoldResponse>(serviceImpl.Fold));
-      serviceBinder.AddMethod(__Method_Call, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::PokerGrpc.CallRequest, global::PokerGrpc.CallResponse>(serviceImpl.Call));
-      serviceBinder.AddMethod(__Method_Raise, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::PokerGrpc.RaiseRequest, global::PokerGrpc.RaiseResponse>(serviceImpl.Raise));
+      serviceBinder.AddMethod(__Method_Action, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::PokerGrpc.ActionRequest, global::PokerGrpc.ActionResponse>(serviceImpl.Action));
     }
 
   }
