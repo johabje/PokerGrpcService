@@ -118,17 +118,17 @@ namespace PokerGrpc.Services
             PokerGame pokerGame = StorageSingleton.Instance.currentGames.Find(game => game.gamePin.Equals(request.GamePin));
             PokerGame pokergame2;
             Console.WriteLine("pokergamePin" + pokerGame.gamePin);
-            double lastbet = pokerGame.bet;
+            PokerGame lastGame = pokerGame;
             await responseStream.WriteAsync(PokerGameToGameLobby(pokerGame));
             
             while (true)
             {
                 pokergame2 = StorageSingleton.Instance.currentGames.Find(game => game.gamePin.Equals(request.GamePin));
                 //if (!(pokerGame.toAct.Equals(pokergame2.toAct) && pokerGame.players.Equals(pokergame2.players) && pokerGame.bet.Equals(pokergame2.bet)))
-                    if (pokergame2.bet != lastbet)
+                    if (pokergame2.Equals(lastGame))
                 {
                     await responseStream.WriteAsync(PokerGameToGameLobby(pokergame2));
-                    lastbet = pokergame2.bet;
+                    lastGame = pokergame2;
                 }
                    else
                 {

@@ -15,3 +15,10 @@ PokerGrpc/GrpcConsoleClient/obj/Debug/netcoreapp3.1/da39a3ee5e6b4b0d_game.protod
 *.protodep
 PokerGrpc/GrpcConsoleClient/obj/Debug/netcoreapp3.1/GrpcConsoleClient.assets.cache
 *.dll
+*.json
+*.xml
+*.txt
+*.dll
+*.pdb
+PokerGrpc/PokerGrpc/bin/Debug/netcoreapp3.1/PokerGrpc.pdb
+PokerGrpc/PokerGrpcTest/obj/Debug/netcoreapp3.1/PokerGrpcTest.csprojAssemblyReference.cache
