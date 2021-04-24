@@ -47,12 +47,15 @@ namespace GrpcConsoleClient
 
             };
 
-            var startReply = client.CreateNewGame(new NewGameRequest { Gplayer = johan, Gamepin = 666});
+            var startReply = client.CreateNewGame(new NewGameRequest { Gplayer = johan, GamePin = 666});
             Console.WriteLine(startReply);
             var join1 = client.JoinGame(new JoinGameRequest { Gplayer = fredrik, GamePin = 666 });
             Console.WriteLine(join1);
             var join2 = client.JoinGame(new JoinGameRequest { Gplayer = syver, GamePin = 666 });
             Console.WriteLine(join2);
+
+            var start = client.StartGame(new StartGameRequest { Gamepin = 666, PlayerName = "johan" });
+            Console.WriteLine(start);
 
             //write code for starting game
             var action1 = client.Action(new ActionRequest

@@ -207,13 +207,40 @@ namespace PokerGrpc.Services
             lobby.UpdateState();
             return Task.FromResult(new ActionResponse { Success = true });
         }
+        public override Task<StartGameResponse> StartGame(StartGameRequest request, ServerCallContext context)
+        {
+            StartGameResponse badActionResponse = new StartGameResponse { Success = false };
+            PokerGame lobby;
+            try
+            {
+                lobby = StorageSingleton.Instance.currentGames.Find(game => game.gamePin.Equals(request.Gamepin));
+            }
+            catch
+            {
+                return Task.FromResult(badActionResponse);
+            }
+
+            foreach (Player player in lobby.players)
+            {
+                if (player != null && player.name == request.PlayerName)
+                {
+                    if (player.isRoomOwner)
+                    {
+                        lobby.NewRound();
+                        return Task.FromResult(new StartGameResponse { Success = true });
+                    }
+                }
+            }
+            return Task.FromResult(badActionResponse);
+
+        }
 
         public GameLobby PokerGameToGameLobby(PokerGame pokerGame, string playerName)
         {
             GameLobby gamelobby = new GameLobby
             {
                 GamePin = pokerGame.gamePin,
-                ToAct = PlayerToGPlayer(pokerGame.toAct),
+                ToAct = PlayerToGPlayer(pokerGame.toAct, pokerGame),
                 TableCards = "0",
                 Pot = pokerGame.pot,
                 Bet = pokerGame.bet,
@@ -223,7 +250,7 @@ namespace PokerGrpc.Services
             {
                 if (player != null)
                 {
-                    GPlayer gPlayer = PlayerToGPlayer(player);
+                    GPlayer gPlayer = PlayerToGPlayer(player, pokerGame);
                     if (gPlayer.Name != playerName)
                     {
                         gPlayer.Hand = "x";
@@ -234,7 +261,7 @@ namespace PokerGrpc.Services
             return gamelobby;
         }
 
-        public GPlayer PlayerToGPlayer(Player player)
+        public GPlayer PlayerToGPlayer(Player player, PokerGame pokerGame)
         {
             string hand;
             if (player.Hand == null)
@@ -243,7 +270,7 @@ namespace PokerGrpc.Services
             }
             else
             {
-                hand = player.Hand.ToString();
+                hand = pokerGame.GetCards(player.Hand);
             }
             GPlayer gParticipant = new GPlayer
             {

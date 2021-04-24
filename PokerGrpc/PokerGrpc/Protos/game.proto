@@ -7,10 +7,12 @@ service Game {
     rpc JoinGame (JoinGameRequest) returns (GameLobby);
     rpc StartStream (JoinGameRequest) returns (stream GameLobby);
     rpc Action (ActionRequest) returns (ActionResponse);
+    rpc StartGame (StartGameRequest) returns (StartGameResponse);
 }
 
 message NewGameRequest {
-    GPlayer gplayer = 1; 
+    GPlayer gplayer = 1;
+    int32 gamePin =2; 
 }
 
 message JoinGameRequest {
@@ -42,11 +44,20 @@ message GPlayer {
 
 message ActionRequest {
     int32 gamePin = 1;
-    GPlayer name = 2;
+    string name = 2;
     int32 bet = 3;
     int32 Action = 4;
 }
 
 message ActionResponse {
+    bool success = 1;
+}
+
+message StartGameRequest {
+    int32 gamepin = 1;
+    string playerName = 2;
+}
+
+message StartGameResponse {
     bool success = 1;
 }
