@@ -30,6 +30,7 @@ namespace PokerGrpc.Models
         public float bet;
         //make blind final?
         public int blind;
+        public bool startNewRound = false;
 
 
         /*
@@ -72,8 +73,8 @@ namespace PokerGrpc.Models
             roomOwner.firstToBet = true;
             this.toAct = roomOwner;
             AddPlayer(roomOwner);
-
-            NewRound();
+            
+            this.state = state.PreGame;
 
             // NewGame();
             // ^testing purposes - (generate table cards for response)
@@ -85,13 +86,21 @@ namespace PokerGrpc.Models
          */
         public void UpdateState()
         {
+            /*
+            would be nice to just have all functionality related to whos turn it is in the end of this
+            */
 
             switch (state)
             {
                 case state.PreGame:
                     // deal 2 cards to all players
-                    DealPlayerCards(2);
-                    StartBettingRound();
+                    
+                    if (startNewRound) {
+                        this.state = state.PF;
+                        DealPlayerCards(2);
+                        StartBettingRound();
+                        startNewRound = false;
+                    }
                     break;
                 case state.PF:
                     if (RoundFinished())
@@ -123,6 +132,7 @@ namespace PokerGrpc.Models
                 case state.River:
                     if (RoundFinished())
                     {
+                        // TODO end the game somewhere
                         this.state = state.Showdown;
                     }
                     break;
@@ -198,7 +208,8 @@ namespace PokerGrpc.Models
             // dispose stuff?
 
             if (this.deck != null) {
-                this.deck = null;
+                //create new deck
+                //this.deck = new Dec;
             }
 
             return null;
@@ -219,7 +230,7 @@ namespace PokerGrpc.Models
                     player.bet = 0;
                 }
             }
-            this.state = PreGame;
+            this.state = state.PreGame;
             this.bet = 0;
 
             MoveDealerButton();
@@ -229,6 +240,7 @@ namespace PokerGrpc.Models
             
             // deck.cardStack = stack of cards randomized
             this.deck = new Deck();
+            startNewRound = true;
             UpdateState();
         }
 
