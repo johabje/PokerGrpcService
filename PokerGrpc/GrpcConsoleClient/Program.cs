@@ -38,7 +38,7 @@ namespace GrpcConsoleClient
             };
             GPlayer syver = new GPlayer()
             {
-                Name = "fredrik",
+                Name = "syver",
                 Action = 0,
                 BestCombo = "0",
                 Hand = "hh",
@@ -60,7 +60,7 @@ namespace GrpcConsoleClient
                 Action = 1,
                 Bet = 0,
                 GamePin = 666,
-                Gplayer = johan
+                Name = "johan"
             });
 
             var action2 = client.Action(new ActionRequest
@@ -68,7 +68,7 @@ namespace GrpcConsoleClient
                 Action = 1,
                 Bet = 0,
                 GamePin = 666,
-                Gplayer = fredrik
+                Name = "fredrik"
             });
 
             var action3 = client.Action(new ActionRequest
@@ -76,7 +76,7 @@ namespace GrpcConsoleClient
                 Action = 2,
                 Bet = 50,
                 GamePin = 666,
-                Gplayer = syver
+                Name = "syver"
             });
 
             var action4 = client.Action(new ActionRequest
@@ -84,14 +84,14 @@ namespace GrpcConsoleClient
                 Action = 0,
                 Bet = 0,
                 GamePin = 666,
-                Gplayer = johan
+                Name = "johan"
             });
             var action5 = client.Action(new ActionRequest
             {
                 Action = 3,
                 Bet = 0,
                 GamePin = 666,
-                Gplayer = fredrik
+                Name = "fredrik"
             });
 
 
@@ -106,7 +106,7 @@ namespace GrpcConsoleClient
                         Action = 0,
                         Bet = 0,
                         GamePin = 666,
-                        Gplayer = johan
+                        Name = "johan"
                     });
                 }
                 Console.WriteLine("why the fuck are you here");
