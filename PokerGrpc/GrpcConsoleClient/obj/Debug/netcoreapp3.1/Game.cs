@@ -27,30 +27,30 @@ namespace GrpcConsoleClient {
             "CgpnYW1lLnByb3RvIjwKDk5ld0dhbWVSZXF1ZXN0EhkKB2dwbGF5ZXIYASAB",
             "KAsyCC5HUGxheWVyEg8KB2dhbWVQaW4YAiABKAUiPQoPSm9pbkdhbWVSZXF1",
             "ZXN0Eg8KB2dhbWVQaW4YASABKAUSGQoHZ3BsYXllchgCIAEoCzIILkdQbGF5",
-            "ZXIijgEKCUdhbWVMb2JieRIPCgdnYW1lUGluGAEgASgFEhoKCGdwbGF5ZXJz",
-            "GAIgAygLMgguR1BsYXllchIXCgV0b0FjdBgDIAEoCzIILkdQbGF5ZXISEgoK",
-            "dGFibGVDYXJkcxgEIAEoCRILCgNwb3QYBSABKAESCwoDYmV0GAYgASgBEg0K",
-            "BWJsaW5kGAcgASgFIm0KB0dQbGF5ZXISDgoGd2FsbGV0GAIgASgBEgwKBG5h",
-            "bWUYASABKAkSEwoLaXNSb29tT3duZXIYAyABKAgSDAoEaGFuZBgEIAEoCRIR",
-            "CgliZXN0Q29tYm8YBSABKAkSDgoGYWN0aW9uGAYgASgFIksKDUFjdGlvblJl",
-            "cXVlc3QSDwoHZ2FtZVBpbhgBIAEoBRIMCgRuYW1lGAIgASgJEgsKA2JldBgD",
-            "IAEoBRIOCgZBY3Rpb24YBCABKAUiIQoOQWN0aW9uUmVzcG9uc2USDwoHc3Vj",
-            "Y2VzcxgBIAEoCCI3ChBTdGFydEdhbWVSZXF1ZXN0Eg8KB2dhbWVwaW4YASAB",
-            "KAUSEgoKcGxheWVyTmFtZRgCIAEoCSIkChFTdGFydEdhbWVSZXNwb25zZRIP",
-            "CgdzdWNjZXNzGAEgASgIMuwBCgRHYW1lEiwKDUNyZWF0ZU5ld0dhbWUSDy5O",
-            "ZXdHYW1lUmVxdWVzdBoKLkdhbWVMb2JieRIoCghKb2luR2FtZRIQLkpvaW5H",
-            "YW1lUmVxdWVzdBoKLkdhbWVMb2JieRItCgtTdGFydFN0cmVhbRIQLkpvaW5H",
-            "YW1lUmVxdWVzdBoKLkdhbWVMb2JieTABEikKBkFjdGlvbhIOLkFjdGlvblJl",
-            "cXVlc3QaDy5BY3Rpb25SZXNwb25zZRIyCglTdGFydEdhbWUSES5TdGFydEdh",
-            "bWVSZXF1ZXN0GhIuU3RhcnRHYW1lUmVzcG9uc2VCFKoCEUdycGNDb25zb2xl",
-            "Q2xpZW50YgZwcm90bzM="));
+            "ZXIihAEKCUdhbWVMb2JieRIPCgdnYW1lUGluGAEgASgFEhoKCGdwbGF5ZXJz",
+            "GAIgAygLMgguR1BsYXllchINCgV0b0FjdBgDIAEoCRISCgp0YWJsZUNhcmRz",
+            "GAQgASgJEgsKA3BvdBgFIAEoAhILCgNiZXQYBiABKAISDQoFYmxpbmQYByAB",
+            "KAUiegoHR1BsYXllchIOCgZ3YWxsZXQYAiABKAISDAoEbmFtZRgBIAEoCRIT",
+            "Cgtpc1Jvb21Pd25lchgDIAEoCBIMCgRoYW5kGAQgASgJEhEKCWJlc3RDb21i",
+            "bxgFIAEoCRIOCgZhY3Rpb24YBiABKAUSCwoDYmV0GAcgASgCIksKDUFjdGlv",
+            "blJlcXVlc3QSDwoHZ2FtZVBpbhgBIAEoBRIMCgRuYW1lGAIgASgJEgsKA2Jl",
+            "dBgDIAEoBRIOCgZBY3Rpb24YBCABKAUiIQoOQWN0aW9uUmVzcG9uc2USDwoH",
+            "c3VjY2VzcxgBIAEoCCI3ChBTdGFydEdhbWVSZXF1ZXN0Eg8KB2dhbWVwaW4Y",
+            "ASABKAUSEgoKcGxheWVyTmFtZRgCIAEoCSIkChFTdGFydEdhbWVSZXNwb25z",
+            "ZRIPCgdzdWNjZXNzGAEgASgIMuwBCgRHYW1lEiwKDUNyZWF0ZU5ld0dhbWUS",
+            "Dy5OZXdHYW1lUmVxdWVzdBoKLkdhbWVMb2JieRIoCghKb2luR2FtZRIQLkpv",
+            "aW5HYW1lUmVxdWVzdBoKLkdhbWVMb2JieRItCgtTdGFydFN0cmVhbRIQLkpv",
+            "aW5HYW1lUmVxdWVzdBoKLkdhbWVMb2JieTABEikKBkFjdGlvbhIOLkFjdGlv",
+            "blJlcXVlc3QaDy5BY3Rpb25SZXNwb25zZRIyCglTdGFydEdhbWUSES5TdGFy",
+            "dEdhbWVSZXF1ZXN0GhIuU3RhcnRHYW1lUmVzcG9uc2VCFKoCEUdycGNDb25z",
+            "b2xlQ2xpZW50YgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
             new pbr::GeneratedClrTypeInfo(typeof(global::GrpcConsoleClient.NewGameRequest), global::GrpcConsoleClient.NewGameRequest.Parser, new[]{ "Gplayer", "GamePin" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::GrpcConsoleClient.JoinGameRequest), global::GrpcConsoleClient.JoinGameRequest.Parser, new[]{ "GamePin", "Gplayer" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::GrpcConsoleClient.GameLobby), global::GrpcConsoleClient.GameLobby.Parser, new[]{ "GamePin", "Gplayers", "ToAct", "TableCards", "Pot", "Bet", "Blind" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::GrpcConsoleClient.GPlayer), global::GrpcConsoleClient.GPlayer.Parser, new[]{ "Wallet", "Name", "IsRoomOwner", "Hand", "BestCombo", "Action" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::GrpcConsoleClient.GPlayer), global::GrpcConsoleClient.GPlayer.Parser, new[]{ "Wallet", "Name", "IsRoomOwner", "Hand", "BestCombo", "Action", "Bet" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::GrpcConsoleClient.ActionRequest), global::GrpcConsoleClient.ActionRequest.Parser, new[]{ "GamePin", "Name", "Bet", "Action" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::GrpcConsoleClient.ActionResponse), global::GrpcConsoleClient.ActionResponse.Parser, new[]{ "Success" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::GrpcConsoleClient.StartGameRequest), global::GrpcConsoleClient.StartGameRequest.Parser, new[]{ "Gamepin", "PlayerName" }, null, null, null, null),
@@ -526,7 +526,7 @@ namespace GrpcConsoleClient {
     public GameLobby(GameLobby other) : this() {
       gamePin_ = other.gamePin_;
       gplayers_ = other.gplayers_.Clone();
-      toAct_ = other.toAct_ != null ? other.toAct_.Clone() : null;
+      toAct_ = other.toAct_;
       tableCards_ = other.tableCards_;
       pot_ = other.pot_;
       bet_ = other.bet_;
@@ -562,12 +562,12 @@ namespace GrpcConsoleClient {
 
     /// <summary>Field number for the "toAct" field.</summary>
     public const int ToActFieldNumber = 3;
-    private global::GrpcConsoleClient.GPlayer toAct_;
+    private string toAct_ = "";
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public global::GrpcConsoleClient.GPlayer ToAct {
+    public string ToAct {
       get { return toAct_; }
       set {
-        toAct_ = value;
+        toAct_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
       }
     }
 
@@ -584,9 +584,9 @@ namespace GrpcConsoleClient {
 
     /// <summary>Field number for the "pot" field.</summary>
     public const int PotFieldNumber = 5;
-    private double pot_;
+    private float pot_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public double Pot {
+    public float Pot {
       get { return pot_; }
       set {
         pot_ = value;
@@ -595,9 +595,9 @@ namespace GrpcConsoleClient {
 
     /// <summary>Field number for the "bet" field.</summary>
     public const int BetFieldNumber = 6;
-    private double bet_;
+    private float bet_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public double Bet {
+    public float Bet {
       get { return bet_; }
       set {
         bet_ = value;
@@ -630,10 +630,10 @@ namespace GrpcConsoleClient {
       }
       if (GamePin != other.GamePin) return false;
       if(!gplayers_.Equals(other.gplayers_)) return false;
-      if (!object.Equals(ToAct, other.ToAct)) return false;
+      if (ToAct != other.ToAct) return false;
       if (TableCards != other.TableCards) return false;
-      if (!pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.Equals(Pot, other.Pot)) return false;
-      if (!pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.Equals(Bet, other.Bet)) return false;
+      if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(Pot, other.Pot)) return false;
+      if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(Bet, other.Bet)) return false;
       if (Blind != other.Blind) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
@@ -643,10 +643,10 @@ namespace GrpcConsoleClient {
       int hash = 1;
       if (GamePin != 0) hash ^= GamePin.GetHashCode();
       hash ^= gplayers_.GetHashCode();
-      if (toAct_ != null) hash ^= ToAct.GetHashCode();
+      if (ToAct.Length != 0) hash ^= ToAct.GetHashCode();
       if (TableCards.Length != 0) hash ^= TableCards.GetHashCode();
-      if (Pot != 0D) hash ^= pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.GetHashCode(Pot);
-      if (Bet != 0D) hash ^= pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.GetHashCode(Bet);
+      if (Pot != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(Pot);
+      if (Bet != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(Bet);
       if (Blind != 0) hash ^= Blind.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
@@ -669,21 +669,21 @@ namespace GrpcConsoleClient {
         output.WriteInt32(GamePin);
       }
       gplayers_.WriteTo(output, _repeated_gplayers_codec);
-      if (toAct_ != null) {
+      if (ToAct.Length != 0) {
         output.WriteRawTag(26);
-        output.WriteMessage(ToAct);
+        output.WriteString(ToAct);
       }
       if (TableCards.Length != 0) {
         output.WriteRawTag(34);
         output.WriteString(TableCards);
       }
-      if (Pot != 0D) {
-        output.WriteRawTag(41);
-        output.WriteDouble(Pot);
+      if (Pot != 0F) {
+        output.WriteRawTag(45);
+        output.WriteFloat(Pot);
       }
-      if (Bet != 0D) {
-        output.WriteRawTag(49);
-        output.WriteDouble(Bet);
+      if (Bet != 0F) {
+        output.WriteRawTag(53);
+        output.WriteFloat(Bet);
       }
       if (Blind != 0) {
         output.WriteRawTag(56);
@@ -703,21 +703,21 @@ namespace GrpcConsoleClient {
         output.WriteInt32(GamePin);
       }
       gplayers_.WriteTo(ref output, _repeated_gplayers_codec);
-      if (toAct_ != null) {
+      if (ToAct.Length != 0) {
         output.WriteRawTag(26);
-        output.WriteMessage(ToAct);
+        output.WriteString(ToAct);
       }
       if (TableCards.Length != 0) {
         output.WriteRawTag(34);
         output.WriteString(TableCards);
       }
-      if (Pot != 0D) {
-        output.WriteRawTag(41);
-        output.WriteDouble(Pot);
+      if (Pot != 0F) {
+        output.WriteRawTag(45);
+        output.WriteFloat(Pot);
       }
-      if (Bet != 0D) {
-        output.WriteRawTag(49);
-        output.WriteDouble(Bet);
+      if (Bet != 0F) {
+        output.WriteRawTag(53);
+        output.WriteFloat(Bet);
       }
       if (Blind != 0) {
         output.WriteRawTag(56);
@@ -736,17 +736,17 @@ namespace GrpcConsoleClient {
         size += 1 + pb::CodedOutputStream.ComputeInt32Size(GamePin);
       }
       size += gplayers_.CalculateSize(_repeated_gplayers_codec);
-      if (toAct_ != null) {
-        size += 1 + pb::CodedOutputStream.ComputeMessageSize(ToAct);
+      if (ToAct.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(ToAct);
       }
       if (TableCards.Length != 0) {
         size += 1 + pb::CodedOutputStream.ComputeStringSize(TableCards);
       }
-      if (Pot != 0D) {
-        size += 1 + 8;
+      if (Pot != 0F) {
+        size += 1 + 4;
       }
-      if (Bet != 0D) {
-        size += 1 + 8;
+      if (Bet != 0F) {
+        size += 1 + 4;
       }
       if (Blind != 0) {
         size += 1 + pb::CodedOutputStream.ComputeInt32Size(Blind);
@@ -766,19 +766,16 @@ namespace GrpcConsoleClient {
         GamePin = other.GamePin;
       }
       gplayers_.Add(other.gplayers_);
-      if (other.toAct_ != null) {
-        if (toAct_ == null) {
-          ToAct = new global::GrpcConsoleClient.GPlayer();
-        }
-        ToAct.MergeFrom(other.ToAct);
+      if (other.ToAct.Length != 0) {
+        ToAct = other.ToAct;
       }
       if (other.TableCards.Length != 0) {
         TableCards = other.TableCards;
       }
-      if (other.Pot != 0D) {
+      if (other.Pot != 0F) {
         Pot = other.Pot;
       }
-      if (other.Bet != 0D) {
+      if (other.Bet != 0F) {
         Bet = other.Bet;
       }
       if (other.Blind != 0) {
@@ -807,22 +804,19 @@ namespace GrpcConsoleClient {
             break;
           }
           case 26: {
-            if (toAct_ == null) {
-              ToAct = new global::GrpcConsoleClient.GPlayer();
-            }
-            input.ReadMessage(ToAct);
+            ToAct = input.ReadString();
             break;
           }
           case 34: {
             TableCards = input.ReadString();
             break;
           }
-          case 41: {
-            Pot = input.ReadDouble();
+          case 45: {
+            Pot = input.ReadFloat();
             break;
           }
-          case 49: {
-            Bet = input.ReadDouble();
+          case 53: {
+            Bet = input.ReadFloat();
             break;
           }
           case 56: {
@@ -852,22 +846,19 @@ namespace GrpcConsoleClient {
             break;
           }
           case 26: {
-            if (toAct_ == null) {
-              ToAct = new global::GrpcConsoleClient.GPlayer();
-            }
-            input.ReadMessage(ToAct);
+            ToAct = input.ReadString();
             break;
           }
           case 34: {
             TableCards = input.ReadString();
             break;
           }
-          case 41: {
-            Pot = input.ReadDouble();
+          case 45: {
+            Pot = input.ReadFloat();
             break;
           }
-          case 49: {
-            Bet = input.ReadDouble();
+          case 53: {
+            Bet = input.ReadFloat();
             break;
           }
           case 56: {
@@ -916,6 +907,7 @@ namespace GrpcConsoleClient {
       hand_ = other.hand_;
       bestCombo_ = other.bestCombo_;
       action_ = other.action_;
+      bet_ = other.bet_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -926,9 +918,9 @@ namespace GrpcConsoleClient {
 
     /// <summary>Field number for the "wallet" field.</summary>
     public const int WalletFieldNumber = 2;
-    private double wallet_;
+    private float wallet_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public double Wallet {
+    public float Wallet {
       get { return wallet_; }
       set {
         wallet_ = value;
@@ -990,6 +982,17 @@ namespace GrpcConsoleClient {
       }
     }
 
+    /// <summary>Field number for the "bet" field.</summary>
+    public const int BetFieldNumber = 7;
+    private float bet_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public float Bet {
+      get { return bet_; }
+      set {
+        bet_ = value;
+      }
+    }
+
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override bool Equals(object other) {
       return Equals(other as GPlayer);
@@ -1003,24 +1006,26 @@ namespace GrpcConsoleClient {
       if (ReferenceEquals(other, this)) {
         return true;
       }
-      if (!pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.Equals(Wallet, other.Wallet)) return false;
+      if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(Wallet, other.Wallet)) return false;
       if (Name != other.Name) return false;
       if (IsRoomOwner != other.IsRoomOwner) return false;
       if (Hand != other.Hand) return false;
       if (BestCombo != other.BestCombo) return false;
       if (Action != other.Action) return false;
+      if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(Bet, other.Bet)) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override int GetHashCode() {
       int hash = 1;
-      if (Wallet != 0D) hash ^= pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.GetHashCode(Wallet);
+      if (Wallet != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(Wallet);
       if (Name.Length != 0) hash ^= Name.GetHashCode();
       if (IsRoomOwner != false) hash ^= IsRoomOwner.GetHashCode();
       if (Hand.Length != 0) hash ^= Hand.GetHashCode();
       if (BestCombo.Length != 0) hash ^= BestCombo.GetHashCode();
       if (Action != 0) hash ^= Action.GetHashCode();
+      if (Bet != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(Bet);
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -1041,9 +1046,9 @@ namespace GrpcConsoleClient {
         output.WriteRawTag(10);
         output.WriteString(Name);
       }
-      if (Wallet != 0D) {
-        output.WriteRawTag(17);
-        output.WriteDouble(Wallet);
+      if (Wallet != 0F) {
+        output.WriteRawTag(21);
+        output.WriteFloat(Wallet);
       }
       if (IsRoomOwner != false) {
         output.WriteRawTag(24);
@@ -1060,6 +1065,10 @@ namespace GrpcConsoleClient {
       if (Action != 0) {
         output.WriteRawTag(48);
         output.WriteInt32(Action);
+      }
+      if (Bet != 0F) {
+        output.WriteRawTag(61);
+        output.WriteFloat(Bet);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
@@ -1074,9 +1083,9 @@ namespace GrpcConsoleClient {
         output.WriteRawTag(10);
         output.WriteString(Name);
       }
-      if (Wallet != 0D) {
-        output.WriteRawTag(17);
-        output.WriteDouble(Wallet);
+      if (Wallet != 0F) {
+        output.WriteRawTag(21);
+        output.WriteFloat(Wallet);
       }
       if (IsRoomOwner != false) {
         output.WriteRawTag(24);
@@ -1094,6 +1103,10 @@ namespace GrpcConsoleClient {
         output.WriteRawTag(48);
         output.WriteInt32(Action);
       }
+      if (Bet != 0F) {
+        output.WriteRawTag(61);
+        output.WriteFloat(Bet);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -1103,8 +1116,8 @@ namespace GrpcConsoleClient {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public int CalculateSize() {
       int size = 0;
-      if (Wallet != 0D) {
-        size += 1 + 8;
+      if (Wallet != 0F) {
+        size += 1 + 4;
       }
       if (Name.Length != 0) {
         size += 1 + pb::CodedOutputStream.ComputeStringSize(Name);
@@ -1121,6 +1134,9 @@ namespace GrpcConsoleClient {
       if (Action != 0) {
         size += 1 + pb::CodedOutputStream.ComputeInt32Size(Action);
       }
+      if (Bet != 0F) {
+        size += 1 + 4;
+      }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
       }
@@ -1132,7 +1148,7 @@ namespace GrpcConsoleClient {
       if (other == null) {
         return;
       }
-      if (other.Wallet != 0D) {
+      if (other.Wallet != 0F) {
         Wallet = other.Wallet;
       }
       if (other.Name.Length != 0) {
@@ -1149,6 +1165,9 @@ namespace GrpcConsoleClient {
       }
       if (other.Action != 0) {
         Action = other.Action;
+      }
+      if (other.Bet != 0F) {
+        Bet = other.Bet;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -1168,8 +1187,8 @@ namespace GrpcConsoleClient {
             Name = input.ReadString();
             break;
           }
-          case 17: {
-            Wallet = input.ReadDouble();
+          case 21: {
+            Wallet = input.ReadFloat();
             break;
           }
           case 24: {
@@ -1186,6 +1205,10 @@ namespace GrpcConsoleClient {
           }
           case 48: {
             Action = input.ReadInt32();
+            break;
+          }
+          case 61: {
+            Bet = input.ReadFloat();
             break;
           }
         }
@@ -1206,8 +1229,8 @@ namespace GrpcConsoleClient {
             Name = input.ReadString();
             break;
           }
-          case 17: {
-            Wallet = input.ReadDouble();
+          case 21: {
+            Wallet = input.ReadFloat();
             break;
           }
           case 24: {
@@ -1224,6 +1247,10 @@ namespace GrpcConsoleClient {
           }
           case 48: {
             Action = input.ReadInt32();
+            break;
+          }
+          case 61: {
+            Bet = input.ReadFloat();
             break;
           }
         }

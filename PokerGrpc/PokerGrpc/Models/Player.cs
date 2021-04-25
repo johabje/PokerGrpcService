@@ -17,7 +17,7 @@ namespace PokerGrpc.Models
         //public String id { get; set; }
 
         public String name { get; set; }
-        public double wallet { get; set; }
+        public float wallet;
         public Boolean isRoomOwner { get; set; }
         public List<Card> Hand { get; set; }
         public String bestCombo { get; set; }
@@ -26,7 +26,7 @@ namespace PokerGrpc.Models
         public bool currentRoundFirstToBet = false;
         public bool currentBetter = false;
         public int lastAction = -1;
-        public float bet;
+        public float bet = 0;
 
         public Player()
         {

@@ -23,7 +23,7 @@ namespace PokerGrpc.Models
         // using array instead for static size
         public Player[] players;
         public List<Player> playersPlaying;
-        public state state = state.PreGame;
+        public state state;
         public Player toAct;
         public List<Card> tableCards;
         public float pot;
@@ -50,8 +50,6 @@ namespace PokerGrpc.Models
          *                  
          */
 
-        
-
         // new table
         public PokerGame(Player roomOwner, int blind, int gamePin, int maxPlayers = 6)
         {
@@ -69,16 +67,15 @@ namespace PokerGrpc.Models
             this.tableCards = new List<Card>();
             this.pot = 0;
             this.bet = 0;
+            this.tableCards = new List<Card>();
             roomOwner.isRoomOwner = true;
             roomOwner.firstToBet = true;
+            roomOwner.currentRoundFirstToBet = true;
+            roomOwner.currentBetter = true;
             this.toAct = roomOwner;
             AddPlayer(roomOwner);
             
             this.state = state.PreGame;
-
-            // NewGame();
-            // ^testing purposes - (generate table cards for response)
-
         }
 
         /*
@@ -184,8 +181,6 @@ namespace PokerGrpc.Models
         }
 
         public bool RoundFinished() {
-            // REname or whatever
-            // TODO remember to reset player.lastAction every round (pre flop, flop, etc)
             if(playersPlaying.Where(p => p.lastAction.Equals(null)).Any()) {
                 // someone has not taken an action yet: round not finished. Continue to next player
                 return false;
@@ -201,18 +196,25 @@ namespace PokerGrpc.Models
         }
 
 
-        public Player GameOver()
+        public void GameOver()
         {
             //determine vinner, return the vinner, distriubute the pot
-
-            // dispose stuff?
-
-            if (this.deck != null) {
-                //create new deck
-                //this.deck = new Dec;
+            foreach (Player player in playersPlaying) {
+                var handScore = HandRanking.GetBestHand(player.Hand, tableCards);
+                player.bestCombo = handScore.Item1.ToString();
             }
 
-            return null;
+            int bestScore = playersPlaying.Min(c => Int32.Parse(c.bestCombo));
+            int equalScore = playersPlaying.Where(c => c.bestCombo.Equals(bestScore.ToString())).Count();
+            if (equalScore > 1) {
+                float prizePerPlayer = pot / equalScore;
+                foreach (Player player in playersPlaying) {
+                    player.wallet += prizePerPlayer;
+                }
+            } else {
+                playersPlaying.Find(c => c.bestCombo.Equals(bestScore.ToString())).wallet += pot;
+            }
+            NewRound();
 
         }
 
@@ -228,10 +230,12 @@ namespace PokerGrpc.Models
                     player.Hand = new List<Card>();
                     playersPlaying.Add(player);
                     player.bet = 0;
+                    player.lastAction = -1;
                 }
             }
             this.state = state.PreGame;
             this.bet = 0;
+            this.pot = 0;
 
             MoveDealerButton();
 
@@ -265,7 +269,7 @@ namespace PokerGrpc.Models
         }
 
         public bool Check(Player player) {
-            if (player.bet >= this.bet) {
+            if (player.bet >= this.bet && player.currentBetter) {
                 NextBetter(player);
                 return true;
             } else {
@@ -279,6 +283,7 @@ namespace PokerGrpc.Models
             if (player.wallet >= newBet) {
                 player.wallet -= newBet;
                 player.bet += newBet;
+                pot += newBet;
                 NextBetter(player);
                 return true;
             } else {
@@ -293,6 +298,8 @@ namespace PokerGrpc.Models
                 //TODO implement ALL-IN logic
                 player.wallet -= raise;
                 player.bet += raise;
+
+                pot += raise;
 
                 //updates new max bet
                 this.bet = player.bet;
@@ -313,11 +320,6 @@ namespace PokerGrpc.Models
         }
 
         public void Fold(Player player) {
-            /*
-            TODO:
-                add some checks that player exist etc
-                
-            */
 
             int nextPlayerIndex = playersPlaying.IndexOf(player) + 1;
 
@@ -339,7 +341,14 @@ namespace PokerGrpc.Models
 
             // remove players active this round
             playersPlaying.Remove(player);
-            UpdateState();
+            if (playersPlaying.Count == 1) {
+                // all but one has folded:
+                // -> GamerOver() = distribute pot and start new game
+                GameOver();
+            } else {
+                UpdateState();
+            }
+            
         }
 
         public void StartBettingRound() {
@@ -352,22 +361,8 @@ namespace PokerGrpc.Models
                 }
                 player.lastAction = -1;
             }
-            /*
-            TODO REMOVE DIS?
-            */
-            int activePpl = playersPlaying.Count();
-            for (int i=0;i<activePpl;i++) {
-                int currentBetterIndex = playersPlaying.IndexOf(playersPlaying.Find(p => p.currentBetter));
-                // get action from player playersPlaying[currentBetterIndex]
 
-                // in event of a RAISE:
-                // set i = 0 and recalculate activePpl
-
-                // if player folds, 
-
-            }
-
-            //end: move bets to pot
+            //TODO end: move bets to pot
         }
 
         // string of table cards separated by ','

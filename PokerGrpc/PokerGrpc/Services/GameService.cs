@@ -19,13 +19,14 @@ namespace PokerGrpc.Services
 
         public override Task<GameLobby> CreateNewGame(NewGameRequest request, ServerCallContext context)
         {
-            Player player = new Player();
-            player.name = request.Gplayer.Name;
-            player.isRoomOwner = false;
-            player.Hand = null;
-            player.bestCombo = null;
-            player.lastAction = 0;
-            player.wallet = 0;
+            Player player = new Player {
+                name = request.Gplayer.Name,
+                isRoomOwner = false,
+                Hand = null,
+                bestCombo = null,
+                lastAction = -1,
+                wallet = request.Gplayer.Wallet
+            };
             PokerGame lobby = new PokerGame(player, 1, 666, 6);
 
 
@@ -42,7 +43,7 @@ namespace PokerGrpc.Services
             GameLobby gameLobby = new GameLobby
             {
                 GamePin = 666,
-                ToAct = gPlayer,
+                ToAct = gPlayer.Name,
                 TableCards = "0",
                 Pot = 0,
                 Bet = 0,
@@ -63,7 +64,20 @@ namespace PokerGrpc.Services
         }
 
         /*
-        ADD START GAME FUNCTIONALITY
+         * 
+         * 
+         * 
+        TODO IMPORTANT
+        require unique names for new ppl
+        + make sure there is enough room
+
+        -> change PokerGame.AddPlayer to return a bool mby
+
+
+
+
+
+
         */
 
         public override Task<GameLobby> JoinGame(JoinGameRequest request, ServerCallContext context)
@@ -74,28 +88,39 @@ namespace PokerGrpc.Services
                 isRoomOwner = false,
                 Hand = null,
                 bestCombo = null,
-                lastAction = 0,
-                wallet = 0,
+                lastAction = -1,
+                wallet = request.Gplayer.Wallet,
             };
-            PokerGame lobby = StorageSingleton.Instance.currentGames.Find(game => game.gamePin.Equals(request.GamePin));
+
+            PokerGame lobby;
+            try {
+                lobby = StorageSingleton.Instance.currentGames.Find(game => game.gamePin.Equals(request.GamePin));
+            } catch {
+                return Task.FromResult(new GameLobby { });
+            }
+
             lobby.AddPlayer(player);
+
+            /*
             GPlayer gPlayer = new GPlayer
             {
-                Action = 0,
+                Action = -1,
                 BestCombo = "0",
                 Hand = "0",
                 IsRoomOwner = false,
                 Name = player.name,
                 Wallet = player.wallet,
             };
+            */
+
             GameLobby gameLobby = new GameLobby
             {
                 GamePin = 888,
-                ToAct = gPlayer,
-                TableCards = "x",
-                Pot = 0,
-                Bet = 0,
-                Blind = 20
+                ToAct = lobby.toAct.name, // this will always return the room owner, but the client should receive an updated version in next message
+                TableCards = lobby.GetCards(lobby.tableCards),
+                Pot = lobby.pot,
+                Bet = lobby.bet,
+                Blind = lobby.blind
             };
             foreach (Player participant in lobby.players)
             {
@@ -103,7 +128,7 @@ namespace PokerGrpc.Services
                 {
                     GPlayer gParticipant = new GPlayer
                     {
-                        Action = 0,
+                        Action = participant.lastAction,
                         BestCombo = "0",
                         Hand = "0",
                         IsRoomOwner = false,
@@ -119,41 +144,35 @@ namespace PokerGrpc.Services
         public override async Task StartStream(JoinGameRequest request, IServerStreamWriter<GameLobby> responseStream, ServerCallContext context)
         {
             PokerGame pokerGame = StorageSingleton.Instance.currentGames.Find(game => game.gamePin.Equals(request.GamePin));
-            PokerGame pokergame2;
             Console.WriteLine("pokergamePin" + pokerGame.gamePin);
-            PokerGame lastGame = pokerGame;
+            Player lastBetter = pokerGame.playersPlaying.Find(p => p.currentBetter);
+            int lastTableCardsCount = pokerGame.tableCards.Count;
+
+            Player currentBetter;
+            int tableCardsCount;
+
             await responseStream.WriteAsync(PokerGameToGameLobby(pokerGame, request.Gplayer.Name));
             
             while (true)
             {
-                pokergame2 = StorageSingleton.Instance.currentGames.Find(game => game.gamePin.Equals(request.GamePin));
-                //if (!(pokerGame.toAct.Equals(pokergame2.toAct) && pokerGame.players.Equals(pokergame2.players) && pokerGame.bet.Equals(pokergame2.bet)))
-                    if (!lastGame.toAct.Equals(pokergame2.toAct) || !lastGame.tableCards.Count().Equals(pokergame2.tableCards.Count()))
+                currentBetter = pokerGame.playersPlaying.Find(p => p.currentBetter);
+                tableCardsCount = pokerGame.tableCards.Count;
+                if (!lastBetter.Equals(currentBetter) || !lastTableCardsCount.Equals(tableCardsCount))
                 {
-
-                    await responseStream.WriteAsync(PokerGameToGameLobby(pokergame2, request.Gplayer.Name));
-                    lastGame = pokergame2;
+                    await responseStream.WriteAsync(PokerGameToGameLobby(pokerGame, request.Gplayer.Name));
+                    lastBetter = currentBetter;
+                    lastTableCardsCount = tableCardsCount;
                 }
-                   else
+                else
                 {
-                    Console.WriteLine("Did not send resons this itteration");
+                    Console.WriteLine("No change in game state");
                 }
                 
                 await Task.Delay(1000); //gotta look bussy
-                Console.WriteLine("The bets are: " + pokerGame.bet+ " and " + pokergame2.bet);
+                //Console.WriteLine("The bets are: " + pokerGame.bet+ " and " + pokergame2.bet);
             }
         }
-        /*
-        Merge Tasks: Bet, Check, Raise, Fold
-        get action from request.action
-        switch(action)
-            Bet()...
-            ...
-        */
 
-        /*
-        TODO change names etc here -> game.proto
-        */
         public override Task<ActionResponse> Action(ActionRequest request, ServerCallContext context)
         { 
             ActionResponse badActionResponse = new ActionResponse {Success = false};
@@ -201,7 +220,6 @@ namespace PokerGrpc.Services
                     break;
                 default:
                     return Task.FromResult(badActionResponse);
-                    break;
             }
             player.lastAction = actionId;
             lobby.UpdateState();
@@ -237,18 +255,16 @@ namespace PokerGrpc.Services
 
         public GameLobby PokerGameToGameLobby(PokerGame pokerGame, string playerName)
         {
-            GameLobby gamelobby = new GameLobby
-            {
+            Player playerToAct = pokerGame.playersPlaying.Find(p => p.currentBetter);
+            GameLobby gamelobby = new GameLobby {
                 GamePin = pokerGame.gamePin,
-                ToAct = PlayerToGPlayer(pokerGame.toAct, pokerGame),
-
+                ToAct = playerToAct.name,
                 TableCards = pokerGame.GetCards(pokerGame.tableCards),
-
                 Pot = pokerGame.pot,
                 Bet = pokerGame.bet,
                 Blind = pokerGame.blind
             };
-            foreach (var player in pokerGame.players)
+            foreach (Player player in pokerGame.players)
             {
                 if (player != null)
                 {
@@ -274,14 +290,14 @@ namespace PokerGrpc.Services
             {
                 hand = pokerGame.GetCards(player.Hand);
             }
-            GPlayer gParticipant = new GPlayer
-            {
+            GPlayer gParticipant = new GPlayer {
                 Action = 0,
                 BestCombo = "0",
                 Hand = hand,
-                IsRoomOwner = false,
+                IsRoomOwner = player.isRoomOwner,
                 Name = player.name,
                 Wallet = player.wallet,
+                Bet = player.bet
             };
             return gParticipant;
         }

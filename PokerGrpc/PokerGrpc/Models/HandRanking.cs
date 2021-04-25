@@ -23,10 +23,10 @@ namespace PokerGrpc.Models
          * ! BTW !
          *  not tested
          */
-        List<Card> dummyList = new List<Card>();
-        List<List<Card>> dummyListList = new List<List<Card>>();
+        static List<Card> dummyList = new List<Card>();
+        static List<List<Card>> dummyListList = new List<List<Card>>();
 
-        public Tuple<int, List<Card>> GetBestHand(List<Card> handCards, List<Card> tableCards) {
+        public static Tuple<int, List<Card>> GetBestHand(List<Card> handCards, List<Card> tableCards) {
             List<Card> allCards = handCards.Concat(tableCards).ToList();
 
             HasRoyalFlush(allCards);
@@ -59,7 +59,7 @@ namespace PokerGrpc.Models
             return Tuple.Create(bestHandScore, usedCards);
         }
 
-        private Tuple<int, List<Card>> HasRoyalFlush(List<Card> cards) {
+        private static Tuple<int, List<Card>> HasRoyalFlush(List<Card> cards) {
             var straightFlushInfo = HasStraightFlush(cards);
             int straightFlushScore = straightFlushInfo.Item1;
             List<Card> straightFlushCards = straightFlushInfo.Item2;
@@ -73,7 +73,7 @@ namespace PokerGrpc.Models
             
         }
 
-        private Tuple<int, List<Card>> HasStraightFlush(List<Card> cards) {
+        private static Tuple<int, List<Card>> HasStraightFlush(List<Card> cards) {
             var straightInfo = HasStraight(cards);
             int straightScore = straightInfo.Item1;
             List<List<Card>> straightLists = straightInfo.Item2;
@@ -100,7 +100,7 @@ namespace PokerGrpc.Models
             }
         }
         
-        private Tuple<int, List<List<Card>>> HasStraight(List<Card> cards) {
+        private static Tuple<int, List<List<Card>>> HasStraight(List<Card> cards) {
             List<Card> descendingList = cards.OrderByDescending(card => card.rank).ToList();
             Card[] cardArray = descendingList.ToArray();
 
@@ -151,7 +151,7 @@ namespace PokerGrpc.Models
             }
         }
 
-        private Tuple<int, List<Card>> HasFlush(List<Card> cards) {
+        private static Tuple<int, List<Card>> HasFlush(List<Card> cards) {
             char[] standardSuits = { 'H', 'K', 'S', 'R' };
             List<Card> flushList = new List<Card>();
 
@@ -166,14 +166,14 @@ namespace PokerGrpc.Models
             return Tuple.Create(99, dummyList);
         }
 
-        private Card GetHighCard(List<Card> allCards, List<Card> usedCards) {
+        private static Card GetHighCard(List<Card> allCards, List<Card> usedCards) {
             List<Card> unusedCards = allCards.Except(usedCards).ToList();
             unusedCards.OrderByDescending(c => c.rank);
             Card highCard = unusedCards.First();
             return highCard;
         }
         
-        private Tuple<int, List<Card>> HasXOfAKind(List<Card> cards, int x = 4) {
+        private static Tuple<int, List<Card>> HasXOfAKind(List<Card> cards, int x = 4) {
             List<Card> xOfKind = new List<Card>(cards.GroupBy(c => c.rank).Count(c => c.Count() == x));
             if (!xOfKind.Any()) {
                 // no x-of a rank, check for x-1 if x>2 (no reason to check for x=1, -> high card)

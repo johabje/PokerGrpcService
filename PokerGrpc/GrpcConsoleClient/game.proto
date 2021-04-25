@@ -25,21 +25,22 @@ message GameLobby
 {
     int32 gamePin = 1;
     repeated GPlayer gplayers = 2;
-    GPlayer toAct = 3;
+    string toAct = 3;
     string tableCards = 4;
-    double pot = 5;
-    double bet = 6;
+    float pot = 5;
+    float bet = 6;
     int32 blind = 7;
     
 }
 
 message GPlayer {
-    double wallet = 2;
+    float wallet = 2;
     string name = 1;
     bool isRoomOwner = 3;
     string hand = 4;
     string bestCombo = 5;
     int32 action = 6;
+    float bet = 7;
 }
 
 message ActionRequest {

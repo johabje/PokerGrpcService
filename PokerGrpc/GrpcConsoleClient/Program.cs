@@ -60,42 +60,71 @@ namespace GrpcConsoleClient
             //write code for starting game
             var action1 = client.Action(new ActionRequest
             {
-                Action = 1,
-                Bet = 0,
+                Action = 2,
+                Bet = 200,
                 GamePin = 666,
                 Name = "johan"
             });
+            Console.WriteLine(action1);
 
             var action2 = client.Action(new ActionRequest
-            {
-                Action = 1,
-                Bet = 0,
-                GamePin = 666,
-                Name = "fredrik"
-            });
-
-            var action3 = client.Action(new ActionRequest
-            {
-                Action = 2,
-                Bet = 50,
-                GamePin = 666,
-                Name = "syver"
-            });
-
-            var action4 = client.Action(new ActionRequest
-            {
-                Action = 0,
-                Bet = 0,
-                GamePin = 666,
-                Name = "johan"
-            });
-            var action5 = client.Action(new ActionRequest
             {
                 Action = 3,
                 Bet = 0,
                 GamePin = 666,
                 Name = "fredrik"
             });
+            Console.WriteLine(action2);
+
+            var action3 = client.Action(new ActionRequest
+            {
+                Action = 3,
+                Bet = 50,
+                GamePin = 666,
+                Name = "syver"
+            });
+            Console.WriteLine(action3);
+
+            var action4 = client.Action(new ActionRequest
+            {
+                Action = 1,
+                Bet = 0,
+                GamePin = 666,
+                Name = "johan"
+            });
+            Console.WriteLine(action4);
+
+            var action5 = client.Action(new ActionRequest
+            {
+                Action = 1,
+                Bet = 0,
+                GamePin = 666,
+                Name = "fredrik"
+            });
+            Console.WriteLine(action5);
+            var action6 = client.Action(new ActionRequest {
+                Action = 1,
+                Bet = 0,
+                GamePin = 666,
+                Name = "fredrik"
+            });
+            Console.WriteLine(action6);
+
+            var action7 = client.Action(new ActionRequest {
+                Action = 1,
+                Bet = 0,
+                GamePin = 666,
+                Name = "fredrik"
+            });
+            Console.WriteLine(action7);
+
+            var action8 = client.Action(new ActionRequest {
+                Action = 1,
+                Bet = 0,
+                GamePin = 666,
+                Name = "syver"
+            });
+            Console.WriteLine(action8);
 
 
             using (var call = client.StartStream(new JoinGameRequest { GamePin = 666, Gplayer = syver }))
