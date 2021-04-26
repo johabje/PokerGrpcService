@@ -2,7 +2,7 @@
   "profiles": {
     "PokerGrpc": {
       "commandName": "Project",
-      "applicationUrl": "http://localhost:5001",
+      "applicationUrl": "http://127.0.0.1:8080",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       }

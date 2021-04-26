@@ -14,7 +14,7 @@ namespace GrpcConsoleClient
             AppContext.SetSwitch(
             "System.Net.Http.SocketsHttpHandler.Http2UnencryptedSupport", true);
             // The port number(5001) must match the port of the gRPC server.
-            using var channel = GrpcChannel.ForAddress("http://localhost:5001");
+            using var channel = GrpcChannel.ForAddress("http://127.0.0.1:8080");
             var client = new Game.GameClient(channel);
             GPlayer johan = new GPlayer()
             {

@@ -29,16 +29,17 @@ namespace PokerGrpc.Services
             };
             PokerGame lobby = new PokerGame(player, 1, 666, 6);
 
-
             lobby.gamePin = 666;
+
             GPlayer gPlayer = new GPlayer
             {
-                Action = 0,
-                BestCombo = "0",
-                Hand = "0",
-                IsRoomOwner = true,
                 Name = player.name,
                 Wallet = player.wallet,
+                IsRoomOwner = player.isRoomOwner,
+                Hand = "0",
+                BestCombo = "x",
+                Action = -1,
+                Bet = 0
             };
             GameLobby gameLobby = new GameLobby
             {
@@ -50,6 +51,7 @@ namespace PokerGrpc.Services
                 Blind = 20
             };
             gameLobby.Gplayers.Add(gPlayer);
+
             foreach (PokerGame game in StorageSingleton.Instance.currentGames)
             {
                 if (game.gamePin == lobby.gamePin)
@@ -85,11 +87,11 @@ namespace PokerGrpc.Services
             Player player = new Player
             {
                 name = request.Gplayer.Name,
+                wallet = request.Gplayer.Wallet,
                 isRoomOwner = false,
                 Hand = null,
                 bestCombo = null,
-                lastAction = -1,
-                wallet = request.Gplayer.Wallet,
+                lastAction = -1
             };
 
             PokerGame lobby;
@@ -143,9 +145,23 @@ namespace PokerGrpc.Services
 
         public override async Task StartStream(JoinGameRequest request, IServerStreamWriter<GameLobby> responseStream, ServerCallContext context)
         {
-            PokerGame pokerGame = StorageSingleton.Instance.currentGames.Find(game => game.gamePin.Equals(request.GamePin));
+            PokerGame pokerGame;
+            if (StorageSingleton.Instance.currentGames.Find(game => game.gamePin.Equals(request.GamePin)) == null) return;
+            pokerGame = StorageSingleton.Instance.currentGames.Find(game => game.gamePin.Equals(request.GamePin));
+            foreach (Player player in pokerGame.players) {
+                if (player != null && player.name.Equals(request.Gplayer.Name)) {
+                    break;
+                }
+                await Task.FromResult(await JoinGame(request, context));
+            }
             Console.WriteLine("pokergamePin" + pokerGame.gamePin);
-            Player lastBetter = pokerGame.playersPlaying.Find(p => p.currentBetter);
+            Player lastBetter;
+            if (pokerGame.playersPlaying == null) {
+                lastBetter = null;
+            } else {
+                lastBetter = pokerGame.playersPlaying.Find(p => p.currentBetter);
+            }
+                    
             int lastTableCardsCount = pokerGame.tableCards.Count;
 
             Player currentBetter;
@@ -166,6 +182,13 @@ namespace PokerGrpc.Services
                 else
                 {
                     Console.WriteLine("No change in game state");
+                    int j = 0;
+                    for (int i=0;i<pokerGame.players.Length;i++) {
+                        if (pokerGame.players[i] != null) {
+                            j++;
+                        }
+                    }
+                    Console.WriteLine(j + " players at table with pin: " + pokerGame.gamePin + ".");
                 }
                 
                 await Task.Delay(1000); //gotta look bussy
@@ -255,7 +278,11 @@ namespace PokerGrpc.Services
 
         public GameLobby PokerGameToGameLobby(PokerGame pokerGame, string playerName)
         {
-            Player playerToAct = pokerGame.playersPlaying.Find(p => p.currentBetter);
+            Player playerToAct = new Player();
+            if (pokerGame.playersPlaying != null) {
+                pokerGame.playersPlaying.Find(p => p.currentBetter);
+            }
+                
             GameLobby gamelobby = new GameLobby {
                 GamePin = pokerGame.gamePin,
                 ToAct = playerToAct.name,
