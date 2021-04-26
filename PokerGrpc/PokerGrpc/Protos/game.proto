@@ -30,6 +30,7 @@ message GameLobby
     float pot = 5;
     float bet = 6;
     int32 blind = 7;
+    string winner = 8;
     
 }
 
@@ -49,6 +50,13 @@ message ActionRequest {
     int32 bet = 3;
     int32 Action = 4;
 }
+//For action, the values are:
+// -1 -> no action yet
+// 0 -> fold
+// 1 -> check
+// 2 -> bet
+// 3 -> call
+
 
 message ActionResponse {
     bool success = 1;

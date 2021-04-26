@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace PokerGrpc.Models
 {
@@ -18,6 +19,7 @@ namespace PokerGrpc.Models
     {
         public int gamePin;
         public Deck deck;
+        public Player winner = null; 
 
         //public List<Player> players = new  List<Player>();
         // using array instead for static size
@@ -130,11 +132,12 @@ namespace PokerGrpc.Models
                     if (RoundFinished())
                     {
                         // TODO end the game somewhere
-                        this.state = state.Showdown;
+                        GameOver();
                     }
                     break;
                 case state.Showdown:
-                    // some other game mode
+                    Task.Delay(2000000);
+                    NewRound();
                     break;
 
             }
@@ -171,25 +174,27 @@ namespace PokerGrpc.Models
         }
 
         // inserting player into first available spot
-        public void AddPlayer(Player player) {
+        public Boolean AddPlayer(Player player) {
             for (int i = 0; i < players.Length; i++) {
                 if (players[i] == null) {
                     players[i] = player;
-                    break;
+                    return true;
                 }
             }
+            return false;
+
         }
 
         public bool RoundFinished() {
-            if(playersPlaying.Where(p => p.lastAction.Equals(null)).Any()) {
+            if(playersPlaying.Where(p => p.lastAction.Equals(-1)).Any()) {
                 // someone has not taken an action yet: round not finished. Continue to next player
                 return false;
             } else {
-                // check = 1;
-                if (playersPlaying.Where(p => p.lastAction.Equals(1)).Count() >= playersPlaying.Count - 1) {
-                // count of active players - 1 HAS CHECKED, round is over
+                if (playersPlaying.Where(p => p.bet.Equals(bet)).Count() == playersPlaying.Count())
+                {
                     return true;
-                } else {
+                }
+                else {
                     return false;
                 }
             }
@@ -198,23 +203,41 @@ namespace PokerGrpc.Models
 
         public void GameOver()
         {
+            
             //determine vinner, return the vinner, distriubute the pot
-            foreach (Player player in playersPlaying) {
+            
+            if (playersPlaying.Count() == 1)
+            {
+                playersPlaying.ElementAt(0).wallet += pot;
+                winner = playersPlaying.ElementAt(0);
+            }
+            else
+            {
+                foreach (Player player in playersPlaying) {
                 var handScore = HandRanking.GetBestHand(player.Hand, tableCards);
                 player.bestCombo = handScore.Item1.ToString();
-            }
-
-            int bestScore = playersPlaying.Min(c => Int32.Parse(c.bestCombo));
-            int equalScore = playersPlaying.Where(c => c.bestCombo.Equals(bestScore.ToString())).Count();
-            if (equalScore > 1) {
-                float prizePerPlayer = pot / equalScore;
-                foreach (Player player in playersPlaying) {
-                    player.wallet += prizePerPlayer;
                 }
-            } else {
-                playersPlaying.Find(c => c.bestCombo.Equals(bestScore.ToString())).wallet += pot;
+                int bestScore = playersPlaying.Min(c => Int32.Parse(c.bestCombo));
+                int equalScore = playersPlaying.Where(c => c.bestCombo.Equals(bestScore.ToString())).Count();
+                if (equalScore > 1)
+                {
+                    float prizePerPlayer = pot / equalScore;
+                    foreach (Player player in playersPlaying)
+                    {
+                        winner = player; //change to list of players?
+                        player.wallet += prizePerPlayer;
+                    }
+                }
+                else
+                {
+                    winner = playersPlaying.Find(c => c.bestCombo.Equals(bestScore.ToString()));
+                    winner.wallet += pot;
+
+                }
             }
-            NewRound();
+            this.state = state.Showdown;
+            UpdateState();
+
 
         }
 
@@ -238,6 +261,26 @@ namespace PokerGrpc.Models
             this.pot = 0;
 
             MoveDealerButton();
+
+            //add blinds
+            
+            /*foreach (Player player in playersPlaying)
+            {
+                if (player.currentBetter)
+                {
+                    Console.WriteLine(PlaceBet(player, this.blind));
+                }
+                Console.WriteLine(player.name);
+            }
+           
+            foreach(Player player in playersPlaying)
+            {
+                if (player.currentBetter)
+                {
+                    PlaceBet(player, this.blind);
+                }
+            }*/
+
 
             //clears table of cards
             this.tableCards.Clear();
@@ -322,6 +365,7 @@ namespace PokerGrpc.Models
         public void Fold(Player player) {
 
             int nextPlayerIndex = playersPlaying.IndexOf(player) + 1;
+            //Set player hand to null?
 
             // purpose of currentRoundFirstToBet:
             // if folding player were first to bet, move this role to the next in line
@@ -343,7 +387,7 @@ namespace PokerGrpc.Models
             playersPlaying.Remove(player);
             if (playersPlaying.Count == 1) {
                 // all but one has folded:
-                // -> GamerOver() = distribute pot and start new game
+                // -> GamerOver() = distribute pot, send to players, wait, start new game
                 GameOver();
             } else {
                 UpdateState();
@@ -352,6 +396,9 @@ namespace PokerGrpc.Models
         }
 
         public void StartBettingRound() {
+
+            this.bet = 0;
+
             foreach (Player player in playersPlaying) {
                 // asserts only the correct player has currentBetter true
                 if (player.currentRoundFirstToBet) {
@@ -360,7 +407,41 @@ namespace PokerGrpc.Models
                     player.currentBetter = false;
                 }
                 player.lastAction = -1;
+                player.bet = 0;
             }
+            if (this.state == state.PF)
+            {
+                foreach (Player player in playersPlaying)
+                {
+                    if (player.currentBetter)
+                    {
+                        if(!PlaceBet(player, this.blind))
+                        {
+                            Fold(player);
+                        }
+
+                        Console.WriteLine("Smallblind: " + player.name);
+                        break;
+                    }
+                    
+                }
+           
+                foreach(Player player in playersPlaying)
+                {
+                    if (player.currentBetter)
+                    {
+                        if (!PlaceBet(player, this.blind))
+                        {
+                            Fold(player);
+                        }
+                        Console.WriteLine("Bigblind: " + player.name);
+                        break;
+                    }
+                    
+                    
+                }
+            }
+
 
             //TODO end: move bets to pot
         }

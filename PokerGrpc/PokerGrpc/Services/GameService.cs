@@ -27,10 +27,8 @@ namespace PokerGrpc.Services
                 lastAction = -1,
                 wallet = request.Gplayer.Wallet
             };
-            PokerGame lobby = new PokerGame(player, 1, 666, 6);
+            PokerGame lobby = new PokerGame(player, 1, request.GamePin, 6);
 
-
-            lobby.gamePin = 666;
             GPlayer gPlayer = new GPlayer
             {
                 Action = 0,
@@ -42,7 +40,7 @@ namespace PokerGrpc.Services
             };
             GameLobby gameLobby = new GameLobby
             {
-                GamePin = 666,
+                GamePin = lobby.gamePin,
                 ToAct = gPlayer.Name,
                 TableCards = "0",
                 Pot = 0,
@@ -54,7 +52,7 @@ namespace PokerGrpc.Services
             {
                 if (game.gamePin == lobby.gamePin)
                 {
-                    return Task.FromResult(gameLobby);
+                    return Task.FromResult(new GameLobby { });
                 }
             }
             StorageSingleton.Instance.currentGames.Add(lobby);
@@ -99,7 +97,11 @@ namespace PokerGrpc.Services
                 return Task.FromResult(new GameLobby { });
             }
 
-            lobby.AddPlayer(player);
+            if (!lobby.AddPlayer(player))
+            {
+                //maybe throw permmission denied error?
+                return Task.FromResult(new GameLobby { });
+            }
 
             /*
             GPlayer gPlayer = new GPlayer
@@ -115,7 +117,7 @@ namespace PokerGrpc.Services
 
             GameLobby gameLobby = new GameLobby
             {
-                GamePin = 888,
+                GamePin = request.GamePin,
                 ToAct = lobby.toAct.name, // this will always return the room owner, but the client should receive an updated version in next message
                 TableCards = lobby.GetCards(lobby.tableCards),
                 Pot = lobby.pot,
@@ -143,13 +145,15 @@ namespace PokerGrpc.Services
 
         public override async Task StartStream(JoinGameRequest request, IServerStreamWriter<GameLobby> responseStream, ServerCallContext context)
         {
+            await Task.Delay(1000);
             PokerGame pokerGame = StorageSingleton.Instance.currentGames.Find(game => game.gamePin.Equals(request.GamePin));
-            Console.WriteLine("pokergamePin" + pokerGame.gamePin);
+            //Console.WriteLine("pokergamePin" + pokerGame.gamePin);
             Player lastBetter = pokerGame.playersPlaying.Find(p => p.currentBetter);
             int lastTableCardsCount = pokerGame.tableCards.Count;
 
             Player currentBetter;
             int tableCardsCount;
+            state currentState;
 
             await responseStream.WriteAsync(PokerGameToGameLobby(pokerGame, request.Gplayer.Name));
             
@@ -157,15 +161,31 @@ namespace PokerGrpc.Services
             {
                 currentBetter = pokerGame.playersPlaying.Find(p => p.currentBetter);
                 tableCardsCount = pokerGame.tableCards.Count;
+                currentState = pokerGame.state;
+                //Console.WriteLine(currentState);
                 if (!lastBetter.Equals(currentBetter) || !lastTableCardsCount.Equals(tableCardsCount))
                 {
                     await responseStream.WriteAsync(PokerGameToGameLobby(pokerGame, request.Gplayer.Name));
                     lastBetter = currentBetter;
                     lastTableCardsCount = tableCardsCount;
                 }
-                else
+                else if (currentState == state.Showdown)
                 {
-                    Console.WriteLine("No change in game state");
+
+
+                    // return the game with winner etc
+                    GameLobby lobby = new GameLobby
+                    {
+                        Pot = pokerGame.pot,
+                        TableCards = pokerGame.GetCards(pokerGame.tableCards),
+                        Winner = pokerGame.winner.name, 
+                    };
+
+                    //add code to reset the game here.
+
+                }
+                else { 
+                   // Console.WriteLine("No change in game state");
                 }
                 
                 await Task.Delay(1000); //gotta look bussy

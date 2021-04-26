@@ -1,13 +1,12 @@
 ﻿<Properties StartupConfiguration="{26C7EE7F-46F0-411E-A271-DEBDDF0ECB5F}|Default">
   <MonoDevelop.Ide.ItemProperties.PokerGrpcTest PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="PokerGrpc/Services/GameService.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="PokerGrpc/Protos/game.proto">
     <Files>
-      <File FileName="PokerGrpc/Models/PokerGame.cs" Line="314" Column="1" />
-      <File FileName="PokerGrpc/Protos/game.proto" />
-      <File FileName="PokerGrpc/Models/Player.cs" />
-      <File FileName="GrpcConsoleClient/game.proto" />
-      <File FileName="PokerGrpc/Services/GameService.cs" Line="27" Column="30" />
-      <File FileName="GrpcConsoleClient/Program.cs" />
+      <File FileName="PokerGrpc/Services/GameService.cs" Line="267" Column="39" />
+      <File FileName="PokerGrpc/Models/PokerGame.cs" Line="410" Column="32" />
+      <File FileName="GrpcConsoleClient/Program.cs" Line="161" Column="31" />
+      <File FileName="PokerGrpc/Models/HandRanking.cs" Line="53" Column="20" />
+      <File FileName="PokerGrpc/Protos/game.proto" Line="1" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -20,13 +19,23 @@
               </Node>
               <Node name="Protos" expanded="True" />
             </Node>
-            <Node name="PokerGrpc" expanded="True" selected="True">
+            <Node name="PokerGrpc" expanded="True">
+              <Node name="Dependencies" expanded="True">
+                <Node name="PackageDependencies" expanded="True" />
+              </Node>
               <Node name="Models" expanded="True" />
-              <Node name="Protos" expanded="True" />
+              <Node name="Properties" expanded="True" />
+              <Node name="Protos" expanded="True">
+                <Node name="game.proto" selected="True" />
+              </Node>
               <Node name="Services" expanded="True" />
             </Node>
+            <Node name="PokerGrpcTest" expanded="True" />
           </Node>
         </State>
+      </Pad>
+      <Pad Id="MonoDevelop.Debugger.WatchPad">
+        <State />
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>

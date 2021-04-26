@@ -27,29 +27,29 @@ namespace PokerGrpc {
             "ChFQcm90b3MvZ2FtZS5wcm90byI8Cg5OZXdHYW1lUmVxdWVzdBIZCgdncGxh",
             "eWVyGAEgASgLMgguR1BsYXllchIPCgdnYW1lUGluGAIgASgFIj0KD0pvaW5H",
             "YW1lUmVxdWVzdBIPCgdnYW1lUGluGAEgASgFEhkKB2dwbGF5ZXIYAiABKAsy",
-            "CC5HUGxheWVyIoQBCglHYW1lTG9iYnkSDwoHZ2FtZVBpbhgBIAEoBRIaCghn",
+            "CC5HUGxheWVyIpQBCglHYW1lTG9iYnkSDwoHZ2FtZVBpbhgBIAEoBRIaCghn",
             "cGxheWVycxgCIAMoCzIILkdQbGF5ZXISDQoFdG9BY3QYAyABKAkSEgoKdGFi",
             "bGVDYXJkcxgEIAEoCRILCgNwb3QYBSABKAISCwoDYmV0GAYgASgCEg0KBWJs",
-            "aW5kGAcgASgFInoKB0dQbGF5ZXISDgoGd2FsbGV0GAIgASgCEgwKBG5hbWUY",
-            "ASABKAkSEwoLaXNSb29tT3duZXIYAyABKAgSDAoEaGFuZBgEIAEoCRIRCgli",
-            "ZXN0Q29tYm8YBSABKAkSDgoGYWN0aW9uGAYgASgFEgsKA2JldBgHIAEoAiJL",
-            "Cg1BY3Rpb25SZXF1ZXN0Eg8KB2dhbWVQaW4YASABKAUSDAoEbmFtZRgCIAEo",
-            "CRILCgNiZXQYAyABKAUSDgoGQWN0aW9uGAQgASgFIiEKDkFjdGlvblJlc3Bv",
-            "bnNlEg8KB3N1Y2Nlc3MYASABKAgiNwoQU3RhcnRHYW1lUmVxdWVzdBIPCgdn",
-            "YW1lcGluGAEgASgFEhIKCnBsYXllck5hbWUYAiABKAkiJAoRU3RhcnRHYW1l",
-            "UmVzcG9uc2USDwoHc3VjY2VzcxgBIAEoCDLsAQoER2FtZRIsCg1DcmVhdGVO",
-            "ZXdHYW1lEg8uTmV3R2FtZVJlcXVlc3QaCi5HYW1lTG9iYnkSKAoISm9pbkdh",
-            "bWUSEC5Kb2luR2FtZVJlcXVlc3QaCi5HYW1lTG9iYnkSLQoLU3RhcnRTdHJl",
-            "YW0SEC5Kb2luR2FtZVJlcXVlc3QaCi5HYW1lTG9iYnkwARIpCgZBY3Rpb24S",
-            "Di5BY3Rpb25SZXF1ZXN0Gg8uQWN0aW9uUmVzcG9uc2USMgoJU3RhcnRHYW1l",
-            "EhEuU3RhcnRHYW1lUmVxdWVzdBoSLlN0YXJ0R2FtZVJlc3BvbnNlQgyqAglQ",
-            "b2tlckdycGNiBnByb3RvMw=="));
+            "aW5kGAcgASgFEg4KBndpbm5lchgIIAEoCSJ6CgdHUGxheWVyEg4KBndhbGxl",
+            "dBgCIAEoAhIMCgRuYW1lGAEgASgJEhMKC2lzUm9vbU93bmVyGAMgASgIEgwK",
+            "BGhhbmQYBCABKAkSEQoJYmVzdENvbWJvGAUgASgJEg4KBmFjdGlvbhgGIAEo",
+            "BRILCgNiZXQYByABKAIiSwoNQWN0aW9uUmVxdWVzdBIPCgdnYW1lUGluGAEg",
+            "ASgFEgwKBG5hbWUYAiABKAkSCwoDYmV0GAMgASgFEg4KBkFjdGlvbhgEIAEo",
+            "BSIhCg5BY3Rpb25SZXNwb25zZRIPCgdzdWNjZXNzGAEgASgIIjcKEFN0YXJ0",
+            "R2FtZVJlcXVlc3QSDwoHZ2FtZXBpbhgBIAEoBRISCgpwbGF5ZXJOYW1lGAIg",
+            "ASgJIiQKEVN0YXJ0R2FtZVJlc3BvbnNlEg8KB3N1Y2Nlc3MYASABKAgy7AEK",
+            "BEdhbWUSLAoNQ3JlYXRlTmV3R2FtZRIPLk5ld0dhbWVSZXF1ZXN0GgouR2Ft",
+            "ZUxvYmJ5EigKCEpvaW5HYW1lEhAuSm9pbkdhbWVSZXF1ZXN0GgouR2FtZUxv",
+            "YmJ5Ei0KC1N0YXJ0U3RyZWFtEhAuSm9pbkdhbWVSZXF1ZXN0GgouR2FtZUxv",
+            "YmJ5MAESKQoGQWN0aW9uEg4uQWN0aW9uUmVxdWVzdBoPLkFjdGlvblJlc3Bv",
+            "bnNlEjIKCVN0YXJ0R2FtZRIRLlN0YXJ0R2FtZVJlcXVlc3QaEi5TdGFydEdh",
+            "bWVSZXNwb25zZUIMqgIJUG9rZXJHcnBjYgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
             new pbr::GeneratedClrTypeInfo(typeof(global::PokerGrpc.NewGameRequest), global::PokerGrpc.NewGameRequest.Parser, new[]{ "Gplayer", "GamePin" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::PokerGrpc.JoinGameRequest), global::PokerGrpc.JoinGameRequest.Parser, new[]{ "GamePin", "Gplayer" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::PokerGrpc.GameLobby), global::PokerGrpc.GameLobby.Parser, new[]{ "GamePin", "Gplayers", "ToAct", "TableCards", "Pot", "Bet", "Blind" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::PokerGrpc.GameLobby), global::PokerGrpc.GameLobby.Parser, new[]{ "GamePin", "Gplayers", "ToAct", "TableCards", "Pot", "Bet", "Blind", "Winner" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::PokerGrpc.GPlayer), global::PokerGrpc.GPlayer.Parser, new[]{ "Wallet", "Name", "IsRoomOwner", "Hand", "BestCombo", "Action", "Bet" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::PokerGrpc.ActionRequest), global::PokerGrpc.ActionRequest.Parser, new[]{ "GamePin", "Name", "Bet", "Action" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::PokerGrpc.ActionResponse), global::PokerGrpc.ActionResponse.Parser, new[]{ "Success" }, null, null, null, null),
@@ -531,6 +531,7 @@ namespace PokerGrpc {
       pot_ = other.pot_;
       bet_ = other.bet_;
       blind_ = other.blind_;
+      winner_ = other.winner_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -615,6 +616,17 @@ namespace PokerGrpc {
       }
     }
 
+    /// <summary>Field number for the "winner" field.</summary>
+    public const int WinnerFieldNumber = 8;
+    private string winner_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string Winner {
+      get { return winner_; }
+      set {
+        winner_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override bool Equals(object other) {
       return Equals(other as GameLobby);
@@ -635,6 +647,7 @@ namespace PokerGrpc {
       if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(Pot, other.Pot)) return false;
       if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(Bet, other.Bet)) return false;
       if (Blind != other.Blind) return false;
+      if (Winner != other.Winner) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -648,6 +661,7 @@ namespace PokerGrpc {
       if (Pot != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(Pot);
       if (Bet != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(Bet);
       if (Blind != 0) hash ^= Blind.GetHashCode();
+      if (Winner.Length != 0) hash ^= Winner.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -689,6 +703,10 @@ namespace PokerGrpc {
         output.WriteRawTag(56);
         output.WriteInt32(Blind);
       }
+      if (Winner.Length != 0) {
+        output.WriteRawTag(66);
+        output.WriteString(Winner);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -723,6 +741,10 @@ namespace PokerGrpc {
         output.WriteRawTag(56);
         output.WriteInt32(Blind);
       }
+      if (Winner.Length != 0) {
+        output.WriteRawTag(66);
+        output.WriteString(Winner);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -750,6 +772,9 @@ namespace PokerGrpc {
       }
       if (Blind != 0) {
         size += 1 + pb::CodedOutputStream.ComputeInt32Size(Blind);
+      }
+      if (Winner.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(Winner);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -780,6 +805,9 @@ namespace PokerGrpc {
       }
       if (other.Blind != 0) {
         Blind = other.Blind;
+      }
+      if (other.Winner.Length != 0) {
+        Winner = other.Winner;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -823,6 +851,10 @@ namespace PokerGrpc {
             Blind = input.ReadInt32();
             break;
           }
+          case 66: {
+            Winner = input.ReadString();
+            break;
+          }
         }
       }
     #endif
@@ -863,6 +895,10 @@ namespace PokerGrpc {
           }
           case 56: {
             Blind = input.ReadInt32();
+            break;
+          }
+          case 66: {
+            Winner = input.ReadString();
             break;
           }
         }
