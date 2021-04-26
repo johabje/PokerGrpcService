@@ -242,7 +242,7 @@ namespace PokerGrpc.Services
                     return Task.FromResult(badActionResponse);
             }
             player.lastAction = actionId;
-            lobby.UpdateState();
+            lobby.UpdateStateAsync();
             return Task.FromResult(new ActionResponse { Success = true });
         }
         public override Task<StartGameResponse> StartGame(StartGameRequest request, ServerCallContext context)

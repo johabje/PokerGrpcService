@@ -8,7 +8,7 @@ namespace PokerGrpc.Models
     {
 
         /*
-         * 0 - royal flush
+         * 0 - royal straigth flush
          * 1 - straight flush
          * 2 - four of a kind
          * 3 - full house
@@ -29,8 +29,7 @@ namespace PokerGrpc.Models
         public static Tuple<int, List<Card>> GetBestHand(List<Card> handCards, List<Card> tableCards) {
             List<Card> allCards = handCards.Concat(tableCards).ToList();
 
-            HasRoyalFlush(allCards);
-            HasXOfAKind(allCards);
+            
 
             var bigCombos = HasRoyalFlush(allCards);
             int combosScore = bigCombos.Item1;
@@ -42,6 +41,8 @@ namespace PokerGrpc.Models
 
             int bestHandScore;
             List<Card> usedCards;
+
+
 
             if (combosScore < etcScore) {
                 bestHandScore = combosScore;
@@ -96,7 +97,7 @@ namespace PokerGrpc.Models
                 return Tuple.Create(flushScore, flushCards);
             } else {
                 // returns straight score: 99 (bad) if no straight
-                return Tuple.Create(straightScore, straightLists.First());
+                return Tuple.Create(straightScore, new List<Card>());
             }
         }
         

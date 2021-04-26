@@ -83,7 +83,7 @@ namespace PokerGrpc.Models
         /*
          * PokerGame.StartGame when owner clicks start or after a set time
          */
-        public void UpdateState()
+        public async Task UpdateStateAsync()
         {
             /*
             would be nice to just have all functionality related to whos turn it is in the end of this
@@ -136,7 +136,7 @@ namespace PokerGrpc.Models
                     }
                     break;
                 case state.Showdown:
-                    Task.Delay(2000000);
+                    await Task.Delay(2000000);
                     NewRound();
                     break;
 
@@ -224,6 +224,7 @@ namespace PokerGrpc.Models
                     float prizePerPlayer = pot / equalScore;
                     foreach (Player player in playersPlaying)
                     {
+                        Console.WriteLine("more than one winner, best score is" + player.bestCombo + "this player had " + GetCards(player.Hand) + "table cards were "+GetCards(this.tableCards));
                         winner = player; //change to list of players?
                         player.wallet += prizePerPlayer;
                     }
@@ -232,11 +233,13 @@ namespace PokerGrpc.Models
                 {
                     winner = playersPlaying.Find(c => c.bestCombo.Equals(bestScore.ToString()));
                     winner.wallet += pot;
+                    Console.WriteLine("the winner is: " + winner.name + " with hand " + GetCards(winner.Hand) + " best combo: " + winner.bestCombo + " table cardes: " + GetCards(this.tableCards));
+
 
                 }
             }
             this.state = state.Showdown;
-            UpdateState();
+            UpdateStateAsync();
 
 
         }
@@ -262,33 +265,13 @@ namespace PokerGrpc.Models
 
             MoveDealerButton();
 
-            //add blinds
-            
-            /*foreach (Player player in playersPlaying)
-            {
-                if (player.currentBetter)
-                {
-                    Console.WriteLine(PlaceBet(player, this.blind));
-                }
-                Console.WriteLine(player.name);
-            }
-           
-            foreach(Player player in playersPlaying)
-            {
-                if (player.currentBetter)
-                {
-                    PlaceBet(player, this.blind);
-                }
-            }*/
-
-
             //clears table of cards
             this.tableCards.Clear();
             
             // deck.cardStack = stack of cards randomized
             this.deck = new Deck();
             startNewRound = true;
-            UpdateState();
+            UpdateStateAsync();
         }
 
         public void MoveDealerButton() {
@@ -390,7 +373,7 @@ namespace PokerGrpc.Models
                 // -> GamerOver() = distribute pot, send to players, wait, start new game
                 GameOver();
             } else {
-                UpdateState();
+                UpdateStateAsync();
             }
             
         }
