@@ -1,18 +1,18 @@
 {
   "version": 2,
-  "dgSpecHash": "bYbgTPfbH/Byt5DfaLJC3I4pdl7MvLuQgHIwUdOh66q1UfwvRHHz/hW5zbuH52UdJ6v5rw0wwPn40GkhZhBovQ==",
+  "dgSpecHash": "lmKzBdlVIhBsPk4lKPrI7BFGivZXPxd//bti/dM0cZDpZ1HRqINEP7jLdleyea7GoEjzJ8L0Mat3isXT9FTRnQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\fredr\\Documents\\MSIT\\V21\\TDT4240-Programvarearkitektur\\PROJECT\\PokerGrpcService\\PokerGrpc\\GrpcConsoleClient\\GrpcConsoleClient.csproj",
+  "projectFilePath": "/Users/johanbjerkedal/Documents/PokerGrpcService/PokerGrpc/GrpcConsoleClient/GrpcConsoleClient.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\fredr\\.nuget\\packages\\google.protobuf\\3.15.7\\google.protobuf.3.15.7.nupkg.sha512",
-    "C:\\Users\\fredr\\.nuget\\packages\\grpc.core.api\\2.36.1\\grpc.core.api.2.36.1.nupkg.sha512",
-    "C:\\Users\\fredr\\.nuget\\packages\\grpc.net.client\\2.36.0\\grpc.net.client.2.36.0.nupkg.sha512",
-    "C:\\Users\\fredr\\.nuget\\packages\\grpc.net.common\\2.36.0\\grpc.net.common.2.36.0.nupkg.sha512",
-    "C:\\Users\\fredr\\.nuget\\packages\\grpc.tools\\2.36.4\\grpc.tools.2.36.4.nupkg.sha512",
-    "C:\\Users\\fredr\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\3.0.3\\microsoft.extensions.logging.abstractions.3.0.3.nupkg.sha512",
-    "C:\\Users\\fredr\\.nuget\\packages\\system.diagnostics.diagnosticsource\\4.5.1\\system.diagnostics.diagnosticsource.4.5.1.nupkg.sha512",
-    "C:\\Users\\fredr\\.nuget\\packages\\system.memory\\4.5.3\\system.memory.4.5.3.nupkg.sha512",
-    "C:\\Users\\fredr\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\4.5.2\\system.runtime.compilerservices.unsafe.4.5.2.nupkg.sha512"
+    "/Users/johanbjerkedal/.nuget/packages/google.protobuf/3.15.7/google.protobuf.3.15.7.nupkg.sha512",
+    "/Users/johanbjerkedal/.nuget/packages/grpc.core.api/2.36.1/grpc.core.api.2.36.1.nupkg.sha512",
+    "/Users/johanbjerkedal/.nuget/packages/grpc.net.client/2.36.0/grpc.net.client.2.36.0.nupkg.sha512",
+    "/Users/johanbjerkedal/.nuget/packages/grpc.net.common/2.36.0/grpc.net.common.2.36.0.nupkg.sha512",
+    "/Users/johanbjerkedal/.nuget/packages/grpc.tools/2.36.4/grpc.tools.2.36.4.nupkg.sha512",
+    "/Users/johanbjerkedal/.nuget/packages/microsoft.extensions.logging.abstractions/3.0.3/microsoft.extensions.logging.abstractions.3.0.3.nupkg.sha512",
+    "/Users/johanbjerkedal/.nuget/packages/system.diagnostics.diagnosticsource/4.5.1/system.diagnostics.diagnosticsource.4.5.1.nupkg.sha512",
+    "/Users/johanbjerkedal/.nuget/packages/system.memory/4.5.3/system.memory.4.5.3.nupkg.sha512",
+    "/Users/johanbjerkedal/.nuget/packages/system.runtime.compilerservices.unsafe/4.5.2/system.runtime.compilerservices.unsafe.4.5.2.nupkg.sha512"
   ],
   "logs": []
 }
