@@ -14,7 +14,7 @@ namespace GrpcConsoleClient
             AppContext.SetSwitch(
             "System.Net.Http.SocketsHttpHandler.Http2UnencryptedSupport", true);
             // The port number(5001) must match the port of the gRPC server.
-            using var channel = GrpcChannel.ForAddress("http://localhost:5001");
+            using var channel = GrpcChannel.ForAddress("http://127.0.0.1:8080");
             var client = new Game.GameClient(channel);
             GPlayer johan = new GPlayer()
             {
@@ -26,6 +26,7 @@ namespace GrpcConsoleClient
                 Wallet = 1000
 
             };
+            await Task.Delay(1000);
             GPlayer fredrik = new GPlayer()
             {
                 Name = "fredrik",
@@ -47,10 +48,11 @@ namespace GrpcConsoleClient
 
             };
 
-            var startReply = client.CreateNewGame(new NewGameRequest { Gplayer = johan, GamePin = 666});
-            Console.WriteLine(startReply);
+            //var startReply = client.CreateNewGame(new NewGameRequest { Gplayer = johan, GamePin = 666});
+            //Console.WriteLine(startReply);
             var join1 = client.JoinGame(new JoinGameRequest { Gplayer = fredrik, GamePin = 666 });
             Console.WriteLine(join1);
+            await Task.Delay(1000);
             var join2 = client.JoinGame(new JoinGameRequest { Gplayer = syver, GamePin = 666 });
             Console.WriteLine(join2);
 
@@ -72,7 +74,8 @@ namespace GrpcConsoleClient
                 Name = "johan"
             });
             Console.WriteLine("action1:"+action1);
-            
+            await Task.Delay(1000);
+
             var action2 = client.Action(new ActionRequest
             {
                 Action = 1,
@@ -81,7 +84,8 @@ namespace GrpcConsoleClient
                 Name = "fredrik"
             });
             Console.WriteLine(action2);
-            
+            await Task.Delay(1000);
+
             var action3 = client.Action(new ActionRequest
             {
                 Action = 1,
@@ -90,7 +94,8 @@ namespace GrpcConsoleClient
                 Name = "syver"
             });
             Console.WriteLine(action3);
-            
+            await Task.Delay(1000);
+
             var action4 = client.Action(new ActionRequest
             {
                 Action = 2,
@@ -99,6 +104,7 @@ namespace GrpcConsoleClient
                 Name = "fredrik"
             });
             Console.WriteLine(action4);
+            await Task.Delay(1000);
 
             var action5 = client.Action(new ActionRequest
             {
@@ -109,8 +115,8 @@ namespace GrpcConsoleClient
             });
             Console.WriteLine(action5);
 
+            await Task.Delay(1000);
 
-     
             var action6 = client.Action(new ActionRequest {
                 Action = 0,
                 Bet = 0,
@@ -118,7 +124,7 @@ namespace GrpcConsoleClient
                 Name = "johan"
             });
             Console.WriteLine(action6);
-            
+            await Task.Delay(1000);
 
             var action7 = client.Action(new ActionRequest {
                 Action = 3,
@@ -127,7 +133,8 @@ namespace GrpcConsoleClient
                 Name = "fredrik"
             });
             Console.WriteLine(action7);
-            
+            await Task.Delay(1000);
+
             var action8 = client.Action(new ActionRequest {
                 Action = 1,
                 Bet = 0,
@@ -135,6 +142,7 @@ namespace GrpcConsoleClient
                 Name = "fredrik"
             });
             Console.WriteLine(action8);
+            await Task.Delay(1000);
 
             var action9 = client.Action(new ActionRequest
             {
@@ -144,6 +152,7 @@ namespace GrpcConsoleClient
                 Name = "syver"
             });
             Console.WriteLine(action9);
+            await Task.Delay(1000);
 
             var action10 = client.Action(new ActionRequest
             {
@@ -153,6 +162,8 @@ namespace GrpcConsoleClient
                 Name = "fredrik"
             });
             Console.WriteLine(action10);
+            await Task.Delay(1000);
+
             var action11 = client.Action(new ActionRequest
             {
                 Action = 1,
@@ -161,6 +172,7 @@ namespace GrpcConsoleClient
                 Name = "syver"
             });
             Console.WriteLine(action11);
+            await Task.Delay(1000);
 
             using (var call = client.StartStream(new JoinGameRequest { GamePin = 666, Gplayer = syver }))
             {

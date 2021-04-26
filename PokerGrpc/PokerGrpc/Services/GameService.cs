@@ -28,15 +28,17 @@ namespace PokerGrpc.Services
                 wallet = request.Gplayer.Wallet
             };
             PokerGame lobby = new PokerGame(player, 1, request.GamePin, 6);
+            lobby.players.ElementAt(0).currentBetter = true;
 
             GPlayer gPlayer = new GPlayer
             {
-                Action = 0,
-                BestCombo = "0",
-                Hand = "0",
-                IsRoomOwner = true,
                 Name = player.name,
                 Wallet = player.wallet,
+                IsRoomOwner = player.isRoomOwner,
+                Hand = "0",
+                BestCombo = "x",
+                Action = -1,
+                Bet = 0
             };
             GameLobby gameLobby = new GameLobby
             {
@@ -48,6 +50,7 @@ namespace PokerGrpc.Services
                 Blind = 20
             };
             gameLobby.Gplayers.Add(gPlayer);
+
             foreach (PokerGame game in StorageSingleton.Instance.currentGames)
             {
                 if (game.gamePin == lobby.gamePin)
@@ -83,11 +86,11 @@ namespace PokerGrpc.Services
             Player player = new Player
             {
                 name = request.Gplayer.Name,
+                wallet = request.Gplayer.Wallet,
                 isRoomOwner = false,
                 Hand = null,
                 bestCombo = null,
-                lastAction = -1,
-                wallet = request.Gplayer.Wallet,
+                lastAction = -1
             };
 
             PokerGame lobby;
@@ -145,32 +148,71 @@ namespace PokerGrpc.Services
 
         public override async Task StartStream(JoinGameRequest request, IServerStreamWriter<GameLobby> responseStream, ServerCallContext context)
         {
-            await Task.Delay(1000);
-            PokerGame pokerGame = StorageSingleton.Instance.currentGames.Find(game => game.gamePin.Equals(request.GamePin));
-            //Console.WriteLine("pokergamePin" + pokerGame.gamePin);
-            Player lastBetter = pokerGame.playersPlaying.Find(p => p.currentBetter);
-            int lastTableCardsCount = pokerGame.tableCards.Count;
+            PokerGame pokerGame;
+            if (StorageSingleton.Instance.currentGames.Find(game => game.gamePin.Equals(request.GamePin)) == null) return;
+
+            pokerGame = StorageSingleton.Instance.currentGames.Find(game => game.gamePin.Equals(request.GamePin));
+
+            foreach (Player player in pokerGame.players) {
+                if (player != null && player.name.Equals(request.Gplayer.Name)) {
+                    break;
+                }
+                Console.WriteLine("Should not go here");
+                await Task.FromResult(await JoinGame(request, context));
+            }
+            Console.WriteLine("pokergamePin" + pokerGame.gamePin);
+            Player lastBetter;
+            if (pokerGame.playersPlaying == null) {
+                lastBetter = pokerGame.players.ElementAt(0);
+            } else {
+                lastBetter = pokerGame.playersPlaying.Find(p => p.currentBetter);
+            }
+                    
+            int lastTableCardsCount = pokerGame.tableCards.Count();
+            int lastPlayersCount = pokerGame.players.Where(p => p == null).Count();
+
 
             Player currentBetter;
             int tableCardsCount;
+            int playersCount;
             state currentState;
 
+            //TODO bug with the line below (awai responsestream...)
+            // just wrote something random
             await responseStream.WriteAsync(PokerGameToGameLobby(pokerGame, request.Gplayer.Name));
             
             while (true)
             {
-                currentBetter = pokerGame.playersPlaying.Find(p => p.currentBetter);
-                tableCardsCount = pokerGame.tableCards.Count;
+                try
+                {
+                    currentBetter = pokerGame.playersPlaying.Find(p => p.currentBetter);
+                }
+                catch
+                {
+                    currentBetter = pokerGame.players.ElementAt(0);
+                }
+
+                tableCardsCount = pokerGame.tableCards.Count();
                 currentState = pokerGame.state;
+                playersCount = pokerGame.players.Where(p => p == null).Count();
                 //Console.WriteLine(currentState);
-                if (!lastBetter.Equals(currentBetter) || !lastTableCardsCount.Equals(tableCardsCount))
+                if (!lastBetter.Equals(currentBetter) || !lastTableCardsCount.Equals(tableCardsCount) || !playersCount.Equals(lastPlayersCount))
                 {
                     await responseStream.WriteAsync(PokerGameToGameLobby(pokerGame, request.Gplayer.Name));
                     lastBetter = currentBetter;
                     lastTableCardsCount = tableCardsCount;
+                    lastPlayersCount = playersCount;
                 }
                 else if (currentState == state.Showdown)
                 {
+                    Console.WriteLine("No change in game state");
+                    int j = 0;
+                    for (int i=0;i<pokerGame.players.Length;i++) {
+                        if (pokerGame.players[i] != null) {
+                            j++;
+                        }
+                    }
+                    Console.WriteLine(j + " players at table with pin: " + pokerGame.gamePin + ".");
 
 
                     // return the game with winner etc
@@ -275,7 +317,15 @@ namespace PokerGrpc.Services
 
         public GameLobby PokerGameToGameLobby(PokerGame pokerGame, string playerName)
         {
-            Player playerToAct = pokerGame.playersPlaying.Find(p => p.currentBetter);
+            Player playerToAct = new Player();
+            if (pokerGame.playersPlaying != null) {
+                playerToAct= pokerGame.playersPlaying.Find(p => p.currentBetter);
+            }
+            else
+            {
+                playerToAct = pokerGame.players.ElementAt(0);
+            }
+                
             GameLobby gamelobby = new GameLobby {
                 GamePin = pokerGame.gamePin,
                 ToAct = playerToAct.name,
