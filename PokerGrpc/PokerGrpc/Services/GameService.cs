@@ -167,6 +167,8 @@ namespace PokerGrpc.Services
             Player currentBetter;
             int tableCardsCount;
 
+            //TODO bug with the line below (awai responsestream...)
+            // just wrote something random
             await responseStream.WriteAsync(PokerGameToGameLobby(pokerGame, request.Gplayer.Name));
             
             while (true)
