@@ -83,7 +83,7 @@ namespace PokerGrpc.Models
         /*
          * PokerGame.StartGame when owner clicks start or after a set time
          */
-        public async Task UpdateStateAsync()
+        public void UpdateStateAsync()
         {
             /*
             would be nice to just have all functionality related to whos turn it is in the end of this
@@ -136,7 +136,6 @@ namespace PokerGrpc.Models
                     }
                     break;
                 case state.Showdown:
-                    await Task.Delay(2000000);
                     NewRound();
                     break;
 
@@ -194,6 +193,10 @@ namespace PokerGrpc.Models
                 {
                     return true;
                 }
+                if (playersPlaying.Where(p => p.lastAction.Equals(2)).Count() == playersPlaying.Count())
+                {
+                    return true;
+                }
                 else {
                     return false;
                 }
@@ -214,19 +217,50 @@ namespace PokerGrpc.Models
             else
             {
                 foreach (Player player in playersPlaying) {
-                var handScore = HandRanking.GetBestHand(player.Hand, tableCards);
-                player.bestCombo = handScore.Item1.ToString();
+                    var handScore = HandRanking.GetBestHand(player.Hand, tableCards);
+                    player.bestCombo = handScore.Item1.ToString();
+                    player.bestCardCombo = handScore.Item2;
+
                 }
                 int bestScore = playersPlaying.Min(c => Int32.Parse(c.bestCombo));
-                int equalScore = playersPlaying.Where(c => c.bestCombo.Equals(bestScore.ToString())).Count();
-                if (equalScore > 1)
+                IEnumerable<Player> equalScore = playersPlaying.Where(c => c.bestCombo.Equals(bestScore.ToString()));
+                List<Player> Winners = new List<Player>(equalScore);
+                if (equalScore.Count() > 1)
                 {
-                    float prizePerPlayer = pot / equalScore;
-                    foreach (Player player in playersPlaying)
+                    Card highCard = equalScore.ElementAt(0).bestCardCombo.ElementAt(0);
+                    for (int i = 0; i < 5; i++)
                     {
-                        Console.WriteLine("more than one winner, best score is" + player.bestCombo + "this player had " + GetCards(player.Hand) + "table cards were "+GetCards(this.tableCards));
-                        winner = player; //change to list of players?
-                        player.wallet += prizePerPlayer;
+                        foreach (Player player in equalScore)
+                        {
+                            Card card = player.bestCardCombo.ElementAt(i);
+                            if (card.rank < highCard.rank)
+                            {
+                                Winners.Remove(player);
+                            }
+                            if (card.rank > highCard.rank)
+                            {
+                                i--;
+                                highCard = card;
+                            }
+                        }
+
+                    }
+                    if (Winners.Count() != 1)
+                    {
+
+                        float prizePerPlayer = pot / Winners.Count();
+                        foreach (Player player in Winners)
+                        {
+                            Console.WriteLine("more than one winner, best score is" + player.bestCombo + "this player had " + GetCards(player.Hand) + "table cards were " + GetCards(this.tableCards));
+                            winner = player; //change to list of players?
+                            player.wallet += prizePerPlayer;
+                        }
+                    }
+                    else
+                    {
+                        winner = playersPlaying.Find(c => c.bestCombo.Equals(bestScore.ToString()));
+                        winner.wallet += pot;
+                        Console.WriteLine("the winner is: " + winner.name + " with hand " + GetCards(winner.Hand) + " best combo: " + winner.bestCombo + " table cardes: " + GetCards(this.tableCards));
                     }
                 }
                 else
@@ -237,6 +271,7 @@ namespace PokerGrpc.Models
 
 
                 }
+                Console.WriteLine("gameOver ran");
             }
             this.state = state.Showdown;
             UpdateStateAsync();

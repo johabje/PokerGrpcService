@@ -153,13 +153,20 @@ namespace PokerGrpc.Services
 
             pokerGame = StorageSingleton.Instance.currentGames.Find(game => game.gamePin.Equals(request.GamePin));
 
-            foreach (Player player in pokerGame.players) {
+            //if the player is not first in the players list, this fucks up :/
+            /*foreach (Player player in pokerGame.players) {
+                if (player != null)
+                {
+                    Console.WriteLine(player.name + "requesting player " + request.Gplayer.Name);
+                }
                 if (player != null && player.name.Equals(request.Gplayer.Name)) {
                     break;
                 }
+
                 Console.WriteLine("Should not go here");
                 await Task.FromResult(await JoinGame(request, context));
             }
+            */
             Console.WriteLine("pokergamePin" + pokerGame.gamePin);
             Player lastBetter;
             if (pokerGame.playersPlaying == null) {
@@ -183,6 +190,7 @@ namespace PokerGrpc.Services
             
             while (true)
             {
+                Console.WriteLine(pokerGame.state);
                 try
                 {
                     currentBetter = pokerGame.playersPlaying.Find(p => p.currentBetter);

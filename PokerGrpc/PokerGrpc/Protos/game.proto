@@ -12,7 +12,10 @@ service Game {
 
 message NewGameRequest {
     GPlayer gplayer = 1;
-    int32 gamePin =2; 
+    int32 gamePin =2;
+    int32 maxBuyin = 3;
+    int32 minBuyin = 4;
+    int32 smallBlind = 5;
 }
 
 message JoinGameRequest {

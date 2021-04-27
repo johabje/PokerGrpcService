@@ -47,6 +47,16 @@ namespace GrpcConsoleClient
                 Wallet = 1000
 
             };
+            GPlayer markus = new GPlayer()
+            {
+                Name = "markus",
+                Action = 0,
+                BestCombo = "0",
+                Hand = "hh",
+                IsRoomOwner = false,
+                Wallet = 1000
+
+            };
 
             //var startReply = client.CreateNewGame(new NewGameRequest { Gplayer = johan, GamePin = 666});
             //Console.WriteLine(startReply);
@@ -163,7 +173,7 @@ namespace GrpcConsoleClient
             });
             Console.WriteLine(action10);
             await Task.Delay(1000);
-
+            
             var action11 = client.Action(new ActionRequest
             {
                 Action = 1,
@@ -173,8 +183,11 @@ namespace GrpcConsoleClient
             });
             Console.WriteLine(action11);
             await Task.Delay(1000);
+            
 
-            using (var call = client.StartStream(new JoinGameRequest { GamePin = 666, Gplayer = syver }))
+
+
+            using (var call = client.StartStream(new JoinGameRequest { GamePin = 666, Gplayer = fredrik }))
             {
                 while (await call.ResponseStream.MoveNext())
                 {

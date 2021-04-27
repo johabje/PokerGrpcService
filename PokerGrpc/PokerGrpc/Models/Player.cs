@@ -21,6 +21,7 @@ namespace PokerGrpc.Models
         public Boolean isRoomOwner { get; set; }
         public List<Card> Hand { get; set; }
         public String bestCombo { get; set; }
+        public List<Card> bestCardCombo { get; set; }
         public int curentGameBetTotal { get; set; }
         public bool firstToBet = false;
         public bool currentRoundFirstToBet = false;

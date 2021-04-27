@@ -28,8 +28,9 @@ namespace PokerGrpc.Models
 
         public static Tuple<int, List<Card>> GetBestHand(List<Card> handCards, List<Card> tableCards) {
             List<Card> allCards = handCards.Concat(tableCards).ToList();
+            // need High Card logic
 
-            
+
 
             var bigCombos = HasRoyalFlush(allCards);
             int combosScore = bigCombos.Item1;
@@ -175,7 +176,17 @@ namespace PokerGrpc.Models
         }
         
         private static Tuple<int, List<Card>> HasXOfAKind(List<Card> cards, int x = 4) {
-            List<Card> xOfKind = new List<Card>(cards.GroupBy(c => c.rank).Count(c => c.Count() == x));
+            List<Card> xOfKind = new List<Card>(cards);
+
+            foreach (Card card in cards)
+            {
+                int numberOfKind = xOfKind.Count(c => c.rank == card.rank);
+                if (numberOfKind != x)
+                {
+                    xOfKind.Remove(card);
+                }
+            }
+
             if (!xOfKind.Any()) {
                 // no x-of a rank, check for x-1 if x>2 (no reason to check for x=1, -> high card)
                 if (x > 2) {
