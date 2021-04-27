@@ -21,6 +21,7 @@ message NewGameRequest {
 message JoinGameRequest {
     int32 gamePin = 1;
     GPlayer gplayer = 2;
+    int32 buyin = 3;
 }
 
 
@@ -34,6 +35,8 @@ message GameLobby
     float bet = 6;
     int32 blind = 7;
     string winner = 8;
+    int32 maxBuyin = 9;
+    int32 minBuyin = 10;
     
 }
 

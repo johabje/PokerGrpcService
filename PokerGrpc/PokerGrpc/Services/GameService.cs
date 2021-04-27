@@ -106,18 +106,6 @@ namespace PokerGrpc.Services
                 return Task.FromResult(new GameLobby { });
             }
 
-            /*
-            GPlayer gPlayer = new GPlayer
-            {
-                Action = -1,
-                BestCombo = "0",
-                Hand = "0",
-                IsRoomOwner = false,
-                Name = player.name,
-                Wallet = player.wallet,
-            };
-            */
-
             GameLobby gameLobby = new GameLobby
             {
                 GamePin = request.GamePin,

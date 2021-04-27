@@ -19,8 +19,9 @@ namespace PokerGrpc.Models
     {
         public int gamePin;
         public Deck deck;
-        public Player winner = null; 
-
+        public Player winner = null;
+        public int maxBuyin;
+        public int minBuyin;
         //public List<Player> players = new  List<Player>();
         // using array instead for static size
         public Player[] players;
@@ -59,12 +60,7 @@ namespace PokerGrpc.Models
             for (int i =0;i<players.Length;i++) {
                 players[i] = null;
             }
-
-            //maybe get gamePin from a singleton?
-            //Random rnd = new Random();
-            //this.gamePin = rnd.Next(9999);
             this.gamePin = gamePin;
-
             this.blind = blind;
             this.tableCards = new List<Card>();
             this.pot = 0;
@@ -174,7 +170,10 @@ namespace PokerGrpc.Models
 
         // inserting player into first available spot
         public Boolean AddPlayer(Player player) {
+            players.Where(p => p.name == player.name);
+
             for (int i = 0; i < players.Length; i++) {
+                players.Where(p => p.name == player.name);
                 if (players[i] == null) {
                     players[i] = player;
                     return true;

@@ -24,32 +24,35 @@ namespace PokerGrpc {
     static GameReflection() {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
-            "ChFQcm90b3MvZ2FtZS5wcm90byI8Cg5OZXdHYW1lUmVxdWVzdBIZCgdncGxh",
-            "eWVyGAEgASgLMgguR1BsYXllchIPCgdnYW1lUGluGAIgASgFIj0KD0pvaW5H",
-            "YW1lUmVxdWVzdBIPCgdnYW1lUGluGAEgASgFEhkKB2dwbGF5ZXIYAiABKAsy",
-            "CC5HUGxheWVyIpQBCglHYW1lTG9iYnkSDwoHZ2FtZVBpbhgBIAEoBRIaCghn",
-            "cGxheWVycxgCIAMoCzIILkdQbGF5ZXISDQoFdG9BY3QYAyABKAkSEgoKdGFi",
-            "bGVDYXJkcxgEIAEoCRILCgNwb3QYBSABKAISCwoDYmV0GAYgASgCEg0KBWJs",
-            "aW5kGAcgASgFEg4KBndpbm5lchgIIAEoCSJ6CgdHUGxheWVyEg4KBndhbGxl",
-            "dBgCIAEoAhIMCgRuYW1lGAEgASgJEhMKC2lzUm9vbU93bmVyGAMgASgIEgwK",
-            "BGhhbmQYBCABKAkSEQoJYmVzdENvbWJvGAUgASgJEg4KBmFjdGlvbhgGIAEo",
-            "BRILCgNiZXQYByABKAIiSwoNQWN0aW9uUmVxdWVzdBIPCgdnYW1lUGluGAEg",
-            "ASgFEgwKBG5hbWUYAiABKAkSCwoDYmV0GAMgASgFEg4KBkFjdGlvbhgEIAEo",
-            "BSIhCg5BY3Rpb25SZXNwb25zZRIPCgdzdWNjZXNzGAEgASgIIjcKEFN0YXJ0",
-            "R2FtZVJlcXVlc3QSDwoHZ2FtZXBpbhgBIAEoBRISCgpwbGF5ZXJOYW1lGAIg",
-            "ASgJIiQKEVN0YXJ0R2FtZVJlc3BvbnNlEg8KB3N1Y2Nlc3MYASABKAgy7AEK",
-            "BEdhbWUSLAoNQ3JlYXRlTmV3R2FtZRIPLk5ld0dhbWVSZXF1ZXN0GgouR2Ft",
-            "ZUxvYmJ5EigKCEpvaW5HYW1lEhAuSm9pbkdhbWVSZXF1ZXN0GgouR2FtZUxv",
-            "YmJ5Ei0KC1N0YXJ0U3RyZWFtEhAuSm9pbkdhbWVSZXF1ZXN0GgouR2FtZUxv",
-            "YmJ5MAESKQoGQWN0aW9uEg4uQWN0aW9uUmVxdWVzdBoPLkFjdGlvblJlc3Bv",
-            "bnNlEjIKCVN0YXJ0R2FtZRIRLlN0YXJ0R2FtZVJlcXVlc3QaEi5TdGFydEdh",
-            "bWVSZXNwb25zZUIMqgIJUG9rZXJHcnBjYgZwcm90bzM="));
+            "ChFQcm90b3MvZ2FtZS5wcm90byJ0Cg5OZXdHYW1lUmVxdWVzdBIZCgdncGxh",
+            "eWVyGAEgASgLMgguR1BsYXllchIPCgdnYW1lUGluGAIgASgFEhAKCG1heEJ1",
+            "eWluGAMgASgFEhAKCG1pbkJ1eWluGAQgASgFEhIKCnNtYWxsQmxpbmQYBSAB",
+            "KAUiTAoPSm9pbkdhbWVSZXF1ZXN0Eg8KB2dhbWVQaW4YASABKAUSGQoHZ3Bs",
+            "YXllchgCIAEoCzIILkdQbGF5ZXISDQoFYnV5aW4YAyABKAUiuAEKCUdhbWVM",
+            "b2JieRIPCgdnYW1lUGluGAEgASgFEhoKCGdwbGF5ZXJzGAIgAygLMgguR1Bs",
+            "YXllchINCgV0b0FjdBgDIAEoCRISCgp0YWJsZUNhcmRzGAQgASgJEgsKA3Bv",
+            "dBgFIAEoAhILCgNiZXQYBiABKAISDQoFYmxpbmQYByABKAUSDgoGd2lubmVy",
+            "GAggASgJEhAKCG1heEJ1eWluGAkgASgFEhAKCG1pbkJ1eWluGAogASgFInoK",
+            "B0dQbGF5ZXISDgoGd2FsbGV0GAIgASgCEgwKBG5hbWUYASABKAkSEwoLaXNS",
+            "b29tT3duZXIYAyABKAgSDAoEaGFuZBgEIAEoCRIRCgliZXN0Q29tYm8YBSAB",
+            "KAkSDgoGYWN0aW9uGAYgASgFEgsKA2JldBgHIAEoAiJLCg1BY3Rpb25SZXF1",
+            "ZXN0Eg8KB2dhbWVQaW4YASABKAUSDAoEbmFtZRgCIAEoCRILCgNiZXQYAyAB",
+            "KAUSDgoGQWN0aW9uGAQgASgFIiEKDkFjdGlvblJlc3BvbnNlEg8KB3N1Y2Nl",
+            "c3MYASABKAgiNwoQU3RhcnRHYW1lUmVxdWVzdBIPCgdnYW1lcGluGAEgASgF",
+            "EhIKCnBsYXllck5hbWUYAiABKAkiJAoRU3RhcnRHYW1lUmVzcG9uc2USDwoH",
+            "c3VjY2VzcxgBIAEoCDLsAQoER2FtZRIsCg1DcmVhdGVOZXdHYW1lEg8uTmV3",
+            "R2FtZVJlcXVlc3QaCi5HYW1lTG9iYnkSKAoISm9pbkdhbWUSEC5Kb2luR2Ft",
+            "ZVJlcXVlc3QaCi5HYW1lTG9iYnkSLQoLU3RhcnRTdHJlYW0SEC5Kb2luR2Ft",
+            "ZVJlcXVlc3QaCi5HYW1lTG9iYnkwARIpCgZBY3Rpb24SDi5BY3Rpb25SZXF1",
+            "ZXN0Gg8uQWN0aW9uUmVzcG9uc2USMgoJU3RhcnRHYW1lEhEuU3RhcnRHYW1l",
+            "UmVxdWVzdBoSLlN0YXJ0R2FtZVJlc3BvbnNlQgyqAglQb2tlckdycGNiBnBy",
+            "b3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::PokerGrpc.NewGameRequest), global::PokerGrpc.NewGameRequest.Parser, new[]{ "Gplayer", "GamePin" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::PokerGrpc.JoinGameRequest), global::PokerGrpc.JoinGameRequest.Parser, new[]{ "GamePin", "Gplayer" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::PokerGrpc.GameLobby), global::PokerGrpc.GameLobby.Parser, new[]{ "GamePin", "Gplayers", "ToAct", "TableCards", "Pot", "Bet", "Blind", "Winner" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::PokerGrpc.NewGameRequest), global::PokerGrpc.NewGameRequest.Parser, new[]{ "Gplayer", "GamePin", "MaxBuyin", "MinBuyin", "SmallBlind" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::PokerGrpc.JoinGameRequest), global::PokerGrpc.JoinGameRequest.Parser, new[]{ "GamePin", "Gplayer", "Buyin" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::PokerGrpc.GameLobby), global::PokerGrpc.GameLobby.Parser, new[]{ "GamePin", "Gplayers", "ToAct", "TableCards", "Pot", "Bet", "Blind", "Winner", "MaxBuyin", "MinBuyin" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::PokerGrpc.GPlayer), global::PokerGrpc.GPlayer.Parser, new[]{ "Wallet", "Name", "IsRoomOwner", "Hand", "BestCombo", "Action", "Bet" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::PokerGrpc.ActionRequest), global::PokerGrpc.ActionRequest.Parser, new[]{ "GamePin", "Name", "Bet", "Action" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::PokerGrpc.ActionResponse), global::PokerGrpc.ActionResponse.Parser, new[]{ "Success" }, null, null, null, null),
@@ -92,6 +95,9 @@ namespace PokerGrpc {
     public NewGameRequest(NewGameRequest other) : this() {
       gplayer_ = other.gplayer_ != null ? other.gplayer_.Clone() : null;
       gamePin_ = other.gamePin_;
+      maxBuyin_ = other.maxBuyin_;
+      minBuyin_ = other.minBuyin_;
+      smallBlind_ = other.smallBlind_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -122,6 +128,39 @@ namespace PokerGrpc {
       }
     }
 
+    /// <summary>Field number for the "maxBuyin" field.</summary>
+    public const int MaxBuyinFieldNumber = 3;
+    private int maxBuyin_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int MaxBuyin {
+      get { return maxBuyin_; }
+      set {
+        maxBuyin_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "minBuyin" field.</summary>
+    public const int MinBuyinFieldNumber = 4;
+    private int minBuyin_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int MinBuyin {
+      get { return minBuyin_; }
+      set {
+        minBuyin_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "smallBlind" field.</summary>
+    public const int SmallBlindFieldNumber = 5;
+    private int smallBlind_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int SmallBlind {
+      get { return smallBlind_; }
+      set {
+        smallBlind_ = value;
+      }
+    }
+
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override bool Equals(object other) {
       return Equals(other as NewGameRequest);
@@ -137,6 +176,9 @@ namespace PokerGrpc {
       }
       if (!object.Equals(Gplayer, other.Gplayer)) return false;
       if (GamePin != other.GamePin) return false;
+      if (MaxBuyin != other.MaxBuyin) return false;
+      if (MinBuyin != other.MinBuyin) return false;
+      if (SmallBlind != other.SmallBlind) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -145,6 +187,9 @@ namespace PokerGrpc {
       int hash = 1;
       if (gplayer_ != null) hash ^= Gplayer.GetHashCode();
       if (GamePin != 0) hash ^= GamePin.GetHashCode();
+      if (MaxBuyin != 0) hash ^= MaxBuyin.GetHashCode();
+      if (MinBuyin != 0) hash ^= MinBuyin.GetHashCode();
+      if (SmallBlind != 0) hash ^= SmallBlind.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -169,6 +214,18 @@ namespace PokerGrpc {
         output.WriteRawTag(16);
         output.WriteInt32(GamePin);
       }
+      if (MaxBuyin != 0) {
+        output.WriteRawTag(24);
+        output.WriteInt32(MaxBuyin);
+      }
+      if (MinBuyin != 0) {
+        output.WriteRawTag(32);
+        output.WriteInt32(MinBuyin);
+      }
+      if (SmallBlind != 0) {
+        output.WriteRawTag(40);
+        output.WriteInt32(SmallBlind);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -186,6 +243,18 @@ namespace PokerGrpc {
         output.WriteRawTag(16);
         output.WriteInt32(GamePin);
       }
+      if (MaxBuyin != 0) {
+        output.WriteRawTag(24);
+        output.WriteInt32(MaxBuyin);
+      }
+      if (MinBuyin != 0) {
+        output.WriteRawTag(32);
+        output.WriteInt32(MinBuyin);
+      }
+      if (SmallBlind != 0) {
+        output.WriteRawTag(40);
+        output.WriteInt32(SmallBlind);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -200,6 +269,15 @@ namespace PokerGrpc {
       }
       if (GamePin != 0) {
         size += 1 + pb::CodedOutputStream.ComputeInt32Size(GamePin);
+      }
+      if (MaxBuyin != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(MaxBuyin);
+      }
+      if (MinBuyin != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(MinBuyin);
+      }
+      if (SmallBlind != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(SmallBlind);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -220,6 +298,15 @@ namespace PokerGrpc {
       }
       if (other.GamePin != 0) {
         GamePin = other.GamePin;
+      }
+      if (other.MaxBuyin != 0) {
+        MaxBuyin = other.MaxBuyin;
+      }
+      if (other.MinBuyin != 0) {
+        MinBuyin = other.MinBuyin;
+      }
+      if (other.SmallBlind != 0) {
+        SmallBlind = other.SmallBlind;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -246,6 +333,18 @@ namespace PokerGrpc {
             GamePin = input.ReadInt32();
             break;
           }
+          case 24: {
+            MaxBuyin = input.ReadInt32();
+            break;
+          }
+          case 32: {
+            MinBuyin = input.ReadInt32();
+            break;
+          }
+          case 40: {
+            SmallBlind = input.ReadInt32();
+            break;
+          }
         }
       }
     #endif
@@ -269,6 +368,18 @@ namespace PokerGrpc {
           }
           case 16: {
             GamePin = input.ReadInt32();
+            break;
+          }
+          case 24: {
+            MaxBuyin = input.ReadInt32();
+            break;
+          }
+          case 32: {
+            MinBuyin = input.ReadInt32();
+            break;
+          }
+          case 40: {
+            SmallBlind = input.ReadInt32();
             break;
           }
         }
@@ -309,6 +420,7 @@ namespace PokerGrpc {
     public JoinGameRequest(JoinGameRequest other) : this() {
       gamePin_ = other.gamePin_;
       gplayer_ = other.gplayer_ != null ? other.gplayer_.Clone() : null;
+      buyin_ = other.buyin_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -339,6 +451,17 @@ namespace PokerGrpc {
       }
     }
 
+    /// <summary>Field number for the "buyin" field.</summary>
+    public const int BuyinFieldNumber = 3;
+    private int buyin_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int Buyin {
+      get { return buyin_; }
+      set {
+        buyin_ = value;
+      }
+    }
+
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override bool Equals(object other) {
       return Equals(other as JoinGameRequest);
@@ -354,6 +477,7 @@ namespace PokerGrpc {
       }
       if (GamePin != other.GamePin) return false;
       if (!object.Equals(Gplayer, other.Gplayer)) return false;
+      if (Buyin != other.Buyin) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -362,6 +486,7 @@ namespace PokerGrpc {
       int hash = 1;
       if (GamePin != 0) hash ^= GamePin.GetHashCode();
       if (gplayer_ != null) hash ^= Gplayer.GetHashCode();
+      if (Buyin != 0) hash ^= Buyin.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -386,6 +511,10 @@ namespace PokerGrpc {
         output.WriteRawTag(18);
         output.WriteMessage(Gplayer);
       }
+      if (Buyin != 0) {
+        output.WriteRawTag(24);
+        output.WriteInt32(Buyin);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -403,6 +532,10 @@ namespace PokerGrpc {
         output.WriteRawTag(18);
         output.WriteMessage(Gplayer);
       }
+      if (Buyin != 0) {
+        output.WriteRawTag(24);
+        output.WriteInt32(Buyin);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -417,6 +550,9 @@ namespace PokerGrpc {
       }
       if (gplayer_ != null) {
         size += 1 + pb::CodedOutputStream.ComputeMessageSize(Gplayer);
+      }
+      if (Buyin != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(Buyin);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -437,6 +573,9 @@ namespace PokerGrpc {
           Gplayer = new global::PokerGrpc.GPlayer();
         }
         Gplayer.MergeFrom(other.Gplayer);
+      }
+      if (other.Buyin != 0) {
+        Buyin = other.Buyin;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -463,6 +602,10 @@ namespace PokerGrpc {
             input.ReadMessage(Gplayer);
             break;
           }
+          case 24: {
+            Buyin = input.ReadInt32();
+            break;
+          }
         }
       }
     #endif
@@ -486,6 +629,10 @@ namespace PokerGrpc {
               Gplayer = new global::PokerGrpc.GPlayer();
             }
             input.ReadMessage(Gplayer);
+            break;
+          }
+          case 24: {
+            Buyin = input.ReadInt32();
             break;
           }
         }
@@ -532,6 +679,8 @@ namespace PokerGrpc {
       bet_ = other.bet_;
       blind_ = other.blind_;
       winner_ = other.winner_;
+      maxBuyin_ = other.maxBuyin_;
+      minBuyin_ = other.minBuyin_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -627,6 +776,28 @@ namespace PokerGrpc {
       }
     }
 
+    /// <summary>Field number for the "maxBuyin" field.</summary>
+    public const int MaxBuyinFieldNumber = 9;
+    private int maxBuyin_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int MaxBuyin {
+      get { return maxBuyin_; }
+      set {
+        maxBuyin_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "minBuyin" field.</summary>
+    public const int MinBuyinFieldNumber = 10;
+    private int minBuyin_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int MinBuyin {
+      get { return minBuyin_; }
+      set {
+        minBuyin_ = value;
+      }
+    }
+
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override bool Equals(object other) {
       return Equals(other as GameLobby);
@@ -648,6 +819,8 @@ namespace PokerGrpc {
       if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(Bet, other.Bet)) return false;
       if (Blind != other.Blind) return false;
       if (Winner != other.Winner) return false;
+      if (MaxBuyin != other.MaxBuyin) return false;
+      if (MinBuyin != other.MinBuyin) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -662,6 +835,8 @@ namespace PokerGrpc {
       if (Bet != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(Bet);
       if (Blind != 0) hash ^= Blind.GetHashCode();
       if (Winner.Length != 0) hash ^= Winner.GetHashCode();
+      if (MaxBuyin != 0) hash ^= MaxBuyin.GetHashCode();
+      if (MinBuyin != 0) hash ^= MinBuyin.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -707,6 +882,14 @@ namespace PokerGrpc {
         output.WriteRawTag(66);
         output.WriteString(Winner);
       }
+      if (MaxBuyin != 0) {
+        output.WriteRawTag(72);
+        output.WriteInt32(MaxBuyin);
+      }
+      if (MinBuyin != 0) {
+        output.WriteRawTag(80);
+        output.WriteInt32(MinBuyin);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -745,6 +928,14 @@ namespace PokerGrpc {
         output.WriteRawTag(66);
         output.WriteString(Winner);
       }
+      if (MaxBuyin != 0) {
+        output.WriteRawTag(72);
+        output.WriteInt32(MaxBuyin);
+      }
+      if (MinBuyin != 0) {
+        output.WriteRawTag(80);
+        output.WriteInt32(MinBuyin);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -775,6 +966,12 @@ namespace PokerGrpc {
       }
       if (Winner.Length != 0) {
         size += 1 + pb::CodedOutputStream.ComputeStringSize(Winner);
+      }
+      if (MaxBuyin != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(MaxBuyin);
+      }
+      if (MinBuyin != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(MinBuyin);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -808,6 +1005,12 @@ namespace PokerGrpc {
       }
       if (other.Winner.Length != 0) {
         Winner = other.Winner;
+      }
+      if (other.MaxBuyin != 0) {
+        MaxBuyin = other.MaxBuyin;
+      }
+      if (other.MinBuyin != 0) {
+        MinBuyin = other.MinBuyin;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -855,6 +1058,14 @@ namespace PokerGrpc {
             Winner = input.ReadString();
             break;
           }
+          case 72: {
+            MaxBuyin = input.ReadInt32();
+            break;
+          }
+          case 80: {
+            MinBuyin = input.ReadInt32();
+            break;
+          }
         }
       }
     #endif
@@ -899,6 +1110,14 @@ namespace PokerGrpc {
           }
           case 66: {
             Winner = input.ReadString();
+            break;
+          }
+          case 72: {
+            MaxBuyin = input.ReadInt32();
+            break;
+          }
+          case 80: {
+            MinBuyin = input.ReadInt32();
             break;
           }
         }
