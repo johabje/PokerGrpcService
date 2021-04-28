@@ -28,6 +28,7 @@ namespace PokerGrpc.Models
 
         public static Tuple<int, List<Card>> GetBestHand(List<Card> handCards, List<Card> tableCards) {
             List<Card> allCards = handCards.Concat(tableCards).ToList();
+            allCards = allCards.OrderByDescending(c => c.rank).ToList();
             // need High Card logic
 
 
@@ -52,11 +53,19 @@ namespace PokerGrpc.Models
                 bestHandScore = etcScore;
                 usedCards = etcCards;
             }
+            if (bestHandScore == 99)
+            {
+                usedCards = new List<Card>();
+                bestHandScore = 9; //high card if nothing else
+
+            }
 
             // fill up best hand
             for (int i = usedCards.Count; i < 5; i++) {
                 Card nextHighCard = GetHighCard(allCards, usedCards);
+                Console.WriteLine(nextHighCard.rank);
                 usedCards.Add(nextHighCard);
+
             }
             return Tuple.Create(bestHandScore, usedCards);
         }
@@ -169,8 +178,7 @@ namespace PokerGrpc.Models
         }
 
         private static Card GetHighCard(List<Card> allCards, List<Card> usedCards) {
-            List<Card> unusedCards = allCards.Except(usedCards).ToList();
-            unusedCards.OrderByDescending(c => c.rank);
+            List<Card> unusedCards = allCards.Except(usedCards).OrderByDescending(c => c.rank).ToList();
             Card highCard = unusedCards.First();
             return highCard;
         }

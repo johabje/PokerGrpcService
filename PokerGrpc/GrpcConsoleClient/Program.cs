@@ -26,6 +26,16 @@ namespace GrpcConsoleClient
                 Wallet = 1000
 
             };
+            GPlayer testman = new GPlayer()
+            {
+                Name = "testman",
+                Action = 0,
+                BestCombo = "0",
+                Hand = "hh",
+                IsRoomOwner = false,
+                Wallet = 1000
+
+            };
             await Task.Delay(1000);
             GPlayer fredrik = new GPlayer()
             {
@@ -93,7 +103,7 @@ namespace GrpcConsoleClient
                 GamePin = 666,
                 Name = "fredrik"
             });
-            Console.WriteLine(action2);
+            Console.WriteLine("action2:"+action2);
             await Task.Delay(1000);
 
             var action3 = client.Action(new ActionRequest
@@ -103,7 +113,7 @@ namespace GrpcConsoleClient
                 GamePin = 666,
                 Name = "syver"
             });
-            Console.WriteLine(action3);
+            Console.WriteLine("action3:" + action3);
             await Task.Delay(1000);
 
             var action4 = client.Action(new ActionRequest
@@ -113,7 +123,7 @@ namespace GrpcConsoleClient
                 GamePin = 666,
                 Name = "fredrik"
             });
-            Console.WriteLine(action4);
+            Console.WriteLine("action4:" + action4);
             await Task.Delay(1000);
 
             var action5 = client.Action(new ActionRequest
@@ -123,18 +133,23 @@ namespace GrpcConsoleClient
                 GamePin = 666,
                 Name = "syver"
             });
-            Console.WriteLine(action5);
+            Console.WriteLine("action5:" + action5);
 
             await Task.Delay(1000);
 
             var action6 = client.Action(new ActionRequest {
-                Action = 0,
+                Action = 3,
                 Bet = 0,
                 GamePin = 666,
                 Name = "johan"
             });
-            Console.WriteLine(action6);
+            Console.WriteLine("action6:" + action6);
             await Task.Delay(1000);
+
+            var join3 = client.JoinGame(new JoinGameRequest { Gplayer = testman, GamePin = 666 });
+            Console.WriteLine("join testman:" +  join3);
+            await Task.Delay(1000);
+
 
             var action7 = client.Action(new ActionRequest {
                 Action = 3,
@@ -142,8 +157,10 @@ namespace GrpcConsoleClient
                 GamePin = 666,
                 Name = "fredrik"
             });
-            Console.WriteLine(action7);
+            Console.WriteLine("action7:" + action7);
             await Task.Delay(1000);
+
+            
 
             var action8 = client.Action(new ActionRequest {
                 Action = 1,
@@ -151,7 +168,7 @@ namespace GrpcConsoleClient
                 GamePin = 666,
                 Name = "fredrik"
             });
-            Console.WriteLine(action8);
+            Console.WriteLine("action8:" + action8);
             await Task.Delay(1000);
 
             var action9 = client.Action(new ActionRequest
@@ -161,7 +178,17 @@ namespace GrpcConsoleClient
                 GamePin = 666,
                 Name = "syver"
             });
-            Console.WriteLine(action9);
+            Console.WriteLine("action9:" + action9);
+            await Task.Delay(1000);
+
+            var actionx = client.Action(new ActionRequest
+            {
+                Action = 1,
+                Bet = 0,
+                GamePin = 666,
+                Name = "johan"
+            });
+            Console.WriteLine("actionx:" + actionx);
             await Task.Delay(1000);
 
             var action10 = client.Action(new ActionRequest
@@ -171,7 +198,7 @@ namespace GrpcConsoleClient
                 GamePin = 666,
                 Name = "fredrik"
             });
-            Console.WriteLine(action10);
+            Console.WriteLine("actio10:" + action10);
             await Task.Delay(1000);
             
             var action11 = client.Action(new ActionRequest
@@ -181,9 +208,18 @@ namespace GrpcConsoleClient
                 GamePin = 666,
                 Name = "syver"
             });
-            Console.WriteLine(action11);
+            Console.WriteLine("action11:" + action11);
             await Task.Delay(1000);
-            
+
+            var actiony = client.Action(new ActionRequest
+            {
+                Action = 1,
+                Bet = 0,
+                GamePin = 666,
+                Name = "johan"
+            });
+            Console.WriteLine("actiony:" + actiony);
+            await Task.Delay(1000);
 
 
 

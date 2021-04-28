@@ -36,22 +36,7 @@ namespace PokerGrpc.Models
         public bool startNewRound = false;
 
 
-        /*
-         * ehhhh har hatt ekstremt tunnelsyn i natt og ser nå at det ble mye surr
-         * 
-         * holdem() og bettinground() er helt ubrukelig atm
-         *      er vel bedre om vi bare godkjenner/avslår bets som blir sendt inn,
-         *      og oppdaterer klientene ved godkjenning/timeout?
-         *      
-         *      typ     PlaceBet()
-         *                  if ok or timeout:
-         *                      set next better, min amount etc
-         *                      update clients
-         *                      
-         * og btw handrankingen er ikke testa, men bør være quick fix om feil
-         *          (var ikke sikker på reglene i enkelte tilfeller tho)
-         *                  
-         */
+
 
         // new table
         public PokerGame(Player roomOwner, int blind, int gamePin,int maxBuyin, int minBuyin, int maxPlayers = 6)
@@ -172,7 +157,7 @@ namespace PokerGrpc.Models
 
         // inserting player into first available spot
         public Boolean AddPlayer(Player player) {
-            players.Where(p => p.name == player.name);
+            
             if ( player.wallet < minBuyin || player.wallet > maxBuyin)
             {
                 return false;
@@ -183,6 +168,7 @@ namespace PokerGrpc.Models
                     players[i] = player;
                     return true;
                 }
+
             }
             return false;
 
@@ -210,9 +196,9 @@ namespace PokerGrpc.Models
 
         public void GameOver()
         {
-            
+
             //determine vinner, return the vinner, distriubute the pot
-            
+
             if (playersPlaying.Count() == 1)
             {
                 playersPlaying.ElementAt(0).wallet += pot;
@@ -220,35 +206,99 @@ namespace PokerGrpc.Models
             }
             else
             {
-                foreach (Player player in playersPlaying) {
+                foreach (Player player in playersPlaying)
+                {
                     var handScore = HandRanking.GetBestHand(player.Hand, tableCards);
                     player.bestCombo = handScore.Item1.ToString();
                     player.bestCardCombo = handScore.Item2;
+                    Console.WriteLine(player.name + " had " + player.bestCombo + "with hand: " + GetCards(player.Hand) + " and TableCard: " + GetCards(tableCards) + " best card combo: " + GetCards(player.bestCardCombo));
 
                 }
                 int bestScore = playersPlaying.Min(c => Int32.Parse(c.bestCombo));
                 IEnumerable<Player> equalScore = playersPlaying.Where(c => c.bestCombo.Equals(bestScore.ToString()));
                 List<Player> Winners = new List<Player>(equalScore);
+                List<Card> bestCards;
                 if (equalScore.Count() > 1)
                 {
-                    Card highCard = equalScore.ElementAt(0).bestCardCombo.ElementAt(0);
-                    for (int i = 0; i < 5; i++)
+                    //for all exept two pairs
+                    if (bestScore != 7)
                     {
-                        foreach (Player player in equalScore)
+                         bestCards = Winners.ElementAt(0).bestCardCombo;
+                        
+                        for (int i = 0; i < 5; i++)
                         {
-                            Card card = player.bestCardCombo.ElementAt(i);
-                            if (card.rank < highCard.rank)
+                            if (Winners.Count() == 1)
                             {
-                                Winners.Remove(player);
+                                break;
                             }
-                            if (card.rank > highCard.rank)
+                            foreach (Player player in equalScore)
                             {
-                                i--;
-                                highCard = card;
+                                Card card = player.bestCardCombo.ElementAt(i);
+                                if (card.rank < bestCards.ElementAt(i).rank)
+                                {
+                                    Winners.Remove(player);
+                                }
+                                if (card.rank > bestCards.ElementAt(i).rank)
+                                {
+                                    bestCards[i] = card;
+                                    i--;
+                                    
+                                }
                             }
+
+                        }
+                    }
+                    else
+                    {   //for two pairs, very messy :/
+                        Card highPair = Winners.ElementAt(0).bestCardCombo.ElementAt(3);
+                        Card lowPair = Winners.ElementAt(0).bestCardCombo.ElementAt(0);
+                        Card highcard = Winners.ElementAt(0).bestCardCombo.ElementAt(4);
+                        for (int i = 0; i < Winners.Count(); i++)
+                        {
+                            Console.WriteLine("stuck in a loop??");
+                            Card ihighPair = Winners.ElementAt(i).bestCardCombo.ElementAt(3);
+                            Card ilowPair = Winners.ElementAt(i).bestCardCombo.ElementAt(0);
+                            Card ihighcard = Winners.ElementAt(i).bestCardCombo.ElementAt(4);
+                            if (ihighPair.rank < highPair.rank)
+                            {
+                                Winners.RemoveAt(i);
+                            }
+                            else if (ihighPair.rank == highPair.rank)
+                            {
+                                if (ilowPair.rank < lowPair.rank)
+                                {
+                                    Winners.RemoveAt(i);
+                                }
+                                else if (ilowPair.rank == lowPair.rank)
+                                {
+                                    if (ihighcard.rank < highcard.rank)
+                                    {
+                                        Winners.RemoveAt(i);
+                                    }
+
+                                    else if (ihighcard.rank > highcard.rank)
+                                    {
+                                        highcard = ihighcard;
+                                        i = 0;
+                                    }
+                                }
+                                else
+                                {
+                                    lowPair = ilowPair;
+                                    i = 0;
+                                }
+                            }
+                            else
+                            {
+                                highPair = ihighPair;
+                                i = 0;
+                            }
+
                         }
 
                     }
+
+
                     if (Winners.Count() != 1)
                     {
 
@@ -272,15 +322,14 @@ namespace PokerGrpc.Models
                     winner = playersPlaying.Find(c => c.bestCombo.Equals(bestScore.ToString()));
                     winner.wallet += pot;
                     Console.WriteLine("the winner is: " + winner.name + " with hand " + GetCards(winner.Hand) + " best combo: " + winner.bestCombo + " table cardes: " + GetCards(this.tableCards));
-
-
                 }
                 Console.WriteLine("gameOver ran");
+
+                this.state = state.Showdown;
+                UpdateStateAsync();
+
+
             }
-            this.state = state.Showdown;
-            UpdateStateAsync();
-
-
         }
 
         // new game/round/whatever on a table
