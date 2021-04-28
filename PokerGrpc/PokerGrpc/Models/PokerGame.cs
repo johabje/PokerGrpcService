@@ -172,21 +172,29 @@ namespace PokerGrpc.Models
 
         // inserting player into first available spot
         public Boolean AddPlayer(Player player) {
-            players.Where(p => p.name == player.name);
             if ( player.wallet < minBuyin || player.wallet > maxBuyin)
             {
+                Console.WriteLine("invalid buyin amount");
                 return false;
+            } 
+            foreach (Player playah in players) {
+                if (playah != null && playah.name == player.name) {
+                    Console.WriteLine("alrdy playing !! :O");
+                    return false;
+                }
             }
+
             for (int i = 0; i < players.Length; i++) {
-                players.Where(p => p.name == player.name);
                 if (players[i] == null) {
                     players[i] = player;
+                    Console.WriteLine("Player added");
                     return true;
                 }
             }
+            Console.WriteLine("table full:/");
             return false;
-
         }
+
 
         public bool RoundFinished() {
             if(playersPlaying.Where(p => p.lastAction.Equals(-1)).Any()) {

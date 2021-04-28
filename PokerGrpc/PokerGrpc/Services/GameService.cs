@@ -28,6 +28,16 @@ namespace PokerGrpc.Services
                 wallet = request.Gplayer.Wallet
             };
             PokerGame lobby = new PokerGame(player, request.SmallBlind, request.GamePin, request.MaxBuyin, request.MinBuyin, 6);
+            //Console.WriteLine(request);
+            /* logging for debug
+            Console.WriteLine(lobby.gamePin);
+            Player xd = lobby.players[0];
+            Console.WriteLine(lobby.minBuyin);
+            Console.WriteLine(lobby.maxBuyin);
+            Console.WriteLine(lobby.blind);
+            Console.WriteLine(xd.name);
+            Console.WriteLine(xd.wallet);
+            */
             lobby.players.ElementAt(0).currentBetter = true;
 
             GPlayer gPlayer = new GPlayer
