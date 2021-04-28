@@ -27,7 +27,7 @@ namespace PokerGrpc.Services
                 lastAction = -1,
                 wallet = request.Gplayer.Wallet
             };
-            PokerGame lobby = new PokerGame(player, 1, request.GamePin, 6);
+            PokerGame lobby = new PokerGame(player, request.SmallBlind, request.GamePin, request.MaxBuyin, request.MinBuyin, 6);
             lobby.players.ElementAt(0).currentBetter = true;
 
             GPlayer gPlayer = new GPlayer
@@ -47,7 +47,10 @@ namespace PokerGrpc.Services
                 TableCards = "0",
                 Pot = 0,
                 Bet = 0,
-                Blind = 20
+                Blind = request.SmallBlind,
+                MaxBuyin=request.MaxBuyin,
+                MinBuyin=request.MinBuyin
+
             };
             gameLobby.Gplayers.Add(gPlayer);
 
@@ -328,7 +331,9 @@ namespace PokerGrpc.Services
                 TableCards = pokerGame.GetCards(pokerGame.tableCards),
                 Pot = pokerGame.pot,
                 Bet = pokerGame.bet,
-                Blind = pokerGame.blind
+                Blind = pokerGame.blind,
+                MaxBuyin = pokerGame.maxBuyin,
+                MinBuyin = pokerGame.minBuyin,
             };
             foreach (Player player in pokerGame.players)
             {

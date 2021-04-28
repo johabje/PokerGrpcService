@@ -21,7 +21,6 @@ message NewGameRequest {
 message JoinGameRequest {
     int32 gamePin = 1;
     GPlayer gplayer = 2;
-    int32 buyin = 3;
 }
 
 

@@ -25,7 +25,7 @@ namespace GrpcStreamListener
                 Wallet = 1000
             };
 
-            var makelobby = client.CreateNewGame(new NewGameRequest { Gplayer = johan, GamePin = 666 });
+            var makelobby = client.CreateNewGame(new NewGameRequest { Gplayer = johan, GamePin = 666, SmallBlind = 5, MaxBuyin = 1500, MinBuyin = 500 });
             Console.WriteLine(makelobby);
 
 

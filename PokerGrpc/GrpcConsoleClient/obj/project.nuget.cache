@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "lmKzBdlVIhBsPk4lKPrI7BFGivZXPxd//bti/dM0cZDpZ1HRqINEP7jLdleyea7GoEjzJ8L0Mat3isXT9FTRnQ==",
+  "dgSpecHash": "doPxkrQtT3YyesFNuwzib1IXHX2tA2jSvs5MurjwyVnl8fvaBDF7DXtkbEdb5Kj7t1gQ+QWRBtRiypbcwQheGA==",
   "success": true,
-  "projectFilePath": "/Users/johanbjerkedal/Documents/PokerGrpcService/PokerGrpc/GrpcConsoleClient/GrpcConsoleClient.csproj",
+  "projectFilePath": "/Users/johanbjerkedal/PokerGrpcService/PokerGrpc/GrpcConsoleClient/GrpcConsoleClient.csproj",
   "expectedPackageFiles": [
     "/Users/johanbjerkedal/.nuget/packages/google.protobuf/3.15.7/google.protobuf.3.15.7.nupkg.sha512",
     "/Users/johanbjerkedal/.nuget/packages/grpc.core.api/2.36.1/grpc.core.api.2.36.1.nupkg.sha512",

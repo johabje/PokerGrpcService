@@ -24,32 +24,34 @@ namespace GrpcConsoleClient {
     static GameReflection() {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
-            "CgpnYW1lLnByb3RvIjwKDk5ld0dhbWVSZXF1ZXN0EhkKB2dwbGF5ZXIYASAB",
-            "KAsyCC5HUGxheWVyEg8KB2dhbWVQaW4YAiABKAUiPQoPSm9pbkdhbWVSZXF1",
-            "ZXN0Eg8KB2dhbWVQaW4YASABKAUSGQoHZ3BsYXllchgCIAEoCzIILkdQbGF5",
-            "ZXIihAEKCUdhbWVMb2JieRIPCgdnYW1lUGluGAEgASgFEhoKCGdwbGF5ZXJz",
-            "GAIgAygLMgguR1BsYXllchINCgV0b0FjdBgDIAEoCRISCgp0YWJsZUNhcmRz",
-            "GAQgASgJEgsKA3BvdBgFIAEoAhILCgNiZXQYBiABKAISDQoFYmxpbmQYByAB",
-            "KAUiegoHR1BsYXllchIOCgZ3YWxsZXQYAiABKAISDAoEbmFtZRgBIAEoCRIT",
-            "Cgtpc1Jvb21Pd25lchgDIAEoCBIMCgRoYW5kGAQgASgJEhEKCWJlc3RDb21i",
-            "bxgFIAEoCRIOCgZhY3Rpb24YBiABKAUSCwoDYmV0GAcgASgCIksKDUFjdGlv",
-            "blJlcXVlc3QSDwoHZ2FtZVBpbhgBIAEoBRIMCgRuYW1lGAIgASgJEgsKA2Jl",
-            "dBgDIAEoBRIOCgZBY3Rpb24YBCABKAUiIQoOQWN0aW9uUmVzcG9uc2USDwoH",
-            "c3VjY2VzcxgBIAEoCCI3ChBTdGFydEdhbWVSZXF1ZXN0Eg8KB2dhbWVwaW4Y",
-            "ASABKAUSEgoKcGxheWVyTmFtZRgCIAEoCSIkChFTdGFydEdhbWVSZXNwb25z",
-            "ZRIPCgdzdWNjZXNzGAEgASgIMuwBCgRHYW1lEiwKDUNyZWF0ZU5ld0dhbWUS",
-            "Dy5OZXdHYW1lUmVxdWVzdBoKLkdhbWVMb2JieRIoCghKb2luR2FtZRIQLkpv",
-            "aW5HYW1lUmVxdWVzdBoKLkdhbWVMb2JieRItCgtTdGFydFN0cmVhbRIQLkpv",
-            "aW5HYW1lUmVxdWVzdBoKLkdhbWVMb2JieTABEikKBkFjdGlvbhIOLkFjdGlv",
-            "blJlcXVlc3QaDy5BY3Rpb25SZXNwb25zZRIyCglTdGFydEdhbWUSES5TdGFy",
-            "dEdhbWVSZXF1ZXN0GhIuU3RhcnRHYW1lUmVzcG9uc2VCFKoCEUdycGNDb25z",
-            "b2xlQ2xpZW50YgZwcm90bzM="));
+            "CgpnYW1lLnByb3RvInQKDk5ld0dhbWVSZXF1ZXN0EhkKB2dwbGF5ZXIYASAB",
+            "KAsyCC5HUGxheWVyEg8KB2dhbWVQaW4YAiABKAUSEAoIbWF4QnV5aW4YAyAB",
+            "KAUSEAoIbWluQnV5aW4YBCABKAUSEgoKc21hbGxCbGluZBgFIAEoBSI9Cg9K",
+            "b2luR2FtZVJlcXVlc3QSDwoHZ2FtZVBpbhgBIAEoBRIZCgdncGxheWVyGAIg",
+            "ASgLMgguR1BsYXllciK4AQoJR2FtZUxvYmJ5Eg8KB2dhbWVQaW4YASABKAUS",
+            "GgoIZ3BsYXllcnMYAiADKAsyCC5HUGxheWVyEg0KBXRvQWN0GAMgASgJEhIK",
+            "CnRhYmxlQ2FyZHMYBCABKAkSCwoDcG90GAUgASgCEgsKA2JldBgGIAEoAhIN",
+            "CgVibGluZBgHIAEoBRIOCgZ3aW5uZXIYCCABKAkSEAoIbWF4QnV5aW4YCSAB",
+            "KAUSEAoIbWluQnV5aW4YCiABKAUiegoHR1BsYXllchIOCgZ3YWxsZXQYAiAB",
+            "KAISDAoEbmFtZRgBIAEoCRITCgtpc1Jvb21Pd25lchgDIAEoCBIMCgRoYW5k",
+            "GAQgASgJEhEKCWJlc3RDb21ibxgFIAEoCRIOCgZhY3Rpb24YBiABKAUSCwoD",
+            "YmV0GAcgASgCIksKDUFjdGlvblJlcXVlc3QSDwoHZ2FtZVBpbhgBIAEoBRIM",
+            "CgRuYW1lGAIgASgJEgsKA2JldBgDIAEoBRIOCgZBY3Rpb24YBCABKAUiIQoO",
+            "QWN0aW9uUmVzcG9uc2USDwoHc3VjY2VzcxgBIAEoCCI3ChBTdGFydEdhbWVS",
+            "ZXF1ZXN0Eg8KB2dhbWVwaW4YASABKAUSEgoKcGxheWVyTmFtZRgCIAEoCSIk",
+            "ChFTdGFydEdhbWVSZXNwb25zZRIPCgdzdWNjZXNzGAEgASgIMuwBCgRHYW1l",
+            "EiwKDUNyZWF0ZU5ld0dhbWUSDy5OZXdHYW1lUmVxdWVzdBoKLkdhbWVMb2Ji",
+            "eRIoCghKb2luR2FtZRIQLkpvaW5HYW1lUmVxdWVzdBoKLkdhbWVMb2JieRIt",
+            "CgtTdGFydFN0cmVhbRIQLkpvaW5HYW1lUmVxdWVzdBoKLkdhbWVMb2JieTAB",
+            "EikKBkFjdGlvbhIOLkFjdGlvblJlcXVlc3QaDy5BY3Rpb25SZXNwb25zZRIy",
+            "CglTdGFydEdhbWUSES5TdGFydEdhbWVSZXF1ZXN0GhIuU3RhcnRHYW1lUmVz",
+            "cG9uc2VCFKoCEUdycGNDb25zb2xlQ2xpZW50YgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::GrpcConsoleClient.NewGameRequest), global::GrpcConsoleClient.NewGameRequest.Parser, new[]{ "Gplayer", "GamePin" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::GrpcConsoleClient.NewGameRequest), global::GrpcConsoleClient.NewGameRequest.Parser, new[]{ "Gplayer", "GamePin", "MaxBuyin", "MinBuyin", "SmallBlind" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::GrpcConsoleClient.JoinGameRequest), global::GrpcConsoleClient.JoinGameRequest.Parser, new[]{ "GamePin", "Gplayer" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::GrpcConsoleClient.GameLobby), global::GrpcConsoleClient.GameLobby.Parser, new[]{ "GamePin", "Gplayers", "ToAct", "TableCards", "Pot", "Bet", "Blind" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::GrpcConsoleClient.GameLobby), global::GrpcConsoleClient.GameLobby.Parser, new[]{ "GamePin", "Gplayers", "ToAct", "TableCards", "Pot", "Bet", "Blind", "Winner", "MaxBuyin", "MinBuyin" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::GrpcConsoleClient.GPlayer), global::GrpcConsoleClient.GPlayer.Parser, new[]{ "Wallet", "Name", "IsRoomOwner", "Hand", "BestCombo", "Action", "Bet" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::GrpcConsoleClient.ActionRequest), global::GrpcConsoleClient.ActionRequest.Parser, new[]{ "GamePin", "Name", "Bet", "Action" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::GrpcConsoleClient.ActionResponse), global::GrpcConsoleClient.ActionResponse.Parser, new[]{ "Success" }, null, null, null, null),
@@ -92,6 +94,9 @@ namespace GrpcConsoleClient {
     public NewGameRequest(NewGameRequest other) : this() {
       gplayer_ = other.gplayer_ != null ? other.gplayer_.Clone() : null;
       gamePin_ = other.gamePin_;
+      maxBuyin_ = other.maxBuyin_;
+      minBuyin_ = other.minBuyin_;
+      smallBlind_ = other.smallBlind_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -122,6 +127,39 @@ namespace GrpcConsoleClient {
       }
     }
 
+    /// <summary>Field number for the "maxBuyin" field.</summary>
+    public const int MaxBuyinFieldNumber = 3;
+    private int maxBuyin_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int MaxBuyin {
+      get { return maxBuyin_; }
+      set {
+        maxBuyin_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "minBuyin" field.</summary>
+    public const int MinBuyinFieldNumber = 4;
+    private int minBuyin_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int MinBuyin {
+      get { return minBuyin_; }
+      set {
+        minBuyin_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "smallBlind" field.</summary>
+    public const int SmallBlindFieldNumber = 5;
+    private int smallBlind_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int SmallBlind {
+      get { return smallBlind_; }
+      set {
+        smallBlind_ = value;
+      }
+    }
+
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override bool Equals(object other) {
       return Equals(other as NewGameRequest);
@@ -137,6 +175,9 @@ namespace GrpcConsoleClient {
       }
       if (!object.Equals(Gplayer, other.Gplayer)) return false;
       if (GamePin != other.GamePin) return false;
+      if (MaxBuyin != other.MaxBuyin) return false;
+      if (MinBuyin != other.MinBuyin) return false;
+      if (SmallBlind != other.SmallBlind) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -145,6 +186,9 @@ namespace GrpcConsoleClient {
       int hash = 1;
       if (gplayer_ != null) hash ^= Gplayer.GetHashCode();
       if (GamePin != 0) hash ^= GamePin.GetHashCode();
+      if (MaxBuyin != 0) hash ^= MaxBuyin.GetHashCode();
+      if (MinBuyin != 0) hash ^= MinBuyin.GetHashCode();
+      if (SmallBlind != 0) hash ^= SmallBlind.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -169,6 +213,18 @@ namespace GrpcConsoleClient {
         output.WriteRawTag(16);
         output.WriteInt32(GamePin);
       }
+      if (MaxBuyin != 0) {
+        output.WriteRawTag(24);
+        output.WriteInt32(MaxBuyin);
+      }
+      if (MinBuyin != 0) {
+        output.WriteRawTag(32);
+        output.WriteInt32(MinBuyin);
+      }
+      if (SmallBlind != 0) {
+        output.WriteRawTag(40);
+        output.WriteInt32(SmallBlind);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -186,6 +242,18 @@ namespace GrpcConsoleClient {
         output.WriteRawTag(16);
         output.WriteInt32(GamePin);
       }
+      if (MaxBuyin != 0) {
+        output.WriteRawTag(24);
+        output.WriteInt32(MaxBuyin);
+      }
+      if (MinBuyin != 0) {
+        output.WriteRawTag(32);
+        output.WriteInt32(MinBuyin);
+      }
+      if (SmallBlind != 0) {
+        output.WriteRawTag(40);
+        output.WriteInt32(SmallBlind);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -200,6 +268,15 @@ namespace GrpcConsoleClient {
       }
       if (GamePin != 0) {
         size += 1 + pb::CodedOutputStream.ComputeInt32Size(GamePin);
+      }
+      if (MaxBuyin != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(MaxBuyin);
+      }
+      if (MinBuyin != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(MinBuyin);
+      }
+      if (SmallBlind != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(SmallBlind);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -220,6 +297,15 @@ namespace GrpcConsoleClient {
       }
       if (other.GamePin != 0) {
         GamePin = other.GamePin;
+      }
+      if (other.MaxBuyin != 0) {
+        MaxBuyin = other.MaxBuyin;
+      }
+      if (other.MinBuyin != 0) {
+        MinBuyin = other.MinBuyin;
+      }
+      if (other.SmallBlind != 0) {
+        SmallBlind = other.SmallBlind;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -246,6 +332,18 @@ namespace GrpcConsoleClient {
             GamePin = input.ReadInt32();
             break;
           }
+          case 24: {
+            MaxBuyin = input.ReadInt32();
+            break;
+          }
+          case 32: {
+            MinBuyin = input.ReadInt32();
+            break;
+          }
+          case 40: {
+            SmallBlind = input.ReadInt32();
+            break;
+          }
         }
       }
     #endif
@@ -269,6 +367,18 @@ namespace GrpcConsoleClient {
           }
           case 16: {
             GamePin = input.ReadInt32();
+            break;
+          }
+          case 24: {
+            MaxBuyin = input.ReadInt32();
+            break;
+          }
+          case 32: {
+            MinBuyin = input.ReadInt32();
+            break;
+          }
+          case 40: {
+            SmallBlind = input.ReadInt32();
             break;
           }
         }
@@ -531,6 +641,9 @@ namespace GrpcConsoleClient {
       pot_ = other.pot_;
       bet_ = other.bet_;
       blind_ = other.blind_;
+      winner_ = other.winner_;
+      maxBuyin_ = other.maxBuyin_;
+      minBuyin_ = other.minBuyin_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -615,6 +728,39 @@ namespace GrpcConsoleClient {
       }
     }
 
+    /// <summary>Field number for the "winner" field.</summary>
+    public const int WinnerFieldNumber = 8;
+    private string winner_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string Winner {
+      get { return winner_; }
+      set {
+        winner_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "maxBuyin" field.</summary>
+    public const int MaxBuyinFieldNumber = 9;
+    private int maxBuyin_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int MaxBuyin {
+      get { return maxBuyin_; }
+      set {
+        maxBuyin_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "minBuyin" field.</summary>
+    public const int MinBuyinFieldNumber = 10;
+    private int minBuyin_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int MinBuyin {
+      get { return minBuyin_; }
+      set {
+        minBuyin_ = value;
+      }
+    }
+
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override bool Equals(object other) {
       return Equals(other as GameLobby);
@@ -635,6 +781,9 @@ namespace GrpcConsoleClient {
       if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(Pot, other.Pot)) return false;
       if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(Bet, other.Bet)) return false;
       if (Blind != other.Blind) return false;
+      if (Winner != other.Winner) return false;
+      if (MaxBuyin != other.MaxBuyin) return false;
+      if (MinBuyin != other.MinBuyin) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -648,6 +797,9 @@ namespace GrpcConsoleClient {
       if (Pot != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(Pot);
       if (Bet != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(Bet);
       if (Blind != 0) hash ^= Blind.GetHashCode();
+      if (Winner.Length != 0) hash ^= Winner.GetHashCode();
+      if (MaxBuyin != 0) hash ^= MaxBuyin.GetHashCode();
+      if (MinBuyin != 0) hash ^= MinBuyin.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -689,6 +841,18 @@ namespace GrpcConsoleClient {
         output.WriteRawTag(56);
         output.WriteInt32(Blind);
       }
+      if (Winner.Length != 0) {
+        output.WriteRawTag(66);
+        output.WriteString(Winner);
+      }
+      if (MaxBuyin != 0) {
+        output.WriteRawTag(72);
+        output.WriteInt32(MaxBuyin);
+      }
+      if (MinBuyin != 0) {
+        output.WriteRawTag(80);
+        output.WriteInt32(MinBuyin);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -723,6 +887,18 @@ namespace GrpcConsoleClient {
         output.WriteRawTag(56);
         output.WriteInt32(Blind);
       }
+      if (Winner.Length != 0) {
+        output.WriteRawTag(66);
+        output.WriteString(Winner);
+      }
+      if (MaxBuyin != 0) {
+        output.WriteRawTag(72);
+        output.WriteInt32(MaxBuyin);
+      }
+      if (MinBuyin != 0) {
+        output.WriteRawTag(80);
+        output.WriteInt32(MinBuyin);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -750,6 +926,15 @@ namespace GrpcConsoleClient {
       }
       if (Blind != 0) {
         size += 1 + pb::CodedOutputStream.ComputeInt32Size(Blind);
+      }
+      if (Winner.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(Winner);
+      }
+      if (MaxBuyin != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(MaxBuyin);
+      }
+      if (MinBuyin != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(MinBuyin);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -780,6 +965,15 @@ namespace GrpcConsoleClient {
       }
       if (other.Blind != 0) {
         Blind = other.Blind;
+      }
+      if (other.Winner.Length != 0) {
+        Winner = other.Winner;
+      }
+      if (other.MaxBuyin != 0) {
+        MaxBuyin = other.MaxBuyin;
+      }
+      if (other.MinBuyin != 0) {
+        MinBuyin = other.MinBuyin;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -823,6 +1017,18 @@ namespace GrpcConsoleClient {
             Blind = input.ReadInt32();
             break;
           }
+          case 66: {
+            Winner = input.ReadString();
+            break;
+          }
+          case 72: {
+            MaxBuyin = input.ReadInt32();
+            break;
+          }
+          case 80: {
+            MinBuyin = input.ReadInt32();
+            break;
+          }
         }
       }
     #endif
@@ -863,6 +1069,18 @@ namespace GrpcConsoleClient {
           }
           case 56: {
             Blind = input.ReadInt32();
+            break;
+          }
+          case 66: {
+            Winner = input.ReadString();
+            break;
+          }
+          case 72: {
+            MaxBuyin = input.ReadInt32();
+            break;
+          }
+          case 80: {
+            MinBuyin = input.ReadInt32();
             break;
           }
         }

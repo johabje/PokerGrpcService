@@ -54,12 +54,14 @@ namespace PokerGrpc.Models
          */
 
         // new table
-        public PokerGame(Player roomOwner, int blind, int gamePin, int maxPlayers = 6)
+        public PokerGame(Player roomOwner, int blind, int gamePin,int maxBuyin, int minBuyin, int maxPlayers = 6)
         {
             players = new Player[maxPlayers];
             for (int i =0;i<players.Length;i++) {
                 players[i] = null;
             }
+            this.maxBuyin = maxBuyin;
+            this.minBuyin = minBuyin;
             this.gamePin = gamePin;
             this.blind = blind;
             this.tableCards = new List<Card>();
@@ -171,7 +173,10 @@ namespace PokerGrpc.Models
         // inserting player into first available spot
         public Boolean AddPlayer(Player player) {
             players.Where(p => p.name == player.name);
-
+            if ( player.wallet < minBuyin || player.wallet > maxBuyin)
+            {
+                return false;
+            }
             for (int i = 0; i < players.Length; i++) {
                 players.Where(p => p.name == player.name);
                 if (players[i] == null) {

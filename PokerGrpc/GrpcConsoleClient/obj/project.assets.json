@@ -326,11 +326,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/johanbjerkedal/Documents/PokerGrpcService/PokerGrpc/GrpcConsoleClient/GrpcConsoleClient.csproj",
+      "projectUniqueName": "/Users/johanbjerkedal/PokerGrpcService/PokerGrpc/GrpcConsoleClient/GrpcConsoleClient.csproj",
       "projectName": "GrpcConsoleClient",
-      "projectPath": "/Users/johanbjerkedal/Documents/PokerGrpcService/PokerGrpc/GrpcConsoleClient/GrpcConsoleClient.csproj",
+      "projectPath": "/Users/johanbjerkedal/PokerGrpcService/PokerGrpc/GrpcConsoleClient/GrpcConsoleClient.csproj",
       "packagesPath": "/Users/johanbjerkedal/.nuget/packages/",
-      "outputPath": "/Users/johanbjerkedal/Documents/PokerGrpcService/PokerGrpc/GrpcConsoleClient/obj/",
+      "outputPath": "/Users/johanbjerkedal/PokerGrpcService/PokerGrpc/GrpcConsoleClient/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/Users/johanbjerkedal/.config/NuGet/NuGet.Config"
@@ -387,7 +387,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/5.0.202/RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/5.0.201/RuntimeIdentifierGraph.json"
       }
     }
   }

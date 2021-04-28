@@ -12,7 +12,10 @@ service Game {
 
 message NewGameRequest {
     GPlayer gplayer = 1;
-    int32 gamePin =2; 
+    int32 gamePin =2;
+    int32 maxBuyin = 3;
+    int32 minBuyin = 4;
+    int32 smallBlind = 5;
 }
 
 message JoinGameRequest {
@@ -30,6 +33,9 @@ message GameLobby
     float pot = 5;
     float bet = 6;
     int32 blind = 7;
+    string winner = 8;
+    int32 maxBuyin = 9;
+    int32 minBuyin = 10;
     
 }
 
@@ -49,6 +55,13 @@ message ActionRequest {
     int32 bet = 3;
     int32 Action = 4;
 }
+//For action, the values are:
+// -1 -> no action yet
+// 0 -> fold
+// 1 -> check
+// 2 -> bet
+// 3 -> call
+
 
 message ActionResponse {
     bool success = 1;

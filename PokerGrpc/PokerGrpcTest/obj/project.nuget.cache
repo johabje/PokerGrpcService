@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "0RYT/CLZekJ5np8Wkle8yxk9y2N2GGiI1nS3OkJ4z1NIae8ZBuP+nN3JXOY+9Yn3Y4WZ/Lf27BCdgwEFkJom+A==",
+  "dgSpecHash": "8zWgHbqH+jojcVg/r8Pa7fLthR0MsBtLOgS5C/QpDs8rYIV+bmQhcBp+DAILfCjf0KDVpn4TTQpKzIe9mKrxBQ==",
   "success": true,
-  "projectFilePath": "/Users/johanbjerkedal/Documents/PokerGrpcService/PokerGrpc/PokerGrpcTest/PokerGrpcTest.csproj",
+  "projectFilePath": "/Users/johanbjerkedal/PokerGrpcService/PokerGrpc/PokerGrpcTest/PokerGrpcTest.csproj",
   "expectedPackageFiles": [
     "/Users/johanbjerkedal/.nuget/packages/coverlet.collector/1.2.0/coverlet.collector.1.2.0.nupkg.sha512",
     "/Users/johanbjerkedal/.nuget/packages/microsoft.codecoverage/16.5.0/microsoft.codecoverage.16.5.0.nupkg.sha512",
