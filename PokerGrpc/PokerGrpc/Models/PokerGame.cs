@@ -34,6 +34,7 @@ namespace PokerGrpc.Models
         //make blind final?
         public int blind;
         public bool startNewRound = false;
+        public bool firstRound;
 
 
         /*
@@ -74,6 +75,7 @@ namespace PokerGrpc.Models
             roomOwner.currentBetter = true;
             this.toAct = roomOwner;
             AddPlayer(roomOwner);
+            firstRound = true;
             
             this.state = state.PreGame;
         }
@@ -310,7 +312,12 @@ namespace PokerGrpc.Models
             this.bet = 0;
             this.pot = 0;
 
-            MoveDealerButton();
+            if (!firstRound) {
+                MoveDealerButton();
+            } else {
+                firstRound = false;
+            }
+            
 
             //clears table of cards
             this.tableCards.Clear();
@@ -330,7 +337,9 @@ namespace PokerGrpc.Models
                 indexNextFirstBetter = 0;
             }
             playersPlaying[indexNextFirstBetter].firstToBet = true;
-            lastFirstBetter.firstToBet = false;
+            if (lastFirstBetter != null) {
+                lastFirstBetter.firstToBet = false;
+            }
 
             // just making sure, probably duplicate somewhere like in BettingRound or smthing
             foreach (Player player in playersPlaying) {
@@ -384,11 +393,19 @@ namespace PokerGrpc.Models
 
         public void NextBetter(Player player) {
             int nextPlayerIndex = playersPlaying.IndexOf(player) + 1;
-            if (nextPlayerIndex >= playersPlaying.Count) {
+            /*
+             * if (nextPlayerIndex >= playersPlaying.Count) {
                 nextPlayerIndex = 0;
             }
+            */
             //check if round over??
-            playersPlaying[nextPlayerIndex].currentBetter = true;
+            for(int i=nextPlayerIndex;i<-1+nextPlayerIndex + playersPlaying.Count;i++) {
+                int ind = i % playersPlaying.Count;
+                if (playersPlaying[ind] != null) {
+                    playersPlaying[ind].currentBetter = true;
+                }
+            }
+            // playersPlaying[nextPlayerIndex].currentBetter = true;
             player.currentBetter = false;
         }
 
@@ -415,7 +432,7 @@ namespace PokerGrpc.Models
 
             // remove players active this round
             playersPlaying.Remove(player);
-            if (playersPlaying.Count == 1) {
+            if (playersPlaying.Count <= 1) {
                 // all but one has folded:
                 // -> GamerOver() = distribute pot, send to players, wait, start new game
                 GameOver();
@@ -429,7 +446,7 @@ namespace PokerGrpc.Models
 
             this.bet = 0;
 
-            foreach (Player player in playersPlaying) {
+            foreach (Player player in playersPlaying.Where(p => p != null)) {
                 // asserts only the correct player has currentBetter true
                 if (player.currentRoundFirstToBet) {
                     player.currentBetter = true;
@@ -445,8 +462,8 @@ namespace PokerGrpc.Models
                 {
                     if (player.currentBetter)
                     {
-                        if(!PlaceBet(player, this.blind))
-                        {
+                        if (!PlaceBet(player, this.blind)) {
+                            Console.WriteLine("Fold small blind?");
                             Fold(player);
                         }
 
@@ -460,8 +477,8 @@ namespace PokerGrpc.Models
                 {
                     if (player.currentBetter)
                     {
-                        if (!PlaceBet(player, this.blind))
-                        {
+                        if (!PlaceBet(player, this.blind)) {
+                            Console.WriteLine("Fold big blind?");
                             Fold(player);
                         }
                         Console.WriteLine("Bigblind: " + player.name);
