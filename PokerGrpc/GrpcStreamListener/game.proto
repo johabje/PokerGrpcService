@@ -1,6 +1,6 @@
 ﻿syntax = "proto3";
 
-option csharp_namespace = "PokerGrpc";
+option csharp_namespace = "GrpcStreamListener";
 
 service Game {
     rpc CreateNewGame (NewGameRequest) returns (GameLobby);

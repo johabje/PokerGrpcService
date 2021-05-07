@@ -21,6 +21,10 @@
               <Node name="Dependencies" expanded="True" />
               <Node name="Protos" expanded="True" />
             </Node>
+            <Node name="GrpcStreamListener" expanded="True">
+              <Node name="ConnectedServicesFolder" expanded="True" />
+              <Node name="Dependencies" expanded="True" />
+            </Node>
             <Node name="PokerGrpc" expanded="True">
               <Node name="ConnectedServicesFolder" expanded="True" />
               <Node name="Dependencies" expanded="True" />

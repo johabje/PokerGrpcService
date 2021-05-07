@@ -9,7 +9,11 @@ service Game {
 }
 
 message NewGameRequest {
-    GPlayer gplayer = 1; 
+    GPlayer gplayer = 1;
+    int32 gamePin =2;
+    int32 maxBuyin = 3;
+    int32 minBuyin = 4;
+    int32 smallBlind = 5;
 }
 
 message JoinGameRequest {
@@ -22,10 +26,10 @@ message GameLobby
 {
     int32 gamePin = 1;
     repeated GPlayer gplayers = 2;
-    GPlayer toAct = 3;
+    string toAct = 3;
     string tableCards = 4;
-    double pot = 5;
-    double bet = 6;
+    float pot = 5;
+    float bet = 6;
     int32 blind = 7;
     string hand = 8;
     
@@ -40,7 +44,7 @@ message ActionRequest {
 
 
 message GPlayer {
-    double wallet = 2;
+    float wallet = 2;
     string name = 1;
     bool isRoomOwner = 3;
     string bestCombo = 4;

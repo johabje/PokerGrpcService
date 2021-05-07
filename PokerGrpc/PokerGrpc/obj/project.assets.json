@@ -697,24 +697,26 @@
     ]
   },
   "packageFolders": {
-    "/Users/johanbjerkedal/.nuget/packages/": {}
+    "C:\\Users\\fredr\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/johanbjerkedal/Documents/GitHub/PokerGrpcService/PokerGrpc/PokerGrpc/PokerGrpc.csproj",
+      "projectUniqueName": "C:\\Users\\fredr\\Documents\\MSIT\\V21\\TDT4240-Programvarearkitektur\\PROJECT\\PokerGrpcService\\PokerGrpc\\PokerGrpc\\PokerGrpc.csproj",
       "projectName": "PokerGrpc",
-      "projectPath": "/Users/johanbjerkedal/Documents/GitHub/PokerGrpcService/PokerGrpc/PokerGrpc/PokerGrpc.csproj",
-      "packagesPath": "/Users/johanbjerkedal/.nuget/packages/",
-      "outputPath": "/Users/johanbjerkedal/Documents/GitHub/PokerGrpcService/PokerGrpc/PokerGrpc/obj/",
+      "projectPath": "C:\\Users\\fredr\\Documents\\MSIT\\V21\\TDT4240-Programvarearkitektur\\PROJECT\\PokerGrpcService\\PokerGrpc\\PokerGrpc\\PokerGrpc.csproj",
+      "packagesPath": "C:\\Users\\fredr\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\fredr\\Documents\\MSIT\\V21\\TDT4240-Programvarearkitektur\\PROJECT\\PokerGrpcService\\PokerGrpc\\PokerGrpc\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/Users/johanbjerkedal/.config/NuGet/NuGet.Config"
+        "C:\\Users\\fredr\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp3.1"
       ],
       "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {

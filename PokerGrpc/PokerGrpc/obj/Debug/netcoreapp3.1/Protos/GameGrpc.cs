@@ -45,6 +45,10 @@ namespace PokerGrpc {
     static readonly grpc::Marshaller<global::PokerGrpc.NewGameRequest> __Marshaller_NewGameRequest = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::PokerGrpc.NewGameRequest.Parser));
     static readonly grpc::Marshaller<global::PokerGrpc.GameLobby> __Marshaller_GameLobby = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::PokerGrpc.GameLobby.Parser));
     static readonly grpc::Marshaller<global::PokerGrpc.JoinGameRequest> __Marshaller_JoinGameRequest = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::PokerGrpc.JoinGameRequest.Parser));
+    static readonly grpc::Marshaller<global::PokerGrpc.ActionRequest> __Marshaller_ActionRequest = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::PokerGrpc.ActionRequest.Parser));
+    static readonly grpc::Marshaller<global::PokerGrpc.ActionResponse> __Marshaller_ActionResponse = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::PokerGrpc.ActionResponse.Parser));
+    static readonly grpc::Marshaller<global::PokerGrpc.StartGameRequest> __Marshaller_StartGameRequest = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::PokerGrpc.StartGameRequest.Parser));
+    static readonly grpc::Marshaller<global::PokerGrpc.StartGameResponse> __Marshaller_StartGameResponse = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::PokerGrpc.StartGameResponse.Parser));
 
     static readonly grpc::Method<global::PokerGrpc.NewGameRequest, global::PokerGrpc.GameLobby> __Method_CreateNewGame = new grpc::Method<global::PokerGrpc.NewGameRequest, global::PokerGrpc.GameLobby>(
         grpc::MethodType.Unary,
@@ -59,6 +63,27 @@ namespace PokerGrpc {
         "JoinGame",
         __Marshaller_JoinGameRequest,
         __Marshaller_GameLobby);
+
+    static readonly grpc::Method<global::PokerGrpc.JoinGameRequest, global::PokerGrpc.GameLobby> __Method_StartStream = new grpc::Method<global::PokerGrpc.JoinGameRequest, global::PokerGrpc.GameLobby>(
+        grpc::MethodType.ServerStreaming,
+        __ServiceName,
+        "StartStream",
+        __Marshaller_JoinGameRequest,
+        __Marshaller_GameLobby);
+
+    static readonly grpc::Method<global::PokerGrpc.ActionRequest, global::PokerGrpc.ActionResponse> __Method_Action = new grpc::Method<global::PokerGrpc.ActionRequest, global::PokerGrpc.ActionResponse>(
+        grpc::MethodType.Unary,
+        __ServiceName,
+        "Action",
+        __Marshaller_ActionRequest,
+        __Marshaller_ActionResponse);
+
+    static readonly grpc::Method<global::PokerGrpc.StartGameRequest, global::PokerGrpc.StartGameResponse> __Method_StartGame = new grpc::Method<global::PokerGrpc.StartGameRequest, global::PokerGrpc.StartGameResponse>(
+        grpc::MethodType.Unary,
+        __ServiceName,
+        "StartGame",
+        __Marshaller_StartGameRequest,
+        __Marshaller_StartGameResponse);
 
     /// <summary>Service descriptor</summary>
     public static global::Google.Protobuf.Reflection.ServiceDescriptor Descriptor
@@ -80,6 +105,21 @@ namespace PokerGrpc {
         throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
       }
 
+      public virtual global::System.Threading.Tasks.Task StartStream(global::PokerGrpc.JoinGameRequest request, grpc::IServerStreamWriter<global::PokerGrpc.GameLobby> responseStream, grpc::ServerCallContext context)
+      {
+        throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
+      }
+
+      public virtual global::System.Threading.Tasks.Task<global::PokerGrpc.ActionResponse> Action(global::PokerGrpc.ActionRequest request, grpc::ServerCallContext context)
+      {
+        throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
+      }
+
+      public virtual global::System.Threading.Tasks.Task<global::PokerGrpc.StartGameResponse> StartGame(global::PokerGrpc.StartGameRequest request, grpc::ServerCallContext context)
+      {
+        throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
+      }
+
     }
 
     /// <summary>Creates service definition that can be registered with a server</summary>
@@ -88,7 +128,10 @@ namespace PokerGrpc {
     {
       return grpc::ServerServiceDefinition.CreateBuilder()
           .AddMethod(__Method_CreateNewGame, serviceImpl.CreateNewGame)
-          .AddMethod(__Method_JoinGame, serviceImpl.JoinGame).Build();
+          .AddMethod(__Method_JoinGame, serviceImpl.JoinGame)
+          .AddMethod(__Method_StartStream, serviceImpl.StartStream)
+          .AddMethod(__Method_Action, serviceImpl.Action)
+          .AddMethod(__Method_StartGame, serviceImpl.StartGame).Build();
     }
 
     /// <summary>Register service method with a service binder with or without implementation. Useful when customizing the  service binding logic.
@@ -99,6 +142,9 @@ namespace PokerGrpc {
     {
       serviceBinder.AddMethod(__Method_CreateNewGame, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::PokerGrpc.NewGameRequest, global::PokerGrpc.GameLobby>(serviceImpl.CreateNewGame));
       serviceBinder.AddMethod(__Method_JoinGame, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::PokerGrpc.JoinGameRequest, global::PokerGrpc.GameLobby>(serviceImpl.JoinGame));
+      serviceBinder.AddMethod(__Method_StartStream, serviceImpl == null ? null : new grpc::ServerStreamingServerMethod<global::PokerGrpc.JoinGameRequest, global::PokerGrpc.GameLobby>(serviceImpl.StartStream));
+      serviceBinder.AddMethod(__Method_Action, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::PokerGrpc.ActionRequest, global::PokerGrpc.ActionResponse>(serviceImpl.Action));
+      serviceBinder.AddMethod(__Method_StartGame, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::PokerGrpc.StartGameRequest, global::PokerGrpc.StartGameResponse>(serviceImpl.StartGame));
     }
 
   }

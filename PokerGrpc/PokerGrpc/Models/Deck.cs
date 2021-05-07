@@ -16,10 +16,18 @@ namespace PokerGrpc.Models
         const int numberOfCards = 52;
         private List<Card> cards { get; set; }
 
+        public Stack<Card> cardStack { get; }
+
+        public Random rand = new Random();
+
+
+
         public Deck()
         {
-            cards = new List<Card>();
-        }
+            //mby have a singleton for a complete deck instead of generating?
+            // ^if yes, use a copy of the singleton list when randomizing stack
+            this.cards = new List<Card>(GenerateDeck());
+            this.cardStack =  new Stack<Card>(GenerateRandomizedStack(cards));
 
         public void GenerateDeck()
         {
@@ -85,46 +93,34 @@ namespace PokerGrpc.Models
             this.cards = newCards;
         }
 
-        public List<Card> DealHand()
-        {
-            List<Card> hand = new List<Card>();
-            hand.Add(this.cards[0]);
-            cards.RemoveAt(0);
-            hand.Add(this.cards[0]);
-            cards.RemoveAt(0);
-            return hand;
-        }
 
-        public List<Card> DealFlop()
-        {
-            List<Card> flop = new List<Card>();
-            cards.RemoveAt(0);
-            flop.Add(this.cards[0]);
-            cards.RemoveAt(0);
-            flop.Add(this.cards[0]);
-            cards.RemoveAt(0);
-            flop.Add(this.cards[0]);
-            cards.RemoveAt(0);
-            return flop;
-        }
-
-        public Card DealTurn()
-        {
-            cards.RemoveAt(0);
-            Card turn = this.cards[0];
-            cards.RemoveAt(0);
-            return turn;
-        }
-
-        public Card DealRiver()
-        {
-            cards.RemoveAt(0);
-            Card river = this.cards[0];
-            cards.RemoveAt(0);
-            return river;
+        public Stack<Card> GenerateRandomizedStack(List<Card> cards) {
+            int cardsLeft = cards.Count;
+            Stack<Card> stack = new Stack<Card>();
+            while (cardsLeft > 0) {
+                int nextCardIndex = rand.Next(cardsLeft);
+                stack.Push(cards[nextCardIndex]);
+                cards.RemoveAt(nextCardIndex);
+                cardsLeft = cards.Count;
+            }
+            return stack;
         }
 
 
+        public Card DealCardSingle() {
+            Card card = cardStack.Pop();
+            return card;
+        }
+
+        /* might not need
+        public List<Card> DealCardMultiple(int cardCount) {
+            List<Card> cardsToDeal = new List<Card>();
+            for (int i = 0; i < cardCount; i++) {
+                cardsToDeal.Add(cardStack.Pop());
+            }
+            return cardsToDeal;
+        }
+        */
 
     }
 }
