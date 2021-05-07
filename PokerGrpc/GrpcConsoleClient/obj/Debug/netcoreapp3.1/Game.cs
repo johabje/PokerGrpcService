@@ -24,39 +24,28 @@ namespace GrpcConsoleClient {
     static GameReflection() {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
-            "CgpnYW1lLnByb3RvInQKDk5ld0dhbWVSZXF1ZXN0EhkKB2dwbGF5ZXIYASAB",
-            "KAsyCC5HUGxheWVyEg8KB2dhbWVQaW4YAiABKAUSEAoIbWF4QnV5aW4YAyAB",
-            "KAUSEAoIbWluQnV5aW4YBCABKAUSEgoKc21hbGxCbGluZBgFIAEoBSI9Cg9K",
-            "b2luR2FtZVJlcXVlc3QSDwoHZ2FtZVBpbhgBIAEoBRIZCgdncGxheWVyGAIg",
-            "ASgLMgguR1BsYXllciK4AQoJR2FtZUxvYmJ5Eg8KB2dhbWVQaW4YASABKAUS",
-            "GgoIZ3BsYXllcnMYAiADKAsyCC5HUGxheWVyEg0KBXRvQWN0GAMgASgJEhIK",
-            "CnRhYmxlQ2FyZHMYBCABKAkSCwoDcG90GAUgASgCEgsKA2JldBgGIAEoAhIN",
-            "CgVibGluZBgHIAEoBRIOCgZ3aW5uZXIYCCABKAkSEAoIbWF4QnV5aW4YCSAB",
-            "KAUSEAoIbWluQnV5aW4YCiABKAUiegoHR1BsYXllchIOCgZ3YWxsZXQYAiAB",
-            "KAISDAoEbmFtZRgBIAEoCRITCgtpc1Jvb21Pd25lchgDIAEoCBIMCgRoYW5k",
-            "GAQgASgJEhEKCWJlc3RDb21ibxgFIAEoCRIOCgZhY3Rpb24YBiABKAUSCwoD",
-            "YmV0GAcgASgCIksKDUFjdGlvblJlcXVlc3QSDwoHZ2FtZVBpbhgBIAEoBRIM",
-            "CgRuYW1lGAIgASgJEgsKA2JldBgDIAEoBRIOCgZBY3Rpb24YBCABKAUiIQoO",
-            "QWN0aW9uUmVzcG9uc2USDwoHc3VjY2VzcxgBIAEoCCI3ChBTdGFydEdhbWVS",
-            "ZXF1ZXN0Eg8KB2dhbWVwaW4YASABKAUSEgoKcGxheWVyTmFtZRgCIAEoCSIk",
-            "ChFTdGFydEdhbWVSZXNwb25zZRIPCgdzdWNjZXNzGAEgASgIMuwBCgRHYW1l",
-            "EiwKDUNyZWF0ZU5ld0dhbWUSDy5OZXdHYW1lUmVxdWVzdBoKLkdhbWVMb2Ji",
-            "eRIoCghKb2luR2FtZRIQLkpvaW5HYW1lUmVxdWVzdBoKLkdhbWVMb2JieRIt",
-            "CgtTdGFydFN0cmVhbRIQLkpvaW5HYW1lUmVxdWVzdBoKLkdhbWVMb2JieTAB",
-            "EikKBkFjdGlvbhIOLkFjdGlvblJlcXVlc3QaDy5BY3Rpb25SZXNwb25zZRIy",
-            "CglTdGFydEdhbWUSES5TdGFydEdhbWVSZXF1ZXN0GhIuU3RhcnRHYW1lUmVz",
-            "cG9uc2VCFKoCEUdycGNDb25zb2xlQ2xpZW50YgZwcm90bzM="));
+            "CgpnYW1lLnByb3RvIisKDk5ld0dhbWVSZXF1ZXN0EhkKB2dwbGF5ZXIYASAB",
+            "KAsyCC5HUGxheWVyIj0KD0pvaW5HYW1lUmVxdWVzdBIPCgdnYW1lUGluGAEg",
+            "ASgFEhkKB2dwbGF5ZXIYAiABKAsyCC5HUGxheWVyIpwBCglHYW1lTG9iYnkS",
+            "DwoHZ2FtZVBpbhgBIAEoBRIaCghncGxheWVycxgCIAMoCzIILkdQbGF5ZXIS",
+            "FwoFdG9BY3QYAyABKAsyCC5HUGxheWVyEhIKCnRhYmxlQ2FyZHMYBCABKAkS",
+            "CwoDcG90GAUgASgBEgsKA2JldBgGIAEoARINCgVibGluZBgHIAEoBRIMCgRo",
+            "YW5kGAggASgJIlcKDUFjdGlvblJlcXVlc3QSDgoGYWN0aW9uGAEgASgJEgsK",
+            "A2JldBgCIAEoBRIPCgdnYW1lUGluGAMgASgFEhgKBnBsYXllchgEIAEoCzII",
+            "LkdQbGF5ZXIiXwoHR1BsYXllchIOCgZ3YWxsZXQYAiABKAESDAoEbmFtZRgB",
+            "IAEoCRITCgtpc1Jvb21Pd25lchgDIAEoCBIRCgliZXN0Q29tYm8YBCABKAkS",
+            "DgoGYWN0aW9uGAUgASgFMoQBCgRHYW1lEiwKDUNyZWF0ZU5ld0dhbWUSDy5O",
+            "ZXdHYW1lUmVxdWVzdBoKLkdhbWVMb2JieRIoCghKb2luR2FtZRIQLkpvaW5H",
+            "YW1lUmVxdWVzdBoKLkdhbWVMb2JieRIkCgZBY3Rpb24SDi5BY3Rpb25SZXF1",
+            "ZXN0GgouR2FtZUxvYmJ5QhSqAhFHcnBjQ29uc29sZUNsaWVudGIGcHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
             new pbr::GeneratedClrTypeInfo(typeof(global::GrpcConsoleClient.NewGameRequest), global::GrpcConsoleClient.NewGameRequest.Parser, new[]{ "Gplayer", "GamePin", "MaxBuyin", "MinBuyin", "SmallBlind" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::GrpcConsoleClient.JoinGameRequest), global::GrpcConsoleClient.JoinGameRequest.Parser, new[]{ "GamePin", "Gplayer" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::GrpcConsoleClient.GameLobby), global::GrpcConsoleClient.GameLobby.Parser, new[]{ "GamePin", "Gplayers", "ToAct", "TableCards", "Pot", "Bet", "Blind", "Winner", "MaxBuyin", "MinBuyin" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::GrpcConsoleClient.GPlayer), global::GrpcConsoleClient.GPlayer.Parser, new[]{ "Wallet", "Name", "IsRoomOwner", "Hand", "BestCombo", "Action", "Bet" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::GrpcConsoleClient.ActionRequest), global::GrpcConsoleClient.ActionRequest.Parser, new[]{ "GamePin", "Name", "Bet", "Action" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::GrpcConsoleClient.ActionResponse), global::GrpcConsoleClient.ActionResponse.Parser, new[]{ "Success" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::GrpcConsoleClient.StartGameRequest), global::GrpcConsoleClient.StartGameRequest.Parser, new[]{ "Gamepin", "PlayerName" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::GrpcConsoleClient.StartGameResponse), global::GrpcConsoleClient.StartGameResponse.Parser, new[]{ "Success" }, null, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::GrpcConsoleClient.GameLobby), global::GrpcConsoleClient.GameLobby.Parser, new[]{ "GamePin", "Gplayers", "ToAct", "TableCards", "Pot", "Bet", "Blind", "Hand" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::GrpcConsoleClient.ActionRequest), global::GrpcConsoleClient.ActionRequest.Parser, new[]{ "Action", "Bet", "GamePin", "Player" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::GrpcConsoleClient.GPlayer), global::GrpcConsoleClient.GPlayer.Parser, new[]{ "Wallet", "Name", "IsRoomOwner", "BestCombo", "Action" }, null, null, null, null)
           }));
     }
     #endregion
@@ -641,9 +630,7 @@ namespace GrpcConsoleClient {
       pot_ = other.pot_;
       bet_ = other.bet_;
       blind_ = other.blind_;
-      winner_ = other.winner_;
-      maxBuyin_ = other.maxBuyin_;
-      minBuyin_ = other.minBuyin_;
+      hand_ = other.hand_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -728,36 +715,14 @@ namespace GrpcConsoleClient {
       }
     }
 
-    /// <summary>Field number for the "winner" field.</summary>
-    public const int WinnerFieldNumber = 8;
-    private string winner_ = "";
+    /// <summary>Field number for the "hand" field.</summary>
+    public const int HandFieldNumber = 8;
+    private string hand_ = "";
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public string Winner {
-      get { return winner_; }
+    public string Hand {
+      get { return hand_; }
       set {
-        winner_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
-      }
-    }
-
-    /// <summary>Field number for the "maxBuyin" field.</summary>
-    public const int MaxBuyinFieldNumber = 9;
-    private int maxBuyin_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public int MaxBuyin {
-      get { return maxBuyin_; }
-      set {
-        maxBuyin_ = value;
-      }
-    }
-
-    /// <summary>Field number for the "minBuyin" field.</summary>
-    public const int MinBuyinFieldNumber = 10;
-    private int minBuyin_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public int MinBuyin {
-      get { return minBuyin_; }
-      set {
-        minBuyin_ = value;
+        hand_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
       }
     }
 
@@ -781,9 +746,7 @@ namespace GrpcConsoleClient {
       if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(Pot, other.Pot)) return false;
       if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(Bet, other.Bet)) return false;
       if (Blind != other.Blind) return false;
-      if (Winner != other.Winner) return false;
-      if (MaxBuyin != other.MaxBuyin) return false;
-      if (MinBuyin != other.MinBuyin) return false;
+      if (Hand != other.Hand) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -797,9 +760,7 @@ namespace GrpcConsoleClient {
       if (Pot != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(Pot);
       if (Bet != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(Bet);
       if (Blind != 0) hash ^= Blind.GetHashCode();
-      if (Winner.Length != 0) hash ^= Winner.GetHashCode();
-      if (MaxBuyin != 0) hash ^= MaxBuyin.GetHashCode();
-      if (MinBuyin != 0) hash ^= MinBuyin.GetHashCode();
+      if (Hand.Length != 0) hash ^= Hand.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -841,17 +802,9 @@ namespace GrpcConsoleClient {
         output.WriteRawTag(56);
         output.WriteInt32(Blind);
       }
-      if (Winner.Length != 0) {
+      if (Hand.Length != 0) {
         output.WriteRawTag(66);
-        output.WriteString(Winner);
-      }
-      if (MaxBuyin != 0) {
-        output.WriteRawTag(72);
-        output.WriteInt32(MaxBuyin);
-      }
-      if (MinBuyin != 0) {
-        output.WriteRawTag(80);
-        output.WriteInt32(MinBuyin);
+        output.WriteString(Hand);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
@@ -887,17 +840,9 @@ namespace GrpcConsoleClient {
         output.WriteRawTag(56);
         output.WriteInt32(Blind);
       }
-      if (Winner.Length != 0) {
+      if (Hand.Length != 0) {
         output.WriteRawTag(66);
-        output.WriteString(Winner);
-      }
-      if (MaxBuyin != 0) {
-        output.WriteRawTag(72);
-        output.WriteInt32(MaxBuyin);
-      }
-      if (MinBuyin != 0) {
-        output.WriteRawTag(80);
-        output.WriteInt32(MinBuyin);
+        output.WriteString(Hand);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
@@ -927,14 +872,8 @@ namespace GrpcConsoleClient {
       if (Blind != 0) {
         size += 1 + pb::CodedOutputStream.ComputeInt32Size(Blind);
       }
-      if (Winner.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeStringSize(Winner);
-      }
-      if (MaxBuyin != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeInt32Size(MaxBuyin);
-      }
-      if (MinBuyin != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeInt32Size(MinBuyin);
+      if (Hand.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(Hand);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -966,14 +905,8 @@ namespace GrpcConsoleClient {
       if (other.Blind != 0) {
         Blind = other.Blind;
       }
-      if (other.Winner.Length != 0) {
-        Winner = other.Winner;
-      }
-      if (other.MaxBuyin != 0) {
-        MaxBuyin = other.MaxBuyin;
-      }
-      if (other.MinBuyin != 0) {
-        MinBuyin = other.MinBuyin;
+      if (other.Hand.Length != 0) {
+        Hand = other.Hand;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -1018,15 +951,7 @@ namespace GrpcConsoleClient {
             break;
           }
           case 66: {
-            Winner = input.ReadString();
-            break;
-          }
-          case 72: {
-            MaxBuyin = input.ReadInt32();
-            break;
-          }
-          case 80: {
-            MinBuyin = input.ReadInt32();
+            Hand = input.ReadString();
             break;
           }
         }
@@ -1072,15 +997,296 @@ namespace GrpcConsoleClient {
             break;
           }
           case 66: {
-            Winner = input.ReadString();
+            Hand = input.ReadString();
             break;
           }
-          case 72: {
-            MaxBuyin = input.ReadInt32();
+        }
+      }
+    }
+    #endif
+
+  }
+
+  public sealed partial class ActionRequest : pb::IMessage<ActionRequest>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
+    private static readonly pb::MessageParser<ActionRequest> _parser = new pb::MessageParser<ActionRequest>(() => new ActionRequest());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pb::MessageParser<ActionRequest> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::GrpcConsoleClient.GameReflection.Descriptor.MessageTypes[3]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public ActionRequest() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public ActionRequest(ActionRequest other) : this() {
+      action_ = other.action_;
+      bet_ = other.bet_;
+      gamePin_ = other.gamePin_;
+      player_ = other.player_ != null ? other.player_.Clone() : null;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public ActionRequest Clone() {
+      return new ActionRequest(this);
+    }
+
+    /// <summary>Field number for the "action" field.</summary>
+    public const int ActionFieldNumber = 1;
+    private string action_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string Action {
+      get { return action_; }
+      set {
+        action_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "bet" field.</summary>
+    public const int BetFieldNumber = 2;
+    private int bet_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int Bet {
+      get { return bet_; }
+      set {
+        bet_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "gamePin" field.</summary>
+    public const int GamePinFieldNumber = 3;
+    private int gamePin_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int GamePin {
+      get { return gamePin_; }
+      set {
+        gamePin_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "player" field.</summary>
+    public const int PlayerFieldNumber = 4;
+    private global::GrpcConsoleClient.GPlayer player_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public global::GrpcConsoleClient.GPlayer Player {
+      get { return player_; }
+      set {
+        player_ = value;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override bool Equals(object other) {
+      return Equals(other as ActionRequest);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Equals(ActionRequest other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (Action != other.Action) return false;
+      if (Bet != other.Bet) return false;
+      if (GamePin != other.GamePin) return false;
+      if (!object.Equals(Player, other.Player)) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (Action.Length != 0) hash ^= Action.GetHashCode();
+      if (Bet != 0) hash ^= Bet.GetHashCode();
+      if (GamePin != 0) hash ^= GamePin.GetHashCode();
+      if (player_ != null) hash ^= Player.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
+      if (Action.Length != 0) {
+        output.WriteRawTag(10);
+        output.WriteString(Action);
+      }
+      if (Bet != 0) {
+        output.WriteRawTag(16);
+        output.WriteInt32(Bet);
+      }
+      if (GamePin != 0) {
+        output.WriteRawTag(24);
+        output.WriteInt32(GamePin);
+      }
+      if (player_ != null) {
+        output.WriteRawTag(34);
+        output.WriteMessage(Player);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (Action.Length != 0) {
+        output.WriteRawTag(10);
+        output.WriteString(Action);
+      }
+      if (Bet != 0) {
+        output.WriteRawTag(16);
+        output.WriteInt32(Bet);
+      }
+      if (GamePin != 0) {
+        output.WriteRawTag(24);
+        output.WriteInt32(GamePin);
+      }
+      if (player_ != null) {
+        output.WriteRawTag(34);
+        output.WriteMessage(Player);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CalculateSize() {
+      int size = 0;
+      if (Action.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(Action);
+      }
+      if (Bet != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(Bet);
+      }
+      if (GamePin != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(GamePin);
+      }
+      if (player_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Player);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(ActionRequest other) {
+      if (other == null) {
+        return;
+      }
+      if (other.Action.Length != 0) {
+        Action = other.Action;
+      }
+      if (other.Bet != 0) {
+        Bet = other.Bet;
+      }
+      if (other.GamePin != 0) {
+        GamePin = other.GamePin;
+      }
+      if (other.player_ != null) {
+        if (player_ == null) {
+          Player = new global::GrpcConsoleClient.GPlayer();
+        }
+        Player.MergeFrom(other.Player);
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 10: {
+            Action = input.ReadString();
             break;
           }
-          case 80: {
-            MinBuyin = input.ReadInt32();
+          case 16: {
+            Bet = input.ReadInt32();
+            break;
+          }
+          case 24: {
+            GamePin = input.ReadInt32();
+            break;
+          }
+          case 34: {
+            if (player_ == null) {
+              Player = new global::GrpcConsoleClient.GPlayer();
+            }
+            input.ReadMessage(Player);
+            break;
+          }
+        }
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 10: {
+            Action = input.ReadString();
+            break;
+          }
+          case 16: {
+            Bet = input.ReadInt32();
+            break;
+          }
+          case 24: {
+            GamePin = input.ReadInt32();
+            break;
+          }
+          case 34: {
+            if (player_ == null) {
+              Player = new global::GrpcConsoleClient.GPlayer();
+            }
+            input.ReadMessage(Player);
             break;
           }
         }
@@ -1102,7 +1308,7 @@ namespace GrpcConsoleClient {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::GrpcConsoleClient.GameReflection.Descriptor.MessageTypes[3]; }
+      get { return global::GrpcConsoleClient.GameReflection.Descriptor.MessageTypes[4]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -1122,7 +1328,6 @@ namespace GrpcConsoleClient {
       wallet_ = other.wallet_;
       name_ = other.name_;
       isRoomOwner_ = other.isRoomOwner_;
-      hand_ = other.hand_;
       bestCombo_ = other.bestCombo_;
       action_ = other.action_;
       bet_ = other.bet_;
@@ -1167,19 +1372,8 @@ namespace GrpcConsoleClient {
       }
     }
 
-    /// <summary>Field number for the "hand" field.</summary>
-    public const int HandFieldNumber = 4;
-    private string hand_ = "";
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public string Hand {
-      get { return hand_; }
-      set {
-        hand_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
-      }
-    }
-
     /// <summary>Field number for the "bestCombo" field.</summary>
-    public const int BestComboFieldNumber = 5;
+    public const int BestComboFieldNumber = 4;
     private string bestCombo_ = "";
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public string BestCombo {
@@ -1190,7 +1384,7 @@ namespace GrpcConsoleClient {
     }
 
     /// <summary>Field number for the "action" field.</summary>
-    public const int ActionFieldNumber = 6;
+    public const int ActionFieldNumber = 5;
     private int action_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public int Action {
@@ -1227,7 +1421,6 @@ namespace GrpcConsoleClient {
       if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(Wallet, other.Wallet)) return false;
       if (Name != other.Name) return false;
       if (IsRoomOwner != other.IsRoomOwner) return false;
-      if (Hand != other.Hand) return false;
       if (BestCombo != other.BestCombo) return false;
       if (Action != other.Action) return false;
       if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(Bet, other.Bet)) return false;
@@ -1240,7 +1433,6 @@ namespace GrpcConsoleClient {
       if (Wallet != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(Wallet);
       if (Name.Length != 0) hash ^= Name.GetHashCode();
       if (IsRoomOwner != false) hash ^= IsRoomOwner.GetHashCode();
-      if (Hand.Length != 0) hash ^= Hand.GetHashCode();
       if (BestCombo.Length != 0) hash ^= BestCombo.GetHashCode();
       if (Action != 0) hash ^= Action.GetHashCode();
       if (Bet != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(Bet);
@@ -1272,16 +1464,12 @@ namespace GrpcConsoleClient {
         output.WriteRawTag(24);
         output.WriteBool(IsRoomOwner);
       }
-      if (Hand.Length != 0) {
-        output.WriteRawTag(34);
-        output.WriteString(Hand);
-      }
       if (BestCombo.Length != 0) {
-        output.WriteRawTag(42);
+        output.WriteRawTag(34);
         output.WriteString(BestCombo);
       }
       if (Action != 0) {
-        output.WriteRawTag(48);
+        output.WriteRawTag(40);
         output.WriteInt32(Action);
       }
       if (Bet != 0F) {
@@ -1309,16 +1497,12 @@ namespace GrpcConsoleClient {
         output.WriteRawTag(24);
         output.WriteBool(IsRoomOwner);
       }
-      if (Hand.Length != 0) {
-        output.WriteRawTag(34);
-        output.WriteString(Hand);
-      }
       if (BestCombo.Length != 0) {
-        output.WriteRawTag(42);
+        output.WriteRawTag(34);
         output.WriteString(BestCombo);
       }
       if (Action != 0) {
-        output.WriteRawTag(48);
+        output.WriteRawTag(40);
         output.WriteInt32(Action);
       }
       if (Bet != 0F) {
@@ -1342,9 +1526,6 @@ namespace GrpcConsoleClient {
       }
       if (IsRoomOwner != false) {
         size += 1 + 1;
-      }
-      if (Hand.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeStringSize(Hand);
       }
       if (BestCombo.Length != 0) {
         size += 1 + pb::CodedOutputStream.ComputeStringSize(BestCombo);
@@ -1374,9 +1555,6 @@ namespace GrpcConsoleClient {
       }
       if (other.IsRoomOwner != false) {
         IsRoomOwner = other.IsRoomOwner;
-      }
-      if (other.Hand.Length != 0) {
-        Hand = other.Hand;
       }
       if (other.BestCombo.Length != 0) {
         BestCombo = other.BestCombo;
@@ -1414,14 +1592,10 @@ namespace GrpcConsoleClient {
             break;
           }
           case 34: {
-            Hand = input.ReadString();
-            break;
-          }
-          case 42: {
             BestCombo = input.ReadString();
             break;
           }
-          case 48: {
+          case 40: {
             Action = input.ReadInt32();
             break;
           }
@@ -1456,14 +1630,10 @@ namespace GrpcConsoleClient {
             break;
           }
           case 34: {
-            Hand = input.ReadString();
-            break;
-          }
-          case 42: {
             BestCombo = input.ReadString();
             break;
           }
-          case 48: {
+          case 40: {
             Action = input.ReadInt32();
             break;
           }

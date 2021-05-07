@@ -3,6 +3,14 @@ using System.Collections.Generic;
 
 namespace PokerGrpc.Models
 {
+    enum Suits
+    {
+        S,    // 0
+        H,   // 1
+        C,      // 2
+        D,      // 3
+        
+    }
     public class Deck
     {
         const int numberOfCards = 52;
@@ -21,19 +29,68 @@ namespace PokerGrpc.Models
             this.cards = new List<Card>(GenerateDeck());
             this.cardStack =  new Stack<Card>(GenerateRandomizedStack(cards));
 
-        }
+        public void GenerateDeck()
+        {
+            List<Card> newCards;
+            /*
+            for (int i =1; i<5; i++)
+            {
+                Suits suits = (Suits)i;
+                char suit = (char)suits;
+                switch (i)
+                {
+                    case 1:
+                        suit = 'S';
+                        for (int j = 2; i < 15; j++)
+                        {
+                            Card card = new Card(suit, j);
+                            newCards.Add(card);
 
-        public List<Card> GenerateDeck() {
-            List<Card> completeDeck = new List<Card>();
-            char[] suits = { 'H', 'K', 'S', 'R' };
-            foreach (char suit in suits) {
-                for (int i = 2; i < 15; i++) {
-                    // remember to convert numbers to ace, king, etc
-                    Card card = new Card(suit, i);
-                    completeDeck.Add(card);
-                }
-            }
-            return completeDeck;
+                        }
+                        break;
+                    case 2:
+                        for (int j = 2; i < 15; j++)
+                        {
+                            Card card = new Card(suit, j);
+                            newCards.Add(card);
+
+                        }
+                        break;
+                    case 3:
+                        for (int j = 2; i < 15; j++)
+                        {
+                            Card card = new Card(suit, j);
+                            newCards.Add(card);
+
+                        }
+                        break;
+                    case 4:
+                        for (int j = 2; i < 15; j++)
+                        {
+                            Card card = new Card(suit, j);
+                            newCards.Add(card);
+
+                        }
+                        break;
+                }*/
+            newCards = new List<Card>()
+        {
+           new Card('H', 2),
+           new Card('H', 3),
+           new Card('H', 4),
+           new Card('H', 5),
+           new Card('H', 7),
+           new Card('H', 8),
+           new Card('H', 9),
+           new Card('H', 10),
+           new Card('H', 11),
+           new Card('H', 12),
+           new Card('H', 13),
+           new Card('H', 14),
+
+
+        };
+            this.cards = newCards;
         }
 
 

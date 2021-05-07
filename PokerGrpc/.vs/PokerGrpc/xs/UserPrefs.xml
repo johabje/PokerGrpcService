@@ -1,15 +1,24 @@
 ﻿<Properties StartupConfiguration="{26C7EE7F-46F0-411E-A271-DEBDDF0ECB5F}|Default">
+  <MonoDevelop.Ide.ItemProperties.GrpcConsoleClient PreferredExecutionTarget="MonoDevelop.Default" />
   <MonoDevelop.Ide.ItemProperties.PokerGrpcTest PreferredExecutionTarget="MonoDevelop.Default" />
   <MonoDevelop.Ide.Workbench ActiveDocument="PokerGrpc/Models/PokerGame.cs">
     <Files>
-      <File FileName="PokerGrpc/Services/GameService.cs" Line="1" Column="1" />
-      <File FileName="PokerGrpc/Models/PokerGame.cs" Line="66" Column="20" />
+      <File FileName="PokerGrpc/Models/PokerGame.cs" Line="51" Column="28" IsPinned="True" />
+      <File FileName="PokerGrpc/Services/GameService.cs" />
+      <File FileName="PokerGrpc/Models/Deck.cs" />
+      <File FileName="GrpcConsoleClient/game.proto" />
+      <File FileName="GrpcConsoleClient/Program.cs" />
+      <File FileName="PokerGrpc/Protos/game.proto" />
+      <File FileName="PokerGrpc/Program.cs" />
+      <File FileName="PokerGrpc/Startup.cs" />
+      <File FileName="PokerGrpc/Singelton/StorageSingleton.cs" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="PokerGrpc" expanded="True">
             <Node name="GrpcConsoleClient" expanded="True">
+              <Node name="Dependencies" expanded="True" />
               <Node name="Protos" expanded="True" />
             </Node>
             <Node name="GrpcStreamListener" expanded="True">
@@ -17,11 +26,14 @@
               <Node name="Dependencies" expanded="True" />
             </Node>
             <Node name="PokerGrpc" expanded="True">
+              <Node name="ConnectedServicesFolder" expanded="True" />
+              <Node name="Dependencies" expanded="True" />
               <Node name="Models" expanded="True">
                 <Node name="PokerGame.cs" selected="True" />
               </Node>
               <Node name="Protos" expanded="True" />
               <Node name="Services" expanded="True" />
+              <Node name="Singelton" expanded="True" />
             </Node>
           </Node>
         </State>

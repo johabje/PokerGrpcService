@@ -5,9 +5,7 @@ option csharp_namespace = "GrpcConsoleClient";
 service Game {
     rpc CreateNewGame (NewGameRequest) returns (GameLobby);
     rpc JoinGame (JoinGameRequest) returns (GameLobby);
-    rpc StartStream (JoinGameRequest) returns (stream GameLobby);
-    rpc Action (ActionRequest) returns (ActionResponse);
-    rpc StartGame (StartGameRequest) returns (StartGameResponse);
+    rpc Action (ActionRequest) returns (GameLobby);
 }
 
 message NewGameRequest {
@@ -33,45 +31,22 @@ message GameLobby
     float pot = 5;
     float bet = 6;
     int32 blind = 7;
-    string winner = 8;
-    int32 maxBuyin = 9;
-    int32 minBuyin = 10;
+    string hand = 8;
     
 }
+
+message ActionRequest {
+    string action = 1;
+    int32 bet = 2;
+    int32 gamePin = 3;
+    GPlayer player = 4;
+}
+
 
 message GPlayer {
     float wallet = 2;
     string name = 1;
     bool isRoomOwner = 3;
-    string hand = 4;
-    string bestCombo = 5;
-    int32 action = 6;
-    float bet = 7;
-}
-
-message ActionRequest {
-    int32 gamePin = 1;
-    string name = 2;
-    int32 bet = 3;
-    int32 Action = 4;
-}
-//For action, the values are:
-// -1 -> no action yet
-// 0 -> fold
-// 1 -> check
-// 2 -> bet
-// 3 -> call
-
-
-message ActionResponse {
-    bool success = 1;
-}
-
-message StartGameRequest {
-    int32 gamepin = 1;
-    string playerName = 2;
-}
-
-message StartGameResponse {
-    bool success = 1;
+    string bestCombo = 4;
+    int32 action = 5;
 }

@@ -57,27 +57,14 @@ namespace PokerGrpc.Models
         // new table
         public PokerGame(Player roomOwner, int blind, int gamePin,int maxBuyin, int minBuyin, int maxPlayers = 6)
         {
-            players = new Player[maxPlayers];
-            for (int i =0;i<players.Length;i++) {
-                players[i] = null;
-            }
-            this.maxBuyin = maxBuyin;
-            this.minBuyin = minBuyin;
-            this.gamePin = gamePin;
-            this.blind = blind;
-            this.tableCards = new List<Card>();
-            this.pot = 0;
-            this.bet = 0;
+            Random rnd = new Random();
+            this.gamePin = rnd.Next(9999);
+            this.deck = new Deck();
+            //deck.GenerateDeck();
             this.tableCards = new List<Card>();
             roomOwner.isRoomOwner = true;
-            roomOwner.firstToBet = true;
-            roomOwner.currentRoundFirstToBet = true;
-            roomOwner.currentBetter = true;
-            this.toAct = roomOwner;
-            AddPlayer(roomOwner);
-            firstRound = true;
-            
-            this.state = state.PreGame;
+            players.Add(roomOwner);
+            this.blind = blind; 
         }
 
         /*
@@ -170,6 +157,11 @@ namespace PokerGrpc.Models
                     break;
                 }
             }
+        }
+        public void Bet(int bet, Player player)
+        {
+            player.action = bet;
+            this.bet = bet;
         }
 
         // inserting player into first available spot
@@ -328,17 +320,16 @@ namespace PokerGrpc.Models
             UpdateStateAsync();
         }
 
-        public void MoveDealerButton() {
-            // moves dealer button basically
-            Player lastFirstBetter = playersPlaying.Find(p => p.firstToBet);
-            int indexLastFirstBetter = playersPlaying.IndexOf(lastFirstBetter);
-            int indexNextFirstBetter = indexLastFirstBetter + 1;
-            if (indexNextFirstBetter == playersPlaying.Count) {
-                indexNextFirstBetter = 0;
-            }
-            playersPlaying[indexNextFirstBetter].firstToBet = true;
-            if (lastFirstBetter != null) {
-                lastFirstBetter.firstToBet = false;
+
+        /*public int hasStraigthFlush(List<Card> hand, List<Card> table)
+        {
+            hand.AddRange(table);
+            List<int> ranks = new List<int>();
+            IList<char> suits = new List<char>();
+            foreach (Card card in hand)
+            {
+                ranks.Add(card.rank);
+                suits.Add(card.suit);
             }
 
             // just making sure, probably duplicate somewhere like in BettingRound or smthing
@@ -537,10 +528,8 @@ namespace PokerGrpc.Models
                     tableCards.Equals(pokerObj.tableCards);
         }
 
-        public PokerGame GetPokerGame(Guid playerId)
-        {
-            return null;
-        }
+            return 0;
+        }*/
 
 
     }

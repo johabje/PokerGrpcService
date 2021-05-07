@@ -12,6 +12,12 @@ namespace PokerGrpc.Models
                 suit = cardSuit;
                 rank = cardValue;
             }
+
+            public override string ToString()
+            {
+            return "" + this.suit.ToString() + this.rank.ToString();
+
+            }
         }
 
     }
