@@ -260,9 +260,10 @@ namespace PokerGrpc.Services
             } else {
                 lobby = StorageSingleton.Instance.currentGames.Find(game => game.gamePin.Equals(request.GamePin));
             }
-
+            if (lobby.state == state.PreGame) {
+                return Task.FromResult(badActionResponse);
+            }
             /*
-             */
             foreach (Player player2 in lobby.players) {
                 if (player2 != null) {
                     Console.WriteLine(player2.name + player2.lastAction);
@@ -277,7 +278,6 @@ namespace PokerGrpc.Services
                 }
                 
             }
-            /*
              */
 
             Player player = null;
@@ -332,7 +332,7 @@ namespace PokerGrpc.Services
                     Console.WriteLine("Player='", request.Name, "' default case?");
                     return Task.FromResult(badActionResponse);
             }
-            player.lastAction = actionId;
+            //player.lastAction = actionId;
             lobby.UpdateStateAsync();
             return Task.FromResult(new ActionResponse { Success = true });
         }
@@ -352,6 +352,7 @@ namespace PokerGrpc.Services
                     if (player.isRoomOwner)
                     {
                         lobby.NewRound();
+                        lobby.UpdateStateAsync();
                         return Task.FromResult(new StartGameResponse { Success = true });
                     }
                 }
@@ -393,26 +394,22 @@ namespace PokerGrpc.Services
             {
                 if (player != null)
                 {
-                    GPlayer gPlayer = PlayerToGPlayer(player, pokerGame);
-                    if (gPlayer.Name != playerName)
-                    {
-                        gPlayer.Hand = "x";
-                    }
+                    GPlayer gPlayer = PlayerToGPlayer(player, pokerGame, playerName);
                     gamelobby.Gplayers.Add(gPlayer);
                 }
             }
             return gamelobby;
         }
 
-        public GPlayer PlayerToGPlayer(Player player, PokerGame pokerGame)
+        public GPlayer PlayerToGPlayer(Player player, PokerGame pokerGame, String playerName)
         {
             string hand;
             if (player.Hand == null)
             {
                 hand = "0";
-            }
-            else
-            {
+            } else if (player.name.Equals(playerName)) {
+                hand = "x";
+            } else {
                 hand = pokerGame.GetCards(player.Hand);
             }
             GPlayer gParticipant = new GPlayer {

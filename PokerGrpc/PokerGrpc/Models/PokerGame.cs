@@ -35,6 +35,7 @@ namespace PokerGrpc.Models
         public int blind;
         public bool startNewRound = false;
         public bool firstRound;
+        public bool active = false;
 
 
         /*
@@ -75,7 +76,6 @@ namespace PokerGrpc.Models
             roomOwner.currentBetter = true;
             this.toAct = roomOwner;
             AddPlayer(roomOwner);
-            firstRound = true;
             
             this.state = state.PreGame;
         }
@@ -93,13 +93,9 @@ namespace PokerGrpc.Models
             {
                 case state.PreGame:
                     // deal 2 cards to all players
-                    
-                    if (startNewRound) {
-                        this.state = state.PF;
-                        DealPlayerCards(2);
-                        StartBettingRound();
-                        startNewRound = false;
-                    }
+                    DealPlayerCards(2);
+                    StartBettingRound();
+                    this.state = state.PF;
                     break;
                 case state.PF:
                     if (RoundFinished())
@@ -227,13 +223,17 @@ namespace PokerGrpc.Models
             {
                 playersPlaying.ElementAt(0).wallet += pot;
                 winner = playersPlaying.ElementAt(0);
-            }
-            else
+            } else if (playersPlaying.Count() == 0) {
+                // should never happen but does if playing with single player cause of missing checks
+            } else
             {
                 foreach (Player player in playersPlaying) {
                     var handScore = HandRanking.GetBestHand(player.Hand, tableCards);
                     player.bestCombo = handScore.Item1.ToString();
                     player.bestCardCombo = handScore.Item2;
+                    //
+                    Console.WriteLine(player.bestCombo);
+                    Console.WriteLine(player.bestCardCombo);
 
                 }
                 int bestScore = playersPlaying.Min(c => Int32.Parse(c.bestCombo));
@@ -296,6 +296,7 @@ namespace PokerGrpc.Models
         // new game/round/whatever on a table
         public void NewRound()
         {
+            active = true;
             // new list of players active this round
             playersPlaying = new List<Player>();
 
@@ -311,20 +312,18 @@ namespace PokerGrpc.Models
             this.state = state.PreGame;
             this.bet = 0;
             this.pot = 0;
+             //clears table of cards
+            this.tableCards.Clear();
+            
+            // deck.cardStack = stack of cards randomized
+            this.deck = new Deck();
 
             if (!firstRound) {
                 MoveDealerButton();
             } else {
                 firstRound = false;
             }
-            
 
-            //clears table of cards
-            this.tableCards.Clear();
-            
-            // deck.cardStack = stack of cards randomized
-            this.deck = new Deck();
-            startNewRound = true;
             UpdateStateAsync();
         }
 
@@ -432,14 +431,23 @@ namespace PokerGrpc.Models
 
             // remove players active this round
             playersPlaying.Remove(player);
-            if (playersPlaying.Count <= 1) {
+            if (playersPlaying == null || playersPlaying.Where(p => p != null).Count() < 1) {
+                //Console.WriteLine("== NULL OR LESS THAN 1 PLAYER: newRound()");
+                NewRound();
+            } else if (playersPlaying.Where(p => p != null).Count() == 1) {
+                //Console.WriteLine("== 1 PLAYER: GameOver()");
+                GameOver();
+            }
+            /*
+            if ( playersPlaying.Count() <= 1) {
                 // all but one has folded:
                 // -> GamerOver() = distribute pot, send to players, wait, start new game
                 GameOver();
             } else {
                 UpdateStateAsync();
             }
-            
+            */
+
         }
 
         public void StartBettingRound() {
