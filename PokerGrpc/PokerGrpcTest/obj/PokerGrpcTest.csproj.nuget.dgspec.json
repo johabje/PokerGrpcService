@@ -1,27 +1,25 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\fredr\\Documents\\MSIT\\V21\\TDT4240-Programvarearkitektur\\PROJECT\\PokerGrpcService\\PokerGrpc\\PokerGrpcTest\\PokerGrpcTest.csproj": {}
+    "/Users/johanbjerkedal/Documents/PokerGrpcService/PokerGrpc/PokerGrpcTest/PokerGrpcTest.csproj": {}
   },
   "projects": {
-    "C:\\Users\\fredr\\Documents\\MSIT\\V21\\TDT4240-Programvarearkitektur\\PROJECT\\PokerGrpcService\\PokerGrpc\\PokerGrpcTest\\PokerGrpcTest.csproj": {
+    "/Users/johanbjerkedal/Documents/PokerGrpcService/PokerGrpc/PokerGrpcTest/PokerGrpcTest.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\fredr\\Documents\\MSIT\\V21\\TDT4240-Programvarearkitektur\\PROJECT\\PokerGrpcService\\PokerGrpc\\PokerGrpcTest\\PokerGrpcTest.csproj",
+        "projectUniqueName": "/Users/johanbjerkedal/Documents/PokerGrpcService/PokerGrpc/PokerGrpcTest/PokerGrpcTest.csproj",
         "projectName": "PokerGrpcTest",
-        "projectPath": "C:\\Users\\fredr\\Documents\\MSIT\\V21\\TDT4240-Programvarearkitektur\\PROJECT\\PokerGrpcService\\PokerGrpc\\PokerGrpcTest\\PokerGrpcTest.csproj",
-        "packagesPath": "C:\\Users\\fredr\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\fredr\\Documents\\MSIT\\V21\\TDT4240-Programvarearkitektur\\PROJECT\\PokerGrpcService\\PokerGrpc\\PokerGrpcTest\\obj\\",
+        "projectPath": "/Users/johanbjerkedal/Documents/PokerGrpcService/PokerGrpc/PokerGrpcTest/PokerGrpcTest.csproj",
+        "packagesPath": "/Users/johanbjerkedal/.nuget/packages/",
+        "outputPath": "/Users/johanbjerkedal/Documents/PokerGrpcService/PokerGrpc/PokerGrpcTest/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\fredr\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "/Users/johanbjerkedal/.config/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {

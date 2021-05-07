@@ -14,16 +14,20 @@ namespace PokerGrpc.Models
     }
     public class Player
     {
-        public Guid id { get; set; }
-        public double wallet { get; set; }
+        //public String id { get; set; }
+
         public String name { get; set; }
         public float wallet;
         public Boolean isRoomOwner { get; set; }
         public List<Card> Hand { get; set; }
         public String bestCombo { get; set; }
-        public bool folded { get; set; }
-        public int action { get; set; }
-        //etc etc
+        public List<Card> bestCardCombo { get; set; }
+        public int curentGameBetTotal { get; set; }
+        public bool firstToBet = false;
+        public bool currentRoundFirstToBet = false;
+        public bool currentBetter = false;
+        public int lastAction = -1;
+        public float bet = 0;
 
         public Player()
         {

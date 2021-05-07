@@ -35,6 +35,7 @@ namespace PokerGrpc.Models
         public int blind;
         public bool startNewRound = false;
         public bool firstRound;
+        public bool active = false;
 
 
         /*
@@ -57,14 +58,26 @@ namespace PokerGrpc.Models
         // new table
         public PokerGame(Player roomOwner, int blind, int gamePin,int maxBuyin, int minBuyin, int maxPlayers = 6)
         {
-            Random rnd = new Random();
-            this.gamePin = rnd.Next(9999);
-            this.deck = new Deck();
-            //deck.GenerateDeck();
+            players = new Player[maxPlayers];
+            for (int i =0;i<players.Length;i++) {
+                players[i] = null;
+            }
+            this.maxBuyin = maxBuyin;
+            this.minBuyin = minBuyin;
+            this.gamePin = gamePin;
+            this.blind = blind;
+            this.tableCards = new List<Card>();
+            this.pot = 0;
+            this.bet = 0;
             this.tableCards = new List<Card>();
             roomOwner.isRoomOwner = true;
-            players.Add(roomOwner);
-            this.blind = blind; 
+            roomOwner.firstToBet = true;
+            roomOwner.currentRoundFirstToBet = true;
+            roomOwner.currentBetter = true;
+            this.toAct = roomOwner;
+            AddPlayer(roomOwner);
+            
+            this.state = state.PreGame;
         }
 
         /*
@@ -80,13 +93,9 @@ namespace PokerGrpc.Models
             {
                 case state.PreGame:
                     // deal 2 cards to all players
-                    
-                    if (startNewRound) {
-                        this.state = state.PF;
-                        DealPlayerCards(2);
-                        StartBettingRound();
-                        startNewRound = false;
-                    }
+                    DealPlayerCards(2);
+                    StartBettingRound();
+                    this.state = state.PF;
                     break;
                 case state.PF:
                     if (RoundFinished())
@@ -158,11 +167,6 @@ namespace PokerGrpc.Models
                 }
             }
         }
-        public void Bet(int bet, Player player)
-        {
-            player.action = bet;
-            this.bet = bet;
-        }
 
         // inserting player into first available spot
         public Boolean AddPlayer(Player player) {
@@ -219,13 +223,17 @@ namespace PokerGrpc.Models
             {
                 playersPlaying.ElementAt(0).wallet += pot;
                 winner = playersPlaying.ElementAt(0);
-            }
-            else
+            } else if (playersPlaying.Count() == 0) {
+                // should never happen but does if playing with single player cause of missing checks
+            } else
             {
                 foreach (Player player in playersPlaying) {
                     var handScore = HandRanking.GetBestHand(player.Hand, tableCards);
                     player.bestCombo = handScore.Item1.ToString();
                     player.bestCardCombo = handScore.Item2;
+                    //
+                    Console.WriteLine(player.bestCombo);
+                    Console.WriteLine(player.bestCardCombo);
 
                 }
                 int bestScore = playersPlaying.Min(c => Int32.Parse(c.bestCombo));
@@ -288,6 +296,7 @@ namespace PokerGrpc.Models
         // new game/round/whatever on a table
         public void NewRound()
         {
+            active = true;
             // new list of players active this round
             playersPlaying = new List<Player>();
 
@@ -303,33 +312,32 @@ namespace PokerGrpc.Models
             this.state = state.PreGame;
             this.bet = 0;
             this.pot = 0;
+             //clears table of cards
+            this.tableCards.Clear();
+            
+            // deck.cardStack = stack of cards randomized
+            this.deck = new Deck();
 
             if (!firstRound) {
                 MoveDealerButton();
             } else {
                 firstRound = false;
             }
-            
 
-            //clears table of cards
-            this.tableCards.Clear();
-            
-            // deck.cardStack = stack of cards randomized
-            this.deck = new Deck();
-            startNewRound = true;
             UpdateStateAsync();
         }
 
-
-        /*public int hasStraigthFlush(List<Card> hand, List<Card> table)
-        {
-            hand.AddRange(table);
-            List<int> ranks = new List<int>();
-            IList<char> suits = new List<char>();
-            foreach (Card card in hand)
-            {
-                ranks.Add(card.rank);
-                suits.Add(card.suit);
+        public void MoveDealerButton() {
+            // moves dealer button basically
+            Player lastFirstBetter = playersPlaying.Find(p => p.firstToBet);
+            int indexLastFirstBetter = playersPlaying.IndexOf(lastFirstBetter);
+            int indexNextFirstBetter = indexLastFirstBetter + 1;
+            if (indexNextFirstBetter == playersPlaying.Count) {
+                indexNextFirstBetter = 0;
+            }
+            playersPlaying[indexNextFirstBetter].firstToBet = true;
+            if (lastFirstBetter != null) {
+                lastFirstBetter.firstToBet = false;
             }
 
             // just making sure, probably duplicate somewhere like in BettingRound or smthing
@@ -423,14 +431,23 @@ namespace PokerGrpc.Models
 
             // remove players active this round
             playersPlaying.Remove(player);
-            if (playersPlaying.Count <= 1) {
+            if (playersPlaying == null || playersPlaying.Where(p => p != null).Count() < 1) {
+                //Console.WriteLine("== NULL OR LESS THAN 1 PLAYER: newRound()");
+                NewRound();
+            } else if (playersPlaying.Where(p => p != null).Count() == 1) {
+                //Console.WriteLine("== 1 PLAYER: GameOver()");
+                GameOver();
+            }
+            /*
+            if ( playersPlaying.Count() <= 1) {
                 // all but one has folded:
                 // -> GamerOver() = distribute pot, send to players, wait, start new game
                 GameOver();
             } else {
                 UpdateStateAsync();
             }
-            
+            */
+
         }
 
         public void StartBettingRound() {
@@ -528,8 +545,10 @@ namespace PokerGrpc.Models
                     tableCards.Equals(pokerObj.tableCards);
         }
 
-            return 0;
-        }*/
+        public PokerGame GetPokerGame(Guid playerId)
+        {
+            return null;
+        }
 
 
     }
